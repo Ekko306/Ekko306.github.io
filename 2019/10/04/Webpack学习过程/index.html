@@ -63,7 +63,9 @@
 <meta property="og:description" content="曲折的Webpack学习首先明白Webpack是干啥的:  Webpack 是一个前端资源加载和打包工具。所谓的模块就是在平时的前端开发中，用到一些静态资源，如JavaScript、CSS、图片等文件，webpack就将这些静态资源文件称之为模块。 webpack支持AMD和CommonJS，以及其他的一些模块系统，并且兼容多种JS书写规范，可以处理模块间的依赖关系，所以具有更强大的JS模块化的功">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/10/04/Webpack学习过程/error.png">
-<meta property="og:updated_time" content="2019-10-04T12:48:02.364Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/04/Webpack学习过程/diff.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/04/Webpack学习过程/envir.png">
+<meta property="og:updated_time" content="2019-10-06T11:58:40.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Webpack学习过程">
 <meta name="twitter:description" content="曲折的Webpack学习首先明白Webpack是干啥的:  Webpack 是一个前端资源加载和打包工具。所谓的模块就是在平时的前端开发中，用到一些静态资源，如JavaScript、CSS、图片等文件，webpack就将这些静态资源文件称之为模块。 webpack支持AMD和CommonJS，以及其他的一些模块系统，并且兼容多种JS书写规范，可以处理模块间的依赖关系，所以具有更强大的JS模块化的功">
@@ -225,11 +227,19 @@
                 
               
 
-              <time title="创建时间：2019-10-04 20:34:32 / 修改时间：20:48:02" itemprop="dateCreated datePublished" datetime="2019-10-04T20:34:32+08:00">2019-10-04</time>
+              <time title="创建时间：2019-10-04 20:34:32" itemprop="dateCreated datePublished" datetime="2019-10-04T20:34:32+08:00">2019-10-04</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-06 19:58:40" itemprop="dateModified" datetime="2019-10-06T19:58:40+08:00">2019-10-06</time>
+              </span>
             
           
 
@@ -272,7 +282,62 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
 
 <p>生成package.json文件，配置mode和输出路径与输出文件名就不会报错。</p>
-<h2 id="二、Webpack系统学习-阮一峰教程"><a href="#二、Webpack系统学习-阮一峰教程" class="headerlink" title="二、Webpack系统学习(阮一峰教程)"></a>二、Webpack系统学习(<a href="https://github.com/ruanyf/webpack-demos" target="_blank" rel="noopener">阮一峰教程</a>)</h2><h4 id="demo01"><a href="#demo01" class="headerlink" title="demo01"></a>demo01</h4>
+<h2 id="二、Webpack系统学习-阮一峰教程"><a href="#二、Webpack系统学习-阮一峰教程" class="headerlink" title="二、Webpack系统学习(阮一峰教程)"></a>二、Webpack系统学习(<a href="https://github.com/ruanyf/webpack-demos" target="_blank" rel="noopener">阮一峰教程</a>)</h2><blockquote>
+<p>这里需说明先全局安装npm i -g webpack webpack-dev-server才能跑阮一峰的项目</p>
+</blockquote>
+<h4 id="foreword"><a href="#foreword" class="headerlink" title="foreword"></a>foreword</h4><p>介绍啥是webpack，需要一个webpack.config.js文件，这样就可以使用webpack不带其他参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>webpack的参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">webpack <span class="comment">// building for development</span></span><br><span class="line">webpack -p <span class="comment">// building for production (minification)</span></span><br><span class="line">webpack --watch <span class="comment">// for continuous incremental building</span></span><br><span class="line">webpack -d <span class="comment">// including source maps</span></span><br><span class="line">webpack --colors <span class="comment">// making building output pretty</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以定义package.json 来使用npm run dev方法</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// ...</span><br><span class="line"> "scripts": &#123;</span><br><span class="line">   "dev": "webpack-dev-server --devtool eval --progress --colors",</span><br><span class="line">   "deploy": "NODE_ENV=production webpack -p"</span><br><span class="line"> &#125;,</span><br><span class="line"> // ...</span><br></pre></td></tr></table></figure>
+
+<h4 id="demo01"><a href="#demo01" class="headerlink" title="demo01"></a>demo01</h4><p>webpack有个入口文件main.js用来打包<br>webpack依照webpack.config.js方法来打包</p>
+<h4 id="demo02"><a href="#demo02" class="headerlink" title="demo02"></a>demo02</h4><p>可以有多个打包入口文件，则在config中设定：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    bundle1: <span class="string">'./main1.js'</span>,</span><br><span class="line">    bundle2: <span class="string">'./main2.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].js'</span> <span class="comment">//这里输出名称可以默认</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Demo03-Babel-loader"><a href="#Demo03-Babel-loader" class="headerlink" title="Demo03: Babel-loader"></a>Demo03: Babel-loader</h4><p>预处理器，将jsx语言转成就是语言Babel-loader，还有其他种类的<br>jsx:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.jsx</span></span><br><span class="line"><span class="keyword">const</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">const</span> ReactDOM = <span class="built_in">require</span>(<span class="string">'react-dom'</span>);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;h1&gt;Hello, world!&lt;/h1&gt;,</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">'#wrapper'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.jsx'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123; <span class="comment">//要多定义模块</span></span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.jsx?$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            presets: [<span class="string">'es2015'</span>, <span class="string">'react'</span>]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Demo04-CSS-loader"><a href="#Demo04-CSS-loader" class="headerlink" title="Demo04: CSS-loader"></a>Demo04: CSS-loader</h4><p>如果在JS文件包含CSS，也可以打包css<br>webpack.config.js：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules:[</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [ <span class="string">'style-loader'</span>, <span class="string">'css-loader'</span> ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这样打包成一个js文件就会方便得多。同时注意这里需要’style-loader’, ‘css-loader’两个loader</p>
+<h4 id="Demo05-Image-loader"><a href="#Demo05-Image-loader" class="headerlink" title="Demo05: Image loader"></a>Demo05: Image loader</h4><p>打包图片<br>webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &apos;./main.js&apos;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: &apos;bundle.js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules:[</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.(png|jpg)$/,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &apos;url-loader&apos;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              limit: 8192</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>根据图片大大小不同会有不同的转化方法<br><img src="/2019/10/04/Webpack学习过程/diff.png" alt="diff"></p>
+<h4 id="Demo06-CSS-Module"><a href="#Demo06-CSS-Module" class="headerlink" title="Demo06: CSS Module"></a>Demo06: CSS Module</h4><p>css-loader?modules 的 CSS Module 功能可以给 JS 模块的 CSS 设置一个局部作用域。你可以用 :global(selector) (更多) 关掉它，使样式变成全局的。<br>webpack.config.js</p>
+<h4 id="Demo07-UglifyJs-Plugin"><a href="#Demo07-UglifyJs-Plugin" class="headerlink" title="Demo07: UglifyJs Plugin"></a>Demo07: UglifyJs Plugin</h4><p>Webpack 用一套插件系统扩展了它的功能。比如，UglifyJs Plugin 就是其中的一个流行的插件，它可以压缩混淆输出的 js 代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">var</span> UglifyJsPlugin = <span class="built_in">require</span>(<span class="string">'uglifyjs-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 使用插件</span></span><br><span class="line">  plugins: [<span class="keyword">new</span> UglifyJsPlugin()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Demo08-HTML-Webpack-Plugin-and-Open-Browser-Webpack-Plugin"><a href="#Demo08-HTML-Webpack-Plugin-and-Open-Browser-Webpack-Plugin" class="headerlink" title="Demo08: HTML Webpack Plugin and Open Browser Webpack Plugin"></a>Demo08: HTML Webpack Plugin and Open Browser Webpack Plugin</h4><p>这个例子将讲讲怎么载入第三方的插件。</p>
+<p>html-webpack-plugin 将会<br>为你创建一个 index.html 文件。 open-browser-webpack-plugin 可以在 Webpack 编译完成后打开一个新窗口。</p>
+<p>现在你不仅不需要手动的写 index.html 文件，而且也不用手动的打开浏览器了。Webpack 都帮你完成了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HtmlwebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">var</span> OpenBrowserPlugin = <span class="built_in">require</span>(<span class="string">'open-browser-webpack-plugin'</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Demo09-Environment-flags"><a href="#Demo09-Environment-flags" class="headerlink" title="Demo09: Environment flags"></a>Demo09: Environment flags</h4><p>你可以用环境变量来区分开发环境。<br><img src="/2019/10/04/Webpack学习过程/envir.png" alt="envir"></p>
+<h4 id="Demo10-Code-splitting"><a href="#Demo10-Code-splitting" class="headerlink" title="Demo10: Code splitting"></a>Demo10: Code splitting</h4><p>对于一个大型 app，把所有代码塞到一个文件可能不是很好维护。Webpack 可以把一个庞大的 JS 文件拆分成几块。尤其，有些代码只有用的时候才引入可以按需加载。</p>
+<p>Webpack 用 require.ensure 来定义一个代码点。</p>
+<p>require.ensure 告诉 Webpack ./a.js 应该从 bundle.js 中拆分出来，单独生成一个文件。</p>
+<p>现在 Webpack 来负责依赖、输出和运行时需要的一些东西。你不必在投入过多的精力在 index.html 和 webpack.config.js 上了。</p>
+<p>表面上，你不会感到什么变化。然而，Webpack 已经把 main.js 和 a.js 构建成两个不同的文件（bundle.js and 0.bundle.js），并且按依赖关系依次引入。</p>
+<h4 id="Demo11-Code-splitting-with-bundle-loader"><a href="#Demo11-Code-splitting-with-bundle-loader" class="headerlink" title="Demo11: Code splitting with bundle-loader"></a>Demo11: Code splitting with bundle-loader</h4><p>另一种进行代码分离的方法是用 bundle-loader。</p>
+<p>require(‘bundle-loader!./a.js’) 告诉 Webpack 从另一个包里加载 a.js。</p>
+<p>现在 Webpack 将会构建 main.js 到 bundle.js 中, a.js 到 0.bundle.js 中。</p>
+<h4 id="Demo12-Common-chunk"><a href="#Demo12-Common-chunk" class="headerlink" title="Demo12: Common chunk"></a>Demo12: Common chunk</h4><p>当多个 Js 文件有共同的依赖，我们可以 CommonsChunkPlugin 把公共的部分提取出来生成一个文件。这对浏览器缓存和节省带宽是非常有用的。</p>
+<p>上面的 commons.js 就是 main1.jsx 和 main2.jsx 的公共部分。也就是包含了 react 和 react-dom。</p>
+<h4 id="Demo13-Vendor-chunk"><a href="#Demo13-Vendor-chunk" class="headerlink" title="Demo13: Vendor chunk"></a>Demo13: Vendor chunk</h4><p>你也可以用 CommonsChunkPlugin 提取第三方的 Js 生成一个单独的文件。</p>
+<p>上面的代码，entry.vendor: [‘jquery’] 告诉 Webpack jeuery 应该被打包到一个公共 vendor.js 包中去。</p>
+<p>如果你想让一个全局的变量在每一个模块可用，比如 $ 和 jQuery 不用 require(“jquery”) 就可以直接用。那么你需要使用 ProvidePlugin (Official doc) 这个插件，它可以自动的载入模块，而不需要到处 import 或者 require。</p>
+<p>当然，这种情况，你还需要手动的全局的载入 jquery.js</p>
+<p><strong><em>以上是主要的方法中文翻译，实际使用完全可以翻阅<a href="https://blog.csdn.net/userkang/article/details/83504048#demo06-css-module-source" target="_blank" rel="noopener">阮一峰</a>的手册</em></strong></p>
+
     </div>
 
     
@@ -288,8 +353,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/04/My-first-Blog/" rel="next" title="My first Blog">
-                  <i class="fa fa-chevron-left"></i> My first Blog
+                <a href="/2019/10/04/我的第一篇博客/" rel="next" title="我的第一篇博客">
+                  <i class="fa fa-chevron-left"></i> 我的第一篇博客
                 </a>
               
             </div>
@@ -347,7 +412,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#曲折的Webpack学习"><span class="nav-number">1.</span> <span class="nav-text">曲折的Webpack学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、艰难的Webpack安装"><span class="nav-number">1.1.</span> <span class="nav-text">一、艰难的Webpack安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题一：Webpack全局安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">问题一：Webpack全局安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题二：Webpack-cli安装"><span class="nav-number">1.1.2.</span> <span class="nav-text">问题二：Webpack-cli安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题三：npm下载慢"><span class="nav-number">1.1.3.</span> <span class="nav-text">问题三：npm下载慢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题四：Webpack执行打包命令出现问题"><span class="nav-number">1.1.4.</span> <span class="nav-text">问题四：Webpack执行打包命令出现问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Webpack系统学习-阮一峰教程"><span class="nav-number">1.2.</span> <span class="nav-text">二、Webpack系统学习(阮一峰教程)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#demo01"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">demo01</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#曲折的Webpack学习"><span class="nav-number">1.</span> <span class="nav-text">曲折的Webpack学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、艰难的Webpack安装"><span class="nav-number">1.1.</span> <span class="nav-text">一、艰难的Webpack安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题一：Webpack全局安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">问题一：Webpack全局安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题二：Webpack-cli安装"><span class="nav-number">1.1.2.</span> <span class="nav-text">问题二：Webpack-cli安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题三：npm下载慢"><span class="nav-number">1.1.3.</span> <span class="nav-text">问题三：npm下载慢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题四：Webpack执行打包命令出现问题"><span class="nav-number">1.1.4.</span> <span class="nav-text">问题四：Webpack执行打包命令出现问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Webpack系统学习-阮一峰教程"><span class="nav-number">1.2.</span> <span class="nav-text">二、Webpack系统学习(阮一峰教程)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#foreword"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">foreword</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#demo01"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">demo01</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#demo02"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">demo02</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo03-Babel-loader"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">Demo03: Babel-loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo04-CSS-loader"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">Demo04: CSS-loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo05-Image-loader"><span class="nav-number">1.2.0.6.</span> <span class="nav-text">Demo05: Image loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo06-CSS-Module"><span class="nav-number">1.2.0.7.</span> <span class="nav-text">Demo06: CSS Module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo07-UglifyJs-Plugin"><span class="nav-number">1.2.0.8.</span> <span class="nav-text">Demo07: UglifyJs Plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo08-HTML-Webpack-Plugin-and-Open-Browser-Webpack-Plugin"><span class="nav-number">1.2.0.9.</span> <span class="nav-text">Demo08: HTML Webpack Plugin and Open Browser Webpack Plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo09-Environment-flags"><span class="nav-number">1.2.0.10.</span> <span class="nav-text">Demo09: Environment flags</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo10-Code-splitting"><span class="nav-number">1.2.0.11.</span> <span class="nav-text">Demo10: Code splitting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo11-Code-splitting-with-bundle-loader"><span class="nav-number">1.2.0.12.</span> <span class="nav-text">Demo11: Code splitting with bundle-loader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo12-Common-chunk"><span class="nav-number">1.2.0.13.</span> <span class="nav-text">Demo12: Common chunk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Demo13-Vendor-chunk"><span class="nav-number">1.2.0.14.</span> <span class="nav-text">Demo13: Vendor chunk</span></a></li></ol></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -366,7 +431,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
