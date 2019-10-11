@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="深度学习总结 不管怎么说也快挺长时间的人工智能，有困难的地方也有容易的地方，总结归纳下也许更利于提升。  1.深度学习的历史发展  数据挖掘就是在大型的数据库中发现有效信息的数据处理的过程。 机器学习是实现人工智能的一种途径，和数据挖掘有相似性。主要是通过算法的设计，让计算机能够自动地从数据中“学习规律”，利用规律进行预测。 深度学习最初版本是人工神经网络（机器学习的一个分支），试图通过模拟人脑，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习总结">
+<meta property="og:url" content="http://yoursite.com/2019/10/10/深度学习总结/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="深度学习总结 不管怎么说也快挺长时间的人工智能，有困难的地方也有容易的地方，总结归纳下也许更利于提升。  1.深度学习的历史发展  数据挖掘就是在大型的数据库中发现有效信息的数据处理的过程。 机器学习是实现人工智能的一种途径，和数据挖掘有相似性。主要是通过算法的设计，让计算机能够自动地从数据中“学习规律”，利用规律进行预测。 深度学习最初版本是人工神经网络（机器学习的一个分支），试图通过模拟人脑，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/10/10/深度学习总结/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/10/深度学习总结/DL%E5%8F%91%E5%B1%95.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/10/深度学习总结/Ml.png">
+<meta property="og:image" content="http://yoursite.com/2019/10/10/深度学习总结/Ku.png">
+<meta property="og:updated_time" content="2019-10-11T12:32:54.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="深度学习总结">
+<meta name="twitter:description" content="深度学习总结 不管怎么说也快挺长时间的人工智能，有困难的地方也有容易的地方，总结归纳下也许更利于提升。  1.深度学习的历史发展  数据挖掘就是在大型的数据库中发现有效信息的数据处理的过程。 机器学习是实现人工智能的一种途径，和数据挖掘有相似性。主要是通过算法的设计，让计算机能够自动地从数据中“学习规律”，利用规律进行预测。 深度学习最初版本是人工神经网络（机器学习的一个分支），试图通过模拟人脑，">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/10/深度学习总结/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD.png">
+  <link rel="canonical" href="http://yoursite.com/2019/10/10/深度学习总结/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>深度学习总结 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/10/深度学习总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">深度学习总结
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-10 22:48:42" itemprop="dateCreated datePublished" datetime="2019-10-10T22:48:42+08:00">2019-10-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-11 20:32:54" itemprop="dateModified" datetime="2019-10-11T20:32:54+08:00">2019-10-11</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="深度学习总结"><a href="#深度学习总结" class="headerlink" title="深度学习总结"></a>深度学习总结</h1><blockquote>
+<p>不管怎么说也快挺长时间的人工智能，有困难的地方也有容易的地方，总结归纳下也许更利于提升。</p>
+</blockquote>
+<h2 id="1-深度学习的历史发展"><a href="#1-深度学习的历史发展" class="headerlink" title="1.深度学习的历史发展"></a>1.深度学习的历史发展</h2><p><img src="/2019/10/10/深度学习总结/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD.png" alt="Ai"></p>
+<ul>
+<li>数据挖掘就是在大型的数据库中发现有效信息的数据处理的过程。</li>
+<li>机器学习是实现人工智能的一种途径，和数据挖掘有相似性。主要是通过算法的设计，让计算机能够自动地从数据中“学习规律”，利用规律进行预测。</li>
+<li>深度学习最初版本是人工神经网络（机器学习的一个分支），试图通过模拟人脑，通过复杂的结构自动提取数据特征。</li>
+</ul>
+<p>而现在主要兴起的是深度学习，得益于大数据的兴起和高性能GPU的出现，使复杂的网络模型成为可能<br><img src="/2019/10/10/深度学习总结/DL%E5%8F%91%E5%B1%95.png" alt="Dl"></p>
+<h2 id="2-机器学习总结"><a href="#2-机器学习总结" class="headerlink" title="2.机器学习总结"></a>2.机器学习总结</h2><blockquote>
+<p>机器学习是基础。首先理解清楚机器学习中的一些概念算法。很多模型的建立都是根据复杂的数学模型得来的。</p>
+</blockquote>
+<h3 id="1、主要概念理解"><a href="#1、主要概念理解" class="headerlink" title="1、主要概念理解"></a>1、主要概念理解</h3><p><img src="/2019/10/10/深度学习总结/Ml.png" alt="Ml"></p>
+<p>重要难理解的：</p>
+<ul>
+<li>KNN邻近算法，距离算法 找最近的邻居判断 属于什么类别 也可以做回归问题（多种判断） k是取的邻居数，距离算法的选择 ： 欧式距离 余弦距离 马斯距离 汉民距离 判断对新样本如何分类，可能必须缩放属性以防止距离度量被其中一个属性支配。</li>
+<li>支持向量机：通过训练模型参数找到一个合适的分离界面将数据分离开。有松弛变量，惩罚函数，margin，多种范数距离，另有积分变换将多维降纬。</li>
+<li>决策树，其中每个内部结点表示在一个属性上的测试对未知数据进行分类，每个分支代表一个属性输出，每个树叶结点代表类或类分布。根据分类最后叶子得到一个类。向前向后剪枝，信息熵增益，随机森林</li>
+<li>集成方法 集成方法 就是用很多 简单分类器 来构造复杂的分类函数，原始样本的抽样：bagging 抽了之后放，Bosting 抽了之后 下一次再抽 就加权。多个弱分类器分出好的结果像盲人摸象。<h3 id="2、实战（python）"><a href="#2、实战（python）" class="headerlink" title="2、实战（python）"></a>2、实战（python）</h3><img src="/2019/10/10/深度学习总结/Ku.png" alt="ku"></li>
+<li>numpy 包含矩阵运算，向量运算的包，扩展python的运算</li>
+<li>Scipy 世界上著名的Python开源科学计算库，建立在Numpy上，它增加的功能包括数值积分、最优化、统计和一些专用函数。</li>
+<li>pandas 数据集处理包，学习的数据存在数据集中，需要pandas处理</li>
+<li>matplotlib 绘图用的包，数据可视化</li>
+<li>seaborn 基于matplotlib的图形可视化python包。它提供了一种高度交互式界面,便于用户能够做出各种有吸引力的统计图表</li>
+<li>scikit-learn 机器学习的包，包含了很多机器学习的模型与方法函数</li>
+<li>OpenCv 图像处理的包，对图像的操作</li>
+<li>TensorFlow与Pytorch 深度学习的框架</li>
+</ul>
+<p><strong><em>以上每个包都需要学习的大量的资料才能掌握</em></strong></p>
+<h3 id="3、代码实现-基础框架"><a href="#3、代码实现-基础框架" class="headerlink" title="3、代码实现(基础框架)"></a>3、代码实现(基础框架)</h3><div class="pdf" target="02_linear_regression.pdf" height></div>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/06/Eloquent-JavaScript学习笔记/" rel="next" title="Eloquent JavaScript学习笔记">
+                  <i class="fa fa-chevron-left"></i> Eloquent JavaScript学习笔记
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习总结"><span class="nav-number">1.</span> <span class="nav-text">深度学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-深度学习的历史发展"><span class="nav-number">1.1.</span> <span class="nav-text">1.深度学习的历史发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-机器学习总结"><span class="nav-number">1.2.</span> <span class="nav-text">2.机器学习总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、主要概念理解"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、主要概念理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、实战（python）"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、实战（python）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、代码实现-基础框架"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、代码实现(基础框架)</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658"
+      alt="望星的太阳花">
+  <p class="site-author-name" itemprop="name">望星的太阳花</p>
+  <div class="site-description" itemprop="description">You are my JavaSript in my HTML.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">望星的太阳花</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.1</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
