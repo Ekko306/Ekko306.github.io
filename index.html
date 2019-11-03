@@ -193,6 +193,164 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/03/OpenCV3计算机视觉阅读笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/03/OpenCV3计算机视觉阅读笔记/" class="post-title-link" itemprop="url">OpenCV3计算机视觉阅读笔记</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-03 09:26:20 / 修改时间：20:39:33" itemprop="dateCreated datePublished" datetime="2019-11-03T09:26:20+08:00">2019-11-03</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="第2章-处理文件、摄像头和图形用户界面"><a href="#第2章-处理文件、摄像头和图形用户界面" class="headerlink" title="第2章 处理文件、摄像头和图形用户界面"></a>第2章 处理文件、摄像头和图形用户界面</h2><p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C2.png" alt="C2"><br>本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点<br>从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。</p>
+<h3 id="2-1-基本I-O脚本"><a href="#2-1-基本I-O脚本" class="headerlink" title="2.1 基本I/O脚本"></a>2.1 基本I/O脚本</h3><p>不同的CV应用程序有不同的输入输出</p>
+<ul>
+<li>图像输入，图像输出</li>
+<li>摄像头输入，窗口显示输出</li>
+<li>其他的输入和输出还可能是图像文件、视频文件和原始字节(raw byte)<h4 id="2-1-1-读-写图像文件"><a href="#2-1-1-读-写图像文件" class="headerlink" title="2.1.1 读/写图像文件"></a>2.1.1 读/写图像文件</h4>简单的读取图像，转换图像，保存图像的操作<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)  <span class="comment">#利用cv2.cvtColor将图像转换成BGR格式</span></span><br><span class="line"></span><br><span class="line">grayImage = cv2.imread(<span class="string">'beans.png'</span>, cv2.IMREAD_GRAYSCALE)  <span class="comment">#加载png为灰度图像，然后保存为灰度的png图像</span></span><br><span class="line"></span><br><span class="line">cv2.imwrite(<span class="string">'beansGray.png'</span>, grayImage)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>下列选项作为imread()的参数</p>
+<ul>
+<li>IMREAD_ANYCOLOR = 4</li>
+<li>IMREAD_ANYDEPTH = 2</li>
+<li>IMREAD_COLOR = 1</li>
+<li>IMREAD_GRAYSCALE = 0</li>
+<li>IMREAD_LOAD_GDAL = 8</li>
+<li>IMREAD_UNCHANGED = -1</li>
+</ul>
+<p><em>imwrite()要求图像为BGR或灰度格式，并且每个通道要有一定的为(bit)，输出格式要支持这些通道。例如，bmp格式要求每个通道有8位，而PNG允许每个通道有8位或16位</em></p>
+<h4 id="2-1-2-图像与原始字节之间的转换"><a href="#2-1-2-图像与原始字节之间的转换" class="headerlink" title="2.1.2 图像与原始字节之间的转换"></a>2.1.2 图像与原始字节之间的转换</h4><ul>
+<li>一个OpenCV图像是.array类型的二维或三维数组。</li>
+<li>8位的灰度图像只有一个通道，24位的BGR图像是一个三维度数组。</li>
+<li>image[0,0，0]第一个值代表y，第二个值代表x，第三个值代表通道数（灰度图像只有一个通道是二维数组，没有第三个值）<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/2.1.2.png" alt="2.1.2"></li>
+</ul>
+<p>image[0,0] 或 image[0,0]=128可表示为：<br>image.item((0,0))或image.setitem((0,0),128)【这种更利于操作】</p>
+<p><strong>字节与图像格式的转换：</strong><br>代码很简单很清晰</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#图像转换为字节</span></span><br><span class="line">byteArray = bytearray(image)</span><br><span class="line"></span><br><span class="line"><span class="comment">#字节转换为图像，通过显式转换和重构</span></span><br><span class="line">grayImage = numpy.array(grayByteArray).reshape(height, width)</span><br><span class="line">bgrImage = numpy.array(bgrByteArray).reshape(height, width, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-使用numpy-array访问图像数据"><a href="#2-1-3-使用numpy-array访问图像数据" class="headerlink" title="2.1.3 使用numpy.array访问图像数据"></a>2.1.3 使用numpy.array访问图像数据</h4><p>直接用python内置的数组不方便，用numpy.array会方便很多</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python数组</span></span><br><span class="line">img[<span class="number">0</span>,<span class="number">0</span>] = [<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>]</span><br><span class="line"><span class="comment">#numpy.array</span></span><br><span class="line">img.itemset((<span class="number">150</span>,<span class="number">120</span>,<span class="number">0</span>), <span class="number">255</span>)</span><br></pre></td></tr></table></figure>
+
+<p>用循环来处理ptyhon数组的效率非常低，可以用数组索引来解决，高效且方便。<br>可以设置roi感兴趣的区域<br>数组的三个属性：</p>
+<ul>
+<li>Shape: NumPy包含宽度、高度和通道数（如果图像是彩色的）的数组，这在调试图像类型时很有用；如果图像是单色或灰度的，将不包含通道值</li>
+<li>Size：该属性是指图像的像素的大小</li>
+<li>Datatype：该属性会得到图形的数据类型（通常为一个无符号整数类型的变量和该类型占的位数，比如uint8类型）</li>
+</ul>
+<p>强烈简易熟悉常规的NumPy库，如果用OpenCV还要熟悉numpy.array库，作为numpy.array库是Python处理图像的基础。</p>
+<h4 id="2-1-4-视频文件的读-写"><a href="#2-1-4-视频文件的读-写" class="headerlink" title="2.1.4 视频文件的读/写"></a>2.1.4 视频文件的读/写</h4><p>提供了两个类来支持各种格式的视频文件：</p>
+<ul>
+<li>VideoCapture</li>
+<li>VideoWriter<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">videoCapture = cv2.VideoCapture(<span class="string">'screencast.avi'</span>)</span><br><span class="line"></span><br><span class="line">videoWriter = cv2.VideoWriter(</span><br><span class="line">    <span class="string">'MyOutputVid.avi'</span>, cv2.VideoWriter_fourcc(<span class="string">'I'</span>,<span class="string">'4'</span>,<span class="string">'2'</span>,<span class="string">'0'</span>),</span><br><span class="line">        fps,size</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>注意：</strong><br>必须要为VideoWriter类的构造函数指定视频文件名，同时也必须指定视频编解码器。编解码器的可用性根据系统不同而不同。以下常用：</p>
+<ul>
+<li>cv2.VideoWriter_fourcc(‘I’,’4’,’2’,’0’)</li>
+<li>cv2.VideoWriter_fourcc(‘P’,’I’,’M’,’i’)</li>
+<li>cv2.VideoWriter_fourcc(‘X’,’V’,’I’,’D’)</li>
+<li>cv2.VideoWriter_fourcc(‘T’,’H’,’E’,’O’)</li>
+<li>cv2.VideoWriter_fourcc(‘F’,’L’,’V’,’I’)<br>帧速率fps和帧大小size的大小也必须指定，因为从另一个视频文件复制该视频帧这些属性可以通过VideoCapture类的get()函数得到</li>
+</ul>
+<h4 id="2-1-5-捕获摄像头的帧"><a href="#2-1-5-捕获摄像头的帧" class="headerlink" title="2.1.5 捕获摄像头的帧"></a>2.1.5 捕获摄像头的帧</h4><p>VideoCapture类可以获得摄像头的帧流。此时传递的参数不是视频的文件名而是摄像头的设备索引(device index)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cameraCapture = cv2.VideoCapture(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>对于摄像头有许多需要操作了解的比如摄像头的<strong>帧速率</strong>，<strong>摄像头的数量与顺序</strong>，<strong>摄像头组</strong>。</p>
+<ul>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fps_device = cv2.VideoCapture(<span class="number">0</span>).get(fps)</span><br></pre></td></tr></table></figure>
+
+<p>VideoCapture类的get()方法不能返回摄像头帧速率的准确值（终端不支持，可对帧速率做假设，也可以利用计时器测量）</p>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">success, frame = cameraCapture.read()</span><br></pre></td></tr></table></figure>
+
+<p>摄像头的数量和顺序由系统决定，当用无效的索引创造了VideoCapture类，就不会得到帧，可以用VideoCapture.isOpened来判断</p>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">success0 = cameraCapture0.grab()</span><br><span class="line">success1 = cameraCapture1.grab()</span><br><span class="line"><span class="keyword">if</span> success0 <span class="keyword">and</span> success1:</span><br><span class="line">frame0 = cameraCapture0.retrieve()</span><br><span class="line">frame1 = cameraCapture1.retrieve()</span><br></pre></td></tr></table></figure>
+
+<p>对摄像头组，read()就不适合，可以用grab()，retrive()方法来代替它。</p>
+</li>
+</ul>
+<h4 id="2-1-6-在窗口显示图像"><a href="#2-1-6-在窗口显示图像" class="headerlink" title="2.1.6 在窗口显示图像"></a>2.1.6 在窗口显示图像</h4><p>自然的调用<code>cv2.imshow()</code>但要注意消失方法，即<code>cv2.waitKey()</code>和<code>cv2.destroyAllWindows()</code>的使用</p>
+<h4 id="2-1-7-在窗口显示摄像头帧"><a href="#2-1-7-在窗口显示摄像头帧" class="headerlink" title="2.1.7 在窗口显示摄像头帧"></a>2.1.7 在窗口显示摄像头帧</h4><p>OpenCV的namedWindow()，imshow()和DestroyWindow()，函数允许指定窗口名、创建、显示和销毁窗口。配合获取键盘/鼠标输入交互显示摄像头帧。</p>
+<ul>
+<li>namedWindow() 创建</li>
+<li>imshow() 显示</li>
+<li>DestroyWindow() 销毁</li>
+<li>wait() 获取键盘输入</li>
+<li>setMouseCallback() 获取鼠标输入</li>
+</ul>
+<p><strong><em>OpenCV的窗口函数和waitKey()函数相互依赖，窗口函数只有调用waitKey()才会更新，waitKey()函数只有在窗口成为活动窗口时才能捕获输入信息</em></strong></p>
+<p>setMouseCallback()函数详解：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">onMouse</span><span class="params">(event, x, y, flags, param)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> clicked</span><br><span class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDBLCLK:</span><br><span class="line">        clicked = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">cv2.setMouseCallback(<span class="string">'MyWindow'</span>, onMouse)</span><br></pre></td></tr></table></figure>
+
+<p>有五个参数,param可选参数，默认为0，event回调用函数有10种，flags标志参数有6种参数选择（查资料）</p>
+<p><em>OpenCV不提供任何处理窗口事件的方法。例如，当单击窗口的关闭按钮不能关闭应用程序，因此多将OpenCV集成到其他应用程序框架中。后面的项目实例设计了一个抽象层，有助于将OpenCV集成到任意应用程序中。</em></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/CNN重读笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1342,7 +1500,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
