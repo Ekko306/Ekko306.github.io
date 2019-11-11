@@ -222,11 +222,19 @@
                 
               
 
-              <time title="创建时间：2019-11-03 09:26:20 / 修改时间：20:39:33" itemprop="dateCreated datePublished" datetime="2019-11-03T09:26:20+08:00">2019-11-03</time>
+              <time title="创建时间：2019-11-03 09:26:20" itemprop="dateCreated datePublished" datetime="2019-11-03T09:26:20+08:00">2019-11-03</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-08 16:30:05" itemprop="dateModified" datetime="2019-11-08T16:30:05+08:00">2019-11-08</time>
+              </span>
             
           
 
@@ -327,6 +335,79 @@
 
 <p>有五个参数,param可选参数，默认为0，event回调用函数有10种，flags标志参数有6种参数选择（查资料）</p>
 <p><em>OpenCV不提供任何处理窗口事件的方法。例如，当单击窗口的关闭按钮不能关闭应用程序，因此多将OpenCV集成到其他应用程序框架中。后面的项目实例设计了一个抽象层，有助于将OpenCV集成到任意应用程序中。</em></p>
+<h2 id="第3章-使用OpenCV-3处理图像"><a href="#第3章-使用OpenCV-3处理图像" class="headerlink" title="第3章 使用OpenCV 3处理图像"></a>第3章 使用OpenCV 3处理图像</h2><p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C3.png" alt="C3"></p>
+<h3 id="3-1-不同色彩空间的转换"><a href="#3-1-不同色彩空间的转换" class="headerlink" title="3.1 不同色彩空间的转换"></a>3.1 不同色彩空间的转换</h3><p>OpenCV有数百种色彩空间转换方法，有三种常用的色彩空间：灰度、BGR以及HSV</p>
+<ul>
+<li>灰度：去除彩色信息转换成灰阶，对中间处理很有效</li>
+<li>BGR：蓝-绿-红色彩空间，每一个像素点由一个三元数组构成，与RBG只是颜色上不同</li>
+<li>HSV：色调+饱和度+黑暗的程度/光谱另一端的明亮程度<h3 id="3-2-傅立叶转换"><a href="#3-2-傅立叶转换" class="headerlink" title="3.2 傅立叶转换"></a>3.2 傅立叶转换</h3>OpenCV中，对图像和视频大多数处理或多或少会涉及到傅立叶变换。人们所看到的波形都是由其他波形叠加得到的，这样可以<strong>区分</strong>图像里<strong>哪些区域的信号（比如图像像素）变化特别强，哪些区域的信号变化不那么强</strong>，从而任意标记区域，原始图像由许多频率组成，人们能分离这些频率来理解图像和提取感兴趣的数据。</li>
+<li>幅度谱：由傅立叶变换，幅度谱图像呈现了原始图像在变化方面的一种表示：把图像中最明亮的像素放到中央，逐渐变暗，边缘上的像素最暗。<h4 id="3-2-1-高通滤波器"><a href="#3-2-1-高通滤波器" class="headerlink" title="3.2.1 高通滤波器"></a>3.2.1 高通滤波器</h4>高通滤波器检测图像的某个区域，然后根据像素与周围像素的亮度差来提升该像素的滤波器，在计算中央像素的亮度差值之和之后，如果一个像素比它周围的像素更突出，就会提升它的亮度。边缘检测尤其有效<h4 id="3-2-2-低通滤波器"><a href="#3-2-2-低通滤波器" class="headerlink" title="3.2.2 低通滤波器"></a>3.2.2 低通滤波器</h4>在像素与周围像素的亮度差值小于一个特定值时，平滑该像素的亮度，主要用于去噪和模糊化。比如高斯模糊是最常用的模糊滤波器。</li>
+</ul>
+<p><strong><em>很多操作都是以傅立叶变换和高/低通滤波器为基础来实现的</em></strong></p>
+<h3 id="3-3-创建模块"><a href="#3-3-创建模块" class="headerlink" title="3.3 创建模块"></a>3.3 创建模块</h3><h3 id="3-4-边缘检测"><a href="#3-4-边缘检测" class="headerlink" title="3.4 边缘检测"></a>3.4 边缘检测</h3><h3 id="3-5-用定制内核做卷积"><a href="#3-5-用定制内核做卷积" class="headerlink" title="3.5 用定制内核做卷积"></a>3.5 用定制内核做卷积</h3><h3 id="3-6-修改应用"><a href="#3-6-修改应用" class="headerlink" title="3.6 修改应用"></a>3.6 修改应用</h3><h3 id="3-7-Canny-边缘检测"><a href="#3-7-Canny-边缘检测" class="headerlink" title="3.7 Canny 边缘检测"></a>3.7 Canny 边缘检测</h3><p>OpenCV提供了方便的Canny函数，虽然算法复杂，封装好后使用很简单。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.imwrite(<span class="string">"canny.jpg"</span>, cv2.Canny(img, <span class="number">200</span>, <span class="number">300</span>))</span><br></pre></td></tr></table></figure>
+
+<p>它有五个步骤：</p>
+<ol>
+<li>使用高通滤波器进行去噪</li>
+<li>计算梯度</li>
+<li>在边缘上使用非最大抑制（NMS）</li>
+<li>在检测到的边缘上使用双阀值去除假阳性</li>
+<li>分析所有边缘及其之间的连接<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/canny.png" alt="canny"></li>
+</ol>
+<h3 id="3-8-轮廓检测"><a href="#3-8-轮廓检测" class="headerlink" title="3.8 轮廓检测"></a>3.8 轮廓检测</h3><blockquote>
+<p><strong>边缘检测</strong>是检测图像的边缘 也就是图像差异比较大的地方<br><strong>轮廓提取</strong>是提取出你想要得到的轮廓 轮廓可能是边缘的一部分</p>
+</blockquote>
+<p>轮廓检测不单是检测轮廓，还需要其他操作：<strong>计算多边形边界、形状逼近和计算感兴趣区域</strong><br>上诉操作可以用NumPy中的数组切片(slice)来定义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ret, thresh = cv2.threshold(img, <span class="number">127</span>, <span class="number">255</span>, <span class="number">0</span>)  <span class="comment">#对图像进行二值化操作</span></span><br><span class="line">contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>二值化操作：在数字图像处理中，二值图像占有非常重要的地位，图像的二值化使图像中数据量大为减少，从而能凸显出目标的轮廓。</p>
+</blockquote>
+<p>上面操作就是先对图像进行二值化操作，之后 findContours函数对二值化后的图像进行轮廓检测更容易检测到，虽然api有变化。</p>
+<p>注意：</p>
+<ul>
+<li>这个函数会修改图像，简易对原始图像拷贝（img.copy()）</li>
+<li>函数返回的层次树很重要：cv2.RETR_TREE参数会得到图像中轮廓层次的整体结构，以此来建立轮廓之间的“关系”。如果只想要最外层的轮廓，可用cv2.RETR_EXTERNAL。这对消除包含在其他轮廓中的轮廓很有用（很多时候不需要检测一个目标在另一个与之相同的目标里）</li>
+<li>findContours()函数返回两个值：图像的轮廓和它的层次。</li>
+</ul>
+<p>之后使用轮廓（画成绿色）来显示轮廓。<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours.png" alt="contours"></p>
+<h3 id="3-9-边界框、最小矩形区域和最小闭圆的轮廓"><a href="#3-9-边界框、最小矩形区域和最小闭圆的轮廓" class="headerlink" title="3.9 边界框、最小矩形区域和最小闭圆的轮廓"></a>3.9 边界框、最小矩形区域和最小闭圆的轮廓</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.pyrDown(cv2.imread(<span class="string">"hammer.jpg"</span>, cv2.IMREAD_UNCHANGED))</span><br><span class="line"></span><br><span class="line">ret, thresh = cv2.threshold(cv2.cvtColor(img.copy(), cv2.COLOR_BGR2GRAY) , <span class="number">127</span>, <span class="number">255</span>, cv2.THRESH_BINARY)</span><br><span class="line">contours, hier = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> contours:</span><br><span class="line">  <span class="comment"># find bounding box coordinates 将轮廓信息转换成边界坐标，并加上矩形的高度和宽度</span></span><br><span class="line">  x,y,w,h = cv2.boundingRect(c)</span><br><span class="line">  <span class="comment"># 画出矩形</span></span><br><span class="line">  cv2.rectangle(img, (x,y), (x+w, y+h), (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># find minimum area 计算出包围目标的最小矩形区域</span></span><br><span class="line">  rect = cv2.minAreaRect(c)</span><br><span class="line">  <span class="comment"># calculate coordinates of the minimum area rectangle 不能直接从轮廓信息得到最小矩形定点的坐标，所以需要计算出最小矩形区域，然后计算这个矩形的定点</span></span><br><span class="line">  box = cv2.boxPoints(rect)</span><br><span class="line">  <span class="comment"># normalize coordinates to integers 计算出来是浮点数，需要转换成整数</span></span><br><span class="line">  box = np.int0(box)</span><br><span class="line">  <span class="comment"># draw contours 画出边界，会修改图像，[box]数组包含一系列轮廓，从而在一次操作中绘制一系列的轮廓，第三个参数绘制数组轮廓索引，第四第五是绘制颜色和密度</span></span><br><span class="line">  cv2.drawContours(img, [box], <span class="number">0</span>, (<span class="number">0</span>,<span class="number">0</span>, <span class="number">255</span>), <span class="number">3</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># calculate center and radius of minimum enclosing circle 检查最小闭圆 返回圆中心坐标和半径 再绘制</span></span><br><span class="line">  (x,y),radius = cv2.minEnclosingCircle(c)</span><br><span class="line">  <span class="comment"># cast to integers</span></span><br><span class="line">  center = (int(x),int(y))</span><br><span class="line">  radius = int(radius)</span><br><span class="line">  <span class="comment"># draw the circle</span></span><br><span class="line">  img = cv2.circle(img,center,radius,(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">cv2.drawContours(img, contours, <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">1</span>)</span><br><span class="line">cv2.imshow(<span class="string">"contours"</span>, img)</span><br><span class="line"></span><br><span class="line">cv2.waitKey()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>这里最纠结<code>for c in contours</code>想清楚是for循环出contours里的东西，contours只有一个二维坐标的集合的一个内容，for循环出一个ndarray的c</em></strong></p>
+<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours_2.png" alt="contours_2"></p>
+<h3 id="3-10-凸轮廓与Douglas-Peucker-算法"><a href="#3-10-凸轮廓与Douglas-Peucker-算法" class="headerlink" title="3.10 凸轮廓与Douglas-Peucker 算法"></a>3.10 凸轮廓与Douglas-Peucker 算法</h3><p>大多数处理轮廓的时候，物体的形状是变化多样的。凸形状内部任意两点的连线都在该形状里面。<br>cv2.approxPloyDP是一个OpenCV函数，用来计算近似的多边形框。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">approx = cv2.approxPolyDP(cnt,epsilon,<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>三个参数：</p>
+<ul>
+<li>第一个“轮廓”</li>
+<li>第二个“𝜀值”，表示源轮廓与近似多边形的最大差值（值个值越小，多边形与源轮廓越接近）</li>
+<li>第三个“布尔标记”，表示这个多边形是否闭合</li>
+</ul>
+<p><em>𝜀这个值非常重要，值越小，近似多边形与源轮廓就越相似</em><br><strong>为什么有了轮廓还需要一个近似多边形呢？因为一个多边形由一组直线直线构成，能够再一个区域里定义多边形，以便于之后进行操作与处理，这在许多计算机视觉任务中非常重要</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> cnt <span class="keyword">in</span> contours:</span><br><span class="line">  epsilon = <span class="number">0.01</span> * cv2.arcLength(cnt,<span class="literal">True</span>)</span><br><span class="line">  approx = cv2.approxPolyDP(cnt,epsilon,<span class="literal">True</span>)</span><br><span class="line">  hull = cv2.convexHull(cnt)</span><br><span class="line">  cv2.drawContours(black, [cnt], <span class="number">-1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)  <span class="comment">#这个是准确检测出来的轮廓</span></span><br><span class="line">  cv2.drawContours(black, [approx], <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)  <span class="comment">#用多边形拟合的多边形轮廓</span></span><br><span class="line">  cv2.drawContours(black, [hull], <span class="number">-1</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>)  <span class="comment">#获取处理过的轮廓信息，计算凸形状</span></span><br><span class="line"></span><br><span class="line">cv2.imshow(<span class="string">"hull"</span>, black)   <span class="comment">#将轮廓放在黑色图像上，这样就看不见源目标</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>convexhull函数的作用：计算出图像的凸包，根据图像的轮廓点，通过函数convexhull转化成凸包的点点坐标</p>
+</blockquote>
+<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours_hull.png" alt="contours_hull"></p>
+<h3 id="3-11-直线和圆的检测"><a href="#3-11-直线和圆的检测" class="headerlink" title="3.11 直线和圆的检测"></a>3.11 直线和圆的检测</h3><p>检测边缘和轮廓是其他复杂操作的基础。直线和形状检测是它们的基础，与检测边缘和轮廓有密切的关系。<br>Hough是直线和形状检测背后的理论基础。</p>
+<h4 id="3-11-1-直线检测"><a href="#3-11-1-直线检测" class="headerlink" title="3.11.1 直线检测"></a>3.11.1 直线检测</h4><p>两种函数</p>
+<ol>
+<li>HoughLines() 标准的hough变换</li>
+<li>HoughLinesP() 使用概率Hough变换，是标准变换的优化版本，通过分析点的子集并估计这些点都属于一条直线的概率，执行效率更高。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lines = cv2.HoughLinesP(edges,<span class="number">1</span>,np.pi/<span class="number">180</span>,<span class="number">20</span>,minLineLength,maxLineGap)</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>HoughtLines函数：</em></strong><br>| 参数 | 功能 |<br>| :-: | :-: |<br>| edges | 需要处理的图像 |<br>| 1 | 几何表示rho |<br>| np.pi/180| 几何表示theta|<br>| 20 | 阀值。低于阀值的直线被忽略。Hough变换可以理解为投票关系，每个线相当于投票箱。|<br>|minLineLength|最小直线长度（更短会被消除）|<br>|maxLineGap|最大线段间隙（一条线段长度大于这个值会被视为两条分开的线段）|<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/lines.png" alt="lines"></p>
+<h4 id="3-11-2-圆检测"><a href="#3-11-2-圆检测" class="headerlink" title="3.11.2 圆检测"></a>3.11.2 圆检测</h4><p>类似直线检测，圆检测有圆心间的最小距离和圆的最小及最大半径参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,<span class="number">1</span>,<span class="number">120</span>,</span><br><span class="line">                            param1=<span class="number">100</span>,param2=<span class="number">30</span>,minRadius=<span class="number">0</span>,maxRadius=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/circles.png" alt="circles"></p>
+<h3 id="3-12-检测其他形状"><a href="#3-12-检测其他形状" class="headerlink" title="3.12 检测其他形状"></a>3.12 检测其他形状</h3><p>Hough仅限与检测圆，但之前提到的approxPloyDP函数和findContours函数结合能检测出任意形状。</p>
+<h3 id="3-13-总结"><a href="#3-13-总结" class="headerlink" title="3.13 总结"></a>3.13 总结</h3><p>本章节介绍了色彩空间、傅立叶变换和多种由OpenCV提供的处理图像的滤波器。还介绍了检测边缘、直线、圆和一些普通情况。另还介绍如何寻找轮廓，并由此得到关于图像中所包含饿目标信息，这些都是后续章节的基础。</p>
+<h2 id="第3章-使用OpenCV-3-处理图像"><a href="#第3章-使用OpenCV-3-处理图像" class="headerlink" title="第3章 使用OpenCV 3 处理图像"></a>第3章 使用OpenCV 3 处理图像</h2><p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C3.png" alt="C3"></p>
 
         
       
