@@ -193,6 +193,259 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/22/dive-into-deep-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/01/22/dive-into-deep-learning/" class="post-title-link" itemprop="url">dive into deep learning</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-22 15:02:08" itemprop="dateCreated datePublished" datetime="2020-01-22T15:02:08+08:00">2020-01-22</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-23 21:44:57" itemprop="dateModified" datetime="2020-01-23T21:44:57+08:00">2020-01-23</time>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="动手学深度学习"><a href="#动手学深度学习" class="headerlink" title="动手学深度学习"></a>动手学深度学习</h1><h2 id="第2章-预备知识"><a href="#第2章-预备知识" class="headerlink" title="第2章 预备知识"></a>第2章 预备知识</h2><h3 id="2-2-数据操作"><a href="#2-2-数据操作" class="headerlink" title="2.2 数据操作"></a>2.2 数据操作</h3><p>主要学习用MXNet包，好像和Numpy有相似的地方，但好像又有区别，之后总结。<br>很基础</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mxnet <span class="keyword">import</span> nd</span><br><span class="line">x=nd.arrange(<span class="number">12</span>)</span><br><span class="line">x.shape</span><br><span class="line">x.size  <span class="comment">#与shape不同 size得到实例中元素个数</span></span><br><span class="line">x.reshape((<span class="number">3</span>, <span class="number">4</span>)) <span class="comment">#x.reshape((-1, 4)自动</span></span><br><span class="line">nd.zeros((<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line">nd.ones(<span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">#通过python的列表置顶需要创建的NDArray中每个元素的值</span></span><br><span class="line">Y = nd.array([[<span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], [<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]])</span><br><span class="line">nd.random.normal(<span class="number">0</span>, <span class="number">1</span>, shape=(<span class="number">3</span>, <span class="number">4</span>)) <span class="comment">#正态分布</span></span><br><span class="line">X + Y</span><br><span class="line">X * Y</span><br><span class="line">X / Y</span><br><span class="line">Y.exp()</span><br><span class="line">nd.dot(X, Y.T)  <span class="comment">#Y.T矩阵转置</span></span><br><span class="line"><span class="comment">#将多个矩阵联结 </span></span><br><span class="line">nd.concat(X, Y, dim=<span class="number">0</span>) <span class="comment">#维度0 在行上连结</span></span><br><span class="line">nd.concat(X, Y, dim=<span class="number">1</span>) <span class="comment">#维度1 在列上连结</span></span><br><span class="line">x==y <span class="comment">#判断元素中相同的部分</span></span><br><span class="line">X.sum()</span><br><span class="line">X.norm().asscalar() <span class="comment">#将结果转换成Python中的标量。.norm()计算矩阵范数</span></span><br><span class="line">Y.exp()=nd.exp(Y)</span><br></pre></td></tr></table></figure>
+
+<p><strong>广播机制</strong><br>前面是形状相同的NDArray做按元素运算。当对两个形状不同的NDArray按元素运算时，可能出发广播机制：线适当复制元素使这两个NDArray形状相同后再按元素运算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = nd.arange(<span class="number">3</span>).reshape((<span class="number">3</span>, <span class="number">1</span>))</span><br><span class="line">B = nd.arange(<span class="number">2</span>).reshape((<span class="number">1</span>, <span class="number">2</span>))</span><br><span class="line">A + B</span><br></pre></td></tr></table></figure>
+
+<p><strong>索引</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">x[<span class="number">1</span>, <span class="number">2</span>] = <span class="number">9</span></span><br><span class="line">X[<span class="number">1</span>:<span class="number">2</span>, :] = <span class="number">12</span> <span class="comment">#截取一部分重新赋值</span></span><br><span class="line"><span class="comment">#[[ 0.  1.  2.  3.]</span></span><br><span class="line"><span class="comment">#[12. 12. 12. 12.]</span></span><br><span class="line"><span class="comment">#[ 8.  9. 10. 11.]]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>运算的内存开销</strong><br>这个很酷，对效率有关<br>前面的例子里我们对每个操作新开内存来存储运算结果。举个例子，像<code>Y=X+Y</code>这样的运算也会新开内存，然后将Y指向新内存。可以用python自带id函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">before = id(Y)</span><br><span class="line">Y = Y + X</span><br><span class="line">before, id(Y)</span><br><span class="line"><span class="comment">#(112511066600, 112511066400)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#指定特定内存，可以用前面的索引</span></span><br><span class="line">Z = Y.zeros_like() </span><br><span class="line">before = id(Z)</span><br><span class="line">Z[:] = X + Y</span><br><span class="line"></span><br><span class="line"><span class="comment">#实际上上面我们为了计算X+Y还是开了临时内存来存储计算结果，再复制到z对应的内存。为了避免这个临时内存开销，我们可以使用运算符全名函数汇总的out参数</span></span><br><span class="line">nd.elemwise_add(X, Y, out=Z)</span><br><span class="line"></span><br><span class="line"><span class="comment">#如果X的值在之后的程序中不会复用，我们也可以用X[:] = X + Y或者 X+=Y来减少运算的内存开销</span></span><br><span class="line">before = id(X)</span><br><span class="line">X += Y</span><br><span class="line">id(X) == before <span class="comment">#True</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>NDArray和NumPy相互变换</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">P = np.ones((<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">D = nd.array(P)  <span class="comment">#numpy转换成NDArray</span></span><br><span class="line"></span><br><span class="line">D.asnumpy()  <span class="comment">#NDArray转换成numpy</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>so easy！ 妈妈再也不用担心我的学习！</strong></p>
+<h2 id="2-3-自动求梯度"><a href="#2-3-自动求梯度" class="headerlink" title="2.3 自动求梯度"></a>2.3 自动求梯度</h2><p>深度学习中我们经常求梯度。本节介绍如何使用MXNet提供的autograd模块自动求梯度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mxnet <span class="keyword">import</span> autograd, nd <span class="comment">#自动求梯度的包  </span></span><br><span class="line">x = nd.arange(<span class="number">4</span>).reshape((<span class="number">4</span>, <span class="number">1</span>))</span><br><span class="line">x.attach_grad() <span class="comment">#绑定求x值</span></span><br><span class="line"><span class="keyword">with</span> autograd.record():</span><br><span class="line">    y = <span class="number">2</span> * nd.dot(x.T, x)</span><br><span class="line">y.backward()</span><br><span class="line"><span class="keyword">assert</span> (x.grad - <span class="number">4</span> * x).norm().asscalar() == <span class="number">0</span></span><br><span class="line">x.grad</span><br></pre></td></tr></table></figure>
+
+<p>用了autograd将预测模式转换为训练模式（预测模式不需要记录梯度？）某些情况下，同一个模型在训练模式和预测模式下的行为并不相同。我们在后面的章节详细介绍区别。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(autograd.is_training()) <span class="comment"># False</span></span><br><span class="line"><span class="keyword">with</span> autograd.record():</span><br><span class="line">    print(autograd.is_training()) <span class="comment">#True</span></span><br></pre></td></tr></table></figure>
+
+<p>还有鬼东西，对python控制流求梯度<br>即使函数的计算图包含了Python的控制流（如条件和循环控制），我们也可能对变量求梯度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a)</span>:</span></span><br><span class="line">    b = a * <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> b.norm().asscalar() &lt; <span class="number">1000</span>:</span><br><span class="line">        b = b * <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> b.sum().asscalar() &gt; <span class="number">0</span>:</span><br><span class="line">        c = b</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        c = <span class="number">100</span> * b</span><br><span class="line">    <span class="keyword">return</span> c</span><br><span class="line"></span><br><span class="line">a = nd.random.normal(shape=<span class="number">1</span>)</span><br><span class="line">a.attach_grad()</span><br><span class="line"><span class="keyword">with</span> autograd.record():</span><br><span class="line">    c = f(a)</span><br><span class="line">c.backward()</span><br><span class="line"></span><br><span class="line">a.grad == c / a</span><br></pre></td></tr></table></figure>
+
+<p>easy!就是说明了啥python流的情况也适用</p>
+<h2 id="第3章-深度学习基础"><a href="#第3章-深度学习基础" class="headerlink" title="第3章 深度学习基础"></a>第3章 深度学习基础</h2><h3 id="3-1-线性回归-（全概念）"><a href="#3-1-线性回归-（全概念）" class="headerlink" title="3.1 线性回归 （全概念）"></a>3.1 线性回归 （全概念）</h3><p>区分回归与分类</p>
+<h4 id="3-1-1-线性回归的基本要素"><a href="#3-1-1-线性回归的基本要素" class="headerlink" title="3.1.1 线性回归的基本要素"></a>3.1.1 线性回归的基本要素</h4><ul>
+<li>1.模型</li>
+<li>2.模型训练<ul>
+<li>1.训练数据<br>训练集(training set)<br>样本(sample)<br>标签(label)<br>特征(feature)</li>
+<li>2.损失函数</li>
+<li>3.优化算法</li>
+</ul>
+</li>
+<li>3.模型预测<h4 id="3-1-2-线性回归的表示方法"><a href="#3-1-2-线性回归的表示方法" class="headerlink" title="3.1.2 线性回归的表示方法"></a>3.1.2 线性回归的表示方法</h4></li>
+</ul>
+<p><strong>1.神经网络图</strong><br>深度学习中，我们可以使用神经网络图直观地表现模型结构。<br>线性回归是一个单层的神经网络。<br>输入层<br>输出层：全连接层或稠密层<br><strong>2.矢量计算表达式</strong><br>说了半天就是用矢量效率高，运用广播机制加上b。<br>矢量重写损失函数</p>
+<h3 id="3-2-线性回归的从零开始实现"><a href="#3-2-线性回归的从零开始实现" class="headerlink" title="3.2 线性回归的从零开始实现"></a>3.2 线性回归的从零开始实现</h3><p>尽管强大的深度学习框架可以减少大量重复性工作，但若过于依赖它提供的便利，会导致我们很难深入理解深度学习是如何工作的。因此，本节将介绍如何只利用NDArray和autograd来实现一个线性回归的训练。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">from</span> IPython <span class="keyword">import</span> display</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> mxnet <span class="keyword">import</span> autograd, nd</span><br><span class="line"><span class="keyword">import</span> random</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-1-生成数据集"><a href="#3-2-1-生成数据集" class="headerlink" title="3.2.1 生成数据集"></a>3.2.1 生成数据集</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">num_inputs = <span class="number">2</span></span><br><span class="line">num_examples = <span class="number">1000</span></span><br><span class="line">true_w = [<span class="number">2</span>, <span class="number">-3.4</span>]</span><br><span class="line">true_b = <span class="number">4.2</span></span><br><span class="line">features = nd.random.normal(scale=<span class="number">1</span>, shape=(num_examples, num_inputs))</span><br><span class="line">labels = true_w[<span class="number">0</span>] * features[:, <span class="number">0</span>] + true_w[<span class="number">1</span>] * features[:, <span class="number">1</span>] + true_b</span><br><span class="line">labels += nd.random.normal(scale=<span class="number">0.01</span>, shape=labels.shape) <span class="comment">#加上随机噪声</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-读取数据集"><a href="#3-2-2-读取数据集" class="headerlink" title="3.2.2 读取数据集"></a>3.2.2 读取数据集</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本函数已保存在d2lzh包中方便以后使用</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">data_iter</span><span class="params">(batch_size, features, labels)</span>:</span></span><br><span class="line">    num_examples = len(features)</span><br><span class="line">    indices = list(range(num_examples))</span><br><span class="line">    random.shuffle(indices)  <span class="comment"># 样本的读取顺序是随机的</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, num_examples, batch_size):</span><br><span class="line">        j = nd.array(indices[i: min(i + batch_size, num_examples)])</span><br><span class="line">        <span class="keyword">yield</span> features.take(j), labels.take(j)  <span class="comment"># take函数根据索引返回对应元素</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-3-初始化模型参数"><a href="#3-2-3-初始化模型参数" class="headerlink" title="3.2.3 初始化模型参数"></a>3.2.3 初始化模型参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">w = nd.random.normal(scale=<span class="number">0.01</span>, shape=(num_inputs, <span class="number">1</span>))</span><br><span class="line">b = nd.zeros(shape=(<span class="number">1</span>,))</span><br><span class="line">w.attach_grad() <span class="comment">#绑定要自动求导的变量</span></span><br><span class="line">b.attach_grad() <span class="comment">#绑定要自动求导的变量</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-4-定义模型"><a href="#3-2-4-定义模型" class="headerlink" title="3.2.4 定义模型"></a>3.2.4 定义模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linreg</span><span class="params">(X, w, b)</span>:</span>  <span class="comment"># 本函数已保存在d2lzh包中方便以后使用</span></span><br><span class="line">    <span class="keyword">return</span> nd.dot(X, w) + b</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-5-定义损失函数"><a href="#3-2-5-定义损失函数" class="headerlink" title="3.2.5 定义损失函数"></a>3.2.5 定义损失函数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">squared_loss</span><span class="params">(y_hat, y)</span>:</span>  <span class="comment"># 本函数已保存在d2lzh包中方便以后使用</span></span><br><span class="line">    <span class="keyword">return</span> (y_hat - y.reshape(y_hat.shape)) ** <span class="number">2</span> / <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-6-定义优化算法"><a href="#3-2-6-定义优化算法" class="headerlink" title="3.2.6 定义优化算法"></a>3.2.6 定义优化算法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sgd</span><span class="params">(params, lr, batch_size)</span>:</span>  <span class="comment"># 本函数已保存在d2lzh包中方便以后使用</span></span><br><span class="line">    <span class="keyword">for</span> param <span class="keyword">in</span> params:</span><br><span class="line">        param[:] = param - lr * param.grad / batch_size   <span class="comment">#看见没有 这里param.grad就是利用梯度做优化</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-7-训练模型"><a href="#3-2-7-训练模型" class="headerlink" title="3.2.7 训练模型"></a>3.2.7 训练模型</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">lr = <span class="number">0.03</span></span><br><span class="line">num_epochs = <span class="number">3</span></span><br><span class="line">net = linreg</span><br><span class="line">loss = squared_loss</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(num_epochs):  <span class="comment"># 训练模型一共需要num_epochs个迭代周期</span></span><br><span class="line">    <span class="comment"># 在每一个迭代周期中，会使用训练数据集中所有样本一次（假设样本数能够被批量大小整除）。X</span></span><br><span class="line">    <span class="comment"># 和y分别是小批量样本的特征和标签</span></span><br><span class="line">    <span class="keyword">for</span> X, y <span class="keyword">in</span> data_iter(batch_size, features, labels):</span><br><span class="line">        <span class="keyword">with</span> autograd.record():</span><br><span class="line">            l = loss(net(X, w, b), y)  <span class="comment"># l是有关小批量X和y的损失</span></span><br><span class="line">        l.backward()  <span class="comment"># 小批量的损失对模型参数求梯度</span></span><br><span class="line">        sgd([w, b], lr, batch_size)  <span class="comment"># 使用小批量随机梯度下降迭代模型参数</span></span><br><span class="line">    train_l = loss(net(features, w, b), labels)</span><br><span class="line">    print(<span class="string">'epoch %d, loss %f'</span> % (epoch + <span class="number">1</span>, train_l.mean().asnumpy()))</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>感觉贼酷！</em></strong></p>
+<h3 id="3-3-线性回归的简洁实现"><a href="#3-3-线性回归的简洁实现" class="headerlink" title="3.3 线性回归的简洁实现"></a>3.3 线性回归的简洁实现</h3><p>本节中，我们将介绍如何使用MXNet提供的Gluon接口更方便地实现线性回归的训练</p>
+<h4 id="3-3-1-生成数据集"><a href="#3-3-1-生成数据集" class="headerlink" title="3.3.1 生成数据集"></a>3.3.1 生成数据集</h4><p>和前面一样</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mxnet <span class="keyword">import</span> autograd, nd</span><br><span class="line"></span><br><span class="line">num_inputs = <span class="number">2</span></span><br><span class="line">num_examples = <span class="number">1000</span></span><br><span class="line">true_w = [<span class="number">2</span>, <span class="number">-3.4</span>]</span><br><span class="line">true_b = <span class="number">4.2</span></span><br><span class="line">features = nd.random.normal(scale=<span class="number">1</span>, shape=(num_examples, num_inputs))</span><br><span class="line">labels = true_w[<span class="number">0</span>] * features[:, <span class="number">0</span>] + true_w[<span class="number">1</span>] * features[:, <span class="number">1</span>] + true_b</span><br><span class="line">labels += nd.random.normal(scale=<span class="number">0.01</span>, shape=labels.shape)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-2-读取数据集"><a href="#3-3-2-读取数据集" class="headerlink" title="3.3.2 读取数据集"></a>3.3.2 读取数据集</h4><p>Gluon提供了data包来读取数据。由于data常作为变量名，将倒入的data模块用添加了Gluon首字母的假名gdata代替。在每一次迭代中，我们将随机读取包含10个数据样本的小批量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mxnet.gluon <span class="keyword">import</span> data <span class="keyword">as</span> gdata</span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">10</span></span><br><span class="line"><span class="comment"># 将训练数据的特征和标签组合</span></span><br><span class="line">dataset = gdata.ArrayDataset(features, labels)</span><br><span class="line"><span class="comment"># 随机读取小批量</span></span><br><span class="line">data_iter = gdata.DataLoader(dataset, batch_size, shuffle=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-3-定义模型"><a href="#3-3-3-定义模型" class="headerlink" title="3.3.3 定义模型"></a>3.3.3 定义模型</h4><p>可以方便地用nn的包来实现，也有集成的sequential方法，现在模型是简单的全连接层</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mxnet.gluon <span class="keyword">import</span> nn</span><br><span class="line">net = nn.Sequential()</span><br><span class="line"></span><br><span class="line">net.add(nn.Dense(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+
+<p>值得一提，在Gluon中我们无须指定每一层的输入形状，例如线性回归的输入个数，当模型得到数据时，例如后面执行net(X)时，模型将自动推断每一层的输入个数。为开发提供便利。</p>
+<h4 id="3-3-4-初始化模型参数"><a href="#3-3-4-初始化模型参数" class="headerlink" title="3.3.4 初始化模型参数"></a>3.3.4 初始化模型参数</h4><p>使用net前初始化模型参数，如线性回归模型中的权重和偏差。我们在MXNet导入init模块。该模块提供了模型参数初始化的各种方法。通过init.Normal(sigma=0.01)指定权重参数每个元素将在初始化时随机采样于均值为0、标准差为0.01的正态分布。偏差参数默认会初始化为零。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mxnet <span class="keyword">import</span> init</span><br><span class="line">net.initialize(init.Normal(sigma=<span class="number">0.01</span>))</span><br></pre></td></tr></table></figure>
+
+<p>so cool～！</p>
+<h4 id="3-3-5-定义损失函数"><a href="#3-3-5-定义损失函数" class="headerlink" title="3.3.5 定义损失函数"></a>3.3.5 定义损失函数</h4><p>在Gluon中，loss模块定义了各种损失函数。我们用假名gloss代替loss模块，并使用它提供的平方损失为模型的损失参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mxnet.gluon <span class="keyword">import</span> loss <span class="keyword">as</span> gloss</span><br><span class="line">loss = gloss.L2Loss()  <span class="comment">#平方损失又称为L2范数损失</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-6-定义优化算法"><a href="#3-3-6-定义优化算法" class="headerlink" title="3.3.6 定义优化算法"></a>3.3.6 定义优化算法</h4><p>导入Gluon后，我们创建一个Trainer实例，并指定学习率为0.03的小批量随机梯度下降sgd为优化算法（不用自己写）。该算法将用来迭代net实例所有通过add函数嵌套的层包含的全部参数。这些参数可以通过collect_params函数来获取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mxnet <span class="keyword">import</span> gluon</span><br><span class="line">trainer = gluon.Trainer(net.collect_params(), <span class="string">'sgd'</span>, &#123;<span class="string">'learning_rate'</span>: <span class="number">0.03</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-7-训练模型"><a href="#3-3-7-训练模型" class="headerlink" title="3.3.7 训练模型"></a>3.3.7 训练模型</h4><p>在使用Gluon训练模型时，我们通过调用Trainer实例来的step函数来迭代模型参数。3.2节我们提到，由于变量l是长度为batch_size的一维NDArray，执行l.backward()等价于执行l.sum().backward()。按照小批量随机梯度下降法的定义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">num_epochs = <span class="number">3</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(<span class="number">1</span>, num_epochs + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> X, y <span class="keyword">in</span> data_iter:</span><br><span class="line">        <span class="keyword">with</span> autograd.record():</span><br><span class="line">            l = loss(net(X), y)</span><br><span class="line">        l.backward()</span><br><span class="line">        trainer.step(batch_size)</span><br><span class="line">    l = loss(net(features), labels)</span><br><span class="line">    print(<span class="string">'epoch %d, loss: %f'</span> % (epoch, l.mean().asnumpy()))</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>要明白随机梯度下降法是对损失函数进行，要随机让损失函数变小的同时学习改变模型参数</em></strong><br>最后查看学习到的参数，双击666！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dense = net[<span class="number">0</span>]   <span class="comment">#注意指定第一层的权重</span></span><br><span class="line">true_w, dense.weight.data()</span><br><span class="line">true_b, dense.bias.data()</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-softmax回归"><a href="#3-4-softmax回归" class="headerlink" title="3.4 softmax回归"></a>3.4 softmax回归</h3><p>前几节的线性回归模型适用于输出连续值的情景。在另一类情景中，模型输出可以是想一个图像类别的离散分类问题。我们可以使用诸如softmax回归在内的分类模型，和线性回归不同sofrmax回归的<strong>输出单元</strong>从一个变成了多个，且引入了softmax运算使输出更适合离散值的预测和训练。本节以softmax回归模型为例，介绍神经网络中的分类模型。</p>
+<h4 id="3-4-1-分类问题"><a href="#3-4-1-分类问题" class="headerlink" title="3.4.1 分类问题"></a>3.4.1 分类问题</h4><p>之前也晓得，分类问题可以用回归方法解决但是会影响到回归质量，一般使用更加适合离散值输出的模型来解决分类问题（softmax函数）。</p>
+<h4 id="3-4-2-softmax回归模型"><a href="#3-4-2-softmax回归模型" class="headerlink" title="3.4.2 softmax回归模型"></a>3.4.2 softmax回归模型</h4><p>o1 = x1w11 + x2w21 + x3w31 + x4w41 + b1<br>o2 = x1w12 + x2w22 + x3w32 + x4w42 + b2<br>o3 = x1w13 + x2w23 + x3w33 + x4w43 + b3<br>softmax回归是一个单层神经网络<br><strong>softmax运算</strong><br>将值的大小变成概率 so cool</p>
+<h4 id="3-4-3-单样本样本分类的矢量计算表达式"><a href="#3-4-3-单样本样本分类的矢量计算表达式" class="headerlink" title="3.4.3 单样本样本分类的矢量计算表达式"></a>3.4.3 单样本样本分类的矢量计算表达式</h4><p>为了提高计算效率，我们将单样本分类通过矢量计算来表达。</p>
+<h4 id="3-4-4-小批量分类的矢量计算表达式"><a href="#3-4-4-小批量分类的矢量计算表达式" class="headerlink" title="3.4.4 小批量分类的矢量计算表达式"></a>3.4.4 小批量分类的矢量计算表达式</h4><p>通常我们对小批量数据做矢量计算。广义上来讲，给定一个小批量样本，其批量样本大小为n,输入个数为d，输出个数为q。就是每个向量的大小变大了<br>Onxq=XnxdWdxq + blxq<br>Yhatnxq = softmax(Onxq)o</p>
+<h4 id="3-4-5-交叉熵损失函数"><a href="#3-4-5-交叉熵损失函数" class="headerlink" title="3.4.5 交叉熵损失函数"></a>3.4.5 交叉熵损失函数</h4><p>更科学的损失函数，最小化交叉熵损失函数等价于最大化数据集所有标签类别的联合预测概率。</p>
+<h4 id="3-4-6-模型预测及评价"><a href="#3-4-6-模型预测及评价" class="headerlink" title="3.4.6 模型预测及评价"></a>3.4.6 模型预测及评价</h4><p>准确率 啥啥率 有好多种不同</p>
+<h3 id="3-5-图像分类数据集（Fashion-MNIST）"><a href="#3-5-图像分类数据集（Fashion-MNIST）" class="headerlink" title="3.5 图像分类数据集（Fashion-MNIST）"></a>3.5 图像分类数据集（Fashion-MNIST）</h3><p>一个比MNIST更复杂的图像分类数据集</p>
+<h4 id="3-5-1-获取数据集"><a href="#3-5-1-获取数据集" class="headerlink" title="3.5.1 获取数据集"></a>3.5.1 获取数据集</h4><p>easy 还有许多读取啥的函数方法</p>
+<h4 id="3-5-2-获取小批量"><a href="#3-5-2-获取小批量" class="headerlink" title="3.5.2 获取小批量"></a>3.5.2 获取小批量</h4><ul>
+<li>可以自己定义来用yield，这里用DataLoader实例。每次读取一个样本数为batch_size的小批量数据。这里的pillage大小batch_sze是一个超参数</li>
+<li>DataLoader可以用num_workers性能加速</li>
+<li>ToTensor实例将图像数据从uint8格式变换成32浮点数并除以255使得所有像素的数值均在0到1之间。ToTensor实例还将图像通道从最后一维移到最前一维方便之后介绍的卷积神经网络。通过数据集的transform_first函数，我们将ToTensor的变换应用在每个数据样本（图像和标签）的第一个元素，即图像之上。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">batch_size = <span class="number">256</span></span><br><span class="line">transformer = gdata.vision.transforms.ToTensor()</span><br><span class="line"><span class="keyword">if</span> sys.platform.startswith(<span class="string">'win'</span>):</span><br><span class="line">    num_workers = <span class="number">0</span>  <span class="comment"># 0表示不用额外的进程来加速读取数据</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    num_workers = <span class="number">4</span>  <span class="comment"># 会比较快</span></span><br><span class="line"></span><br><span class="line">train_iter = gdata.DataLoader(mnist_train.transform_first(transformer),</span><br><span class="line">                              batch_size, shuffle=<span class="literal">True</span>,</span><br><span class="line">                              num_workers=num_workers)</span><br><span class="line">test_iter = gdata.DataLoader(mnist_test.transform_first(transformer),</span><br><span class="line">                             batch_size, shuffle=<span class="literal">False</span>,</span><br><span class="line">                             num_workers=num_workers)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="3-6-softmax回归的从零开始实现"><a href="#3-6-softmax回归的从零开始实现" class="headerlink" title="3.6 softmax回归的从零开始实现"></a>3.6 softmax回归的从零开始实现</h3><p>3.6.1 读取数据集<br>3.6.2 初始化模型参数<br>3.6.3 实现softmax运算<br>先解决多维度NDArray按维度操作的问题，之后定义soft运算（不用包纯手工）</p>
+<p>3.6.4 定义模型<br>我们的模型就是纯的softmax函数</p>
+<p>3.6.5 定义损失函数<br>交叉熵损失函数，先学会pick函数</p>
+<p>3.6.6 计算分类准确率<br>先明白准确率的原理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">accuracy</span><span class="params">(y_hat, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (y_hat.argmax(axis=<span class="number">1</span>) == y.astype(<span class="string">'float32'</span>)).mean().asscalar()</span><br></pre></td></tr></table></figure>
+
+<p>再预测真个net在数据集合上的准确率</p>
+<p>3.6.7 训练模型<br>和之前线性回归差不多 多了准确率的计算 熟练掌握就好</p>
+<p>3.6.8 预测<br>学会怎么这么优美地把预测 真实 图片摆放在一起 中间三行是展示封装函数逻辑的 注释也能运行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> X, y <span class="keyword">in</span> test_iter:   <span class="comment">#注意这里迭代 测试集 只有255个</span></span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">true_labels = d2l.get_fashion_mnist_labels(y.asnumpy())</span><br><span class="line">pred_labels = d2l.get_fashion_mnist_labels(net(X).argmax(axis=<span class="number">1</span>).asnumpy())</span><br><span class="line">titles = [true + <span class="string">'\n'</span> + pred <span class="keyword">for</span> true, pred <span class="keyword">in</span> zip(true_labels, pred_labels)]  <span class="comment">#有些逻辑 自己写不一定能写出来</span></span><br><span class="line"></span><br><span class="line">d2l.show_fashion_mnist(X[<span class="number">0</span>:<span class="number">9</span>], titles[<span class="number">0</span>:<span class="number">9</span>])</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-7-softmax回归的简洁实现"><a href="#3-7-softmax回归的简洁实现" class="headerlink" title="3.7 softmax回归的简洁实现"></a>3.7 softmax回归的简洁实现</h3><p>贼简洁 明白原理直接调用包就ok</p>
+<h3 id="3-8-多层感知机"><a href="#3-8-多层感知机" class="headerlink" title="3.8 多层感知机"></a>3.8 多层感知机</h3><p>已经学会了线性回归和softmax回归在内的单层神经网络😁。但是深度学习更多关注多层模型。在本节中，我们将以多层感知机（multilayer perceptron, MLP）为例，介绍多层神经网络的特点。</p>
+<h4 id="3-8-1-隐藏层"><a href="#3-8-1-隐藏层" class="headerlink" title="3.8.1 隐藏层"></a>3.8.1 隐藏层</h4><p>多层感知机在单层神经网络的基础上引入了一到多个隐藏层（hidden layer）。隐藏层位于输入层和输出层之间。</p>
+<h4 id="3-8-2-激活函数"><a href="#3-8-2-激活函数" class="headerlink" title="3.8.2 激活函数"></a>3.8.2 激活函数</h4><p>防止仿射变换，引入非线性变换（加入多少隐藏层都是仿射变换）<br>1.ReLU函数<br>简单的线性变换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = x.relu() <span class="comment">#内置函数</span></span><br></pre></td></tr></table></figure>
+
+<p>2.sigmoid函数</p>
+<ul>
+<li>将元素的值变换到0和1之间，sigmoid函数在早期的神经网络中较为普遍，但它目前逐渐被简单的ReLU函数取代。控制信息在神经网络中的流动。</li>
+<li>sigmoid的导数：当输入为0时，sigmoid函数的导数达到最大值0.25，当输入偏离0时，sigmoid函数的导数越接近0。</li>
+</ul>
+<p>3.tanh函数</p>
+<ul>
+<li>tanh函数可以将元素的值变换到-1到1之间。虽然该函数的形状和sigmoid函数的形状很像，但tanh函数在坐标系的原点上对称。</li>
+<li>导数：当输入为0时，达到最大值1，当输入越偏离0时，tanh函数的导数越接近0。<h4 id="3-8-3-多层感知机"><a href="#3-8-3-多层感知机" class="headerlink" title="3.8.3 多层感知机"></a>3.8.3 多层感知机</h4>多层感知机就是含有<strong>至少一个隐藏层</strong>的全连接层组成的神经网络，且<strong>每个隐藏层的输出通过激活函数</strong>进行变换。多层感知机的层数和各隐藏层中隐藏单元个数都是超参数。以单隐藏层为例并沿用本节之前定义的符号<br>$$<br>\begin{aligned}<br>\boldsymbol{H} &amp;= \phi(\boldsymbol{X} \boldsymbol{W}_h + \boldsymbol{b}_h),\<br>\boldsymbol{O} &amp;= \boldsymbol{H} \boldsymbol{W}_o + \boldsymbol{b}_o,<br>\end{aligned}<br>$$<br>其中$\phi$表示激活函数。</li>
+<li>分类问题中：我们可以对输出O做softmax运算，并使用softmax回归中的交叉熵损失函数。（也就是以前直接输出，现在在是经过一个隐藏层接着激活之后给输出）</li>
+<li>回归问题中：我们将输出层的输出个数设为1，并将输出o直接提供给线性回归中使用的平方损失函数。</li>
+</ul>
+<p>666 虽然有点迷迷糊糊的</p>
+<h3 id="3-9-多层感知机的从零开始实现"><a href="#3-9-多层感知机的从零开始实现" class="headerlink" title="3.9 多层感知机的从零开始实现"></a>3.9 多层感知机的从零开始实现</h3><p>3.9.1 读取数据集<br>3.9.2 定义模型参数<br>多了一层隐藏层的参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">num_inputs, num_outputs, num_hiddens = <span class="number">784</span>, <span class="number">10</span>, <span class="number">256</span></span><br><span class="line"></span><br><span class="line">W1 = nd.random.normal(scale=<span class="number">0.01</span>, shape=(num_inputs, num_hiddens))</span><br><span class="line">b1 = nd.zeros(num_hiddens)</span><br><span class="line">W2 = nd.random.normal(scale=<span class="number">0.01</span>, shape=(num_hiddens, num_outputs))</span><br><span class="line">b2 = nd.zeros(num_outputs)</span><br><span class="line">params = [W1, b1, W2, b2]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> params:</span><br><span class="line">    param.attach_grad()</span><br></pre></td></tr></table></figure>
+
+<p>3.9.3 定义激活函数<br>不使用包，自己定义</p>
+<p>3.9.4 定义模型这里有不同的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">net</span><span class="params">(X)</span>:</span></span><br><span class="line">    X = X.reshape((<span class="number">-1</span>, num_inputs))</span><br><span class="line">    H = relu(nd.dot(X, W1) + b1)   <span class="comment"># 这里多了一层！！隐藏层！！</span></span><br><span class="line">    <span class="keyword">return</span> nd.dot(H, W2) + b2</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>我去没有定义优化算法 应该封装在最后训练函数里了</em></strong><br>3.9.5 定义损失函数<br>为了稳定性使用gluon的包</p>
+<p>3.9.6 训练模型<br>easy</p>
+<h3 id="3-10-多层感知机的简洁实现"><a href="#3-10-多层感知机的简洁实现" class="headerlink" title="3.10 多层感知机的简洁实现"></a>3.10 多层感知机的简洁实现</h3><p>so 简洁！！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入包</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">".."</span>)</span><br><span class="line"><span class="keyword">import</span> d2lzh <span class="keyword">as</span> d2l</span><br><span class="line"><span class="keyword">from</span> mxnet <span class="keyword">import</span> gluon, init</span><br><span class="line"><span class="keyword">from</span> mxnet.gluon <span class="keyword">import</span> loss <span class="keyword">as</span> gloss, nn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义模型</span></span><br><span class="line">net = nn.Sequential()</span><br><span class="line">net.add(nn.Dense(<span class="number">256</span>, activation=<span class="string">'relu'</span>),</span><br><span class="line">        nn.Dense(<span class="number">10</span>))</span><br><span class="line">net.initialize(init.Normal(sigma=<span class="number">0.01</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取数据与训练模型</span></span><br><span class="line">batch_size = <span class="number">256</span></span><br><span class="line">train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)</span><br><span class="line"></span><br><span class="line">loss = gloss.SoftmaxCrossEntropyLoss()</span><br><span class="line">trainer = gluon.Trainer(net.collect_params(), <span class="string">'sgd'</span>, &#123;<span class="string">'learning_rate'</span>: <span class="number">0.5</span>&#125;)</span><br><span class="line">num_epochs = <span class="number">5</span></span><br><span class="line">d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, batch_size, <span class="literal">None</span>,</span><br><span class="line">              <span class="literal">None</span>, trainer)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-11-模型选择、欠拟合和过拟合"><a href="#3-11-模型选择、欠拟合和过拟合" class="headerlink" title="3.11 模型选择、欠拟合和过拟合"></a>3.11 模型选择、欠拟合和过拟合</h3><blockquote>
+<p>提出问题：为啥模型在训练数据集上更准确时，它在测试数据集上却不一定准确</p>
+</blockquote>
+<h4 id="3-11-1-训练误差和泛化误差"><a href="#3-11-1-训练误差和泛化误差" class="headerlink" title="3.11.1 训练误差和泛化误差"></a>3.11.1 训练误差和泛化误差</h4><ul>
+<li>训练误差：模型在训练数据集上表现的误差</li>
+<li>泛化误差：模型在任意一个测试数据样本上表现出的误差的期望，？？并常常通过测试数据集上的误差来近似？？</li>
+</ul>
+<p>计算训练误差和泛化误差可以使用之前介绍过的损失函数，例如线性回归用到的平方损失函数和softmax回归用到的交叉熵损失函数<br>机器学习模型应关注降低泛化误差</p>
+<h4 id="3-11-2-模型选择"><a href="#3-11-2-模型选择" class="headerlink" title="3.11.2 模型选择"></a>3.11.2 模型选择</h4><p>机器学习中，通常需要评估若干候选模型的表现并从中选择模型。<br>可供选择的候选模型可以是有不同超参数的同类模型。<br>对多层感知机：可以选择隐藏层的个数，以及每个隐藏层中隐藏单元个数和激活函数。<br>通常要在模型选择上下一番功夫。经常使用验证数据集。<br><strong>1.验证数据集</strong><br>测试集：只能在超参数和模型参数选定后使用一次（只能用来测试），不能用来调参和选择模型<br>训练集：无法从训练误差顾及泛化误差，不能依赖训练集选择模型。<br>鉴于此，我们可以预留一部分在训练数据集和测试数据集以外的数据来进行模型选择。<br>称为验证数据集，简称验证集。例如我们可以从给定的训练集中随机选取一小部分作为验证集，而将剩余部分作为真正的训练集。<br>实际应用中，由于数据不容易获取，测试数据极少使用一次就丢弃。因此验证数据集和测试数据集界限比较模糊。<br><strong>2.k折交叉验证</strong><br>由于验证数据集不参与模型训练，所以当训练数据不够用时，预留大量验证数据集有点奢侈。所以用k折交叉验证。</p>
+<blockquote>
+<p>即将训练数据集分成k个不重合的子数据集，然后我们做k次模型训练和验证，每一次用一个子数据集验证，其他k-1个子数据集来做训练模型。每次用到的子数据集不同。最后用k次训练误差和验证误差取平均/</p>
+</blockquote>
+<h4 id="3-11-3-欠拟合和过拟合"><a href="#3-11-3-欠拟合和过拟合" class="headerlink" title="3.11.3 欠拟合和过拟合"></a>3.11.3 欠拟合和过拟合</h4><p>要同时避免欠拟合和过拟合，虽然因素很多，重点讨论模型复杂度和训练数据集大小。<br><strong>1.模型复杂度</strong><br>多项式模型复杂度更高，更容易减小训练误差，但容易造成过拟合，太简单欠拟合。<br><strong>2.训练数据集大小</strong><br>样本数据集过少，特别是比模型参数数量（按元素计）更少时，过拟合更容易发生。此外，泛化误差不会随训练数据集里样本数量增加而增大。因此希望数据集更大</p>
+<h4 id="3-11-4-多项式函数拟合实验"><a href="#3-11-4-多项式函数拟合实验" class="headerlink" title="3.11.4 多项式函数拟合实验"></a>3.11.4 多项式函数拟合实验</h4><p>我去这个贼6 自己看不懂！<br><strong>1.生成数据集</strong><br><strong>2.定义、训练和测试模型</strong><br><strong><em>我去牛皮！！</em></strong><br>在Gluon中我们无须指定每一层输入的形状，例如线性回归的输入个数，当模型得到数据时，例如后面执行net(x)时，模型将自动推断出每一层的输入个数，我们我们将在第4章介绍这种机制</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net = nn.Sequential()</span><br><span class="line">net.add(nn.Dense(<span class="number">1</span>))    <span class="comment">#妈的只需要这样 1 是输出个数的意思</span></span><br><span class="line">net.initialize()</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.三阶多项式函数拟合（正常）</strong><br><strong>4.线性函数拟合（欠拟合）</strong><br><strong>5.训练样本不足（过拟合）</strong></p>
+<h3 id="3-12-权重衰减"><a href="#3-12-权重衰减" class="headerlink" title="3.12 权重衰减"></a>3.12 权重衰减</h3><h4 id="3-12-1-方法"><a href="#3-12-1-方法" class="headerlink" title="3.12.1 方法"></a>3.12.1 方法</h4><p>引入权重衰减（等价于L2范数正则化），防止过拟合<br>损失函数改变：增加$$\ell(w_1, w_2, b) + \frac{\lambda}{2n} |\boldsymbol{w}|^2,$$<br>迭代方式改变：$$<br>\begin{aligned}<br>w_1 &amp;\leftarrow \left(1- \frac{\eta\lambda}{|\mathcal{B}|} \right)w_1 -   \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}}x_1^{(i)} \left(x_1^{(i)} w_1 + x_2^{(i)} w_2 + b - y^{(i)}\right),\<br>w_2 &amp;\leftarrow \left(1- \frac{\eta\lambda}{|\mathcal{B}|} \right)w_2 -   \frac{\eta}{|\mathcal{B}|} \sum_{i \in \mathcal{B}}x_2^{(i)} \left(x_1^{(i)} w_1 + x_2^{(i)} w_2 + b - y^{(i)}\right).<br>\end{aligned}<br>$$</p>
+<h4 id="3-12-2-高维线性回归实验"><a href="#3-12-2-高维线性回归实验" class="headerlink" title="3.12.2 高维线性回归实验"></a>3.12.2 高维线性回归实验</h4><p>通过高维线性回归为例引入一个过拟合问题，并使用权重衰减解决</p>
+<h4 id="3-12-3-从零开始实现"><a href="#3-12-3-从零开始实现" class="headerlink" title="3.12.3 从零开始实现"></a>3.12.3 从零开始实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> autograd.record():</span><br><span class="line">                <span class="comment"># 添加了L2范数惩罚项</span></span><br><span class="line">                l = loss(net(X, w, b), y) + lambd * l2_penalty(w)</span><br></pre></td></tr></table></figure>
+
+<p>只是在损失函数添加惩罚<br>没有在迭代增加</p>
+<h4 id="3-12-4-简洁实现"><a href="#3-12-4-简洁实现" class="headerlink" title="3.12.4 简洁实现"></a>3.12.4 简洁实现</h4><p>可以分别对w和b都进行权重衰减（默认对两个都会耍贱）<br>但可以自己设置只对w进行衰减，权重衰减可以通过Gluon的wd超参数来指定。</p>
+<h3 id="3-13-丢弃法"><a href="#3-13-丢弃法" class="headerlink" title="3.13 丢弃法"></a>3.13 丢弃法</h3><p>3.13.1 方法<br>除了权重拟合，还可以用丢弃法解决过拟合的问题<br>隐藏单元的计算表达式，对隐藏层使用丢弃法时，该层的隐藏单元将有一定概率被丢弃掉。有p的概率被清零，有1-p的概率会被除以1-p做拉伸。丢弃概率是丢弃法的超参数<br>由于训练中隐藏层神经元的丢弃是随机的，即h1~h5都有可能被清零，输出层的计算无法过度依赖h1～h5中的任一个，从而在训练模型时起到正则化的作用。<br>3.13.2 从零开始实现<br>先学dropout函数:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dropout</span><span class="params">(X, drop_prob)</span>:</span></span><br><span class="line">    <span class="keyword">assert</span> <span class="number">0</span> &lt;= drop_prob &lt;= <span class="number">1</span></span><br><span class="line">    keep_prob = <span class="number">1</span> - drop_prob</span><br><span class="line">    <span class="comment"># 这种情况下把全部元素都丢弃</span></span><br><span class="line">    <span class="keyword">if</span> keep_prob == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> X.zeros_like()</span><br><span class="line">    mask = nd.random.uniform(<span class="number">0</span>, <span class="number">1</span>, X.shape) &lt; keep_prob   <span class="comment">#uniform 不知道干啥的</span></span><br><span class="line">    <span class="keyword">return</span> mask * X / keep_prob</span><br></pre></td></tr></table></figure>
+
+<p>1、定义模型参数<br>2、定义模型<br>3、训练和测试模型<br>3.13.3 简洁实现</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">net = nn.Sequential()</span><br><span class="line">net.add(nn.Dense(<span class="number">256</span>, activation=<span class="string">"relu"</span>),</span><br><span class="line">        nn.Dropout(drop_prob1),  <span class="comment"># 在第一个全连接层后添加丢弃层</span></span><br><span class="line">        nn.Dense(<span class="number">256</span>, activation=<span class="string">"relu"</span>),</span><br><span class="line">        nn.Dropout(drop_prob2),  <span class="comment"># 在第二个全连接层后添加丢弃层</span></span><br><span class="line">        nn.Dense(<span class="number">10</span>))</span><br><span class="line">net.initialize(init.Normal(sigma=<span class="number">0.01</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-14-正向传播、反向传播和计算图"><a href="#3-14-正向传播、反向传播和计算图" class="headerlink" title="3.14 正向传播、反向传播和计算图"></a>3.14 正向传播、反向传播和计算图</h3><p>之前我们是使用小批量随机梯度下降的优化算法来训练模型。默认使用了反向传播，本节使用数学来描述正向传播和反向传播。具体来说，我们将以带L2范数正则化的含单隐藏层的多层感知机为样例模型解释正向传播和反向传播。<br>巴拉巴拉一堆数学看不懂 但原理应该了解一些 就是从后向前求取梯度，吴恩达的课好像也讲过<br>还有正向传播依赖反向传播，反向传播依赖正向传播。</p>
+<h3 id="3-15-数值稳定性和模型初始化"><a href="#3-15-数值稳定性和模型初始化" class="headerlink" title="3.15 数值稳定性和模型初始化"></a>3.15 数值稳定性和模型初始化</h3><p>3.15.1 衰减和爆炸<br>当神经网络层数较多，模型的数值稳定性容易变差。容易很多层会很小或者很大<br>3.15.2 随机初始化模型参数<br>1.MXNet的默认随机初始化<br>2.Xavier随机初始化</p>
+<h3 id="3-16-实战Kaggle比赛：房价预测"><a href="#3-16-实战Kaggle比赛：房价预测" class="headerlink" title="3.16 实战Kaggle比赛：房价预测"></a>3.16 实战Kaggle比赛：房价预测</h3><p>终于有实际代码了，理论好复杂。<br>本节将提供未经调优的数据的预处理、模型的设计和超参数的选择。<br>很多 有点复杂 自己看书 再理解会比较好</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/06/前端开发总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1695,93 +1948,12 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/04/我的第一篇博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="望星的太阳花">
-      <meta itemprop="description" content="You are my JavaSript in my HTML.">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/04/我的第一篇博客/" class="post-title-link" itemprop="url">我的第一篇博客</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-04 08:20:38 / 修改时间：22:03:18" itemprop="dateCreated datePublished" datetime="2019-10-04T08:20:38+08:00">2019-10-04</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这是我第一次尝试创建博客，期间费了很大的功夫，要感谢此篇<a href="https://blog.csdn.net/qq_36759224/article/details/82121420" target="_blank" rel="noopener">Hexo博客搭建教程</a>作者的帮助，写自己的博客在我看来一是为了记录自己的学习记录过程，而是能写下一些实用性的教程，当有一定能力时能帮助别人也是帮助自己。</p>
-<ul>
-<li>接下来我将总结开学一个月来学到的东西<ul>
-<li>用Hexo搭建基于Github Pages的博客</li>
-<li>Webpack的使用（前端进阶）</li>
-<li>Eloquent Javascript深度学习</li>
-<li>菜鸟教程html+css+javascript框架学习</li>
-<li><strong>深度学习之Pytorch</strong></li>
-</ul>
-</li>
-</ul>
-<p><strong><em>由学习的结构性排列</em></strong></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
           </div>
@@ -1827,7 +1999,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1849,7 +2021,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
