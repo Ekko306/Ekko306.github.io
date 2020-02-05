@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="PyTorch总结首先明白Pytorch是一个深度学习框架，像《动手学深度学习》中使用的MXNet也是一种框架，框架不同，但是深度学习的内容体系是相同的，只是不同的框架有自己实现某个网络或者方法的不同方法。 应该掌握好深度学习理论知识的基础上，尽可能去熟悉多种框架的特点对《深度学习入门之PyTorch》对PyTorch主要： Pytorch基础Tensor（张量） PyTorch里面处理的最基本的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Summary of Pytorch and OpenCV">
+<meta property="og:url" content="http://yoursite.com/2020/02/05/Summary-of-Pytorch-and-OpenCV/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="PyTorch总结首先明白Pytorch是一个深度学习框架，像《动手学深度学习》中使用的MXNet也是一种框架，框架不同，但是深度学习的内容体系是相同的，只是不同的框架有自己实现某个网络或者方法的不同方法。 应该掌握好深度学习理论知识的基础上，尽可能去熟悉多种框架的特点对《深度学习入门之PyTorch》对PyTorch主要： Pytorch基础Tensor（张量） PyTorch里面处理的最基本的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2020/02/05/Summary-of-Pytorch-and-OpenCV/%E6%A1%86%E6%9E%B6.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/05/Summary-of-Pytorch-and-OpenCV/PyTorch.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/02/05/Summary-of-Pytorch-and-OpenCV/MXNet.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/02/05/Summary-of-Pytorch-and-OpenCV/book.png">
+<meta property="og:updated_time" content="2020-02-05T10:25:58.995Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Summary of Pytorch and OpenCV">
+<meta name="twitter:description" content="PyTorch总结首先明白Pytorch是一个深度学习框架，像《动手学深度学习》中使用的MXNet也是一种框架，框架不同，但是深度学习的内容体系是相同的，只是不同的框架有自己实现某个网络或者方法的不同方法。 应该掌握好深度学习理论知识的基础上，尽可能去熟悉多种框架的特点对《深度学习入门之PyTorch》对PyTorch主要： Pytorch基础Tensor（张量） PyTorch里面处理的最基本的">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/05/Summary-of-Pytorch-and-OpenCV/%E6%A1%86%E6%9E%B6.png">
+  <link rel="canonical" href="http://yoursite.com/2020/02/05/Summary-of-Pytorch-and-OpenCV/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Summary of Pytorch and OpenCV | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/05/Summary-of-Pytorch-and-OpenCV/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Summary of Pytorch and OpenCV
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-05 12:07:12 / 修改时间：18:25:58" itemprop="dateCreated datePublished" datetime="2020-02-05T12:07:12+08:00">2020-02-05</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="PyTorch总结"><a href="#PyTorch总结" class="headerlink" title="PyTorch总结"></a>PyTorch总结</h1><p>首先明白Pytorch是一个深度学习框架，像《动手学深度学习》中使用的MXNet也是一种框架，框架不同，但是深度学习的内容体系是相同的，只是不同的框架有自己实现某个网络或者方法的不同方法。<br><img src="/2020/02/05/Summary-of-Pytorch-and-OpenCV/%E6%A1%86%E6%9E%B6.png" alt="框架"></p>
+<p><strong>应该掌握好深度学习理论知识的基础上，尽可能去熟悉多种框架的特点</strong><br>对《深度学习入门之PyTorch》对PyTorch主要：</p>
+<h2 id="Pytorch基础"><a href="#Pytorch基础" class="headerlink" title="Pytorch基础"></a>Pytorch基础</h2><h3 id="Tensor（张量）"><a href="#Tensor（张量）" class="headerlink" title="Tensor（张量）"></a>Tensor（张量）</h3><blockquote>
+<p>PyTorch里面处理的最基本的操作对象是Tensor，Tensor是张量的英文。</p>
+<ul>
+<li>张量表示的是一个多位的数组，和numpy对应，而且PyTorch的Tensor可以和numpy的ndarray相互转换（MXNet也可以相互转换），唯一不同的是PyTorch可以在GPU上运行，而numpy的ndarray只能在CPU上运行。</li>
+<li>Tensor的数据类型：<br>  -32位浮点型torch.FloatTensor<br>  -64位浮点型torch.DoubleTensor<br>  -16位整型torch.ShortTensor<br>  -32位整型torch.IntTensor<br>  -64位整型torch.LongTensor</li>
+</ul>
+</blockquote>
+<p>定义使用方法一看就会。<br><strong>把tensor放到GPU上</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> torch.cuda.is_available():</span><br><span class="line">    a_cuda = a.cuda()</span><br><span class="line">    print(a_cuda)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Variable（变量）"><a href="#Variable（变量）" class="headerlink" title="Variable（变量）"></a>Variable（变量）</h3><p>接着要将的概念是Variable，在numpy里面没有，是<strong>神经网络计算图特有的</strong>概念。</p>
+<blockquote>
+<p>Variable和Tensor本质上没有区别，不过Variable会被放入一个计算图中，然后进行前向传播，反向传播，自动求导。</p>
+<ul>
+<li>Variabel是在torch.autograd.Variable中</li>
+<li>讲一个tensor变成Variable，只需要Variable(a)就可以</li>
+<li>Variable具有三个重要属性：data,grad,grad_fn<ul>
+<li>data可以取出Variable里面tensor数值</li>
+<li>grad_fn表示得到这个Variable的操作（函数）</li>
+<li>grad是这个Variable的反向传播梯度。<br>例子：</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建变量</span></span><br><span class="line">x = Variable(torch.Tensor([<span class="number">1</span>]), requires_grad=<span class="literal">True</span>)</span><br><span class="line">w = Variable(torch.Tensor([<span class="number">2</span>]), requires_grad=<span class="literal">True</span>)</span><br><span class="line">b = Variable(torch.Tensor([<span class="number">3</span>]), requires_grad=<span class="literal">True</span>)</span><br><span class="line"><span class="comment">#建立计算图</span></span><br><span class="line">y = w * x +b</span><br><span class="line"><span class="comment">#计算梯度</span></span><br><span class="line">y.backward()    <span class="comment">#和y.backward(torch.FloatTensor([1]))相同</span></span><br><span class="line">print(x.grad)   <span class="comment">#x.grad = 2  </span></span><br><span class="line">print(w.grad)   <span class="comment">#w.grad = 1</span></span><br><span class="line">print(b.grad)   <span class="comment">#b.grad = 1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><em>注意两点：</em></strong></p>
+<ol>
+<li>构建Variable需要传入一个参数requires_grad=True，表示是否对这个变量求梯度，默认是Flase</li>
+<li>y.backward()是所谓的自动求导，所有量是标量就等价于y.backward(torch.FloatTensor([1]))省略的不用谢，自动求导就不需要去明确地写明是对那个函数求导，直接对所有需要的梯度求导，但对矩阵比如三维向量，这时候y是一个向量，必须声明y.backward(torch.FloatTensor([1, 1, 1])得到每个分量的梯度)<h3 id="Dataset（数据集）"><a href="#Dataset（数据集）" class="headerlink" title="Dataset（数据集）"></a>Dataset（数据集）</h3><blockquote>
+<p>任何机器学习问题都需要<strong>数据集</strong>，PyTorch提供很多<strong>工具</strong>，用来通过迭代的方式获取每一个数据:</p>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>torch.utils.data.Dataset</td>
+<td>定义自己的数据类继承和重写这个类，但很难实现取batch，shuffle或者多线程取读取数据</td>
+</tr>
+<tr>
+<td>torch.utils.data.DataLoader</td>
+<td>简单的方法实现上述功能</td>
+</tr>
+<tr>
+<td>torchvision包的ImageFolder</td>
+<td>高级关于计算机视觉的数据读取类，主要处理图片</td>
+</tr>
+<tr>
+<td><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#自定义继承Dataset:</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myDataset</span><span class="params">(Dataset)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, csv_file, txt_file, root_dir, other_file)</span>:</span></span><br><span class="line">    self.csv_data = pd.read_csv(csv_file)</span><br><span class="line">    <span class="keyword">with</span> open(txt_file, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        data_list = f.readlines()</span><br><span class="line">    self.txt_data = data_list</span><br><span class="line">    self.root_dir = root_dir</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self.sv_data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, idx)</span>:</span></span><br><span class="line">        data = (self.csv_data[idx], self.txt_data[idx])</span><br><span class="line">        <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义好的迭代器</span></span><br><span class="line">dataiter = DataLoader(myDataset, batch_size = <span class="number">32</span>, shuffle=<span class="literal">True</span>, collate_fn=default_collate)</span><br><span class="line"><span class="comment">#collate_fn表示如何取样本，可以定义自己想要的内容</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#读取图片数据集</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">要求图片存放格式</span></span><br><span class="line"><span class="string">root/dog/xxx.png</span></span><br><span class="line"><span class="string">root/cat/123.png</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">deset = ImageFolder(root=<span class="string">'root_path'</span>, transform=<span class="literal">None</span>, loader=defalut_loader)</span><br><span class="line"><span class="comment">#root是需要根目录，在这个目录下有几个文件夹，每个文件夹表示一个类别，transform和target_transform是图片增强，loader是图片读取的方法。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="nn-Module（模组）"><a href="#nn-Module（模组）" class="headerlink" title="nn.Module（模组）"></a>nn.Module（模组）</h3><blockquote>
+<p>要构建神经网络，所有的层结构和损失函数都需要模组，来自于torch.nn，所有的模版构建从这个<strong>基类nn.Module继承</strong></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">net_name</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, other_arguments)</span>:</span></span><br><span class="line">        super(net_name, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size)</span><br><span class="line">        <span class="comment">#other network layer</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        x = self.conv1(x)</span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
+
+<p>上面就建立了一个计算图，可反复用，调用一次就相当于一次前向传播，因为自动求导不用自己写反向传播。所有的网络层都由nn包得到。<br>nn包还可以定义<strong>损失函数</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line">loss = criterion(output, target)</span><br></pre></td></tr></table></figure>
+
+<h3 id="torch-optim（优化）"><a href="#torch-optim（优化）" class="headerlink" title="torch.optim（优化）"></a>torch.optim（优化）</h3><blockquote>
+<p>需要通过修改参数使得损失函数最小化，优化算法就是一种调整模型参数更新的策略。</p>
+<ol>
+<li>一阶优化算法<br> 使用各个参数的梯度值更新参数，最常见的一阶优化算法是梯度下降。梯度下降寻找最小值，控制方差，更新模型参数，最终模型收敛。</li>
+<li>二阶优化算法<br> 使用了<strong>二阶导数</strong>来最小化或最大化损失函数。</li>
+</ol>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">optimizer = torch.optim.SGD(model.parameters(), lr=<span class="number">0.01</span>, momentum=<span class="number">0.9</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="模型的保存和加载"><a href="#模型的保存和加载" class="headerlink" title="模型的保存和加载"></a>模型的保存和加载</h3><blockquote>
+<p>torch.save保存模型的结构和参数</p>
+</blockquote>
+<p>两种保存：</p>
+<ol>
+<li><p>保存整个模型的结构细腻和参数信息，保存的对象是模型model</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.save(model, <span class="string">'./model.pth'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存模型的参数，保存的对象是模型的状态model.state_dict()</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.save(model.state_dict, <span class="string">'./model.pth'</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>两种读取：</p>
+<ol>
+<li><code>load_model = torch.load(&#39;model.pth&#39;)</code>加载完整的模型结构和参数信息，网络大加载慢</li>
+<li><code>model.load_state_dic(torch.load(&#39;model_state,pth&#39;))</code>需要先导入模型结构<h2 id="PyTorch实际应用"><a href="#PyTorch实际应用" class="headerlink" title="PyTorch实际应用"></a>PyTorch实际应用</h2>其实PyTorch只一种框架，书中大多数内容是在介绍深度学习知识理论，应该更多关注PyTorch这个框架的特别不同的，具有特色的地方，下面对比PyTorch和MXNet的卷积神经网络的模型训练结构：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用Pytorch训练MNIST数据集</span></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> datasets, transforms</span><br><span class="line">torch.__version__</span><br><span class="line"></span><br><span class="line">BATCH_SIZE=<span class="number">512</span> <span class="comment">#大概需要2G的显存</span></span><br><span class="line">EPOCHS=<span class="number">20</span> <span class="comment"># 总共训练批次</span></span><br><span class="line">DEVICE = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">"cpu"</span>) <span class="comment"># 让torch判断是否使用GPU，建议使用GPU环境，因为会快很多</span></span><br><span class="line"></span><br><span class="line">train_loader = torch.utils.data.DataLoader(</span><br><span class="line">        datasets.MNIST(<span class="string">'data'</span>, train=<span class="literal">True</span>, download=<span class="literal">True</span>, </span><br><span class="line">                       transform=transforms.Compose([</span><br><span class="line">                           transforms.ToTensor(),</span><br><span class="line">                           transforms.Normalize((<span class="number">0.1307</span>,), (<span class="number">0.3081</span>,))</span><br><span class="line">                       ])),</span><br><span class="line">        batch_size=BATCH_SIZE, shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">test_loader = torch.utils.data.DataLoader(</span><br><span class="line">        datasets.MNIST(<span class="string">'data'</span>, train=<span class="literal">False</span>, transform=transforms.Compose([</span><br><span class="line">                           transforms.ToTensor(),</span><br><span class="line">                           transforms.Normalize((<span class="number">0.1307</span>,), (<span class="number">0.3081</span>,))</span><br><span class="line">                       ])),</span><br><span class="line">        batch_size=BATCH_SIZE, shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConvNet</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super().__init__()</span><br><span class="line">        <span class="comment"># 1,28x28</span></span><br><span class="line">        self.conv1=nn.Conv2d(<span class="number">1</span>,<span class="number">10</span>,<span class="number">5</span>) <span class="comment"># 10, 24x24</span></span><br><span class="line">        self.conv2=nn.Conv2d(<span class="number">10</span>,<span class="number">20</span>,<span class="number">3</span>) <span class="comment"># 128, 10x10</span></span><br><span class="line">        self.fc1 = nn.Linear(<span class="number">20</span>*<span class="number">10</span>*<span class="number">10</span>,<span class="number">500</span>)</span><br><span class="line">        self.fc2 = nn.Linear(<span class="number">500</span>,<span class="number">10</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self,x)</span>:</span></span><br><span class="line">        in_size = x.size(<span class="number">0</span>)</span><br><span class="line">        out = self.conv1(x) <span class="comment">#24</span></span><br><span class="line">        out = F.relu(out)</span><br><span class="line">        out = F.max_pool2d(out, <span class="number">2</span>, <span class="number">2</span>)  <span class="comment">#12</span></span><br><span class="line">        out = self.conv2(out) <span class="comment">#10</span></span><br><span class="line">        out = F.relu(out)</span><br><span class="line">        out = out.view(in_size,<span class="number">-1</span>)</span><br><span class="line">        out = self.fc1(out)</span><br><span class="line">        out = F.relu(out)</span><br><span class="line">        out = self.fc2(out)</span><br><span class="line">        out = F.log_softmax(out,dim=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line"></span><br><span class="line">model = ConvNet().to(DEVICE)</span><br><span class="line">optimizer = optim.Adam(model.parameters())</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(model, device, train_loader, optimizer, epoch)</span>:</span></span><br><span class="line">    model.train()</span><br><span class="line">    <span class="keyword">for</span> batch_idx, (data, target) <span class="keyword">in</span> enumerate(train_loader):</span><br><span class="line">        data, target = data.to(device), target.to(device)</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        output = model(data)</span><br><span class="line">        loss = F.nll_loss(output, target)</span><br><span class="line">        loss.backward()</span><br><span class="line">        optimizer.step()</span><br><span class="line">        <span class="keyword">if</span>(batch_idx+<span class="number">1</span>)%<span class="number">30</span> == <span class="number">0</span>: </span><br><span class="line">            print(<span class="string">'Train Epoch: &#123;&#125; [&#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)]\tLoss: &#123;:.6f&#125;'</span>.format(</span><br><span class="line">                epoch, batch_idx * len(data), len(train_loader.dataset),</span><br><span class="line">                <span class="number">100.</span> * batch_idx / len(train_loader), loss.item()))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(model, device, test_loader)</span>:</span></span><br><span class="line">    model.eval()</span><br><span class="line">    test_loss = <span class="number">0</span></span><br><span class="line">    correct = <span class="number">0</span></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        <span class="keyword">for</span> data, target <span class="keyword">in</span> test_loader:</span><br><span class="line">            data, target = data.to(device), target.to(device)</span><br><span class="line">            output = model(data)</span><br><span class="line">            test_loss += F.nll_loss(output, target, reduction=<span class="string">'sum'</span>).item() <span class="comment"># 将一批的损失相加</span></span><br><span class="line">            pred = output.max(<span class="number">1</span>, keepdim=<span class="literal">True</span>)[<span class="number">1</span>] <span class="comment"># 找到概率最大的下标</span></span><br><span class="line">            correct += pred.eq(target.view_as(pred)).sum().item()</span><br><span class="line"></span><br><span class="line">    test_loss /= len(test_loader.dataset)</span><br><span class="line">    print(<span class="string">'\nTest set: Average loss: &#123;:.4f&#125;, Accuracy: &#123;&#125;/&#123;&#125; (&#123;:.0f&#125;%)\n'</span>.format(</span><br><span class="line">        test_loss, correct, len(test_loader.dataset),</span><br><span class="line">        <span class="number">100.</span> * correct / len(test_loader.dataset)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(<span class="number">1</span>, EPOCHS + <span class="number">1</span>):</span><br><span class="line">    train(model, DEVICE, train_loader, optimizer, epoch)</span><br><span class="line">    test(model, DEVICE, test_loader)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><img src="/2020/02/05/Summary-of-Pytorch-and-OpenCV/PyTorch.jpg" alt="PyTorch"></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用MXNet训练Fashion-MNIST数据集</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">".."</span>)</span><br><span class="line"><span class="keyword">import</span> d2lzh <span class="keyword">as</span> d2l</span><br><span class="line"><span class="keyword">import</span> mxnet <span class="keyword">as</span> mx</span><br><span class="line"><span class="keyword">from</span> mxnet <span class="keyword">import</span> autograd, gluon, init, nd</span><br><span class="line"><span class="keyword">from</span> mxnet.gluon <span class="keyword">import</span> loss <span class="keyword">as</span> gloss, nn</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">net = nn.Sequential()</span><br><span class="line">net.add(nn.Conv2D(channels=<span class="number">6</span>, kernel_size=<span class="number">5</span>, activation=<span class="string">'sigmoid'</span>),</span><br><span class="line">        nn.MaxPool2D(pool_size=<span class="number">2</span>, strides=<span class="number">2</span>),</span><br><span class="line">        nn.Conv2D(channels=<span class="number">16</span>, kernel_size=<span class="number">5</span>, activation=<span class="string">'sigmoid'</span>),</span><br><span class="line">        nn.MaxPool2D(pool_size=<span class="number">2</span>, strides=<span class="number">2</span>),</span><br><span class="line">        <span class="comment"># Dense会默认将(批量大小, 通道, 高, 宽)形状的输入转换成</span></span><br><span class="line">        <span class="comment"># (批量大小, 通道 * 高 * 宽)形状的输入</span></span><br><span class="line">        nn.Dense(<span class="number">120</span>, activation=<span class="string">'sigmoid'</span>),</span><br><span class="line">        nn.Dense(<span class="number">84</span>, activation=<span class="string">'sigmoid'</span>),</span><br><span class="line">        nn.Dense(<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">X = nd.random.uniform(shape=(<span class="number">1</span>, <span class="number">1</span>, <span class="number">28</span>, <span class="number">28</span>))</span><br><span class="line">net.initialize()</span><br><span class="line"><span class="keyword">for</span> layer <span class="keyword">in</span> net:</span><br><span class="line">    X = layer(X)</span><br><span class="line">    print(layer.name, <span class="string">'output shape:\t'</span>, X.shape)</span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">256</span></span><br><span class="line">train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">try_gpu</span><span class="params">()</span>:</span>  <span class="comment"># 本函数已保存在d2lzh包中方便以后使用</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        ctx = mx.gpu()</span><br><span class="line">        _ = nd.zeros((<span class="number">1</span>,), ctx=ctx)</span><br><span class="line">    <span class="keyword">except</span> mx.base.MXNetError:</span><br><span class="line">        ctx = mx.cpu()</span><br><span class="line">    <span class="keyword">return</span> ctx</span><br><span class="line"></span><br><span class="line">ctx = try_gpu()</span><br><span class="line">ctx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 本函数已保存在d2lzh包中方便以后使用。该函数将被逐步改进：它的完整实现将在“图像增广”一节中</span></span><br><span class="line"><span class="comment"># 描述</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">evaluate_accuracy</span><span class="params">(data_iter, net, ctx)</span>:</span></span><br><span class="line">    acc_sum, n = nd.array([<span class="number">0</span>], ctx=ctx), <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> X, y <span class="keyword">in</span> data_iter:</span><br><span class="line">        <span class="comment"># 如果ctx代表GPU及相应的显存，将数据复制到显存上</span></span><br><span class="line">        X, y = X.as_in_context(ctx), y.as_in_context(ctx).astype(<span class="string">'float32'</span>)</span><br><span class="line">        acc_sum += (net(X).argmax(axis=<span class="number">1</span>) == y).sum()</span><br><span class="line">        n += y.size</span><br><span class="line">    <span class="keyword">return</span> acc_sum.asscalar() / n</span><br><span class="line"></span><br><span class="line"><span class="comment"># 本函数已保存在d2lzh包中方便以后使用</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_ch5</span><span class="params">(net, train_iter, test_iter, batch_size, trainer, ctx,</span></span></span><br><span class="line"><span class="function"><span class="params">              num_epochs)</span>:</span></span><br><span class="line">    print(<span class="string">'training on'</span>, ctx)</span><br><span class="line">    loss = gloss.SoftmaxCrossEntropyLoss()</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> range(num_epochs):</span><br><span class="line">        train_l_sum, train_acc_sum, n, start = <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0</span>, time.time()</span><br><span class="line">        <span class="keyword">for</span> X, y <span class="keyword">in</span> train_iter:</span><br><span class="line">            X, y = X.as_in_context(ctx), y.as_in_context(ctx)</span><br><span class="line">            <span class="keyword">with</span> autograd.record():</span><br><span class="line">                y_hat = net(X)</span><br><span class="line">                l = loss(y_hat, y).sum()</span><br><span class="line">            l.backward()</span><br><span class="line">            trainer.step(batch_size)</span><br><span class="line">            y = y.astype(<span class="string">'float32'</span>)</span><br><span class="line">            train_l_sum += l.asscalar()</span><br><span class="line">            train_acc_sum += (y_hat.argmax(axis=<span class="number">1</span>) == y).sum().asscalar()</span><br><span class="line">            n += y.size</span><br><span class="line">        test_acc = evaluate_accuracy(test_iter, net, ctx)</span><br><span class="line">        print(<span class="string">'epoch %d, loss %.4f, train acc %.3f, test acc %.3f, '</span></span><br><span class="line">              <span class="string">'time %.1f sec'</span></span><br><span class="line">              % (epoch + <span class="number">1</span>, train_l_sum / n, train_acc_sum / n, test_acc,</span><br><span class="line">                 time.time() - start))</span><br><span class="line"></span><br><span class="line">lr, num_epochs = <span class="number">0.9</span>, <span class="number">5</span></span><br><span class="line">net.initialize(force_reinit=<span class="literal">True</span>, ctx=ctx, init=init.Xavier())</span><br><span class="line">trainer = gluon.Trainer(net.collect_params(), <span class="string">'sgd'</span>, &#123;<span class="string">'learning_rate'</span>: lr&#125;)</span><br><span class="line">train_ch5(net, train_iter, test_iter, batch_size, trainer, ctx, num_epochs)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/05/Summary-of-Pytorch-and-OpenCV/MXNet.jpg" alt="MXNet"></p>
+<p><strong>可以对比发现，两种框架其实对深度学习整个流程都是大同小异，同时框架也有自己的特点，多查看官方文档就能使用熟练，更重要是掌握深度学习整个流程，各种模型特点，调参等方法，各种优化算法、损失算法的本质掌握清楚才能更好训练出模型</strong></p>
+<h1 id="OpenCV总结"><a href="#OpenCV总结" class="headerlink" title="OpenCV总结"></a>OpenCV总结</h1><h2 id="全书结构："><a href="#全书结构：" class="headerlink" title="全书结构："></a>全书结构：</h2><p><img src="/2020/02/05/Summary-of-Pytorch-and-OpenCV/book.png" alt="book"></p>
+<blockquote>
+<p>OpenCV为Open Source Computer Vision的缩写，是一个免费的计算机视觉库，可通过处理图像和视频完成各种任务，包括摄像头输入的信号以及使机器人识别现实生活中的物体。</p>
+</blockquote>
+<p>其实OpenCV重点是掌握怎么使用，这本书比较详细的介绍了OpenCV中的一些接口的原理和应用，但重点应该在熟悉理解opeCV的一些重要图像处理的思想和应用。<br><strong>对这本书的完成情况：</strong></p>
+<ul>
+<li>前三章是完全读完了并且敲了代码，有个大致的了解</li>
+<li>书中给的Cameo实际例子，是Python写的，由于c++最后有一个综合实例，为了一举两得，既学习了c++面向对象编程的思想，同时更熟悉OpenCV，我把书中的Python代码改成了c++格式当作业交了上去😂，最后实现了一个能够人脸检测的摄像头。对一些方法又有了更实际的掌握。<h2 id="OpenCV要点总结"><a href="#OpenCV要点总结" class="headerlink" title="OpenCV要点总结"></a>OpenCV要点总结</h2><h3 id="OpenCV的基础"><a href="#OpenCV的基础" class="headerlink" title="OpenCV的基础"></a>OpenCV的基础</h3>主要学习如何使用OpenCV对输入和输出流的控制，方法一看就会。<h4 id="读-写图像文件"><a href="#读-写图像文件" class="headerlink" title="读/写图像文件"></a>读/写图像文件</h4>OpenCV的imread函数和imwrite函数都支持各种静态图像文件格式。不同系统支持图像格式不同，但都支持BMP格式，通常还支持PNG、JPEG和TIFF格式。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">img = numpy.zeros((<span class="number">3</span>,<span class="number">3</span>), dtype=numpy.uint8) <span class="comment">#numpy图像实例</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#转换图像成BGR格式</span></span><br><span class="line">img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)</span><br><span class="line"><span class="comment">#读文件</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">可选参数：</span></span><br><span class="line"><span class="string">IMREAD_ANYCOLOR\IMREADANYDEPTH\IMREAD_COLOR\IMREAD_GRAYSCALE..</span></span><br><span class="line"><span class="string">image = cv2.imread('MyPic.png', cv2.IMREAD_GRAYSCALE)</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">image = cv2.imread(<span class="string">'MyPic.png'</span>)</span><br><span class="line"><span class="comment">#写文件</span></span><br><span class="line">cv2.imwrite(<span class="string">'MyPic.jpg'</span>, image)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="图像与原始字节之间的转换"><a href="#图像与原始字节之间的转换" class="headerlink" title="图像与原始字节之间的转换"></a>图像与原始字节之间的转换</h4><p>一张图像可以的每个像素点可以用每个通道的一个字节表示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#若一图像每个通道8为，可转换成python bytearray格式</span></span><br><span class="line">byteArray = bytearray(image)</span><br><span class="line"><span class="comment">#若bytearray有恰当的顺序字节，可以转换成numpy.array的图像</span></span><br><span class="line">grayImage = numpy.array(grayByteArray).reshape(height, width)</span><br><span class="line">bgrImage = numpy.array(bgrByteArray).reshape(height, width, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用numpy-array访问图像数据"><a href="#使用numpy-array访问图像数据" class="headerlink" title="使用numpy.array访问图像数据"></a>使用numpy.array访问图像数据</h3><p>numpy的array可以很好的处理OpenCV的数组，提高效率，代码简洁</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">img = cv.imread(<span class="string">'MyPic.png'</span>)</span><br><span class="line">img[<span class="number">0</span>, <span class="number">0</span>] = [<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>]  <span class="comment">#灰度</span></span><br><span class="line">img[:, :, <span class="number">1</span>] = <span class="number">0</span>   <span class="comment">#BGR格式</span></span><br><span class="line">img[<span class="number">300</span>:<span class="number">400</span>, <span class="number">300</span>::<span class="number">400</span>] = img[<span class="number">0</span>:<span class="number">100</span>, <span class="number">0</span>:<span class="number">100</span>] <span class="comment">#等等</span></span><br></pre></td></tr></table></figure>
+
+<p>强烈要求同时掌握numpy.array库是Python处理图像的基础。</p>
+<h3 id="视频文件的读写"><a href="#视频文件的读写" class="headerlink" title="视频文件的读写"></a>视频文件的读写</h3><p>提供了VideoCapture类（读）和VideoWriter类（写）</p>
+<ul>
+<li>VideoCapture里可通过read()函数来获取新的帧，每一帧都是基于BGR格式的图像</li>
+<li>可将一幅图像传递给VideoWriter类的write()函数，该函数会将这幅图像加到VideoWriter类所指像的文件中。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义视频获取类</span></span><br><span class="line">videoCapture = cv2.VideoCapture(<span class="string">'MyInputVid.avi'</span>)</span><br><span class="line">fps = videoCapture.get(cv2.CAP_PROP_FPS)  <span class="comment">#FPS</span></span><br><span class="line">size = (int(videoCapture.get(cv2.CAP_PROP_FRAME_WIDTH)),int(videoCapture.get(cv2.CAP_PROP_FRAME_HEIGHT))) <span class="comment">#size</span></span><br><span class="line"><span class="comment">#定义写视频类</span></span><br><span class="line">videoWriter = cv2.VideoWriter (<span class="string">'MyOutputvid.avi'</span>,<span class="string">'cv2.VideoWriter_fourcc('</span>I<span class="string">','</span><span class="number">4</span><span class="string">','</span><span class="number">2</span><span class="string">','</span><span class="number">0</span><span class="string">')'</span>, fps, size) </span><br><span class="line"></span><br><span class="line"><span class="comment">#将读取的帧写到新文件中</span></span><br><span class="line">success, frame = videoCapture.read()</span><br><span class="line"><span class="keyword">while</span> success:</span><br><span class="line">    videoWriter.write(frame)</span><br><span class="line">    success, frame = videoCapture.read()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>帧速率fps，帧大小，帧的编码方式都有不同的参数</strong></p>
+<h3 id="捕获摄像头的帧"><a href="#捕获摄像头的帧" class="headerlink" title="捕获摄像头的帧"></a>捕获摄像头的帧</h3><p>简单，需要传递摄像头的设备索引<strong>device index</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cameraCapture = cv2.VideoCapture(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>但是VideoCapture类的get()方法对不同系统有限制，有的不支持查询总会返回零。</li>
+<li>对帧的fps要么作出假设要么用计时器测量，来创建合适的VideoWriter类</li>
+<li>摄像头的数量和顺序由系统定，但OpenCV没有提供摄像头查询方法，使用无效索引会得不到，可以用<code>VideoCapture.isOpened</code>做一个判断</li>
+<li>需要同步一组摄像头或者多头摄像头，read()方法不适用。应用gran()和retrive()方法代替。  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">success0 = cameraCapture0.grab()</span><br><span class="line">success1 = cameraCapture1.grab()</span><br><span class="line"><span class="keyword">if</span> success0 <span class="keyword">and</span> success1:</span><br><span class="line">    frame = cameraCapture0.retrieve()</span><br><span class="line">    frame = cameraCapture1.retrieve()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="在窗口显示图像"><a href="#在窗口显示图像" class="headerlink" title="在窗口显示图像"></a>在窗口显示图像</h3><p>简单的imshow()来显示一幅图像。但会一瞬间消失。用waitKey()函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.imread(<span class="string">'my-image.png'</span>)</span><br><span class="line">cv2.imshow(<span class="string">'my image'</span>, img)</span><br><span class="line">cv2.waitKey()</span><br><span class="line">cv2.destroyAllwindows()</span><br></pre></td></tr></table></figure>
+
+<h3 id="在窗口显示摄像头帧"><a href="#在窗口显示摄像头帧" class="headerlink" title="在窗口显示摄像头帧"></a>在窗口显示摄像头帧</h3><p>OpenCV的nameedWindow()、imshow()和DestroyWindow()函数允许指定窗口名创建、显示和销毁窗口，实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">clicked = <span class="literal">False</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">onMouse</span><span class="params">(event, x, y, flags, param)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> clicked</span><br><span class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONUP:</span><br><span class="line">        clicked = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">cameraCapture = cv2.VideoCapture(<span class="number">0</span>)</span><br><span class="line">cv2.namedWindow(<span class="string">'MyWindow'</span>)</span><br><span class="line">cv2.setMouseCallback(<span class="string">'MyWindow'</span>, onMouse)</span><br><span class="line"></span><br><span class="line">success, frame = cameraCapture.read()</span><br><span class="line"><span class="keyword">while</span> success <span class="keyword">and</span> cv2.waitKey(<span class="number">1</span>) == <span class="number">-1</span> <span class="keyword">and</span> <span class="keyword">not</span> clicked:</span><br><span class="line">    cv2.imshow(<span class="string">'MyWindow'</span>, frame)</span><br><span class="line">    success, frame = cameraCapture.read()</span><br><span class="line"></span><br><span class="line">cv2.destroyWindow(<span class="string">'MyWindow'</span>)</span><br><span class="line">cameraCapture.release()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Cameo项目"><a href="#Cameo项目" class="headerlink" title="Cameo项目"></a>Cameo项目</h2><p>可以用OpenCV实现一个小的摄像头应用，关键是想好摄像头的逻辑，封装一些类与对象，看代码比写总结效率高。<br>之后的许多卷积来做目标检测、人脸检测诸多算法都有OpenCV的自己封装的方式，需要用的时候学习理解起来也比较快，基本的图像处理概念掌握应用到之后的项目实例中。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/01/22/dive-into-deep-learning/" rel="next" title="dive into deep learning">
+                  <i class="fa fa-chevron-left"></i> dive into deep learning
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PyTorch总结"><span class="nav-number">1.</span> <span class="nav-text">PyTorch总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pytorch基础"><span class="nav-number">1.1.</span> <span class="nav-text">Pytorch基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tensor（张量）"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tensor（张量）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Variable（变量）"><span class="nav-number">1.1.2.</span> <span class="nav-text">Variable（变量）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dataset（数据集）"><span class="nav-number">1.1.3.</span> <span class="nav-text">Dataset（数据集）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nn-Module（模组）"><span class="nav-number">1.1.4.</span> <span class="nav-text">nn.Module（模组）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#torch-optim（优化）"><span class="nav-number">1.1.5.</span> <span class="nav-text">torch.optim（优化）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型的保存和加载"><span class="nav-number">1.1.6.</span> <span class="nav-text">模型的保存和加载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyTorch实际应用"><span class="nav-number">1.2.</span> <span class="nav-text">PyTorch实际应用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenCV总结"><span class="nav-number">2.</span> <span class="nav-text">OpenCV总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全书结构："><span class="nav-number">2.1.</span> <span class="nav-text">全书结构：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV要点总结"><span class="nav-number">2.2.</span> <span class="nav-text">OpenCV要点总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OpenCV的基础"><span class="nav-number">2.2.1.</span> <span class="nav-text">OpenCV的基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#读-写图像文件"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">读/写图像文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图像与原始字节之间的转换"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">图像与原始字节之间的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用numpy-array访问图像数据"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用numpy.array访问图像数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视频文件的读写"><span class="nav-number">2.2.3.</span> <span class="nav-text">视频文件的读写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#捕获摄像头的帧"><span class="nav-number">2.2.4.</span> <span class="nav-text">捕获摄像头的帧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在窗口显示图像"><span class="nav-number">2.2.5.</span> <span class="nav-text">在窗口显示图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在窗口显示摄像头帧"><span class="nav-number">2.2.6.</span> <span class="nav-text">在窗口显示摄像头帧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cameo项目"><span class="nav-number">2.3.</span> <span class="nav-text">Cameo项目</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658"
+      alt="望星的太阳花">
+  <p class="site-author-name" itemprop="name">望星的太阳花</p>
+  <div class="site-description" itemprop="description">You are my JavaSript in my HTML.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">望星的太阳花</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.1</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
