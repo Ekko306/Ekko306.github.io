@@ -55,12 +55,12 @@
   };
 </script>
 
-  <meta name="description" content="神作Eloquent JavaScript阅读笔记 Chapter 1 Values, Types, and Operators 主要讲的js中数据的类型，同时有许多底层细节的地方值得注意。  Numbers：  范围小于2&amp;lt;sup&amp;gt;64&amp;lt;sup&amp;gt; 但是有了负数和小数点，数据只能小于15个0 可以用科学计数法 2.998e8   Special numbers：  三个特殊">
+  <meta name="description" content="神作Eloquent JavaScript阅读笔记Chapter 1 Values, Types, and Operators主要讲的js中数据的类型，同时有许多底层细节的地方值得注意。  Numbers：  范围小于264 但是有了负数和小数点，数据只能小于15个0 可以用科学计数法 2.998e8   Special numbers：  三个特殊的数:Infinity,-Infinity,Na">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Eloquent JavaScript学习笔记">
 <meta property="og:url" content="http://yoursite.com/2019/10/06/Eloquent-JavaScript学习笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="神作Eloquent JavaScript阅读笔记 Chapter 1 Values, Types, and Operators 主要讲的js中数据的类型，同时有许多底层细节的地方值得注意。  Numbers：  范围小于2&amp;lt;sup&amp;gt;64&amp;lt;sup&amp;gt; 但是有了负数和小数点，数据只能小于15个0 可以用科学计数法 2.998e8   Special numbers：  三个特殊">
+<meta property="og:description" content="神作Eloquent JavaScript阅读笔记Chapter 1 Values, Types, and Operators主要讲的js中数据的类型，同时有许多底层细节的地方值得注意。  Numbers：  范围小于264 但是有了负数和小数点，数据只能小于15个0 可以用科学计数法 2.998e8   Special numbers：  三个特殊的数:Infinity,-Infinity,Na">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/10/06/Eloquent-JavaScript学习笔记/s1.png">
 <meta property="og:image" content="http://yoursite.com/2019/10/06/Eloquent-JavaScript学习笔记/s2.png">
@@ -95,7 +95,7 @@
 <meta property="og:updated_time" content="2019-10-11T15:22:45.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Eloquent JavaScript学习笔记">
-<meta name="twitter:description" content="神作Eloquent JavaScript阅读笔记 Chapter 1 Values, Types, and Operators 主要讲的js中数据的类型，同时有许多底层细节的地方值得注意。  Numbers：  范围小于2&amp;lt;sup&amp;gt;64&amp;lt;sup&amp;gt; 但是有了负数和小数点，数据只能小于15个0 可以用科学计数法 2.998e8   Special numbers：  三个特殊">
+<meta name="twitter:description" content="神作Eloquent JavaScript阅读笔记Chapter 1 Values, Types, and Operators主要讲的js中数据的类型，同时有许多底层细节的地方值得注意。  Numbers：  范围小于264 但是有了负数和小数点，数据只能小于15个0 可以用科学计数法 2.998e8   Special numbers：  三个特殊的数:Infinity,-Infinity,Na">
 <meta name="twitter:image" content="http://yoursite.com/2019/10/06/Eloquent-JavaScript学习笔记/s1.png">
   <link rel="canonical" href="http://yoursite.com/2019/10/06/Eloquent-JavaScript学习笔记/">
 
@@ -281,82 +281,66 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1>神作Eloquent JavaScript阅读笔记</h1>
-<h2>Chapter 1 Values, Types, and Operators</h2>
-<p>主要讲的js中数据的类型，同时有许多底层细节的地方值得注意。</p>
+        <h1 id="神作Eloquent-JavaScript阅读笔记"><a href="#神作Eloquent-JavaScript阅读笔记" class="headerlink" title="神作Eloquent JavaScript阅读笔记"></a>神作Eloquent JavaScript阅读笔记</h1><h2 id="Chapter-1-Values-Types-and-Operators"><a href="#Chapter-1-Values-Types-and-Operators" class="headerlink" title="Chapter 1 Values, Types, and Operators"></a>Chapter 1 Values, Types, and Operators</h2><p>主要讲的js中数据的类型，同时有许多底层细节的地方值得注意。</p>
 <ul>
-<li>Numbers：
+<li><p>Numbers：</p>
 <ul>
-<li>范围小于2&lt;sup&gt;64&lt;sup&gt;</li>
+<li>范围小于2<sup>64<sup></sup></sup></li>
 <li>但是有了负数和小数点，数据只能小于15个0</li>
 <li>可以用科学计数法 2.998e8</li>
 </ul>
 </li>
-<li>Special numbers：
+<li><p>Special numbers：</p>
 <ul>
 <li>三个特殊的数:Infinity,-Infinity,NaN.</li>
 <li>Infinity,-Infinity表示正无穷和负无穷，但不要太相信，很容易计算转化为NaN</li>
 <li>NaN表示“不是一个数字”，当你操作0/0，∞-∞，或者没有意义的运算就会得到NaN</li>
 </ul>
 </li>
-<li>Strings:
+<li><p>Strings:</p>
 <ul>
-<li>有三种格式 单引号''，双引号&quot;&quot; 和反引号 ``</li>
-<li>首先注意反引号：
-<ul>
-<li>用反引号圈起来里面可以用回车不被转义
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/s1.png" alt="s1"></li>
-<li>反引号里面能包含变量
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/s2.png" alt="s2"></li>
+<li>有三种格式 单引号’’，双引号”” 和反引号 ``</li>
+<li>首先注意反引号：<ul>
+<li>用反引号圈起来里面可以用回车不被转义<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/s1.png" alt="s1"></li>
+<li>反引号里面能包含变量<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/s2.png" alt="s2"></li>
 </ul>
 </li>
-<li>再就是转义字符：
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/s3.png" alt="s3"></li>
+<li>再就是转义字符：<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/s3.png" alt="s3"></li>
 </ul>
 </li>
-<li>Comparison：
+<li><p>Comparison：</p>
 <ul>
 <li><code>console.log(NaN == NaN)</code>结果是假，因为NaN应该表示无意义计算的结果，因此，它不等于任何其他无意义计算的结果。</li>
 </ul>
 </li>
-<li>Logical operators
--注意优先级：
--|| has the lowest precedence, then comes &amp;&amp;, then the comparison operators (&gt;, ==, and so on), and then the rest.</li>
-<li>Empty values:
+<li><p>Logical operators<br> -注意优先级：<br> -|| has the lowest precedence, then comes &amp;&amp;, then the comparison operators (&gt;, ==, and so on), and then the rest.</p>
+</li>
+<li><p>Empty values:</p>
 <ul>
 <li>空值，有两个undefined和null 大部分时间不区分 可看作可以交换的，表示没有值，但必须存在</li>
 </ul>
 </li>
-<li>Automatic type conversion:
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/a1.png" alt="a1">
+<li><p>Automatic type conversion:<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/a1.png" alt="a1"></p>
 <ul>
-<li>上述，类型转换，值得注意的：
-<ul>
-<li>当左右边有null或者undefined 必须两边都是才能真 否则为假
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/a2.png" alt="a2"></li>
+<li>上述，类型转换，值得注意的：<ul>
+<li>当左右边有null或者undefined 必须两边都是才能真 否则为假<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/a2.png" alt="a2"></li>
 </ul>
 </li>
 <li>同时你要严格一点就使用=== 和 !==,除非比较的类型是一样的，否则建议使用三元的</li>
 </ul>
 </li>
-<li>Short-circuiting of logical operators
+<li><p>Short-circuiting of logical operators</p>
 <ul>
-<li>这个很厉害（逻辑运算符短路）
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/sc1.png" alt="sc1"></li>
+<li>这个很厉害（逻辑运算符短路）<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/sc1.png" alt="sc1"></li>
 <li>简单说就是上述，当你这样子并起来你左边的值为空的话可以把右边的值当备选，实用</li>
-<li>还有是同c语言当&amp;&amp;的左边为假右边不看，当||的左边为真右边不看，短路</li>
+<li>还有是同c语言当&amp;&amp;的左边为假右边不看，当||的左边为真右边不看，短路<h2 id="Chapter-2-Program-Structure"><a href="#Chapter-2-Program-Structure" class="headerlink" title="Chapter 2 Program Structure"></a>Chapter 2 Program Structure</h2>第一章是基础数值，这里说明编程的结构</li>
 </ul>
 </li>
-</ul>
-<h2>Chapter 2 Program Structure</h2>
-<p>第一章是基础数值，这里说明编程的结构</p>
-<ul>
-<li>Bindings
+<li><p>Bindings</p>
 <ul>
 <li>绑定的概念，用关键字let,const,var</li>
 <li>形象的概念：您会长出一个触手来抓住它，或者将现有的触手重新连接到它上。有可能同时绑定到同一个值</li>
-<li>命名规则：
-<ul>
+<li>命名规则：<ul>
 <li>可以有数字和字母，不能数字开头</li>
 <li>A binding name may include dollar signs ($) or underscores (_) but no other punctuation or special characters.</li>
 <li>不能关键字</li>
@@ -364,119 +348,92 @@
 </li>
 </ul>
 </li>
-<li>The Environment
+<li><p>The Environment </p>
 <ul>
 <li>环境的概念:</li>
 <li>在给定时间存在的绑定及其值的集合称为环境。 程序启动时，此环境不为空。 它始终包含作为语言标准一部分的绑定，并且在大多数情况下，它还具有提供与周围系统进行交互的方式的绑定。 例如，在浏览器中，具有与当前加载的网站进行交互以及读取鼠标和键盘输入的功能。</li>
 <li>理解是与环境有关的绑定集合：绑定可用于以名称命名文件数据，它们对于跟踪程序中的状态很有用。 环境是定义的绑定集。 JavaScript系统始终在您的环境中放置许多有用的标准绑定。</li>
 </ul>
 </li>
-<li>The console.log function
+<li><p>The console.log function</p>
 <ul>
 <li>不寻常的绑定，是一个console控制台的绑定</li>
 <li>This is because console.log isn’t a simple binding. It is actually an expression that retrieves the log property from the value held by the console binding.</li>
 <li>正常的绑定无.</li>
 </ul>
 </li>
-<li>Return values
+<li><p>Return values</p>
 <ul>
 <li>这种不知道怎么说，就是说不是return 而用console.log来实现的叫做side effect</li>
 <li>显示对话框或在屏幕上写文本是一种副作用。 由于它们产生的副作用，许多功能很有用。 函数也可以产生值，在这种情况下，它们不需要产生副作用即可使用。 例如，函数Math.max接受任意数量的数字参数并返回最大值。</li>
 <li>⬆️翻译是副作用，就是不是返回的值</li>
 </ul>
 </li>
-<li>Capitalization：
+<li><p>Capitalization：</p>
 <ul>
-<li>命名方法
-— 推荐是小驼峰，开头是小写</li>
-<li>js里面没有其他面向对象语言的类概念，而是constructor 构造函数的概念，构造函数命名要大写</li>
+<li>命名方法<br>— 推荐是小驼峰，开头是小写</li>
+<li>js里面没有其他面向对象语言的类概念，而是constructor 构造函数的概念，构造函数命名要大写<h2 id="Chapter-3-Functions"><a href="#Chapter-3-Functions" class="headerlink" title="Chapter 3 Functions"></a>Chapter 3 Functions</h2></li>
 </ul>
 </li>
-</ul>
-<h2>Chapter 3 Functions</h2>
-<ul>
-<li>
-<p>Bindings and scopes</p>
+<li><p>Bindings and scopes</p>
 <ul>
 <li>绑定和作用域</li>
-<li>let和const(一直存在在程序运行的)会是严格的局部作用域，var会是全局的导致问题
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/c1.png" alt="c1"></li>
+<li>let和const(一直存在在程序运行的)会是严格的局部作用域，var会是全局的导致问题<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/c1.png" alt="c1"></li>
 </ul>
 </li>
-<li>
-<p>Nested scope</p>
+<li><p>Nested scope</p>
 <ul>
-<li>嵌套作用域
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/n1.png" alt="n1"></li>
+<li>嵌套作用域<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/n1.png" alt="n1"></li>
 <li>块内部可见的绑定集由该块在程序文本中的位置确定。 每个本地范围也可以看到包含它的所有本地范围，并且所有范围都可以看到全局范围。 这种绑定可见性的方法称为词法作用域。</li>
 </ul>
 </li>
-<li>
-<p>Functions as values</p>
+<li><p>Functions as values</p>
 <ul>
 <li>函数和值，你可以把函数定义成一个值，有时候会混淆，但是函数的概念是可以传入值来执行一个操作的</li>
 </ul>
 </li>
-<li>
-<p>Declaration notation</p>
+<li><p>Declaration notation</p>
 <ul>
 <li>js里面含糊不是从上而下的，可以先使用再定义</li>
 </ul>
 </li>
-<li>
-<p>Arrow functions</p>
+<li><p>Arrow functions</p>
 <ul>
 <li>箭头函数：四种定义使用方法</li>
-<li>一种正常，参数多，表达式多
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/ar1.png" alt="ar1"></li>
-<li>两种省略形式，参数一个或者表达式简单（直接返回）
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/ar2.png" alt="ar2"></li>
-<li>一种，没有参数，要写空括号
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/ar3.png" alt="ar3"></li>
+<li>一种正常，参数多，表达式多<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/ar1.png" alt="ar1"></li>
+<li>两种省略形式，参数一个或者表达式简单（直接返回）<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/ar2.png" alt="ar2"></li>
+<li>一种，没有参数，要写空括号<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/ar3.png" alt="ar3"></li>
 </ul>
 </li>
-<li>
-<p>The call stack</p>
+<li><p>The call stack</p>
 <ul>
 <li>说明调用和调用返回的原理</li>
 <li>存储该堆栈需要计算机内存中的空间。 当堆栈太大时，计算机将失败，并显示诸如“堆栈空间不足”或“递归过多”之类的消息。 下面的代码通过向计算机提出一个非常棘手的问题来说明这一点，该问题会导致两个函数之间的无限往返。 相反，如果计算机具有无限的堆栈，那将是无限的。 照原样，我们将用完空间，或“破坏堆栈”。</li>
 </ul>
 </li>
-<li>
-<p>Optional Arguments</p>
+<li><p>Optional Arguments</p>
 <ul>
 <li>实用的，相当于函数重载，更加方便</li>
 <li>js函数对参数的原则：如果通过太多，多余的将被忽略。 如果传递的参数太少，则会为缺失的参数分配未定义的值。</li>
-<li>下面两种就是具体的用法
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">minus</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (b === <span class="literal">undefined</span>) <span class="keyword">return</span> -a;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">power</span>(<span class="params">base, exponent = <span class="number">2</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> count = <span class="number">0</span>; count &lt; exponent; count++) &#123;</span><br><span class="line">    result *= base;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(power(<span class="number">4</span>));</span><br><span class="line"><span class="comment">// → 16</span></span><br><span class="line"><span class="built_in">console</span>.log(power(<span class="number">2</span>, <span class="number">6</span>));</span><br><span class="line"><span class="comment">// → 64</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>
-<p>Closure</p>
-<ul>
-<li>封装的问题，当你再次绑定时会更新局部变量绑定，所以不必要担心绑定的生命周期
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/cl1.png" alt="cl1"></li>
-<li>高级是：考虑这样的程序需要一些练习。 一个好的思维模型是将函数值视为包含其主体代码和创建它们的环境的代码。 调用函数体时，它会看到在其中创建它的环境，而不是在其中看到它的环境。
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/cl2.png" alt="cl2"></li>
-</ul>
-</li>
-<li>
-<p>Recursion</p>
-<ul>
-<li>回调函数，定义类似，可以让代码更优雅，但是代价可能比循环跑的更慢，但是作者建议用回调便于代码阅读。
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/r1.png" alt="r1"></li>
-<li>这种就很优雅很强大</li>
-</ul>
+<li>下面两种就是具体的用法<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">minus</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (b === <span class="literal">undefined</span>) <span class="keyword">return</span> -a;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">power</span>(<span class="params">base, exponent = <span class="number">2</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> count = <span class="number">0</span>; count &lt; exponent; count++) &#123;</span><br><span class="line">    result *= base;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(power(<span class="number">4</span>));</span><br><span class="line"><span class="comment">// → 16</span></span><br><span class="line"><span class="built_in">console</span>.log(power(<span class="number">2</span>, <span class="number">6</span>));</span><br><span class="line"><span class="comment">// → 64</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2>Chapter 4 Data Structures: Objects and Arrays</h2>
-<p>这一章主要讲了对象和数组，是用一个实际的一个人会因为做那些事情导致变成松鼠的例子来解释的，最后找到是因为吃了坚果不刷牙会变成松鼠，有很多数组的操作和对象的处理方法，只可意会不可言传。</p>
+</li>
+<li><p>Closure</p>
 <ul>
-<li>
-<p>Properties</p>
+<li>封装的问题，当你再次绑定时会更新局部变量绑定，所以不必要担心绑定的生命周期<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/cl1.png" alt="cl1"></li>
+<li>高级是：考虑这样的程序需要一些练习。 一个好的思维模型是将函数值视为包含其主体代码和创建它们的环境的代码。 调用函数体时，它会看到在其中创建它的环境，而不是在其中看到它的环境。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/cl2.png" alt="cl2"></li>
+</ul>
+</li>
+<li><p>Recursion</p>
 <ul>
-<li>翻译是属性，这里注意两种使用方法，它们都可以绑定到value对象的属性担有不同：
+<li>回调函数，定义类似，可以让代码更优雅，但是代价可能比循环跑的更慢，但是作者建议用回调便于代码阅读。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/r1.png" alt="r1"></li>
+<li>这种就很优雅很强大<h2 id="Chapter-4-Data-Structures-Objects-and-Arrays"><a href="#Chapter-4-Data-Structures-Objects-and-Arrays" class="headerlink" title="Chapter 4 Data Structures: Objects and Arrays"></a>Chapter 4 Data Structures: Objects and Arrays</h2>这一章主要讲了对象和数组，是用一个实际的一个人会因为做那些事情导致变成松鼠的例子来解释的，最后找到是因为吃了坚果不刷牙会变成松鼠，有很多数组的操作和对象的处理方法，只可意会不可言传。</li>
+</ul>
+</li>
+<li><p>Properties</p>
 <ul>
+<li>翻译是属性，这里注意两种使用方法，它们都可以绑定到value对象的属性担有不同：<ul>
 <li>value.x（只能是显式的已经存在的方法）</li>
 <li>value[x]（这个x是可以是表达式或者变量可以变化的值）</li>
 <li>数组中的元素存储为数组的属性，使用数字作为属性名称。 因为您不能将点符号与数字一起使用，并且通常希望使用无论如何都可容纳索引的绑定，所以必须使用方括号符号来获取它们。</li>
@@ -484,48 +441,37 @@
 </li>
 </ul>
 </li>
-<li>
-<p>Methods</p>
+<li><p>Methods</p>
 <ul>
-<li>方法
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/m1.png" alt="m1"></li>
+<li>方法<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/m1.png" alt="m1"></li>
 <li>有趣的是，即使对toUpperCase的调用未传递任何参数，该函数仍可以访问字符串“ Doh”，即我们调用其属性的值。 第6章介绍了它的工作方式。</li>
 </ul>
 </li>
-<li>
-<p>Objects</p>
+<li><p>Objects</p>
 <ul>
 <li>类型对象的值是属性的任意集合。 创建对象的一种方法是使用大括号作为表达式。</li>
 <li>在大括号内，有一个由逗号分隔的属性列表。 每个属性都有一个名称，后跟一个冒号和一个值。 当对象被写在多行上时，像示例中那样缩进可以提高可读性。 名称不是有效绑定名称或有效数字的属性必须加引号。</li>
 </ul>
 </li>
-<li>
-<p>Mutability</p>
+<li><p>Mutability</p>
 <ul>
 <li>前面普通类型的值不能变，对象的值是可以变的</li>
-<li>绑定也可以是可变的或恒定的，但这与它们的值的行为方式是分开的。 即使数字值不变，您也可以使用let绑定通过更改绑定点所指向的值来跟踪变化的数字。 同样，尽管绑定到对象的const本身不能更改，并且将继续指向同一对象，但是该对象的内容可能会更改。
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/mu1.png" alt="mu1"></li>
+<li>绑定也可以是可变的或恒定的，但这与它们的值的行为方式是分开的。 即使数字值不变，您也可以使用let绑定通过更改绑定点所指向的值来跟踪变化的数字。 同样，尽管绑定到对象的const本身不能更改，并且将继续指向同一对象，但是该对象的内容可能会更改。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/mu1.png" alt="mu1"></li>
 </ul>
 </li>
-<li>
-<p>The lycanthrope’s log</p>
+<li><p>The lycanthrope’s log</p>
 <ul>
-<li>一种简写对象的方式
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/t1.png" alt="t1"></li>
+<li>一种简写对象的方式<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/t1.png" alt="t1"></li>
 </ul>
 </li>
-<li>
-<p>Array loops</p>
+<li><p>Array loops</p>
 <ul>
-<li>简单不用for循环的方法 用 let of
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/arr1.png" alt="arr1"></li>
+<li>简单不用for循环的方法 用 let of<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/arr1.png" alt="arr1"></li>
 </ul>
 </li>
-<li>
-<p>Further arrayology</p>
+<li><p>Further arrayology</p>
 <ul>
-<li>简单的说明了多种array的方法
-<ul>
+<li>简单的说明了多种array的方法<ul>
 <li>shift</li>
 <li>unshift</li>
 <li>indexOf</li>
@@ -536,97 +482,70 @@
 </li>
 </ul>
 </li>
-<li>
-<p>Strings and their properties</p>
+<li><p>Strings and their properties</p>
 <ul>
-<li>字符串虽然可以看成对象，但他们不能随便乱给属性和方法，常用可行的方法是index和slice
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/sl1.png" alt="sl1"></li>
+<li>字符串虽然可以看成对象，但他们不能随便乱给属性和方法，常用可行的方法是index和slice<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/sl1.png" alt="sl1"></li>
 <li>The trim method removes whitespace (spaces, newlines, tabs, and similar characters) from the start and end of a string. 去除空格换行tab和类似的东西</li>
 <li>You can split a string on every occurrence of another string with split and join it again with join.拆分和合并</li>
 <li>我们已经看到了字符串类型的length属性。 访问字符串中的各个字符看起来就像访问数组元素（有关警告，我们将在第5章中进行讨论）。虽然用下标可以访问但有潜在警告</li>
 </ul>
 </li>
-<li>
-<p>Rest parameters</p>
+<li><p>Rest parameters</p>
 <ul>
-<li>接受任意的参数值 很有用
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/re1.png" alt="re1"></li>
-<li>let words = [&quot;never&quot;, &quot;fully&quot;];
-console.log([&quot;will&quot;, ...words, &quot;understand&quot;]);
-// → [&quot;will&quot;, &quot;never&quot;, &quot;fully&quot;, &quot;understand&quot;]</li>
-<li>这会将数组“扩展”到函数调用中，并将其元素作为单独的参数传递。</li>
+<li>接受任意的参数值 很有用<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/re1.png" alt="re1"></li>
+<li>let words = [“never”, “fully”];<br>console.log([“will”, …words, “understand”]);<br>// → [“will”, “never”, “fully”, “understand”]</li>
+<li>这会将数组“扩展”到函数调用中，并将其元素作为单独的参数传递。<h2 id="Chapter-5-Higher-Order-Functions"><a href="#Chapter-5-Higher-Order-Functions" class="headerlink" title="Chapter 5 Higher-Order Functions"></a>Chapter 5 Higher-Order Functions</h2>讲解如何写出高阶的函数，就是说不仅仅是给一个参数返回一个值</li>
 </ul>
 </li>
-</ul>
-<h2>Chapter 5 Higher-Order Functions</h2>
-<p>讲解如何写出高阶的函数，就是说不仅仅是给一个参数返回一个值</p>
+<li><p>Higher-order functions</p>
 <ul>
-<li>
-<p>Higher-order functions</p>
-<ul>
-<li>we can have functions that create new functions.
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/51.png" alt="51"></li>
-<li>we can have functions that change other functions.
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/52.png" alt="52"></li>
-<li>We can even write functions that provide new types of control flow.
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/53.png" alt="53"></li>
-<li>There is a built-in array method, forEach, that provides something like a for/of loop as a higher-order function.
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/54.png" alt="54"></li>
+<li>we can have functions that create new functions.<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/51.png" alt="51"></li>
+<li>we can have functions that change other functions.<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/52.png" alt="52"></li>
+<li>We can even write functions that provide new types of control flow.<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/53.png" alt="53"></li>
+<li>There is a built-in array method, forEach, that provides something like a for/of loop as a higher-order function.<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/54.png" alt="54"></li>
 </ul>
 </li>
-<li>
-<p>Script data set</p>
+<li><p>Script data set</p>
 <ul>
-<li>SCRIPT数据集 包含了多国的不同unicode
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">name: <span class="string">"Coptic"</span>,</span><br><span class="line">ranges: [[<span class="number">994</span>, <span class="number">1008</span>], [<span class="number">11392</span>, <span class="number">11508</span>], [<span class="number">11513</span>, <span class="number">11520</span>]],</span><br><span class="line">direction: <span class="string">"ltr"</span>,</span><br><span class="line">year: <span class="number">-200</span>,</span><br><span class="line">living: <span class="literal">false</span>,</span><br><span class="line">link: <span class="string">"https://en.wikipedia.org/wiki/Coptic_alphabet"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>SCRIPT数据集 包含了多国的不同unicode<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">name: <span class="string">"Coptic"</span>,</span><br><span class="line">ranges: [[<span class="number">994</span>, <span class="number">1008</span>], [<span class="number">11392</span>, <span class="number">11508</span>], [<span class="number">11513</span>, <span class="number">11520</span>]],</span><br><span class="line">direction: <span class="string">"ltr"</span>,</span><br><span class="line">year: <span class="number">-200</span>,</span><br><span class="line">living: <span class="literal">false</span>,</span><br><span class="line">link: <span class="string">"https://en.wikipedia.org/wiki/Coptic_alphabet"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
-<li>
-<p>Filtering arrays</p>
+<li><p>Filtering arrays</p>
 <ul>
 <li>filter只读不会改变 ， map可以改变array的值</li>
 </ul>
 </li>
-<li>
-<p>Summarizing with reduce</p>
+<li><p>Summarizing with reduce</p>
 <ul>
-<li>reduece通过重复从数组中获取单个元素并将其与当前值组合来构建值。在对数字求和时，您将从数字零开始，然后将每个元素加到总和中。
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/re.png" alt="re"></li>
+<li>reduece通过重复从数组中获取单个元素并将其与当前值组合来构建值。在对数字求和时，您将从数字零开始，然后将每个元素加到总和中。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/re.png" alt="re"></li>
 </ul>
 </li>
-<li>
-<p>Composability</p>
+<li><p>Composability</p>
 <ul>
-<li>通常，您可以负担得起可读的方法，但是如果您要处理大量数组并且进行多次，那么抽象度较低的样式可能值得增加速度。
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/func1.png" alt="func1">
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/func2.png" alt="func2"></li>
+<li>通常，您可以负担得起可读的方法，但是如果您要处理大量数组并且进行多次，那么抽象度较低的样式可能值得增加速度。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/func1.png" alt="func1"><br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/func2.png" alt="func2"></li>
 </ul>
 </li>
 </ul>
-<h2>Chapter 6 The Secret Life of Objects</h2>
-<p>讲解js里对象的概念，由于js最开始没有内置这种东西，就衍生出许多方法来使用对象，之后才添加完善</p>
+<h2 id="Chapter-6-The-Secret-Life-of-Objects"><a href="#Chapter-6-The-Secret-Life-of-Objects" class="headerlink" title="Chapter 6 The Secret Life of Objects"></a>Chapter 6 The Secret Life of Objects</h2><p>讲解js里对象的概念，由于js最开始没有内置这种东西，就衍生出许多方法来使用对象，之后才添加完善</p>
 <ul>
-<li>Encapsulation</li>
+<li>Encapsulation<ul>
 <li>封装</li>
 <li>一个类包含私有的和公共的，包含属性与方法，将整体封装起来，外界不需要知道内部的结构就可以直接调用方法使用一些功能</li>
-<li>Prototypes
-<ul>
-<li>js里面很重要的继承了原生类，就是当你类没有调用的方法就会到原生类中去搜索使用，原型是另一个用作属性的备用源的对象。
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/p1.png" alt="p1"></li>
 </ul>
 </li>
-<li>Methods
-<ul>
+<li>Prototypes<ul>
+<li>js里面很重要的继承了原生类，就是当你类没有调用的方法就会到原生类中去搜索使用，原型是另一个用作属性的备用源的对象。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/p1.png" alt="p1"></li>
+</ul>
+</li>
+<li>Methods<ul>
 <li>注意function里面this的使用</li>
 <li>this就相当于额外传递了参数（集成了类），而不仅仅括号传递的，因此每个function调用的时候就必须指定一this(bind)</li>
-<li>当你一个函数里面调用另外一个函数，另外函数就就不能用this会报错，但是箭头函数可以（默认绑定附近作用域的this）
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/ab.png" alt="ab"></li>
+<li>当你一个函数里面调用另外一个函数，另外函数就就不能用this会报错，但是箭头函数可以（默认绑定附近作用域的this）<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/ab.png" alt="ab"></li>
 </ul>
 </li>
-<li>Class Notion
-<ul>
-<li>因此，JavaScript类是具有原型属性的构造函数。 它们就是这样工作的，直到2015年，您才必须编写它们。 这些天，我们有了一个不太尴尬的表示法。
-<img src="/2019/10/06/Eloquent-JavaScript学习笔记/clas.png" alt="clas"></li>
+<li>Class Notion<ul>
+<li>因此，JavaScript类是具有原型属性的构造函数。 它们就是这样工作的，直到2015年，您才必须编写它们。 这些天，我们有了一个不太尴尬的表示法。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/clas.png" alt="clas"></li>
 </ul>
 </li>
 </ul>
@@ -705,7 +624,7 @@ console.log([&quot;will&quot;, ...words, &quot;understand&quot;]);
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">神作Eloquent JavaScript阅读笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">Chapter 1 Values, Types, and Operators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">Chapter 2 Program Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">Chapter 3 Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">Chapter 4 Data Structures: Objects and Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text">Chapter 5 Higher-Order Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.6.</span> <span class="nav-text">Chapter 6 The Secret Life of Objects</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#神作Eloquent-JavaScript阅读笔记"><span class="nav-number">1.</span> <span class="nav-text">神作Eloquent JavaScript阅读笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1-Values-Types-and-Operators"><span class="nav-number">1.1.</span> <span class="nav-text">Chapter 1 Values, Types, and Operators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2-Program-Structure"><span class="nav-number">1.2.</span> <span class="nav-text">Chapter 2 Program Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Functions"><span class="nav-number">1.3.</span> <span class="nav-text">Chapter 3 Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Data-Structures-Objects-and-Arrays"><span class="nav-number">1.4.</span> <span class="nav-text">Chapter 4 Data Structures: Objects and Arrays</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-5-Higher-Order-Functions"><span class="nav-number">1.5.</span> <span class="nav-text">Chapter 5 Higher-Order Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-6-The-Secret-Life-of-Objects"><span class="nav-number">1.6.</span> <span class="nav-text">Chapter 6 The Secret Life of Objects</span></a></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->

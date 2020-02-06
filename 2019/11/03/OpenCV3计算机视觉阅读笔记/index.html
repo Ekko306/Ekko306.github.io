@@ -55,12 +55,12 @@
   };
 </script>
 
-  <meta name="description" content="第2章 处理文件、摄像头和图形用户界面  本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点 从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。 2.1 基本I/O脚本 不同的CV应用程序有不同的输入输出  图像输入，图像输出 摄像头输入，窗口显示输出 其他的输入和输出还可能是图像文件、视频文件和原始字节(">
+  <meta name="description" content="第2章 处理文件、摄像头和图形用户界面本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。 2.1 基本I/O脚本不同的CV应用程序有不同的输入输出  图像输入，图像输出 摄像头输入，窗口显示输出 其他的输入和输出还可能是图像文件、视频文件和原始字节(raw">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenCV3计算机视觉阅读笔记">
 <meta property="og:url" content="http://yoursite.com/2019/11/03/OpenCV3计算机视觉阅读笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="第2章 处理文件、摄像头和图形用户界面  本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点 从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。 2.1 基本I/O脚本 不同的CV应用程序有不同的输入输出  图像输入，图像输出 摄像头输入，窗口显示输出 其他的输入和输出还可能是图像文件、视频文件和原始字节(">
+<meta property="og:description" content="第2章 处理文件、摄像头和图形用户界面本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。 2.1 基本I/O脚本不同的CV应用程序有不同的输入输出  图像输入，图像输出 摄像头输入，窗口显示输出 其他的输入和输出还可能是图像文件、视频文件和原始字节(raw">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/11/03/OpenCV3计算机视觉阅读笔记/C2.png">
 <meta property="og:image" content="http://yoursite.com/2019/11/03/OpenCV3计算机视觉阅读笔记/2.1.2.png">
@@ -75,7 +75,7 @@
 <meta property="og:updated_time" content="2019-11-08T08:30:05.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OpenCV3计算机视觉阅读笔记">
-<meta name="twitter:description" content="第2章 处理文件、摄像头和图形用户界面  本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点 从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。 2.1 基本I/O脚本 不同的CV应用程序有不同的输入输出  图像输入，图像输出 摄像头输入，窗口显示输出 其他的输入和输出还可能是图像文件、视频文件和原始字节(">
+<meta name="twitter:description" content="第2章 处理文件、摄像头和图形用户界面本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。 2.1 基本I/O脚本不同的CV应用程序有不同的输入输出  图像输入，图像输出 摄像头输入，窗口显示输出 其他的输入和输出还可能是图像文件、视频文件和原始字节(raw">
 <meta name="twitter:image" content="http://yoursite.com/2019/11/03/OpenCV3计算机视觉阅读笔记/C2.png">
   <link rel="canonical" href="http://yoursite.com/2019/11/03/OpenCV3计算机视觉阅读笔记/">
 
@@ -261,20 +261,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2>第2章 处理文件、摄像头和图形用户界面</h2>
-<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C2.png" alt="C2">
-本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点
-从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。</p>
-<h3>2.1 基本I/O脚本</h3>
-<p>不同的CV应用程序有不同的输入输出</p>
+        <h2 id="第2章-处理文件、摄像头和图形用户界面"><a href="#第2章-处理文件、摄像头和图形用户界面" class="headerlink" title="第2章 处理文件、摄像头和图形用户界面"></a>第2章 处理文件、摄像头和图形用户界面</h2><p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C2.png" alt="C2"><br>本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点<br>从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。</p>
+<h3 id="2-1-基本I-O脚本"><a href="#2-1-基本I-O脚本" class="headerlink" title="2.1 基本I/O脚本"></a>2.1 基本I/O脚本</h3><p>不同的CV应用程序有不同的输入输出</p>
 <ul>
 <li>图像输入，图像输出</li>
 <li>摄像头输入，窗口显示输出</li>
-<li>其他的输入和输出还可能是图像文件、视频文件和原始字节(raw byte)</li>
+<li>其他的输入和输出还可能是图像文件、视频文件和原始字节(raw byte)<h4 id="2-1-1-读-写图像文件"><a href="#2-1-1-读-写图像文件" class="headerlink" title="2.1.1 读/写图像文件"></a>2.1.1 读/写图像文件</h4>简单的读取图像，转换图像，保存图像的操作<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)  <span class="comment">#利用cv2.cvtColor将图像转换成BGR格式</span></span><br><span class="line"></span><br><span class="line">grayImage = cv2.imread(<span class="string">'beans.png'</span>, cv2.IMREAD_GRAYSCALE)  <span class="comment">#加载png为灰度图像，然后保存为灰度的png图像</span></span><br><span class="line"></span><br><span class="line">cv2.imwrite(<span class="string">'beansGray.png'</span>, grayImage)</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<h4>2.1.1 读/写图像文件</h4>
-<p>简单的读取图像，转换图像，保存图像的操作
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)  <span class="comment">#利用cv2.cvtColor将图像转换成BGR格式</span></span><br><span class="line"></span><br><span class="line">grayImage = cv2.imread(<span class="string">'beans.png'</span>, cv2.IMREAD_GRAYSCALE)  <span class="comment">#加载png为灰度图像，然后保存为灰度的png图像</span></span><br><span class="line"></span><br><span class="line">cv2.imwrite(<span class="string">'beansGray.png'</span>, grayImage)</span><br></pre></td></tr></table></figure></p>
 <p>下列选项作为imread()的参数</p>
 <ul>
 <li>IMREAD_ANYCOLOR = 4</li>
@@ -285,69 +280,60 @@
 <li>IMREAD_UNCHANGED = -1</li>
 </ul>
 <p><em>imwrite()要求图像为BGR或灰度格式，并且每个通道要有一定的为(bit)，输出格式要支持这些通道。例如，bmp格式要求每个通道有8位，而PNG允许每个通道有8位或16位</em></p>
-<h4>2.1.2 图像与原始字节之间的转换</h4>
-<ul>
+<h4 id="2-1-2-图像与原始字节之间的转换"><a href="#2-1-2-图像与原始字节之间的转换" class="headerlink" title="2.1.2 图像与原始字节之间的转换"></a>2.1.2 图像与原始字节之间的转换</h4><ul>
 <li>一个OpenCV图像是.array类型的二维或三维数组。</li>
 <li>8位的灰度图像只有一个通道，24位的BGR图像是一个三维度数组。</li>
-<li>image[0,0，0]第一个值代表y，第二个值代表x，第三个值代表通道数（灰度图像只有一个通道是二维数组，没有第三个值）
-<img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/2.1.2.png" alt="2.1.2"></li>
+<li>image[0,0，0]第一个值代表y，第二个值代表x，第三个值代表通道数（灰度图像只有一个通道是二维数组，没有第三个值）<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/2.1.2.png" alt="2.1.2"></li>
 </ul>
-<p>image[0,0] 或 image[0,0]=128可表示为：
-image.item((0,0))或image.setitem((0,0),128)【这种更利于操作】</p>
-<p><strong>字节与图像格式的转换：</strong>
-代码很简单很清晰
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#图像转换为字节</span></span><br><span class="line">byteArray = bytearray(image)</span><br><span class="line"></span><br><span class="line"><span class="comment">#字节转换为图像，通过显式转换和重构</span></span><br><span class="line">grayImage = numpy.array(grayByteArray).reshape(height, width)</span><br><span class="line">bgrImage = numpy.array(bgrByteArray).reshape(height, width, <span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
-<h4>2.1.3 使用numpy.array访问图像数据</h4>
-<p>直接用python内置的数组不方便，用numpy.array会方便很多
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python数组</span></span><br><span class="line">img[<span class="number">0</span>,<span class="number">0</span>] = [<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>]</span><br><span class="line"><span class="comment">#numpy.array</span></span><br><span class="line">img.itemset((<span class="number">150</span>,<span class="number">120</span>,<span class="number">0</span>), <span class="number">255</span>)</span><br></pre></td></tr></table></figure></p>
-<p>用循环来处理ptyhon数组的效率非常低，可以用数组索引来解决，高效且方便。
-可以设置roi感兴趣的区域
-数组的三个属性：</p>
+<p>image[0,0] 或 image[0,0]=128可表示为：<br>image.item((0,0))或image.setitem((0,0),128)【这种更利于操作】</p>
+<p><strong>字节与图像格式的转换：</strong><br>代码很简单很清晰</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#图像转换为字节</span></span><br><span class="line">byteArray = bytearray(image)</span><br><span class="line"></span><br><span class="line"><span class="comment">#字节转换为图像，通过显式转换和重构</span></span><br><span class="line">grayImage = numpy.array(grayByteArray).reshape(height, width)</span><br><span class="line">bgrImage = numpy.array(bgrByteArray).reshape(height, width, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-使用numpy-array访问图像数据"><a href="#2-1-3-使用numpy-array访问图像数据" class="headerlink" title="2.1.3 使用numpy.array访问图像数据"></a>2.1.3 使用numpy.array访问图像数据</h4><p>直接用python内置的数组不方便，用numpy.array会方便很多</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python数组</span></span><br><span class="line">img[<span class="number">0</span>,<span class="number">0</span>] = [<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>]</span><br><span class="line"><span class="comment">#numpy.array</span></span><br><span class="line">img.itemset((<span class="number">150</span>,<span class="number">120</span>,<span class="number">0</span>), <span class="number">255</span>)</span><br></pre></td></tr></table></figure>
+
+<p>用循环来处理ptyhon数组的效率非常低，可以用数组索引来解决，高效且方便。<br>可以设置roi感兴趣的区域<br>数组的三个属性：</p>
 <ul>
 <li>Shape: NumPy包含宽度、高度和通道数（如果图像是彩色的）的数组，这在调试图像类型时很有用；如果图像是单色或灰度的，将不包含通道值</li>
 <li>Size：该属性是指图像的像素的大小</li>
 <li>Datatype：该属性会得到图形的数据类型（通常为一个无符号整数类型的变量和该类型占的位数，比如uint8类型）</li>
 </ul>
 <p>强烈简易熟悉常规的NumPy库，如果用OpenCV还要熟悉numpy.array库，作为numpy.array库是Python处理图像的基础。</p>
-<h4>2.1.4 视频文件的读/写</h4>
-<p>提供了两个类来支持各种格式的视频文件：</p>
+<h4 id="2-1-4-视频文件的读-写"><a href="#2-1-4-视频文件的读-写" class="headerlink" title="2.1.4 视频文件的读/写"></a>2.1.4 视频文件的读/写</h4><p>提供了两个类来支持各种格式的视频文件：</p>
 <ul>
 <li>VideoCapture</li>
-<li>VideoWriter
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">videoCapture = cv2.VideoCapture(<span class="string">'screencast.avi'</span>)</span><br><span class="line"></span><br><span class="line">videoWriter = cv2.VideoWriter(</span><br><span class="line">    <span class="string">'MyOutputVid.avi'</span>, cv2.VideoWriter_fourcc(<span class="string">'I'</span>,<span class="string">'4'</span>,<span class="string">'2'</span>,<span class="string">'0'</span>),</span><br><span class="line">        fps,size</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+<li>VideoWriter<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">videoCapture = cv2.VideoCapture(<span class="string">'screencast.avi'</span>)</span><br><span class="line"></span><br><span class="line">videoWriter = cv2.VideoWriter(</span><br><span class="line">    <span class="string">'MyOutputVid.avi'</span>, cv2.VideoWriter_fourcc(<span class="string">'I'</span>,<span class="string">'4'</span>,<span class="string">'2'</span>,<span class="string">'0'</span>),</span><br><span class="line">        fps,size</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<p><strong>注意：</strong>
-必须要为VideoWriter类的构造函数指定视频文件名，同时也必须指定视频编解码器。编解码器的可用性根据系统不同而不同。以下常用：</p>
+<p><strong>注意：</strong><br>必须要为VideoWriter类的构造函数指定视频文件名，同时也必须指定视频编解码器。编解码器的可用性根据系统不同而不同。以下常用：</p>
 <ul>
-<li>cv2.VideoWriter_fourcc('I','4','2','0')</li>
-<li>cv2.VideoWriter_fourcc('P','I','M','i')</li>
-<li>cv2.VideoWriter_fourcc('X','V','I','D')</li>
-<li>cv2.VideoWriter_fourcc('T','H','E','O')</li>
-<li>cv2.VideoWriter_fourcc('F','L','V','I')
-帧速率fps和帧大小size的大小也必须指定，因为从另一个视频文件复制该视频帧这些属性可以通过VideoCapture类的get()函数得到</li>
+<li>cv2.VideoWriter_fourcc(‘I’,’4’,’2’,’0’)</li>
+<li>cv2.VideoWriter_fourcc(‘P’,’I’,’M’,’i’)</li>
+<li>cv2.VideoWriter_fourcc(‘X’,’V’,’I’,’D’)</li>
+<li>cv2.VideoWriter_fourcc(‘T’,’H’,’E’,’O’)</li>
+<li>cv2.VideoWriter_fourcc(‘F’,’L’,’V’,’I’)<br>帧速率fps和帧大小size的大小也必须指定，因为从另一个视频文件复制该视频帧这些属性可以通过VideoCapture类的get()函数得到</li>
 </ul>
-<h4>2.1.5 捕获摄像头的帧</h4>
-<p>VideoCapture类可以获得摄像头的帧流。此时传递的参数不是视频的文件名而是摄像头的设备索引(device index)。
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cameraCapture = cv2.VideoCapture(<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-1-5-捕获摄像头的帧"><a href="#2-1-5-捕获摄像头的帧" class="headerlink" title="2.1.5 捕获摄像头的帧"></a>2.1.5 捕获摄像头的帧</h4><p>VideoCapture类可以获得摄像头的帧流。此时传递的参数不是视频的文件名而是摄像头的设备索引(device index)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cameraCapture = cv2.VideoCapture(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
 <p>对于摄像头有许多需要操作了解的比如摄像头的<strong>帧速率</strong>，<strong>摄像头的数量与顺序</strong>，<strong>摄像头组</strong>。</p>
 <ul>
-<li>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fps_device = cv2.VideoCapture(<span class="number">0</span>).get(fps)</span><br></pre></td></tr></table></figure></p>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fps_device = cv2.VideoCapture(<span class="number">0</span>).get(fps)</span><br></pre></td></tr></table></figure>
+
 <p>VideoCapture类的get()方法不能返回摄像头帧速率的准确值（终端不支持，可对帧速率做假设，也可以利用计时器测量）</p>
 </li>
-<li>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">success, frame = cameraCapture.read()</span><br></pre></td></tr></table></figure></p>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">success, frame = cameraCapture.read()</span><br></pre></td></tr></table></figure>
+
 <p>摄像头的数量和顺序由系统决定，当用无效的索引创造了VideoCapture类，就不会得到帧，可以用VideoCapture.isOpened来判断</p>
 </li>
-<li>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">success0 = cameraCapture0.grab()</span><br><span class="line">success1 = cameraCapture1.grab()</span><br><span class="line"><span class="keyword">if</span> success0 <span class="keyword">and</span> success1:</span><br><span class="line">frame0 = cameraCapture0.retrieve()</span><br><span class="line">frame1 = cameraCapture1.retrieve()</span><br></pre></td></tr></table></figure></p>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">success0 = cameraCapture0.grab()</span><br><span class="line">success1 = cameraCapture1.grab()</span><br><span class="line"><span class="keyword">if</span> success0 <span class="keyword">and</span> success1:</span><br><span class="line">frame0 = cameraCapture0.retrieve()</span><br><span class="line">frame1 = cameraCapture1.retrieve()</span><br></pre></td></tr></table></figure>
+
 <p>对摄像头组，read()就不适合，可以用grab()，retrive()方法来代替它。</p>
 </li>
 </ul>
-<h4>2.1.6 在窗口显示图像</h4>
-<p>自然的调用&lt;code&gt;cv2.imshow()&lt;/code&gt;但要注意消失方法，即&lt;code&gt;cv2.waitKey()&lt;/code&gt;和&lt;code&gt;cv2.destroyAllWindows()&lt;/code&gt;的使用</p>
-<h4>2.1.7 在窗口显示摄像头帧</h4>
-<p>OpenCV的namedWindow()，imshow()和DestroyWindow()，函数允许指定窗口名、创建、显示和销毁窗口。配合获取键盘/鼠标输入交互显示摄像头帧。</p>
+<h4 id="2-1-6-在窗口显示图像"><a href="#2-1-6-在窗口显示图像" class="headerlink" title="2.1.6 在窗口显示图像"></a>2.1.6 在窗口显示图像</h4><p>自然的调用<code>cv2.imshow()</code>但要注意消失方法，即<code>cv2.waitKey()</code>和<code>cv2.destroyAllWindows()</code>的使用</p>
+<h4 id="2-1-7-在窗口显示摄像头帧"><a href="#2-1-7-在窗口显示摄像头帧" class="headerlink" title="2.1.7 在窗口显示摄像头帧"></a>2.1.7 在窗口显示摄像头帧</h4><p>OpenCV的namedWindow()，imshow()和DestroyWindow()，函数允许指定窗口名、创建、显示和销毁窗口。配合获取键盘/鼠标输入交互显示摄像头帧。</p>
 <ul>
 <li>namedWindow() 创建</li>
 <li>imshow() 显示</li>
@@ -356,53 +342,37 @@ image.item((0,0))或image.setitem((0,0),128)【这种更利于操作】</p>
 <li>setMouseCallback() 获取鼠标输入</li>
 </ul>
 <p><strong><em>OpenCV的窗口函数和waitKey()函数相互依赖，窗口函数只有调用waitKey()才会更新，waitKey()函数只有在窗口成为活动窗口时才能捕获输入信息</em></strong></p>
-<p>setMouseCallback()函数详解：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">onMouse</span><span class="params">(event, x, y, flags, param)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> clicked</span><br><span class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDBLCLK:</span><br><span class="line">        clicked = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">cv2.setMouseCallback(<span class="string">'MyWindow'</span>, onMouse)</span><br></pre></td></tr></table></figure></p>
+<p>setMouseCallback()函数详解：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">onMouse</span><span class="params">(event, x, y, flags, param)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> clicked</span><br><span class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDBLCLK:</span><br><span class="line">        clicked = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">cv2.setMouseCallback(<span class="string">'MyWindow'</span>, onMouse)</span><br></pre></td></tr></table></figure>
+
 <p>有五个参数,param可选参数，默认为0，event回调用函数有10种，flags标志参数有6种参数选择（查资料）</p>
 <p><em>OpenCV不提供任何处理窗口事件的方法。例如，当单击窗口的关闭按钮不能关闭应用程序，因此多将OpenCV集成到其他应用程序框架中。后面的项目实例设计了一个抽象层，有助于将OpenCV集成到任意应用程序中。</em></p>
-<h2>第3章 使用OpenCV 3处理图像</h2>
-<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C3.png" alt="C3"></p>
-<h3>3.1 不同色彩空间的转换</h3>
-<p>OpenCV有数百种色彩空间转换方法，有三种常用的色彩空间：灰度、BGR以及HSV</p>
+<h2 id="第3章-使用OpenCV-3处理图像"><a href="#第3章-使用OpenCV-3处理图像" class="headerlink" title="第3章 使用OpenCV 3处理图像"></a>第3章 使用OpenCV 3处理图像</h2><p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C3.png" alt="C3"></p>
+<h3 id="3-1-不同色彩空间的转换"><a href="#3-1-不同色彩空间的转换" class="headerlink" title="3.1 不同色彩空间的转换"></a>3.1 不同色彩空间的转换</h3><p>OpenCV有数百种色彩空间转换方法，有三种常用的色彩空间：灰度、BGR以及HSV</p>
 <ul>
 <li>灰度：去除彩色信息转换成灰阶，对中间处理很有效</li>
 <li>BGR：蓝-绿-红色彩空间，每一个像素点由一个三元数组构成，与RBG只是颜色上不同</li>
-<li>HSV：色调+饱和度+黑暗的程度/光谱另一端的明亮程度</li>
+<li>HSV：色调+饱和度+黑暗的程度/光谱另一端的明亮程度<h3 id="3-2-傅立叶转换"><a href="#3-2-傅立叶转换" class="headerlink" title="3.2 傅立叶转换"></a>3.2 傅立叶转换</h3>OpenCV中，对图像和视频大多数处理或多或少会涉及到傅立叶变换。人们所看到的波形都是由其他波形叠加得到的，这样可以<strong>区分</strong>图像里<strong>哪些区域的信号（比如图像像素）变化特别强，哪些区域的信号变化不那么强</strong>，从而任意标记区域，原始图像由许多频率组成，人们能分离这些频率来理解图像和提取感兴趣的数据。</li>
+<li>幅度谱：由傅立叶变换，幅度谱图像呈现了原始图像在变化方面的一种表示：把图像中最明亮的像素放到中央，逐渐变暗，边缘上的像素最暗。<h4 id="3-2-1-高通滤波器"><a href="#3-2-1-高通滤波器" class="headerlink" title="3.2.1 高通滤波器"></a>3.2.1 高通滤波器</h4>高通滤波器检测图像的某个区域，然后根据像素与周围像素的亮度差来提升该像素的滤波器，在计算中央像素的亮度差值之和之后，如果一个像素比它周围的像素更突出，就会提升它的亮度。边缘检测尤其有效<h4 id="3-2-2-低通滤波器"><a href="#3-2-2-低通滤波器" class="headerlink" title="3.2.2 低通滤波器"></a>3.2.2 低通滤波器</h4>在像素与周围像素的亮度差值小于一个特定值时，平滑该像素的亮度，主要用于去噪和模糊化。比如高斯模糊是最常用的模糊滤波器。</li>
 </ul>
-<h3>3.2 傅立叶转换</h3>
-<p>OpenCV中，对图像和视频大多数处理或多或少会涉及到傅立叶变换。人们所看到的波形都是由其他波形叠加得到的，这样可以<strong>区分</strong>图像里<strong>哪些区域的信号（比如图像像素）变化特别强，哪些区域的信号变化不那么强</strong>，从而任意标记区域，原始图像由许多频率组成，人们能分离这些频率来理解图像和提取感兴趣的数据。</p>
-<ul>
-<li>幅度谱：由傅立叶变换，幅度谱图像呈现了原始图像在变化方面的一种表示：把图像中最明亮的像素放到中央，逐渐变暗，边缘上的像素最暗。</li>
-</ul>
-<h4>3.2.1 高通滤波器</h4>
-<p>高通滤波器检测图像的某个区域，然后根据像素与周围像素的亮度差来提升该像素的滤波器，在计算中央像素的亮度差值之和之后，如果一个像素比它周围的像素更突出，就会提升它的亮度。边缘检测尤其有效</p>
-<h4>3.2.2 低通滤波器</h4>
-<p>在像素与周围像素的亮度差值小于一个特定值时，平滑该像素的亮度，主要用于去噪和模糊化。比如高斯模糊是最常用的模糊滤波器。</p>
 <p><strong><em>很多操作都是以傅立叶变换和高/低通滤波器为基础来实现的</em></strong></p>
-<h3>3.3 创建模块</h3>
-<h3>3.4 边缘检测</h3>
-<h3>3.5 用定制内核做卷积</h3>
-<h3>3.6 修改应用</h3>
-<h3>3.7 Canny 边缘检测</h3>
-<p>OpenCV提供了方便的Canny函数，虽然算法复杂，封装好后使用很简单。
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.imwrite(<span class="string">"canny.jpg"</span>, cv2.Canny(img, <span class="number">200</span>, <span class="number">300</span>))</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-3-创建模块"><a href="#3-3-创建模块" class="headerlink" title="3.3 创建模块"></a>3.3 创建模块</h3><h3 id="3-4-边缘检测"><a href="#3-4-边缘检测" class="headerlink" title="3.4 边缘检测"></a>3.4 边缘检测</h3><h3 id="3-5-用定制内核做卷积"><a href="#3-5-用定制内核做卷积" class="headerlink" title="3.5 用定制内核做卷积"></a>3.5 用定制内核做卷积</h3><h3 id="3-6-修改应用"><a href="#3-6-修改应用" class="headerlink" title="3.6 修改应用"></a>3.6 修改应用</h3><h3 id="3-7-Canny-边缘检测"><a href="#3-7-Canny-边缘检测" class="headerlink" title="3.7 Canny 边缘检测"></a>3.7 Canny 边缘检测</h3><p>OpenCV提供了方便的Canny函数，虽然算法复杂，封装好后使用很简单。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.imwrite(<span class="string">"canny.jpg"</span>, cv2.Canny(img, <span class="number">200</span>, <span class="number">300</span>))</span><br></pre></td></tr></table></figure>
+
 <p>它有五个步骤：</p>
 <ol>
 <li>使用高通滤波器进行去噪</li>
 <li>计算梯度</li>
 <li>在边缘上使用非最大抑制（NMS）</li>
 <li>在检测到的边缘上使用双阀值去除假阳性</li>
-<li>分析所有边缘及其之间的连接
-<img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/canny.png" alt="canny"></li>
+<li>分析所有边缘及其之间的连接<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/canny.png" alt="canny"></li>
 </ol>
-<h3>3.8 轮廓检测</h3>
-<blockquote>
-<p><strong>边缘检测</strong>是检测图像的边缘 也就是图像差异比较大的地方
-<strong>轮廓提取</strong>是提取出你想要得到的轮廓 轮廓可能是边缘的一部分</p>
+<h3 id="3-8-轮廓检测"><a href="#3-8-轮廓检测" class="headerlink" title="3.8 轮廓检测"></a>3.8 轮廓检测</h3><blockquote>
+<p><strong>边缘检测</strong>是检测图像的边缘 也就是图像差异比较大的地方<br><strong>轮廓提取</strong>是提取出你想要得到的轮廓 轮廓可能是边缘的一部分</p>
 </blockquote>
-<p>轮廓检测不单是检测轮廓，还需要其他操作：<strong>计算多边形边界、形状逼近和计算感兴趣区域</strong>
-上诉操作可以用NumPy中的数组切片(slice)来定义。
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ret, thresh = cv2.threshold(img, <span class="number">127</span>, <span class="number">255</span>, <span class="number">0</span>)  <span class="comment">#对图像进行二值化操作</span></span><br><span class="line">contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)</span><br></pre></td></tr></table></figure></p>
+<p>轮廓检测不单是检测轮廓，还需要其他操作：<strong>计算多边形边界、形状逼近和计算感兴趣区域</strong><br>上诉操作可以用NumPy中的数组切片(slice)来定义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ret, thresh = cv2.threshold(img, <span class="number">127</span>, <span class="number">255</span>, <span class="number">0</span>)  <span class="comment">#对图像进行二值化操作</span></span><br><span class="line">contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>二值化操作：在数字图像处理中，二值图像占有非常重要的地位，图像的二值化使图像中数据量大为减少，从而能凸显出目标的轮廓。</p>
 </blockquote>
@@ -413,85 +383,43 @@ image.item((0,0))或image.setitem((0,0),128)【这种更利于操作】</p>
 <li>函数返回的层次树很重要：cv2.RETR_TREE参数会得到图像中轮廓层次的整体结构，以此来建立轮廓之间的“关系”。如果只想要最外层的轮廓，可用cv2.RETR_EXTERNAL。这对消除包含在其他轮廓中的轮廓很有用（很多时候不需要检测一个目标在另一个与之相同的目标里）</li>
 <li>findContours()函数返回两个值：图像的轮廓和它的层次。</li>
 </ul>
-<p>之后使用轮廓（画成绿色）来显示轮廓。
-<img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours.png" alt="contours"></p>
-<h3>3.9 边界框、最小矩形区域和最小闭圆的轮廓</h3>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.pyrDown(cv2.imread(<span class="string">"hammer.jpg"</span>, cv2.IMREAD_UNCHANGED))</span><br><span class="line"></span><br><span class="line">ret, thresh = cv2.threshold(cv2.cvtColor(img.copy(), cv2.COLOR_BGR2GRAY) , <span class="number">127</span>, <span class="number">255</span>, cv2.THRESH_BINARY)</span><br><span class="line">contours, hier = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> contours:</span><br><span class="line">  <span class="comment"># find bounding box coordinates 将轮廓信息转换成边界坐标，并加上矩形的高度和宽度</span></span><br><span class="line">  x,y,w,h = cv2.boundingRect(c)</span><br><span class="line">  <span class="comment"># 画出矩形</span></span><br><span class="line">  cv2.rectangle(img, (x,y), (x+w, y+h), (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># find minimum area 计算出包围目标的最小矩形区域</span></span><br><span class="line">  rect = cv2.minAreaRect(c)</span><br><span class="line">  <span class="comment"># calculate coordinates of the minimum area rectangle 不能直接从轮廓信息得到最小矩形定点的坐标，所以需要计算出最小矩形区域，然后计算这个矩形的定点</span></span><br><span class="line">  box = cv2.boxPoints(rect)</span><br><span class="line">  <span class="comment"># normalize coordinates to integers 计算出来是浮点数，需要转换成整数</span></span><br><span class="line">  box = np.int0(box)</span><br><span class="line">  <span class="comment"># draw contours 画出边界，会修改图像，[box]数组包含一系列轮廓，从而在一次操作中绘制一系列的轮廓，第三个参数绘制数组轮廓索引，第四第五是绘制颜色和密度</span></span><br><span class="line">  cv2.drawContours(img, [box], <span class="number">0</span>, (<span class="number">0</span>,<span class="number">0</span>, <span class="number">255</span>), <span class="number">3</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># calculate center and radius of minimum enclosing circle 检查最小闭圆 返回圆中心坐标和半径 再绘制</span></span><br><span class="line">  (x,y),radius = cv2.minEnclosingCircle(c)</span><br><span class="line">  <span class="comment"># cast to integers</span></span><br><span class="line">  center = (int(x),int(y))</span><br><span class="line">  radius = int(radius)</span><br><span class="line">  <span class="comment"># draw the circle</span></span><br><span class="line">  img = cv2.circle(img,center,radius,(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">cv2.drawContours(img, contours, <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">1</span>)</span><br><span class="line">cv2.imshow(<span class="string">"contours"</span>, img)</span><br><span class="line"></span><br><span class="line">cv2.waitKey()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure></p>
-<p><strong><em>这里最纠结&lt;code&gt;for c in contours&lt;/code&gt;想清楚是for循环出contours里的东西，contours只有一个二维坐标的集合的一个内容，for循环出一个ndarray的c</em></strong></p>
+<p>之后使用轮廓（画成绿色）来显示轮廓。<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours.png" alt="contours"></p>
+<h3 id="3-9-边界框、最小矩形区域和最小闭圆的轮廓"><a href="#3-9-边界框、最小矩形区域和最小闭圆的轮廓" class="headerlink" title="3.9 边界框、最小矩形区域和最小闭圆的轮廓"></a>3.9 边界框、最小矩形区域和最小闭圆的轮廓</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.pyrDown(cv2.imread(<span class="string">"hammer.jpg"</span>, cv2.IMREAD_UNCHANGED))</span><br><span class="line"></span><br><span class="line">ret, thresh = cv2.threshold(cv2.cvtColor(img.copy(), cv2.COLOR_BGR2GRAY) , <span class="number">127</span>, <span class="number">255</span>, cv2.THRESH_BINARY)</span><br><span class="line">contours, hier = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> contours:</span><br><span class="line">  <span class="comment"># find bounding box coordinates 将轮廓信息转换成边界坐标，并加上矩形的高度和宽度</span></span><br><span class="line">  x,y,w,h = cv2.boundingRect(c)</span><br><span class="line">  <span class="comment"># 画出矩形</span></span><br><span class="line">  cv2.rectangle(img, (x,y), (x+w, y+h), (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># find minimum area 计算出包围目标的最小矩形区域</span></span><br><span class="line">  rect = cv2.minAreaRect(c)</span><br><span class="line">  <span class="comment"># calculate coordinates of the minimum area rectangle 不能直接从轮廓信息得到最小矩形定点的坐标，所以需要计算出最小矩形区域，然后计算这个矩形的定点</span></span><br><span class="line">  box = cv2.boxPoints(rect)</span><br><span class="line">  <span class="comment"># normalize coordinates to integers 计算出来是浮点数，需要转换成整数</span></span><br><span class="line">  box = np.int0(box)</span><br><span class="line">  <span class="comment"># draw contours 画出边界，会修改图像，[box]数组包含一系列轮廓，从而在一次操作中绘制一系列的轮廓，第三个参数绘制数组轮廓索引，第四第五是绘制颜色和密度</span></span><br><span class="line">  cv2.drawContours(img, [box], <span class="number">0</span>, (<span class="number">0</span>,<span class="number">0</span>, <span class="number">255</span>), <span class="number">3</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># calculate center and radius of minimum enclosing circle 检查最小闭圆 返回圆中心坐标和半径 再绘制</span></span><br><span class="line">  (x,y),radius = cv2.minEnclosingCircle(c)</span><br><span class="line">  <span class="comment"># cast to integers</span></span><br><span class="line">  center = (int(x),int(y))</span><br><span class="line">  radius = int(radius)</span><br><span class="line">  <span class="comment"># draw the circle</span></span><br><span class="line">  img = cv2.circle(img,center,radius,(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">cv2.drawContours(img, contours, <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">1</span>)</span><br><span class="line">cv2.imshow(<span class="string">"contours"</span>, img)</span><br><span class="line"></span><br><span class="line">cv2.waitKey()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>这里最纠结<code>for c in contours</code>想清楚是for循环出contours里的东西，contours只有一个二维坐标的集合的一个内容，for循环出一个ndarray的c</em></strong></p>
 <p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours_2.png" alt="contours_2"></p>
-<h3>3.10 凸轮廓与Douglas-Peucker 算法</h3>
-<p>大多数处理轮廓的时候，物体的形状是变化多样的。凸形状内部任意两点的连线都在该形状里面。
-cv2.approxPloyDP是一个OpenCV函数，用来计算近似的多边形框。
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">approx = cv2.approxPolyDP(cnt,epsilon,<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-10-凸轮廓与Douglas-Peucker-算法"><a href="#3-10-凸轮廓与Douglas-Peucker-算法" class="headerlink" title="3.10 凸轮廓与Douglas-Peucker 算法"></a>3.10 凸轮廓与Douglas-Peucker 算法</h3><p>大多数处理轮廓的时候，物体的形状是变化多样的。凸形状内部任意两点的连线都在该形状里面。<br>cv2.approxPloyDP是一个OpenCV函数，用来计算近似的多边形框。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">approx = cv2.approxPolyDP(cnt,epsilon,<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
 <p>三个参数：</p>
 <ul>
 <li>第一个“轮廓”</li>
 <li>第二个“𝜀值”，表示源轮廓与近似多边形的最大差值（值个值越小，多边形与源轮廓越接近）</li>
 <li>第三个“布尔标记”，表示这个多边形是否闭合</li>
 </ul>
-<p><em>𝜀这个值非常重要，值越小，近似多边形与源轮廓就越相似</em>
-<strong>为什么有了轮廓还需要一个近似多边形呢？因为一个多边形由一组直线直线构成，能够再一个区域里定义多边形，以便于之后进行操作与处理，这在许多计算机视觉任务中非常重要</strong></p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> cnt <span class="keyword">in</span> contours:</span><br><span class="line">  epsilon = <span class="number">0.01</span> * cv2.arcLength(cnt,<span class="literal">True</span>)</span><br><span class="line">  approx = cv2.approxPolyDP(cnt,epsilon,<span class="literal">True</span>)</span><br><span class="line">  hull = cv2.convexHull(cnt)</span><br><span class="line">  cv2.drawContours(black, [cnt], <span class="number">-1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)  <span class="comment">#这个是准确检测出来的轮廓</span></span><br><span class="line">  cv2.drawContours(black, [approx], <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)  <span class="comment">#用多边形拟合的多边形轮廓</span></span><br><span class="line">  cv2.drawContours(black, [hull], <span class="number">-1</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>)  <span class="comment">#获取处理过的轮廓信息，计算凸形状</span></span><br><span class="line"></span><br><span class="line">cv2.imshow(<span class="string">"hull"</span>, black)   <span class="comment">#将轮廓放在黑色图像上，这样就看不见源目标</span></span><br></pre></td></tr></table></figure></p>
+<p><em>𝜀这个值非常重要，值越小，近似多边形与源轮廓就越相似</em><br><strong>为什么有了轮廓还需要一个近似多边形呢？因为一个多边形由一组直线直线构成，能够再一个区域里定义多边形，以便于之后进行操作与处理，这在许多计算机视觉任务中非常重要</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> cnt <span class="keyword">in</span> contours:</span><br><span class="line">  epsilon = <span class="number">0.01</span> * cv2.arcLength(cnt,<span class="literal">True</span>)</span><br><span class="line">  approx = cv2.approxPolyDP(cnt,epsilon,<span class="literal">True</span>)</span><br><span class="line">  hull = cv2.convexHull(cnt)</span><br><span class="line">  cv2.drawContours(black, [cnt], <span class="number">-1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)  <span class="comment">#这个是准确检测出来的轮廓</span></span><br><span class="line">  cv2.drawContours(black, [approx], <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)  <span class="comment">#用多边形拟合的多边形轮廓</span></span><br><span class="line">  cv2.drawContours(black, [hull], <span class="number">-1</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>)  <span class="comment">#获取处理过的轮廓信息，计算凸形状</span></span><br><span class="line"></span><br><span class="line">cv2.imshow(<span class="string">"hull"</span>, black)   <span class="comment">#将轮廓放在黑色图像上，这样就看不见源目标</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>convexhull函数的作用：计算出图像的凸包，根据图像的轮廓点，通过函数convexhull转化成凸包的点点坐标</p>
 </blockquote>
 <p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours_hull.png" alt="contours_hull"></p>
-<h3>3.11 直线和圆的检测</h3>
-<p>检测边缘和轮廓是其他复杂操作的基础。直线和形状检测是它们的基础，与检测边缘和轮廓有密切的关系。
-Hough是直线和形状检测背后的理论基础。</p>
-<h4>3.11.1 直线检测</h4>
-<p>两种函数</p>
+<h3 id="3-11-直线和圆的检测"><a href="#3-11-直线和圆的检测" class="headerlink" title="3.11 直线和圆的检测"></a>3.11 直线和圆的检测</h3><p>检测边缘和轮廓是其他复杂操作的基础。直线和形状检测是它们的基础，与检测边缘和轮廓有密切的关系。<br>Hough是直线和形状检测背后的理论基础。</p>
+<h4 id="3-11-1-直线检测"><a href="#3-11-1-直线检测" class="headerlink" title="3.11.1 直线检测"></a>3.11.1 直线检测</h4><p>两种函数</p>
 <ol>
 <li>HoughLines() 标准的hough变换</li>
 <li>HoughLinesP() 使用概率Hough变换，是标准变换的优化版本，通过分析点的子集并估计这些点都属于一条直线的概率，执行效率更高。</li>
 </ol>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lines = cv2.HoughLinesP(edges,<span class="number">1</span>,np.pi/<span class="number">180</span>,<span class="number">20</span>,minLineLength,maxLineGap)</span><br></pre></td></tr></table></figure></p>
-<p><strong><em>HoughtLines函数：</em></strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">参数</th>
-<th style="text-align:center">功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">edges</td>
-<td style="text-align:center">需要处理的图像</td>
-</tr>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:center">几何表示rho</td>
-</tr>
-<tr>
-<td style="text-align:center">np.pi/180</td>
-<td style="text-align:center">几何表示theta</td>
-</tr>
-<tr>
-<td style="text-align:center">20</td>
-<td style="text-align:center">阀值。低于阀值的直线被忽略。Hough变换可以理解为投票关系，每个线相当于投票箱。</td>
-</tr>
-<tr>
-<td style="text-align:center">minLineLength</td>
-<td style="text-align:center">最小直线长度（更短会被消除）</td>
-</tr>
-<tr>
-<td style="text-align:center">maxLineGap</td>
-<td style="text-align:center">最大线段间隙（一条线段长度大于这个值会被视为两条分开的线段）</td>
-</tr>
-</tbody>
-</table>
-<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/lines.png" alt="lines"></p>
-<h4>3.11.2 圆检测</h4>
-<p>类似直线检测，圆检测有圆心间的最小距离和圆的最小及最大半径参数。
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,<span class="number">1</span>,<span class="number">120</span>,</span><br><span class="line">                            param1=<span class="number">100</span>,param2=<span class="number">30</span>,minRadius=<span class="number">0</span>,maxRadius=<span class="number">0</span>)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lines = cv2.HoughLinesP(edges,<span class="number">1</span>,np.pi/<span class="number">180</span>,<span class="number">20</span>,minLineLength,maxLineGap)</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>HoughtLines函数：</em></strong><br>| 参数 | 功能 |<br>| :-: | :-: |<br>| edges | 需要处理的图像 |<br>| 1 | 几何表示rho |<br>| np.pi/180| 几何表示theta|<br>| 20 | 阀值。低于阀值的直线被忽略。Hough变换可以理解为投票关系，每个线相当于投票箱。|<br>|minLineLength|最小直线长度（更短会被消除）|<br>|maxLineGap|最大线段间隙（一条线段长度大于这个值会被视为两条分开的线段）|<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/lines.png" alt="lines"></p>
+<h4 id="3-11-2-圆检测"><a href="#3-11-2-圆检测" class="headerlink" title="3.11.2 圆检测"></a>3.11.2 圆检测</h4><p>类似直线检测，圆检测有圆心间的最小距离和圆的最小及最大半径参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,<span class="number">1</span>,<span class="number">120</span>,</span><br><span class="line">                            param1=<span class="number">100</span>,param2=<span class="number">30</span>,minRadius=<span class="number">0</span>,maxRadius=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
 <p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/circles.png" alt="circles"></p>
-<h3>3.12 检测其他形状</h3>
-<p>Hough仅限与检测圆，但之前提到的approxPloyDP函数和findContours函数结合能检测出任意形状。</p>
-<h3>3.13 总结</h3>
-<p>本章节介绍了色彩空间、傅立叶变换和多种由OpenCV提供的处理图像的滤波器。还介绍了检测边缘、直线、圆和一些普通情况。另还介绍如何寻找轮廓，并由此得到关于图像中所包含饿目标信息，这些都是后续章节的基础。</p>
-<h2>第3章 使用OpenCV 3 处理图像</h2>
-<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C3.png" alt="C3"></p>
+<h3 id="3-12-检测其他形状"><a href="#3-12-检测其他形状" class="headerlink" title="3.12 检测其他形状"></a>3.12 检测其他形状</h3><p>Hough仅限与检测圆，但之前提到的approxPloyDP函数和findContours函数结合能检测出任意形状。</p>
+<h3 id="3-13-总结"><a href="#3-13-总结" class="headerlink" title="3.13 总结"></a>3.13 总结</h3><p>本章节介绍了色彩空间、傅立叶变换和多种由OpenCV提供的处理图像的滤波器。还介绍了检测边缘、直线、圆和一些普通情况。另还介绍如何寻找轮廓，并由此得到关于图像中所包含饿目标信息，这些都是后续章节的基础。</p>
+<h2 id="第3章-使用OpenCV-3-处理图像"><a href="#第3章-使用OpenCV-3-处理图像" class="headerlink" title="第3章 使用OpenCV 3 处理图像"></a>第3章 使用OpenCV 3 处理图像</h2><p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C3.png" alt="C3"></p>
 
     </div>
 
@@ -567,7 +495,7 @@ Hough是直线和形状检测背后的理论基础。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">第2章 处理文件、摄像头和图形用户界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 基本I/O脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.1.1 读/写图像文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.1.2 图像与原始字节之间的转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.1.3.</span> <span class="nav-text">2.1.3 使用numpy.array访问图像数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.1.4.</span> <span class="nav-text">2.1.4 视频文件的读/写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.1.5.</span> <span class="nav-text">2.1.5 捕获摄像头的帧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.1.6.</span> <span class="nav-text">2.1.6 在窗口显示图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.1.7.</span> <span class="nav-text">2.1.7 在窗口显示摄像头帧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">第3章 使用OpenCV 3处理图像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">3.1 不同色彩空间的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">3.2 傅立叶转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.2.1.</span> <span class="nav-text">3.2.1 高通滤波器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.2.2.</span> <span class="nav-text">3.2.2 低通滤波器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.3.</span> <span class="nav-text">3.3 创建模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.4.</span> <span class="nav-text">3.4 边缘检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.5.</span> <span class="nav-text">3.5 用定制内核做卷积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.6.</span> <span class="nav-text">3.6 修改应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.7.</span> <span class="nav-text">3.7 Canny 边缘检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.8.</span> <span class="nav-text">3.8 轮廓检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.9.</span> <span class="nav-text">3.9 边界框、最小矩形区域和最小闭圆的轮廓</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.10.</span> <span class="nav-text">3.10 凸轮廓与Douglas-Peucker 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.11.</span> <span class="nav-text">3.11 直线和圆的检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.11.1.</span> <span class="nav-text">3.11.1 直线检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.11.2.</span> <span class="nav-text">3.11.2 圆检测</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.12.</span> <span class="nav-text">3.12 检测其他形状</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.13.</span> <span class="nav-text">3.13 总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">第3章 使用OpenCV 3 处理图像</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-处理文件、摄像头和图形用户界面"><span class="nav-number">1.</span> <span class="nav-text">第2章 处理文件、摄像头和图形用户界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-基本I-O脚本"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 基本I/O脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1-读-写图像文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">2.1.1 读/写图像文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-图像与原始字节之间的转换"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.1.2 图像与原始字节之间的转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-使用numpy-array访问图像数据"><span class="nav-number">1.1.3.</span> <span class="nav-text">2.1.3 使用numpy.array访问图像数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-视频文件的读-写"><span class="nav-number">1.1.4.</span> <span class="nav-text">2.1.4 视频文件的读/写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-5-捕获摄像头的帧"><span class="nav-number">1.1.5.</span> <span class="nav-text">2.1.5 捕获摄像头的帧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-6-在窗口显示图像"><span class="nav-number">1.1.6.</span> <span class="nav-text">2.1.6 在窗口显示图像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-7-在窗口显示摄像头帧"><span class="nav-number">1.1.7.</span> <span class="nav-text">2.1.7 在窗口显示摄像头帧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-使用OpenCV-3处理图像"><span class="nav-number">2.</span> <span class="nav-text">第3章 使用OpenCV 3处理图像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-不同色彩空间的转换"><span class="nav-number">2.1.</span> <span class="nav-text">3.1 不同色彩空间的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-傅立叶转换"><span class="nav-number">2.2.</span> <span class="nav-text">3.2 傅立叶转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-高通滤波器"><span class="nav-number">2.2.1.</span> <span class="nav-text">3.2.1 高通滤波器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-低通滤波器"><span class="nav-number">2.2.2.</span> <span class="nav-text">3.2.2 低通滤波器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-创建模块"><span class="nav-number">2.3.</span> <span class="nav-text">3.3 创建模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-边缘检测"><span class="nav-number">2.4.</span> <span class="nav-text">3.4 边缘检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-用定制内核做卷积"><span class="nav-number">2.5.</span> <span class="nav-text">3.5 用定制内核做卷积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-修改应用"><span class="nav-number">2.6.</span> <span class="nav-text">3.6 修改应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-7-Canny-边缘检测"><span class="nav-number">2.7.</span> <span class="nav-text">3.7 Canny 边缘检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-8-轮廓检测"><span class="nav-number">2.8.</span> <span class="nav-text">3.8 轮廓检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-9-边界框、最小矩形区域和最小闭圆的轮廓"><span class="nav-number">2.9.</span> <span class="nav-text">3.9 边界框、最小矩形区域和最小闭圆的轮廓</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-10-凸轮廓与Douglas-Peucker-算法"><span class="nav-number">2.10.</span> <span class="nav-text">3.10 凸轮廓与Douglas-Peucker 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-11-直线和圆的检测"><span class="nav-number">2.11.</span> <span class="nav-text">3.11 直线和圆的检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-11-1-直线检测"><span class="nav-number">2.11.1.</span> <span class="nav-text">3.11.1 直线检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-11-2-圆检测"><span class="nav-number">2.11.2.</span> <span class="nav-text">3.11.2 圆检测</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-12-检测其他形状"><span class="nav-number">2.12.</span> <span class="nav-text">3.12 检测其他形状</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-13-总结"><span class="nav-number">2.13.</span> <span class="nav-text">3.13 总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-使用OpenCV-3-处理图像"><span class="nav-number">3.</span> <span class="nav-text">第3章 使用OpenCV 3 处理图像</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->

@@ -55,17 +55,17 @@
   };
 </script>
 
-  <meta name="description" content="YOLO 学习笔记 YOLO v1深入理解 yolo1 4484483 输入之前做resize 分成77网格 如果目标中心在网格里就进行预测 网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测 输出是77*10 tensor 每一个网格产生 30个通道的信息 2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个bou">
+  <meta name="description" content="YOLO 学习笔记YOLO v1深入理解yolo1 4484483 输入之前做resize 分成77网格 如果目标中心在网格里就进行预测网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测输出是77*10 tensor 每一个网格产生 30个通道的信息2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个bounding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="目标检测学习笔记">
 <meta property="og:url" content="http://yoursite.com/2019/11/28/目标检测学习笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="YOLO 学习笔记 YOLO v1深入理解 yolo1 4484483 输入之前做resize 分成77网格 如果目标中心在网格里就进行预测 网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测 输出是77*10 tensor 每一个网格产生 30个通道的信息 2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个bou">
+<meta property="og:description" content="YOLO 学习笔记YOLO v1深入理解yolo1 4484483 输入之前做resize 分成77网格 如果目标中心在网格里就进行预测网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测输出是77*10 tensor 每一个网格产生 30个通道的信息2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个bounding">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-28T16:08:40.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测学习笔记">
-<meta name="twitter:description" content="YOLO 学习笔记 YOLO v1深入理解 yolo1 4484483 输入之前做resize 分成77网格 如果目标中心在网格里就进行预测 网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测 输出是77*10 tensor 每一个网格产生 30个通道的信息 2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个bou">
+<meta name="twitter:description" content="YOLO 学习笔记YOLO v1深入理解yolo1 4484483 输入之前做resize 分成77网格 如果目标中心在网格里就进行预测网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测输出是77*10 tensor 每一个网格产生 30个通道的信息2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个bounding">
   <link rel="canonical" href="http://yoursite.com/2019/11/28/目标检测学习笔记/">
 
 
@@ -250,72 +250,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2>YOLO 学习笔记</h2>
-<h3>YOLO v1深入理解</h3>
-<p>yolo1 448<em>448</em>3 输入之前做resize 分成7<em>7网格 如果目标中心在网格里就进行预测
-网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测
-输出是7</em>7*10 tensor</p>
-<p>每一个网格产生 30个通道的信息
-2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个boundingbox 的物体执行度） 前10个
-分类信息 yolov1 会有20个分类目标 所以总的有30</p>
-<p>目标检测： 位置信息与分类  包含回归和分类</p>
-<p>fast rcnn 会有
-yolo3 416* 416 608*608</p>
+        <h2 id="YOLO-学习笔记"><a href="#YOLO-学习笔记" class="headerlink" title="YOLO 学习笔记"></a>YOLO 学习笔记</h2><h3 id="YOLO-v1深入理解"><a href="#YOLO-v1深入理解" class="headerlink" title="YOLO v1深入理解"></a>YOLO v1深入理解</h3><p>yolo1 448<em>448</em>3 输入之前做resize 分成7<em>7网格 如果目标中心在网格里就进行预测<br>网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测<br>输出是7</em>7*10 tensor</p>
+<p>每一个网格产生 30个通道的信息<br>2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个boundingbox 的物体执行度） 前10个<br>分类信息 yolov1 会有20个分类目标 所以总的有30</p>
+<p>目标检测： 位置信息与分类  包含回归和分类 </p>
+<p>fast rcnn 会有<br>yolo3 416* 416 608*608</p>
 <p>bounding box的置信度 = 该boudnig box 内存在对象的概率* 该boudingbox与该对象实际boundingbox的iou交并比</p>
-<p>YOLO标签与以往不一样
-是在训练才会出现 置信度的标签 依赖于标签的裱框</p>
+<p>YOLO标签与以往不一样<br>是在训练才会出现 置信度的标签 依赖于标签的裱框 </p>
 <p>交集除以并集 值越大 重合的概率越大</p>
-<p>7*7的网格可以训练2个bounding box
-v3里面 每个grid里面 有3个ancor多个</p>
-<p>训练样本标注之后 会有边框</p>
-<p>损失是去找损失的中心点
-中心点在那个位置 这个cell来负责预测狗对象 如何负责看计算
-20个对象的概率</p>
-<p>对一个框 是狗的框 若是狗则是1 其他的都是0</p>
-<p>bounding box怎么输出
-一个cel里面有cell 和 ancor
-挑选一个比较符合的</p>
+<p>7*7的网格可以训练2个bounding box<br>v3里面 每个grid里面 有3个ancor多个 </p>
+<p>训练样本标注之后 会有边框 </p>
+<p>损失是去找损失的中心点<br>中心点在那个位置 这个cell来负责预测狗对象 如何负责看计算<br>20个对象的概率 </p>
+<p>对一个框 是狗的框 若是狗则是1 其他的都是0 </p>
+<p>bounding box怎么输出<br>一个cel里面有cell 和 ancor<br>挑选一个比较符合的  </p>
 <p>这个样本标签 bouding box1填什么是依赖于 训练过程中得到的iou</p>
-<p>损失：
-中心点的损失+宽高的损失 有目标在才有</p>
-<p>静态目标和动态目标的效果不一样
-置信度的损失 有目标的损失参考值是一 没有的目标的损失参考值是0</p>
+<p>损失：<br>中心点的损失+宽高的损失 有目标在才有</p>
+<p>静态目标和动态目标的效果不一样<br>置信度的损失 有目标的损失参考值是一 没有的目标的损失参考值是0</p>
 <p>预测阶段 输出就是置信度  可以根据置信度来做预测</p>
 <p>非极大值抑制</p>
 <p>找置信度最高的 根据预值 计算iou 大于预值 就删除 得到两个框 一样的流程</p>
-<h2>Faster RCNN</h2>
-<blockquote>
+<h2 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h2><blockquote>
 <p>目标检测 发展迅速  yolo anglefree yolo v3借助 ssd的思想 给了 angle建议</p>
 </blockquote>
 <p>faster rcnn 与 rcnn的区别</p>
-<p>是 Region Proposal Network 和 Rol pooling</p>
-<p>早期的分类器 找到区域 再把区域拿出去做分类  计算复杂度很高</p>
+<p>是 Region Proposal Network 和 Rol pooling </p>
+<p>早期的分类器 找到区域 再把区域拿出去做分类  计算复杂度很高 </p>
 <p>faster rcnn 是把多次的特征提取只做一次</p>
-<p>图片经过卷积层 会得到特征映射 得到建议的区域 box 再根据原来feature maps 做一个融合 找到
-proposals的建议特征
-再做一个 rol pooling
-classier 在做分类特征 同时做bounding box的回归</p>
-<p>1、第一步特征提取 卷积神经网络
-2、region proposal networks 包含两个操作 一个是分类器 softmax 判断假定的 anchors是 前景还是背景 过滤一些ancor rpn网络 给很多box 实际上做 rlpooling 只是一个部分   另一个 做bounding 回归
-3、创造性的 roi pooling  给定建议区域 由于形状大小不一致 但是分类起要求输入大小形状相同 对 不同形状的box 做一个pooling 参数不一样 但是最后pooling的结果是一样的
-4、分类层 两个任务：目标的分类 和 bounding box 回归</p>
-<p>核心
-具体细节不讲</p>
+<p>图片经过卷积层 会得到特征映射 得到建议的区域 box 再根据原来feature maps 做一个融合 找到<br>proposals的建议特征<br>再做一个 rol pooling<br>classier 在做分类特征 同时做bounding box的回归</p>
+<p>1、第一步特征提取 卷积神经网络<br>2、region proposal networks 包含两个操作 一个是分类器 softmax 判断假定的 anchors是 前景还是背景 过滤一些ancor rpn网络 给很多box 实际上做 rlpooling 只是一个部分   另一个 做bounding 回归<br>3、创造性的 roi pooling  给定建议区域 由于形状大小不一致 但是分类起要求输入大小形状相同 对 不同形状的box 做一个pooling 参数不一样 但是最后pooling的结果是一样的<br>4、分类层 两个任务：目标的分类 和 bounding box 回归</p>
+<p>核心<br>具体细节不讲</p>
 <p>重点看 anchor</p>
 <p><strong>anchor</strong></p>
 <p>anchor 只有宽度和高 位置由中心点 确定  以一个点生成 k个 框 一个框4个坐标  共4k个坐标（根据原始图片的bbox做回归）（到原始图片上）做检测     2k scores softmax 二分类 判断前景还是背景</p>
 <p>？？？？</p>
 <p>anchor 下采样 做回归和而分类</p>
-<p>还可以改变 采样的大小</p>
-<p>回归操作 是预测值尽可能接近参考值</p>
-<p>roi pooling
-需要尺寸一样
-要么切割 要么是转向相同的尺寸</p>
-<p>就可以给不同的pooling的参数</p>
+<p>还可以改变 采样的大小 </p>
+<p>回归操作 是预测值尽可能接近参考值 </p>
+<p>roi pooling<br>需要尺寸一样<br>要么切割 要么是转向相同的尺寸 </p>
+<p>就可以给不同的pooling的参数 </p>
 <p>虽然 ancor尺寸不一样 但是结果一样  根据之前的参数来判断</p>
-<p>最后把 roi pooling给网络 一个做回归 一个做目标分类</p>
-<h2>training yolov3</h2>
-
+<p>最后把 roi pooling给网络 一个做回归 一个做目标分类      </p>
+<h2 id="training-yolov3"><a href="#training-yolov3" class="headerlink" title="training yolov3"></a>training yolov3</h2>
     </div>
 
     
@@ -390,7 +364,7 @@ classier 在做分类特征 同时做bounding box的回归</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">YOLO 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">YOLO v1深入理解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Faster RCNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">training yolov3</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#YOLO-学习笔记"><span class="nav-number">1.</span> <span class="nav-text">YOLO 学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#YOLO-v1深入理解"><span class="nav-number">1.1.</span> <span class="nav-text">YOLO v1深入理解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Faster-RCNN"><span class="nav-number">2.</span> <span class="nav-text">Faster RCNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#training-yolov3"><span class="nav-number">3.</span> <span class="nav-text">training yolov3</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
