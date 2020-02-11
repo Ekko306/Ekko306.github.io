@@ -10,6 +10,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 3.9.0">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: black; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
@@ -55,18 +71,18 @@
   };
 </script>
 
-  <meta name="description" content="PYTORCH DOCUMENTATIONNotesAutograd mechanics 自动的梯度传递过程，主要介绍requires_grad   可以用requires_grad来’freeze part of your model’  底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正) 123456789model = torchvision.mod">
+  <meta name="description" content="PYTORCH DOCUMENTATION Notes Autograd mechanics   自动的梯度传递过程，主要介绍requires_grad 可以用requires_grad来&apos;freeze part of your model&apos; 底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正) 123456789model = torchvision.mo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pytorch文档阅读笔记">
 <meta property="og:url" content="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="PYTORCH DOCUMENTATIONNotesAutograd mechanics 自动的梯度传递过程，主要介绍requires_grad   可以用requires_grad来’freeze part of your model’  底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正) 123456789model = torchvision.mod">
+<meta property="og:description" content="PYTORCH DOCUMENTATION Notes Autograd mechanics   自动的梯度传递过程，主要介绍requires_grad 可以用requires_grad来&apos;freeze part of your model&apos; 底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正) 123456789model = torchvision.mo">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/in-place.png">
 <meta property="og:updated_time" content="2020-02-11T04:07:01.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pytorch文档阅读笔记">
-<meta name="twitter:description" content="PYTORCH DOCUMENTATIONNotesAutograd mechanics 自动的梯度传递过程，主要介绍requires_grad   可以用requires_grad来’freeze part of your model’  底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正) 123456789model = torchvision.mod">
+<meta name="twitter:description" content="PYTORCH DOCUMENTATION Notes Autograd mechanics   自动的梯度传递过程，主要介绍requires_grad 可以用requires_grad来&apos;freeze part of your model&apos; 底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正) 123456789model = torchvision.mo">
 <meta name="twitter:image" content="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/in-place.png">
   <link rel="canonical" href="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/">
 
@@ -119,6 +135,9 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
   <div class="container use-motion">
     <div class="headband"></div>
 
@@ -276,21 +295,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="PYTORCH-DOCUMENTATION"><a href="#PYTORCH-DOCUMENTATION" class="headerlink" title="PYTORCH DOCUMENTATION"></a>PYTORCH DOCUMENTATION</h1><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h3 id="Autograd-mechanics"><a href="#Autograd-mechanics" class="headerlink" title="Autograd mechanics"></a>Autograd mechanics</h3><ul>
-<li><p><strong>自动的梯度传递过程，主要介绍requires_grad</strong></p>
-<p>  可以用requires_grad来’freeze part of your model’<br>  底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model = torchvision.models.resnet18(pretrained=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> model.parameters():</span><br><span class="line">    param.requires_grad = <span class="literal">False</span></span><br><span class="line"><span class="comment"># Replace the last fully-connected layer</span></span><br><span class="line"><span class="comment"># Parameters of newly constructed modules have requires_grad=True by default </span></span><br><span class="line">model.fc = nn.Linear(<span class="number">512</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Optimize only the classifier</span></span><br><span class="line">optimizer = optim.SGD(model.fc.parameters(), lr=<span class="number">1e-2</span>, momentum=<span class="number">0.9</span>)</span><br></pre></td></tr></table></figure>
+        <h1>PYTORCH DOCUMENTATION</h1>
+<h2>Notes</h2>
+<h3>Autograd mechanics</h3>
+<ul>
+<li>
+<p><strong>自动的梯度传递过程，主要介绍requires_grad</strong></p>
+<p>可以用requires_grad来'freeze part of your model'
+底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model = torchvision.models.resnet18(pretrained=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> model.parameters():</span><br><span class="line">    param.requires_grad = <span class="literal">False</span></span><br><span class="line"><span class="comment"># Replace the last fully-connected layer</span></span><br><span class="line"><span class="comment"># Parameters of newly constructed modules have requires_grad=True by default </span></span><br><span class="line">model.fc = nn.Linear(<span class="number">512</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Optimize only the classifier</span></span><br><span class="line">optimizer = optim.SGD(model.fc.parameters(), lr=<span class="number">1e-2</span>, momentum=<span class="number">0.9</span>)</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>自动求道如何编码历史</p>
+<li>
+<p>自动求道如何编码历史</p>
 </li>
-<li><p>不建议使用in-place操作<br><img src="/2019/10/13/Pytorch文档阅读笔记/in-place.png" alt="in-place"></p>
+<li>
+<p>不建议使用in-place操作
+<img src="/2019/10/13/Pytorch文档阅读笔记/in-place.png" alt="in-place"></p>
 </li>
-<li><p>可以用self.faved_tensors来检测是否正确：</p>
-<blockquote>
-<p>Once you access self.saved_tensors it is checked, and if it is greater than the saved value an error is raised. </p>
-</blockquote>
+<li>
+<p>可以用self.faved_tensors来检测是否正确：</p>
 </li>
 </ul>
+<blockquote>
+<p>Once you access self.saved_tensors it is checked, and if it is greater than the saved value an error is raised.</p>
+</blockquote>
 
     </div>
 
@@ -366,7 +394,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PYTORCH-DOCUMENTATION"><span class="nav-number">1.</span> <span class="nav-text">PYTORCH DOCUMENTATION</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">1.1.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Autograd-mechanics"><span class="nav-number">1.1.1.</span> <span class="nav-text">Autograd mechanics</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">PYTORCH DOCUMENTATION</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.1.</span> <span class="nav-text">Autograd mechanics</span></a></li></ol></li></ol></li></ol></div>
         
       </div>
       <!--/noindex-->
@@ -449,7 +477,9 @@
   </div>
 
   
-  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
