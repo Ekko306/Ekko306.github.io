@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="You are my JavaSript in my HTML.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="You are my JavaSript in my HTML.">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="You are my JavaSript in my HTML.">
+  <link rel="canonical" href="http://yoursite.com/page/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/10/深度学习总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/10/深度学习总结/" class="post-title-link" itemprop="url">深度学习总结</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-10 22:48:42" itemprop="dateCreated datePublished" datetime="2019-10-10T22:48:42+08:00">2019-10-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 12:05:29" itemprop="dateModified" datetime="2020-02-11T12:05:29+08:00">2020-02-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="深度学习总结"><a href="#深度学习总结" class="headerlink" title="深度学习总结"></a>深度学习总结</h1><blockquote>
+<p>不管怎么说也快挺长时间的人工智能，有困难的地方也有容易的地方，总结归纳下也许更利于提升。</p>
+</blockquote>
+<h2 id="1-深度学习的历史发展"><a href="#1-深度学习的历史发展" class="headerlink" title="1.深度学习的历史发展"></a>1.深度学习的历史发展</h2><p><img src="/2019/10/10/深度学习总结/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD.png" alt="Ai"></p>
+<ul>
+<li>数据挖掘就是在大型的数据库中发现有效信息的数据处理的过程。</li>
+<li>机器学习是实现人工智能的一种途径，和数据挖掘有相似性。主要是通过算法的设计，让计算机能够自动地从数据中“学习规律”，利用规律进行预测。</li>
+<li>深度学习最初版本是人工神经网络（机器学习的一个分支），试图通过模拟人脑，通过复杂的结构自动提取数据特征。</li>
+</ul>
+<p>而现在主要兴起的是深度学习，得益于大数据的兴起和高性能GPU的出现，使复杂的网络模型成为可能<br><img src="/2019/10/10/深度学习总结/DL%E5%8F%91%E5%B1%95.png" alt="Dl"></p>
+<h2 id="2-机器学习总结"><a href="#2-机器学习总结" class="headerlink" title="2.机器学习总结"></a>2.机器学习总结</h2><blockquote>
+<p>机器学习是基础。首先理解清楚机器学习中的一些概念算法。很多模型的建立都是根据复杂的数学模型得来的。</p>
+</blockquote>
+<h3 id="1、主要概念理解"><a href="#1、主要概念理解" class="headerlink" title="1、主要概念理解"></a>1、主要概念理解</h3><p><img src="/2019/10/10/深度学习总结/map.png" alt="map"></p>
+<p>重要难理解的：</p>
+<ul>
+<li>KNN邻近算法，距离算法 找最近的邻居判断 属于什么类别 也可以做回归问题（多种判断） k是取的邻居数，距离算法的选择 ： 欧式距离 余弦距离 马斯距离 汉民距离 判断对新样本如何分类，可能必须缩放属性以防止距离度量被其中一个属性支配。</li>
+<li>支持向量机：通过训练模型参数找到一个合适的分离界面将数据分离开。有松弛变量，惩罚函数，margin，多种范数距离，另有积分变换将多维降纬。</li>
+<li>决策树，其中每个内部结点表示在一个属性上的测试对未知数据进行分类，每个分支代表一个属性输出，每个树叶结点代表类或类分布。根据分类最后叶子得到一个类。向前向后剪枝，信息熵增益，随机森林</li>
+<li>集成方法 集成方法 就是用很多 简单分类器 来构造复杂的分类函数，原始样本的抽样：bagging 抽了之后放，Bosting 抽了之后 下一次再抽 就加权。多个弱分类器分出好的结果像盲人摸象。<h3 id="2、实战（python）"><a href="#2、实战（python）" class="headerlink" title="2、实战（python）"></a>2、实战（python）</h3><img src="/2019/10/10/深度学习总结/Ku.png" alt="ku"></li>
+<li>numpy 包含矩阵运算，向量运算的包，扩展python的运算</li>
+<li>Scipy 世界上著名的Python开源科学计算库，建立在Numpy上，它增加的功能包括数值积分、最优化、统计和一些专用函数。</li>
+<li>pandas 数据集处理包，学习的数据存在数据集中，需要pandas处理</li>
+<li>matplotlib 绘图用的包，数据可视化</li>
+<li>seaborn 基于matplotlib的图形可视化python包。它提供了一种高度交互式界面,便于用户能够做出各种有吸引力的统计图表</li>
+<li>scikit-learn 机器学习的包，包含了很多机器学习的模型与方法函数</li>
+<li>OpenCv 图像处理的包，对图像的操作</li>
+<li>TensorFlow与Pytorch 深度学习的框架</li>
+</ul>
+<p><strong><em>以上每个包都需要学习的大量的资料才能掌握</em></strong></p>
+<h3 id="3、代码实现-基础框架"><a href="#3、代码实现-基础框架" class="headerlink" title="3、代码实现(基础框架)"></a>3、代码实现(基础框架)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np   <span class="comment">#导入numpy</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt     <span class="comment">#导入画图包</span></span><br><span class="line">x_data = np.array([<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>])     <span class="comment">#手动创建三个数据</span></span><br><span class="line">y_data = np.array([<span class="number">1.968</span>, <span class="number">4.125</span>, <span class="number">5.671</span>])    </span><br><span class="line">plt.scatter(x_data,y_data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#define linear model </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * w</span><br><span class="line">    <span class="comment"># Loss function </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loss</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    y_pred = forward(x)</span><br><span class="line">    <span class="keyword">return</span> (y_pred - y) * (y_pred - y)</span><br><span class="line">    <span class="comment"># gradient function  </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient</span><span class="params">(x, y)</span>:</span>  <span class="comment"># d_loss/d_w</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * x * (x * w - y)</span><br><span class="line">    <span class="comment">#define parameters  </span></span><br><span class="line">w = <span class="number">1.0</span>  <span class="comment"># start points</span></span><br><span class="line">lr = <span class="number">0.001</span> <span class="comment">#learning rate</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Training loop </span></span><br><span class="line">i=<span class="number">1</span></span><br><span class="line">epochs=<span class="number">500</span></span><br><span class="line">weights=[]</span><br><span class="line">losses=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> np.arange(epochs):</span><br><span class="line">    <span class="keyword">for</span> x_val, y_val <span class="keyword">in</span> zip(x_data, y_data):  <span class="comment">#zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。</span></span><br><span class="line">        grad = gradient(x_val, y_val)</span><br><span class="line">        w = w - lr * grad</span><br><span class="line">        l = loss(x_val, y_val)</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">10</span>==<span class="number">0</span>:</span><br><span class="line">        weights+=[w]         </span><br><span class="line">        losses+=[l]          </span><br><span class="line">        print(<span class="string">"progress:"</span>, i, <span class="string">"w="</span>, round(w, <span class="number">2</span>), <span class="string">"loss="</span>, round(l, <span class="number">2</span>))   </span><br><span class="line">    <span class="keyword">if</span> np.linalg.norm(grad)&lt;=<span class="number">1e-6</span>: </span><br><span class="line">        <span class="keyword">break</span>  </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="comment"># After training</span></span><br><span class="line">print(weights)</span><br><span class="line">print(losses)</span><br><span class="line">plt.plot(weights,losses) </span><br><span class="line">plt.plot(x_data,y_predict) </span><br><span class="line">plt.scatter(x_data,y_data)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/10/10/深度学习总结/simp1.png" alt="simp1"></p>
+<h2 id="3-深度学习总结"><a href="#3-深度学习总结" class="headerlink" title="3.深度学习总结"></a>3.深度学习总结</h2><p>深度学习是现在主流的人工智能方向，是一种基于大数据和高性能Gpu的方法，有Pytorch和TensorFlow两种主流框架，现在学的是Pytorch</p>
+<blockquote>
+<p>PyTorch 是 Torch7 团队开发的，从它的名字就可以看出，其 与 Torch 的不同之处 在于 PyTorch 使用了 Python 作为开发语言 ζ 所谓 “Python first” ，同样说明它是 一 个以 Python 优先的深度学习框架，不仅能够实现强大的 GPU 加速，同时还支持功态神经网 络，这是现在很多主流框架比如 Tensorflow 等都不支持的。</p>
+</blockquote>
+<h3 id="1-多层全连接神经网络"><a href="#1-多层全连接神经网络" class="headerlink" title="1. 多层全连接神经网络"></a>1. 多层全连接神经网络</h3><p><img src="/2019/10/10/深度学习总结/ptha.png" alt="ptha"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#回归问题 线性回归 </span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn,optim</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入数据集</span></span><br><span class="line">x_train=np.array([[<span class="number">3.3</span>], [<span class="number">4.4</span>], [<span class="number">5.5</span>], [<span class="number">6.71</span>], [<span class="number">6.93</span>], [<span class="number">4.168</span>], [<span class="number">9.779</span>], [<span class="number">6.182</span>], [<span class="number">7.59</span>], [<span class="number">2.167</span>], [<span class="number">7.042</span>], [<span class="number">10.791</span>], [<span class="number">5.313</span>], [<span class="number">7.997</span>], [<span class="number">3.1</span>]], dtype=np.float32)</span><br><span class="line">y_train=np.array([[<span class="number">1.7</span>], [<span class="number">2.76</span>], [<span class="number">2.09</span>], [<span class="number">3.19</span>], [<span class="number">1.694</span>], [<span class="number">1.573</span>], [<span class="number">3.366</span>], [<span class="number">2.596</span>], [<span class="number">2.53</span>], [<span class="number">1.221</span>], [<span class="number">2.827</span>], [<span class="number">3.465</span>], [<span class="number">1.65</span>], [<span class="number">2.904</span>], [<span class="number">1.3</span>]], dtype=np.float32)</span><br><span class="line">plt.plot(x_train,y_train, <span class="string">'ro'</span>)</span><br><span class="line">x_train = torch.from_numpy(x_train)</span><br><span class="line">y_train = torch.from_numpy(y_train)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/10/10/深度学习总结/p1.png" alt="p1"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义模型</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinearRegression</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(LinearRegression, self).__init__()</span><br><span class="line">        self.linear = nn.Linear(<span class="number">1</span>,<span class="number">1</span>)  <span class="comment">#输入输出都是一维</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        out = self.linear(x)</span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line">criterion = nn.MSELoss()</span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">1e-2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#训练模型</span></span><br><span class="line">num_epochs = <span class="number">1000</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(num_epochs):</span><br><span class="line">    inputs = Variable(x_train)</span><br><span class="line">    target = Variable(y_train)</span><br><span class="line">    <span class="comment">#forward</span></span><br><span class="line">    out=model(inputs)</span><br><span class="line">    loss=criterion(out, target)</span><br><span class="line">    <span class="comment">#backward</span></span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">if</span> (epoch+<span class="number">1</span>) % <span class="number">20</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'Epoch[&#123;&#125;/&#123;&#125;], loss:&#123;:.6f&#125;'</span>.format(epoch+<span class="number">1</span>, num_epochs, loss.item()))</span><br><span class="line"></span><br><span class="line"><span class="comment">#评估模型</span></span><br><span class="line">model.eval()  <span class="comment">#转变成eval的测试模式</span></span><br><span class="line">predict = model(Variable(x_train))</span><br><span class="line">predict = predict.data.numpy()  <span class="comment">#转numpy</span></span><br><span class="line">plt.plot(x_train.numpy(), y_train.numpy(), <span class="string">'ro'</span>, label=<span class="string">'Original data'</span>)</span><br><span class="line">plt.plot(x_train.numpy(), predict, label=<span class="string">'Fitting Line'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/10/10/深度学习总结/p2.png" alt="p2"></p>
+<h3 id="2-其他流行网络"><a href="#2-其他流行网络" class="headerlink" title="2.其他流行网络"></a>2.其他流行网络</h3><ul>
+<li>卷积神经网络（计算机视觉）</li>
+<li>循环神经网络（基于记忆的网络模型——序列预测）</li>
+<li>生成对抗网络（对抗网络就是让两个网络相互竞争，通过生成网络来生成假的数据，对抗网络通过判别器判别真伪，最后希望 生成网络生成的数据能够以假乱真骗过判别器 。）</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/06/Eloquent-JavaScript学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/06/Eloquent-JavaScript学习笔记/" class="post-title-link" itemprop="url">Eloquent JavaScript学习笔记</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-06 19:37:22" itemprop="dateCreated datePublished" datetime="2019-10-06T19:37:22+08:00">2019-10-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 12:06:14" itemprop="dateModified" datetime="2020-02-11T12:06:14+08:00">2020-02-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="神作Eloquent-JavaScript阅读笔记"><a href="#神作Eloquent-JavaScript阅读笔记" class="headerlink" title="神作Eloquent JavaScript阅读笔记"></a>神作Eloquent JavaScript阅读笔记</h1><h2 id="Chapter-1-Values-Types-and-Operators"><a href="#Chapter-1-Values-Types-and-Operators" class="headerlink" title="Chapter 1 Values, Types, and Operators"></a>Chapter 1 Values, Types, and Operators</h2><p>主要讲的js中数据的类型，同时有许多底层细节的地方值得注意。</p>
+<ul>
+<li><p>Numbers：</p>
+<ul>
+<li>范围小于2<sup>64<sup></sup></sup></li>
+<li>但是有了负数和小数点，数据只能小于15个0</li>
+<li>可以用科学计数法 2.998e8</li>
+</ul>
+</li>
+<li><p>Special numbers：</p>
+<ul>
+<li>三个特殊的数:Infinity,-Infinity,NaN.</li>
+<li>Infinity,-Infinity表示正无穷和负无穷，但不要太相信，很容易计算转化为NaN</li>
+<li>NaN表示“不是一个数字”，当你操作0/0，∞-∞，或者没有意义的运算就会得到NaN</li>
+</ul>
+</li>
+<li><p>Strings:</p>
+<ul>
+<li>有三种格式 单引号’’，双引号”” 和反引号 ``</li>
+<li>首先注意反引号：<ul>
+<li>用反引号圈起来里面可以用回车不被转义<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/s1.png" alt="s1"></li>
+<li>反引号里面能包含变量<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/s2.png" alt="s2"></li>
+</ul>
+</li>
+<li>再就是转义字符：<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/s3.png" alt="s3"></li>
+</ul>
+</li>
+<li><p>Comparison：</p>
+<ul>
+<li><code>console.log(NaN == NaN)</code>结果是假，因为NaN应该表示无意义计算的结果，因此，它不等于任何其他无意义计算的结果。</li>
+</ul>
+</li>
+<li><p>Logical operators<br> -注意优先级：<br> -|| has the lowest precedence, then comes &amp;&amp;, then the comparison operators (&gt;, ==, and so on), and then the rest.</p>
+</li>
+<li><p>Empty values:</p>
+<ul>
+<li>空值，有两个undefined和null 大部分时间不区分 可看作可以交换的，表示没有值，但必须存在</li>
+</ul>
+</li>
+<li><p>Automatic type conversion:<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/a1.png" alt="a1"></p>
+<ul>
+<li>上述，类型转换，值得注意的：<ul>
+<li>当左右边有null或者undefined 必须两边都是才能真 否则为假<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/a2.png" alt="a2"></li>
+</ul>
+</li>
+<li>同时你要严格一点就使用=== 和 !==,除非比较的类型是一样的，否则建议使用三元的</li>
+</ul>
+</li>
+<li><p>Short-circuiting of logical operators</p>
+<ul>
+<li>这个很厉害（逻辑运算符短路）<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/sc1.png" alt="sc1"></li>
+<li>简单说就是上述，当你这样子并起来你左边的值为空的话可以把右边的值当备选，实用</li>
+<li>还有是同c语言当&amp;&amp;的左边为假右边不看，当||的左边为真右边不看，短路<h2 id="Chapter-2-Program-Structure"><a href="#Chapter-2-Program-Structure" class="headerlink" title="Chapter 2 Program Structure"></a>Chapter 2 Program Structure</h2>第一章是基础数值，这里说明编程的结构</li>
+</ul>
+</li>
+<li><p>Bindings</p>
+<ul>
+<li>绑定的概念，用关键字let,const,var</li>
+<li>形象的概念：您会长出一个触手来抓住它，或者将现有的触手重新连接到它上。有可能同时绑定到同一个值</li>
+<li>命名规则：<ul>
+<li>可以有数字和字母，不能数字开头</li>
+<li>A binding name may include dollar signs ($) or underscores (_) but no other punctuation or special characters.</li>
+<li>不能关键字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The Environment </p>
+<ul>
+<li>环境的概念:</li>
+<li>在给定时间存在的绑定及其值的集合称为环境。 程序启动时，此环境不为空。 它始终包含作为语言标准一部分的绑定，并且在大多数情况下，它还具有提供与周围系统进行交互的方式的绑定。 例如，在浏览器中，具有与当前加载的网站进行交互以及读取鼠标和键盘输入的功能。</li>
+<li>理解是与环境有关的绑定集合：绑定可用于以名称命名文件数据，它们对于跟踪程序中的状态很有用。 环境是定义的绑定集。 JavaScript系统始终在您的环境中放置许多有用的标准绑定。</li>
+</ul>
+</li>
+<li><p>The console.log function</p>
+<ul>
+<li>不寻常的绑定，是一个console控制台的绑定</li>
+<li>This is because console.log isn’t a simple binding. It is actually an expression that retrieves the log property from the value held by the console binding.</li>
+<li>正常的绑定无.</li>
+</ul>
+</li>
+<li><p>Return values</p>
+<ul>
+<li>这种不知道怎么说，就是说不是return 而用console.log来实现的叫做side effect</li>
+<li>显示对话框或在屏幕上写文本是一种副作用。 由于它们产生的副作用，许多功能很有用。 函数也可以产生值，在这种情况下，它们不需要产生副作用即可使用。 例如，函数Math.max接受任意数量的数字参数并返回最大值。</li>
+<li>⬆️翻译是副作用，就是不是返回的值</li>
+</ul>
+</li>
+<li><p>Capitalization：</p>
+<ul>
+<li>命名方法<br>— 推荐是小驼峰，开头是小写</li>
+<li>js里面没有其他面向对象语言的类概念，而是constructor 构造函数的概念，构造函数命名要大写<h2 id="Chapter-3-Functions"><a href="#Chapter-3-Functions" class="headerlink" title="Chapter 3 Functions"></a>Chapter 3 Functions</h2></li>
+</ul>
+</li>
+<li><p>Bindings and scopes</p>
+<ul>
+<li>绑定和作用域</li>
+<li>let和const(一直存在在程序运行的)会是严格的局部作用域，var会是全局的导致问题<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/c1.png" alt="c1"></li>
+</ul>
+</li>
+<li><p>Nested scope</p>
+<ul>
+<li>嵌套作用域<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/n1.png" alt="n1"></li>
+<li>块内部可见的绑定集由该块在程序文本中的位置确定。 每个本地范围也可以看到包含它的所有本地范围，并且所有范围都可以看到全局范围。 这种绑定可见性的方法称为词法作用域。</li>
+</ul>
+</li>
+<li><p>Functions as values</p>
+<ul>
+<li>函数和值，你可以把函数定义成一个值，有时候会混淆，但是函数的概念是可以传入值来执行一个操作的</li>
+</ul>
+</li>
+<li><p>Declaration notation</p>
+<ul>
+<li>js里面含糊不是从上而下的，可以先使用再定义</li>
+</ul>
+</li>
+<li><p>Arrow functions</p>
+<ul>
+<li>箭头函数：四种定义使用方法</li>
+<li>一种正常，参数多，表达式多<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/ar1.png" alt="ar1"></li>
+<li>两种省略形式，参数一个或者表达式简单（直接返回）<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/ar2.png" alt="ar2"></li>
+<li>一种，没有参数，要写空括号<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/ar3.png" alt="ar3"></li>
+</ul>
+</li>
+<li><p>The call stack</p>
+<ul>
+<li>说明调用和调用返回的原理</li>
+<li>存储该堆栈需要计算机内存中的空间。 当堆栈太大时，计算机将失败，并显示诸如“堆栈空间不足”或“递归过多”之类的消息。 下面的代码通过向计算机提出一个非常棘手的问题来说明这一点，该问题会导致两个函数之间的无限往返。 相反，如果计算机具有无限的堆栈，那将是无限的。 照原样，我们将用完空间，或“破坏堆栈”。</li>
+</ul>
+</li>
+<li><p>Optional Arguments</p>
+<ul>
+<li>实用的，相当于函数重载，更加方便</li>
+<li>js函数对参数的原则：如果通过太多，多余的将被忽略。 如果传递的参数太少，则会为缺失的参数分配未定义的值。</li>
+<li>下面两种就是具体的用法<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">minus</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (b === <span class="literal">undefined</span>) <span class="keyword">return</span> -a;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">power</span>(<span class="params">base, exponent = <span class="number">2</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> count = <span class="number">0</span>; count &lt; exponent; count++) &#123;</span><br><span class="line">    result *= base;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(power(<span class="number">4</span>));</span><br><span class="line"><span class="comment">// → 16</span></span><br><span class="line"><span class="built_in">console</span>.log(power(<span class="number">2</span>, <span class="number">6</span>));</span><br><span class="line"><span class="comment">// → 64</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Closure</p>
+<ul>
+<li>封装的问题，当你再次绑定时会更新局部变量绑定，所以不必要担心绑定的生命周期<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/cl1.png" alt="cl1"></li>
+<li>高级是：考虑这样的程序需要一些练习。 一个好的思维模型是将函数值视为包含其主体代码和创建它们的环境的代码。 调用函数体时，它会看到在其中创建它的环境，而不是在其中看到它的环境。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/cl2.png" alt="cl2"></li>
+</ul>
+</li>
+<li><p>Recursion</p>
+<ul>
+<li>回调函数，定义类似，可以让代码更优雅，但是代价可能比循环跑的更慢，但是作者建议用回调便于代码阅读。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/r1.png" alt="r1"></li>
+<li>这种就很优雅很强大<h2 id="Chapter-4-Data-Structures-Objects-and-Arrays"><a href="#Chapter-4-Data-Structures-Objects-and-Arrays" class="headerlink" title="Chapter 4 Data Structures: Objects and Arrays"></a>Chapter 4 Data Structures: Objects and Arrays</h2>这一章主要讲了对象和数组，是用一个实际的一个人会因为做那些事情导致变成松鼠的例子来解释的，最后找到是因为吃了坚果不刷牙会变成松鼠，有很多数组的操作和对象的处理方法，只可意会不可言传。</li>
+</ul>
+</li>
+<li><p>Properties</p>
+<ul>
+<li>翻译是属性，这里注意两种使用方法，它们都可以绑定到value对象的属性担有不同：<ul>
+<li>value.x（只能是显式的已经存在的方法）</li>
+<li>value[x]（这个x是可以是表达式或者变量可以变化的值）</li>
+<li>数组中的元素存储为数组的属性，使用数字作为属性名称。 因为您不能将点符号与数字一起使用，并且通常希望使用无论如何都可容纳索引的绑定，所以必须使用方括号符号来获取它们。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Methods</p>
+<ul>
+<li>方法<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/m1.png" alt="m1"></li>
+<li>有趣的是，即使对toUpperCase的调用未传递任何参数，该函数仍可以访问字符串“ Doh”，即我们调用其属性的值。 第6章介绍了它的工作方式。</li>
+</ul>
+</li>
+<li><p>Objects</p>
+<ul>
+<li>类型对象的值是属性的任意集合。 创建对象的一种方法是使用大括号作为表达式。</li>
+<li>在大括号内，有一个由逗号分隔的属性列表。 每个属性都有一个名称，后跟一个冒号和一个值。 当对象被写在多行上时，像示例中那样缩进可以提高可读性。 名称不是有效绑定名称或有效数字的属性必须加引号。</li>
+</ul>
+</li>
+<li><p>Mutability</p>
+<ul>
+<li>前面普通类型的值不能变，对象的值是可以变的</li>
+<li>绑定也可以是可变的或恒定的，但这与它们的值的行为方式是分开的。 即使数字值不变，您也可以使用let绑定通过更改绑定点所指向的值来跟踪变化的数字。 同样，尽管绑定到对象的const本身不能更改，并且将继续指向同一对象，但是该对象的内容可能会更改。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/mu1.png" alt="mu1"></li>
+</ul>
+</li>
+<li><p>The lycanthrope’s log</p>
+<ul>
+<li>一种简写对象的方式<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/t1.png" alt="t1"></li>
+</ul>
+</li>
+<li><p>Array loops</p>
+<ul>
+<li>简单不用for循环的方法 用 let of<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/arr1.png" alt="arr1"></li>
+</ul>
+</li>
+<li><p>Further arrayology</p>
+<ul>
+<li>简单的说明了多种array的方法<ul>
+<li>shift</li>
+<li>unshift</li>
+<li>indexOf</li>
+<li>lastIndexof</li>
+<li>slice</li>
+<li>contact</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Strings and their properties</p>
+<ul>
+<li>字符串虽然可以看成对象，但他们不能随便乱给属性和方法，常用可行的方法是index和slice<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/sl1.png" alt="sl1"></li>
+<li>The trim method removes whitespace (spaces, newlines, tabs, and similar characters) from the start and end of a string. 去除空格换行tab和类似的东西</li>
+<li>You can split a string on every occurrence of another string with split and join it again with join.拆分和合并</li>
+<li>我们已经看到了字符串类型的length属性。 访问字符串中的各个字符看起来就像访问数组元素（有关警告，我们将在第5章中进行讨论）。虽然用下标可以访问但有潜在警告</li>
+</ul>
+</li>
+<li><p>Rest parameters</p>
+<ul>
+<li>接受任意的参数值 很有用<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/re1.png" alt="re1"></li>
+<li>let words = [“never”, “fully”];<br>console.log([“will”, …words, “understand”]);<br>// → [“will”, “never”, “fully”, “understand”]</li>
+<li>这会将数组“扩展”到函数调用中，并将其元素作为单独的参数传递。<h2 id="Chapter-5-Higher-Order-Functions"><a href="#Chapter-5-Higher-Order-Functions" class="headerlink" title="Chapter 5 Higher-Order Functions"></a>Chapter 5 Higher-Order Functions</h2>讲解如何写出高阶的函数，就是说不仅仅是给一个参数返回一个值</li>
+</ul>
+</li>
+<li><p>Higher-order functions</p>
+<ul>
+<li>we can have functions that create new functions.<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/51.png" alt="51"></li>
+<li>we can have functions that change other functions.<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/52.png" alt="52"></li>
+<li>We can even write functions that provide new types of control flow.<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/53.png" alt="53"></li>
+<li>There is a built-in array method, forEach, that provides something like a for/of loop as a higher-order function.<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/54.png" alt="54"></li>
+</ul>
+</li>
+<li><p>Script data set</p>
+<ul>
+<li>SCRIPT数据集 包含了多国的不同unicode<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">name: <span class="string">"Coptic"</span>,</span><br><span class="line">ranges: [[<span class="number">994</span>, <span class="number">1008</span>], [<span class="number">11392</span>, <span class="number">11508</span>], [<span class="number">11513</span>, <span class="number">11520</span>]],</span><br><span class="line">direction: <span class="string">"ltr"</span>,</span><br><span class="line">year: <span class="number">-200</span>,</span><br><span class="line">living: <span class="literal">false</span>,</span><br><span class="line">link: <span class="string">"https://en.wikipedia.org/wiki/Coptic_alphabet"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>Filtering arrays</p>
+<ul>
+<li>filter只读不会改变 ， map可以改变array的值</li>
+</ul>
+</li>
+<li><p>Summarizing with reduce</p>
+<ul>
+<li>reduece通过重复从数组中获取单个元素并将其与当前值组合来构建值。在对数字求和时，您将从数字零开始，然后将每个元素加到总和中。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/re.png" alt="re"></li>
+</ul>
+</li>
+<li><p>Composability</p>
+<ul>
+<li>通常，您可以负担得起可读的方法，但是如果您要处理大量数组并且进行多次，那么抽象度较低的样式可能值得增加速度。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/func1.png" alt="func1"><br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/func2.png" alt="func2"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Chapter-6-The-Secret-Life-of-Objects"><a href="#Chapter-6-The-Secret-Life-of-Objects" class="headerlink" title="Chapter 6 The Secret Life of Objects"></a>Chapter 6 The Secret Life of Objects</h2><p>讲解js里对象的概念，由于js最开始没有内置这种东西，就衍生出许多方法来使用对象，之后才添加完善</p>
+<ul>
+<li>Encapsulation<ul>
+<li>封装</li>
+<li>一个类包含私有的和公共的，包含属性与方法，将整体封装起来，外界不需要知道内部的结构就可以直接调用方法使用一些功能</li>
+</ul>
+</li>
+<li>Prototypes<ul>
+<li>js里面很重要的继承了原生类，就是当你类没有调用的方法就会到原生类中去搜索使用，原型是另一个用作属性的备用源的对象。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/p1.png" alt="p1"></li>
+</ul>
+</li>
+<li>Methods<ul>
+<li>注意function里面this的使用</li>
+<li>this就相当于额外传递了参数（集成了类），而不仅仅括号传递的，因此每个function调用的时候就必须指定一this(bind)</li>
+<li>当你一个函数里面调用另外一个函数，另外函数就就不能用this会报错，但是箭头函数可以（默认绑定附近作用域的this）<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/ab.png" alt="ab"></li>
+</ul>
+</li>
+<li>Class Notion<ul>
+<li>因此，JavaScript类是具有原型属性的构造函数。 它们就是这样工作的，直到2015年，您才必须编写它们。 这些天，我们有了一个不太尴尬的表示法。<br><img src="/2019/10/06/Eloquent-JavaScript学习笔记/clas.png" alt="clas"></li>
+</ul>
+</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/04/hexo博客搭建的坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/04/hexo博客搭建的坑/" class="post-title-link" itemprop="url">hexo博客搭建的坑</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-04 21:20:02" itemprop="dateCreated datePublished" datetime="2019-10-04T21:20:02+08:00">2019-10-04</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 12:06:30" itemprop="dateModified" datetime="2020-02-11T12:06:30+08:00">2020-02-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Daily/" itemprop="url" rel="index"><span itemprop="name">Daily</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>hexo是一个挺好的基础博客搭建方法，但操作过程中遇到挺多坑，这里填起来，帮助以后的小菜鸟们。</p>
+<h2 id="坑一："><a href="#坑一：" class="headerlink" title="坑一："></a>坑一：</h2><p>找到合适的搭建教程网站（详细的好的）是很重要的，因为之前的网站不是太详细还有图片加载不出来，导致remote失败很是受挫，之后找到一篇好文章，跟着教程顺利搭建。</p>
+<p>推荐教程：<a href="https://blog.csdn.net/qq_36759224/article/details/82121420" target="_blank" rel="noopener">使用 Github Pages 和 Hexo 搭建自己的独立博客【超级详细的小白教程】</a></p>
+<h2 id="坑二："><a href="#坑二：" class="headerlink" title="坑二："></a>坑二：</h2><p>根据教程顺利的搭建教程了，进一步是更改自己喜欢的主题，这里先是在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官方主题</a>找到挺简单清新的主题，下载后却有很多问题，有的是图片显示不出来，尝试了hexo clean -&gt; hexo g等等操作还是一团糟，最后选择了<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT主题</a>，这是一个大家用户排行最高的主题，包也比之前的大，就相当于大厂与山寨的区别，同时还有很多进阶方法，推荐使用NextT而不采用民间自制的主题。<br><img src="/2019/10/04/hexo博客搭建的坑/next.png" alt="Next"></p>
+<p><strong>同时<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo</a>有修改域名等，<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a>有进阶设定等进阶方法，想让自己的博客花里胡哨可以自己在官网去尝试</strong></p>
+<h2 id="坑三："><a href="#坑三：" class="headerlink" title="坑三："></a>坑三：</h2><p>最常用也最坑的坑😂——在博客中插入图片：<br>当你直接在md文件里面编写博客的时候采用格式来插入图片，但是当部署到博客上就会出现问题，百度很容易得到解决方案<br><img src="/2019/10/04/hexo博客搭建的坑/solution.png" alt="solution"><br>这种烂大街的方法在很多博客中都重复出现，不知道谁抄谁的始终没有解决，也许是博客写的时间比较早的问题，知道半个小时的苦苦搜索找到一篇<a href="https://blog.csdn.net/Strong997/article/details/97767929" target="_blank" rel="noopener">良心博客</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<p>只有用上述方法安装图片上传格式才能有效，终于解决了😭。</p>
+<p>希望上述三点能帮助大家搭建一个基础的博客，再逐步进阶成大神把！</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/04/Webpack学习过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/04/Webpack学习过程/" class="post-title-link" itemprop="url">Webpack学习过程</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-04 20:34:32" itemprop="dateCreated datePublished" datetime="2019-10-04T20:34:32+08:00">2019-10-04</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 12:07:37" itemprop="dateModified" datetime="2020-02-11T12:07:37+08:00">2020-02-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="曲折的Webpack学习"><a href="#曲折的Webpack学习" class="headerlink" title="曲折的Webpack学习"></a>曲折的Webpack学习</h1><p>首先明白Webpack是干啥的:</p>
+<blockquote>
+<p><strong>Webpack</strong> 是一个前端资源加载和打包工具。所谓的模块就是在平时的前端开发中，用到一些静态资源，如JavaScript、CSS、图片等文件，webpack就将这些静态资源文件称之为模块。 webpack支持AMD和CommonJS，以及其他的一些模块系统，并且兼容多种JS书写规范，可以处理模块间的依赖关系，所以具有更强大的JS模块化的功能，它能对静态资源进行统一的管理以及打包发布。</p>
+</blockquote>
+<p>我的理解就是将多种格式的前端设计素材打包成更规范更清晰的格式便于使用和交流。</p>
+<h2 id="一、艰难的Webpack安装"><a href="#一、艰难的Webpack安装" class="headerlink" title="一、艰难的Webpack安装"></a>一、艰难的Webpack安装</h2><h3 id="问题一：Webpack全局安装"><a href="#问题一：Webpack全局安装" class="headerlink" title="问题一：Webpack全局安装"></a>问题一：Webpack全局安装</h3><p>首先要明白的是，webpack可以针对某一个前端项目来使用，这时候在项目文件夹执行:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack</span><br></pre></td></tr></table></figure>
+
+<p>只会在当前文件夹能够使用webpack指令，因此需要使用全局安装,才能在所有项目使用Webpack</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br></pre></td></tr></table></figure>
+
+<h3 id="问题二：Webpack-cli安装"><a href="#问题二：Webpack-cli安装" class="headerlink" title="问题二：Webpack-cli安装"></a>问题二：Webpack-cli安装</h3><p>当你安装完Webpack之后，使用它还需要安装Webpack-cli,提示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The CLI moved into a separate package: webpack-cli</span><br><span class="line">Would you like to install webpack-cli? (That will run npm install -D webpack-cli) (yes/NO</span><br></pre></td></tr></table></figure>
+
+<p>还有个尴尬的问题😂，当你安装完cli她要你反复的安装Webpack-cli!因为Webpack-cli也需要全局安装！！<br>执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack-cli -g</span><br></pre></td></tr></table></figure>
+
+<h3 id="问题三：npm下载慢"><a href="#问题三：npm下载慢" class="headerlink" title="问题三：npm下载慢"></a>问题三：npm下载慢</h3><p>由于 npm 安装速度慢，本教程使用了淘宝的镜像及其命令 cnpm，安装使用介绍参照：<a href="https://www.runoob.com/nodejs/nodejs-npm.html" target="_blank" rel="noopener">使用淘宝 NPM 镜像</a>。<br><strong><em>同时注意npm和cnpm不能混用，否则也会有错误，要安装Webpack统一使用cnpm</em></strong></p>
+<h3 id="问题四：Webpack执行打包命令出现问题"><a href="#问题四：Webpack执行打包命令出现问题" class="headerlink" title="问题四：Webpack执行打包命令出现问题"></a>问题四：Webpack执行打包命令出现问题</h3><p>好不容易安装完了，要打包项目又出现问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack runoob1.js boundle.js</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/10/04/Webpack学习过程/error.png" alt="error"><br>这个代码实际上是以前的代码，现在需要更严格的代码说明</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack runoob1.js --output-filename bundle.js --output-path . --mode development</span><br></pre></td></tr></table></figure>
+
+<p>上述代码就不会报错，进一步可以使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+
+<p>生成package.json文件，配置mode和输出路径与输出文件名就不会报错。</p>
+<h2 id="二、Webpack系统学习-阮一峰教程"><a href="#二、Webpack系统学习-阮一峰教程" class="headerlink" title="二、Webpack系统学习(阮一峰教程)"></a>二、Webpack系统学习(<a href="https://github.com/ruanyf/webpack-demos" target="_blank" rel="noopener">阮一峰教程</a>)</h2><blockquote>
+<p>这里需说明先全局安装npm i -g webpack webpack-dev-server才能跑阮一峰的项目</p>
+</blockquote>
+<h4 id="foreword"><a href="#foreword" class="headerlink" title="foreword"></a>foreword</h4><p>介绍啥是webpack，需要一个webpack.config.js文件，这样就可以使用webpack不带其他参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>webpack的参数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">webpack <span class="comment">// building for development</span></span><br><span class="line">webpack -p <span class="comment">// building for production (minification)</span></span><br><span class="line">webpack --watch <span class="comment">// for continuous incremental building</span></span><br><span class="line">webpack -d <span class="comment">// including source maps</span></span><br><span class="line">webpack --colors <span class="comment">// making building output pretty</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以定义package.json 来使用npm run dev方法</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// ...</span><br><span class="line"> "scripts": &#123;</span><br><span class="line">   "dev": "webpack-dev-server --devtool eval --progress --colors",</span><br><span class="line">   "deploy": "NODE_ENV=production webpack -p"</span><br><span class="line"> &#125;,</span><br><span class="line"> // ...</span><br></pre></td></tr></table></figure>
+
+<h4 id="demo01"><a href="#demo01" class="headerlink" title="demo01"></a>demo01</h4><p>webpack有个入口文件main.js用来打包<br>webpack依照webpack.config.js方法来打包</p>
+<h4 id="demo02"><a href="#demo02" class="headerlink" title="demo02"></a>demo02</h4><p>可以有多个打包入口文件，则在config中设定：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    bundle1: <span class="string">'./main1.js'</span>,</span><br><span class="line">    bundle2: <span class="string">'./main2.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].js'</span> <span class="comment">//这里输出名称可以默认</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Demo03-Babel-loader"><a href="#Demo03-Babel-loader" class="headerlink" title="Demo03: Babel-loader"></a>Demo03: Babel-loader</h4><p>预处理器，将jsx语言转成就是语言Babel-loader，还有其他种类的<br>jsx:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.jsx</span></span><br><span class="line"><span class="keyword">const</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">const</span> ReactDOM = <span class="built_in">require</span>(<span class="string">'react-dom'</span>);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;h1&gt;Hello, world!&lt;/h1&gt;,</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">'#wrapper'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>webpack.config.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.jsx'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123; <span class="comment">//要多定义模块</span></span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.jsx?$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            presets: [<span class="string">'es2015'</span>, <span class="string">'react'</span>]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Demo04-CSS-loader"><a href="#Demo04-CSS-loader" class="headerlink" title="Demo04: CSS-loader"></a>Demo04: CSS-loader</h4><p>如果在JS文件包含CSS，也可以打包css<br>webpack.config.js：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules:[</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [ <span class="string">'style-loader'</span>, <span class="string">'css-loader'</span> ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这样打包成一个js文件就会方便得多。同时注意这里需要’style-loader’, ‘css-loader’两个loader</p>
+<h4 id="Demo05-Image-loader"><a href="#Demo05-Image-loader" class="headerlink" title="Demo05: Image loader"></a>Demo05: Image loader</h4><p>打包图片<br>webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &apos;./main.js&apos;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: &apos;bundle.js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules:[</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.(png|jpg)$/,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &apos;url-loader&apos;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              limit: 8192</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>根据图片大大小不同会有不同的转化方法<br><img src="/2019/10/04/Webpack学习过程/diff.png" alt="diff"></p>
+<h4 id="Demo06-CSS-Module"><a href="#Demo06-CSS-Module" class="headerlink" title="Demo06: CSS Module"></a>Demo06: CSS Module</h4><p>css-loader?modules 的 CSS Module 功能可以给 JS 模块的 CSS 设置一个局部作用域。你可以用 :global(selector) (更多) 关掉它，使样式变成全局的。<br>webpack.config.js</p>
+<h4 id="Demo07-UglifyJs-Plugin"><a href="#Demo07-UglifyJs-Plugin" class="headerlink" title="Demo07: UglifyJs Plugin"></a>Demo07: UglifyJs Plugin</h4><p>Webpack 用一套插件系统扩展了它的功能。比如，UglifyJs Plugin 就是其中的一个流行的插件，它可以压缩混淆输出的 js 代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">var</span> UglifyJsPlugin = <span class="built_in">require</span>(<span class="string">'uglifyjs-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 使用插件</span></span><br><span class="line">  plugins: [<span class="keyword">new</span> UglifyJsPlugin()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Demo08-HTML-Webpack-Plugin-and-Open-Browser-Webpack-Plugin"><a href="#Demo08-HTML-Webpack-Plugin-and-Open-Browser-Webpack-Plugin" class="headerlink" title="Demo08: HTML Webpack Plugin and Open Browser Webpack Plugin"></a>Demo08: HTML Webpack Plugin and Open Browser Webpack Plugin</h4><p>这个例子将讲讲怎么载入第三方的插件。</p>
+<p>html-webpack-plugin 将会<br>为你创建一个 index.html 文件。 open-browser-webpack-plugin 可以在 Webpack 编译完成后打开一个新窗口。</p>
+<p>现在你不仅不需要手动的写 index.html 文件，而且也不用手动的打开浏览器了。Webpack 都帮你完成了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HtmlwebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">var</span> OpenBrowserPlugin = <span class="built_in">require</span>(<span class="string">'open-browser-webpack-plugin'</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Demo09-Environment-flags"><a href="#Demo09-Environment-flags" class="headerlink" title="Demo09: Environment flags"></a>Demo09: Environment flags</h4><p>你可以用环境变量来区分开发环境。<br><img src="/2019/10/04/Webpack学习过程/envir.png" alt="envir"></p>
+<h4 id="Demo10-Code-splitting"><a href="#Demo10-Code-splitting" class="headerlink" title="Demo10: Code splitting"></a>Demo10: Code splitting</h4><p>对于一个大型 app，把所有代码塞到一个文件可能不是很好维护。Webpack 可以把一个庞大的 JS 文件拆分成几块。尤其，有些代码只有用的时候才引入可以按需加载。</p>
+<p>Webpack 用 require.ensure 来定义一个代码点。</p>
+<p>require.ensure 告诉 Webpack ./a.js 应该从 bundle.js 中拆分出来，单独生成一个文件。</p>
+<p>现在 Webpack 来负责依赖、输出和运行时需要的一些东西。你不必在投入过多的精力在 index.html 和 webpack.config.js 上了。</p>
+<p>表面上，你不会感到什么变化。然而，Webpack 已经把 main.js 和 a.js 构建成两个不同的文件（bundle.js and 0.bundle.js），并且按依赖关系依次引入。</p>
+<h4 id="Demo11-Code-splitting-with-bundle-loader"><a href="#Demo11-Code-splitting-with-bundle-loader" class="headerlink" title="Demo11: Code splitting with bundle-loader"></a>Demo11: Code splitting with bundle-loader</h4><p>另一种进行代码分离的方法是用 bundle-loader。</p>
+<p>require(‘bundle-loader!./a.js’) 告诉 Webpack 从另一个包里加载 a.js。</p>
+<p>现在 Webpack 将会构建 main.js 到 bundle.js 中, a.js 到 0.bundle.js 中。</p>
+<h4 id="Demo12-Common-chunk"><a href="#Demo12-Common-chunk" class="headerlink" title="Demo12: Common chunk"></a>Demo12: Common chunk</h4><p>当多个 Js 文件有共同的依赖，我们可以 CommonsChunkPlugin 把公共的部分提取出来生成一个文件。这对浏览器缓存和节省带宽是非常有用的。</p>
+<p>上面的 commons.js 就是 main1.jsx 和 main2.jsx 的公共部分。也就是包含了 react 和 react-dom。</p>
+<h4 id="Demo13-Vendor-chunk"><a href="#Demo13-Vendor-chunk" class="headerlink" title="Demo13: Vendor chunk"></a>Demo13: Vendor chunk</h4><p>你也可以用 CommonsChunkPlugin 提取第三方的 Js 生成一个单独的文件。</p>
+<p>上面的代码，entry.vendor: [‘jquery’] 告诉 Webpack jeuery 应该被打包到一个公共 vendor.js 包中去。</p>
+<p>如果你想让一个全局的变量在每一个模块可用，比如 $ 和 jQuery 不用 require(“jquery”) 就可以直接用。那么你需要使用 ProvidePlugin (Official doc) 这个插件，它可以自动的载入模块，而不需要到处 import 或者 require。</p>
+<p>当然，这种情况，你还需要手动的全局的载入 jquery.js</p>
+<p><strong><em>以上是主要的方法中文翻译，实际使用完全可以翻阅<a href="https://blog.csdn.net/userkang/article/details/83504048#demo06-css-module-source" target="_blank" rel="noopener">阮一峰</a>的手册</em></strong></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658"
+      alt="望星的太阳花">
+  <p class="site-author-name" itemprop="name">望星的太阳花</p>
+  <div class="site-description" itemprop="description">You are my JavaSript in my HTML.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">望星的太阳花</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

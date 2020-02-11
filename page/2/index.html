@@ -25,7 +25,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '7.4.1',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
@@ -160,6 +160,17 @@
       
       
         
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
         <li class="menu-item menu-item-archives">
       
     
@@ -168,6 +179,8 @@
 
   </li>
   </ul>
+
+    
 
 </nav>
 </div>
@@ -183,8 +196,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-            
-
           <div id="content" class="content">
             
   <div id="posts" class="posts-expand">
@@ -193,7 +204,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/04/hexo博客搭建的坑/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/28/目标检测学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="望星的太阳花">
@@ -207,7 +218,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/10/04/hexo博客搭建的坑/" class="post-title-link" itemprop="url">hexo博客搭建的坑</a>
+            <a href="/2019/11/28/目标检测学习笔记/" class="post-title-link" itemprop="url">目标检测学习笔记</a>
           
         </h1>
 
@@ -222,89 +233,7 @@
                 
               
 
-              <time title="创建时间：2019-10-04 21:20:02 / 修改时间：21:59:59" itemprop="dateCreated datePublished" datetime="2019-10-04T21:20:02+08:00">2019-10-04</time>
-            </span>
-          
-            
-
-            
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>hexo是一个挺好的基础博客搭建方法，但操作过程中遇到挺多坑，这里填起来，帮助以后的小菜鸟们。</p>
-<h2 id="坑一："><a href="#坑一：" class="headerlink" title="坑一："></a>坑一：</h2><p>找到合适的搭建教程网站（详细的好的）是很重要的，因为之前的网站不是太详细还有图片加载不出来，导致remote失败很是受挫，之后找到一篇好文章，跟着教程顺利搭建。</p>
-<p>推荐教程：<a href="https://blog.csdn.net/qq_36759224/article/details/82121420" target="_blank" rel="noopener">使用 Github Pages 和 Hexo 搭建自己的独立博客【超级详细的小白教程】</a></p>
-<h2 id="坑二："><a href="#坑二：" class="headerlink" title="坑二："></a>坑二：</h2><p>根据教程顺利的搭建教程了，进一步是更改自己喜欢的主题，这里先是在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官方主题</a>找到挺简单清新的主题，下载后却有很多问题，有的是图片显示不出来，尝试了hexo clean -&gt; hexo g等等操作还是一团糟，最后选择了<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT主题</a>，这是一个大家用户排行最高的主题，包也比之前的大，就相当于大厂与山寨的区别，同时还有很多进阶方法，推荐使用NextT而不采用民间自制的主题。<br><img src="/2019/10/04/hexo博客搭建的坑/next.png" alt="Next"></p>
-<p><strong>同时<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo</a>有修改域名等，<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT</a>有进阶设定等进阶方法，想让自己的博客花里胡哨可以自己在官网去尝试</strong></p>
-<h2 id="坑三："><a href="#坑三：" class="headerlink" title="坑三："></a>坑三：</h2><p>最常用也最坑的坑😂——在博客中插入图片：<br>当你直接在md文件里面编写博客的时候采用格式来插入图片，但是当部署到博客上就会出现问题，百度很容易得到解决方案<br><img src="/2019/10/04/hexo博客搭建的坑/solution.png" alt="solution"><br>这种烂大街的方法在很多博客中都重复出现，不知道谁抄谁的始终没有解决，也许是博客写的时间比较早的问题，知道半个小时的苦苦搜索找到一篇<a href="https://blog.csdn.net/Strong997/article/details/97767929" target="_blank" rel="noopener">良心博客</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https://github.com/CodeFalling/hexo-asset-image --save</span><br></pre></td></tr></table></figure>
-
-<p>只有用上述方法安装图片上传格式才能有效，终于解决了😭。</p>
-<p>希望上述三点能帮助大家搭建一个基础的博客，再逐步进阶成大神把！</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/04/Webpack学习过程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="望星的太阳花">
-      <meta itemprop="description" content="You are my JavaSript in my HTML.">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/04/Webpack学习过程/" class="post-title-link" itemprop="url">Webpack学习过程</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-04 20:34:32" itemprop="dateCreated datePublished" datetime="2019-10-04T20:34:32+08:00">2019-10-04</time>
+              <time title="创建时间：2019-11-28 17:02:44" itemprop="dateCreated datePublished" datetime="2019-11-28T17:02:44+08:00">2019-11-28</time>
             </span>
           
             
@@ -315,9 +244,22 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-06 19:58:40" itemprop="dateModified" datetime="2019-10-06T19:58:40+08:00">2019-10-06</time>
+                <time title="修改时间：2020-02-11 12:07:17" itemprop="dateModified" datetime="2020-02-11T12:07:17+08:00">2020-02-11</time>
               </span>
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -331,89 +273,297 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="曲折的Webpack学习"><a href="#曲折的Webpack学习" class="headerlink" title="曲折的Webpack学习"></a>曲折的Webpack学习</h1><p>首先明白Webpack是干啥的:</p>
+          <h2 id="YOLO-学习笔记"><a href="#YOLO-学习笔记" class="headerlink" title="YOLO 学习笔记"></a>YOLO 学习笔记</h2><h3 id="YOLO-v1深入理解"><a href="#YOLO-v1深入理解" class="headerlink" title="YOLO v1深入理解"></a>YOLO v1深入理解</h3><p>yolo1 448<em>448</em>3 输入之前做resize 分成7<em>7网格 如果目标中心在网格里就进行预测<br>网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测<br>输出是7</em>7*10 tensor</p>
+<p>每一个网格产生 30个通道的信息<br>2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个boundingbox 的物体执行度） 前10个<br>分类信息 yolov1 会有20个分类目标 所以总的有30</p>
+<p>目标检测： 位置信息与分类  包含回归和分类 </p>
+<p>fast rcnn 会有<br>yolo3 416* 416 608*608</p>
+<p>bounding box的置信度 = 该boudnig box 内存在对象的概率* 该boudingbox与该对象实际boundingbox的iou交并比</p>
+<p>YOLO标签与以往不一样<br>是在训练才会出现 置信度的标签 依赖于标签的裱框 </p>
+<p>交集除以并集 值越大 重合的概率越大</p>
+<p>7*7的网格可以训练2个bounding box<br>v3里面 每个grid里面 有3个ancor多个 </p>
+<p>训练样本标注之后 会有边框 </p>
+<p>损失是去找损失的中心点<br>中心点在那个位置 这个cell来负责预测狗对象 如何负责看计算<br>20个对象的概率 </p>
+<p>对一个框 是狗的框 若是狗则是1 其他的都是0 </p>
+<p>bounding box怎么输出<br>一个cel里面有cell 和 ancor<br>挑选一个比较符合的  </p>
+<p>这个样本标签 bouding box1填什么是依赖于 训练过程中得到的iou</p>
+<p>损失：<br>中心点的损失+宽高的损失 有目标在才有</p>
+<p>静态目标和动态目标的效果不一样<br>置信度的损失 有目标的损失参考值是一 没有的目标的损失参考值是0</p>
+<p>预测阶段 输出就是置信度  可以根据置信度来做预测</p>
+<p>非极大值抑制</p>
+<p>找置信度最高的 根据预值 计算iou 大于预值 就删除 得到两个框 一样的流程</p>
+<h2 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h2><blockquote>
+<p>目标检测 发展迅速  yolo anglefree yolo v3借助 ssd的思想 给了 angle建议</p>
+</blockquote>
+<p>faster rcnn 与 rcnn的区别</p>
+<p>是 Region Proposal Network 和 Rol pooling </p>
+<p>早期的分类器 找到区域 再把区域拿出去做分类  计算复杂度很高 </p>
+<p>faster rcnn 是把多次的特征提取只做一次</p>
+<p>图片经过卷积层 会得到特征映射 得到建议的区域 box 再根据原来feature maps 做一个融合 找到<br>proposals的建议特征<br>再做一个 rol pooling<br>classier 在做分类特征 同时做bounding box的回归</p>
+<p>1、第一步特征提取 卷积神经网络<br>2、region proposal networks 包含两个操作 一个是分类器 softmax 判断假定的 anchors是 前景还是背景 过滤一些ancor rpn网络 给很多box 实际上做 rlpooling 只是一个部分   另一个 做bounding 回归<br>3、创造性的 roi pooling  给定建议区域 由于形状大小不一致 但是分类起要求输入大小形状相同 对 不同形状的box 做一个pooling 参数不一样 但是最后pooling的结果是一样的<br>4、分类层 两个任务：目标的分类 和 bounding box 回归</p>
+<p>核心<br>具体细节不讲</p>
+<p>重点看 anchor</p>
+<p><strong>anchor</strong></p>
+<p>anchor 只有宽度和高 位置由中心点 确定  以一个点生成 k个 框 一个框4个坐标  共4k个坐标（根据原始图片的bbox做回归）（到原始图片上）做检测     2k scores softmax 二分类 判断前景还是背景</p>
+<p>？？？？</p>
+<p>anchor 下采样 做回归和而分类</p>
+<p>还可以改变 采样的大小 </p>
+<p>回归操作 是预测值尽可能接近参考值 </p>
+<p>roi pooling<br>需要尺寸一样<br>要么切割 要么是转向相同的尺寸 </p>
+<p>就可以给不同的pooling的参数 </p>
+<p>虽然 ancor尺寸不一样 但是结果一样  根据之前的参数来判断</p>
+<p>最后把 roi pooling给网络 一个做回归 一个做目标分类      </p>
+<h2 id="training-yolov3"><a href="#training-yolov3" class="headerlink" title="training yolov3"></a>training yolov3</h2>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/03/OpenCV3计算机视觉阅读笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/03/OpenCV3计算机视觉阅读笔记/" class="post-title-link" itemprop="url">OpenCV3计算机视觉阅读笔记</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-03 09:26:20" itemprop="dateCreated datePublished" datetime="2019-11-03T09:26:20+08:00">2019-11-03</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 12:06:43" itemprop="dateModified" datetime="2020-02-11T12:06:43+08:00">2020-02-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="第2章-处理文件、摄像头和图形用户界面"><a href="#第2章-处理文件、摄像头和图形用户界面" class="headerlink" title="第2章 处理文件、摄像头和图形用户界面"></a>第2章 处理文件、摄像头和图形用户界面</h2><p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C2.png" alt="C2"><br>本章重点介绍OpenCV的I/O功能，也会讨论项目的概念，后续章节为重点<br>从查看I/O功能和设计模式来构建项目，计算机视觉应用会面对真实环境，所以人们希望用统一的接口将后续算法应用到真实环境中。</p>
+<h3 id="2-1-基本I-O脚本"><a href="#2-1-基本I-O脚本" class="headerlink" title="2.1 基本I/O脚本"></a>2.1 基本I/O脚本</h3><p>不同的CV应用程序有不同的输入输出</p>
+<ul>
+<li>图像输入，图像输出</li>
+<li>摄像头输入，窗口显示输出</li>
+<li>其他的输入和输出还可能是图像文件、视频文件和原始字节(raw byte)<h4 id="2-1-1-读-写图像文件"><a href="#2-1-1-读-写图像文件" class="headerlink" title="2.1.1 读/写图像文件"></a>2.1.1 读/写图像文件</h4>简单的读取图像，转换图像，保存图像的操作<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)  <span class="comment">#利用cv2.cvtColor将图像转换成BGR格式</span></span><br><span class="line"></span><br><span class="line">grayImage = cv2.imread(<span class="string">'beans.png'</span>, cv2.IMREAD_GRAYSCALE)  <span class="comment">#加载png为灰度图像，然后保存为灰度的png图像</span></span><br><span class="line"></span><br><span class="line">cv2.imwrite(<span class="string">'beansGray.png'</span>, grayImage)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>下列选项作为imread()的参数</p>
+<ul>
+<li>IMREAD_ANYCOLOR = 4</li>
+<li>IMREAD_ANYDEPTH = 2</li>
+<li>IMREAD_COLOR = 1</li>
+<li>IMREAD_GRAYSCALE = 0</li>
+<li>IMREAD_LOAD_GDAL = 8</li>
+<li>IMREAD_UNCHANGED = -1</li>
+</ul>
+<p><em>imwrite()要求图像为BGR或灰度格式，并且每个通道要有一定的为(bit)，输出格式要支持这些通道。例如，bmp格式要求每个通道有8位，而PNG允许每个通道有8位或16位</em></p>
+<h4 id="2-1-2-图像与原始字节之间的转换"><a href="#2-1-2-图像与原始字节之间的转换" class="headerlink" title="2.1.2 图像与原始字节之间的转换"></a>2.1.2 图像与原始字节之间的转换</h4><ul>
+<li>一个OpenCV图像是.array类型的二维或三维数组。</li>
+<li>8位的灰度图像只有一个通道，24位的BGR图像是一个三维度数组。</li>
+<li>image[0,0，0]第一个值代表y，第二个值代表x，第三个值代表通道数（灰度图像只有一个通道是二维数组，没有第三个值）<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/2.1.2.png" alt="2.1.2"></li>
+</ul>
+<p>image[0,0] 或 image[0,0]=128可表示为：<br>image.item((0,0))或image.setitem((0,0),128)【这种更利于操作】</p>
+<p><strong>字节与图像格式的转换：</strong><br>代码很简单很清晰</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#图像转换为字节</span></span><br><span class="line">byteArray = bytearray(image)</span><br><span class="line"></span><br><span class="line"><span class="comment">#字节转换为图像，通过显式转换和重构</span></span><br><span class="line">grayImage = numpy.array(grayByteArray).reshape(height, width)</span><br><span class="line">bgrImage = numpy.array(bgrByteArray).reshape(height, width, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-使用numpy-array访问图像数据"><a href="#2-1-3-使用numpy-array访问图像数据" class="headerlink" title="2.1.3 使用numpy.array访问图像数据"></a>2.1.3 使用numpy.array访问图像数据</h4><p>直接用python内置的数组不方便，用numpy.array会方便很多</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python数组</span></span><br><span class="line">img[<span class="number">0</span>,<span class="number">0</span>] = [<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>]</span><br><span class="line"><span class="comment">#numpy.array</span></span><br><span class="line">img.itemset((<span class="number">150</span>,<span class="number">120</span>,<span class="number">0</span>), <span class="number">255</span>)</span><br></pre></td></tr></table></figure>
+
+<p>用循环来处理ptyhon数组的效率非常低，可以用数组索引来解决，高效且方便。<br>可以设置roi感兴趣的区域<br>数组的三个属性：</p>
+<ul>
+<li>Shape: NumPy包含宽度、高度和通道数（如果图像是彩色的）的数组，这在调试图像类型时很有用；如果图像是单色或灰度的，将不包含通道值</li>
+<li>Size：该属性是指图像的像素的大小</li>
+<li>Datatype：该属性会得到图形的数据类型（通常为一个无符号整数类型的变量和该类型占的位数，比如uint8类型）</li>
+</ul>
+<p>强烈简易熟悉常规的NumPy库，如果用OpenCV还要熟悉numpy.array库，作为numpy.array库是Python处理图像的基础。</p>
+<h4 id="2-1-4-视频文件的读-写"><a href="#2-1-4-视频文件的读-写" class="headerlink" title="2.1.4 视频文件的读/写"></a>2.1.4 视频文件的读/写</h4><p>提供了两个类来支持各种格式的视频文件：</p>
+<ul>
+<li>VideoCapture</li>
+<li>VideoWriter<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">videoCapture = cv2.VideoCapture(<span class="string">'screencast.avi'</span>)</span><br><span class="line"></span><br><span class="line">videoWriter = cv2.VideoWriter(</span><br><span class="line">    <span class="string">'MyOutputVid.avi'</span>, cv2.VideoWriter_fourcc(<span class="string">'I'</span>,<span class="string">'4'</span>,<span class="string">'2'</span>,<span class="string">'0'</span>),</span><br><span class="line">        fps,size</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>注意：</strong><br>必须要为VideoWriter类的构造函数指定视频文件名，同时也必须指定视频编解码器。编解码器的可用性根据系统不同而不同。以下常用：</p>
+<ul>
+<li>cv2.VideoWriter_fourcc(‘I’,’4’,’2’,’0’)</li>
+<li>cv2.VideoWriter_fourcc(‘P’,’I’,’M’,’i’)</li>
+<li>cv2.VideoWriter_fourcc(‘X’,’V’,’I’,’D’)</li>
+<li>cv2.VideoWriter_fourcc(‘T’,’H’,’E’,’O’)</li>
+<li>cv2.VideoWriter_fourcc(‘F’,’L’,’V’,’I’)<br>帧速率fps和帧大小size的大小也必须指定，因为从另一个视频文件复制该视频帧这些属性可以通过VideoCapture类的get()函数得到</li>
+</ul>
+<h4 id="2-1-5-捕获摄像头的帧"><a href="#2-1-5-捕获摄像头的帧" class="headerlink" title="2.1.5 捕获摄像头的帧"></a>2.1.5 捕获摄像头的帧</h4><p>VideoCapture类可以获得摄像头的帧流。此时传递的参数不是视频的文件名而是摄像头的设备索引(device index)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cameraCapture = cv2.VideoCapture(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>对于摄像头有许多需要操作了解的比如摄像头的<strong>帧速率</strong>，<strong>摄像头的数量与顺序</strong>，<strong>摄像头组</strong>。</p>
+<ul>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fps_device = cv2.VideoCapture(<span class="number">0</span>).get(fps)</span><br></pre></td></tr></table></figure>
+
+<p>VideoCapture类的get()方法不能返回摄像头帧速率的准确值（终端不支持，可对帧速率做假设，也可以利用计时器测量）</p>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">success, frame = cameraCapture.read()</span><br></pre></td></tr></table></figure>
+
+<p>摄像头的数量和顺序由系统决定，当用无效的索引创造了VideoCapture类，就不会得到帧，可以用VideoCapture.isOpened来判断</p>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">success0 = cameraCapture0.grab()</span><br><span class="line">success1 = cameraCapture1.grab()</span><br><span class="line"><span class="keyword">if</span> success0 <span class="keyword">and</span> success1:</span><br><span class="line">frame0 = cameraCapture0.retrieve()</span><br><span class="line">frame1 = cameraCapture1.retrieve()</span><br></pre></td></tr></table></figure>
+
+<p>对摄像头组，read()就不适合，可以用grab()，retrive()方法来代替它。</p>
+</li>
+</ul>
+<h4 id="2-1-6-在窗口显示图像"><a href="#2-1-6-在窗口显示图像" class="headerlink" title="2.1.6 在窗口显示图像"></a>2.1.6 在窗口显示图像</h4><p>自然的调用<code>cv2.imshow()</code>但要注意消失方法，即<code>cv2.waitKey()</code>和<code>cv2.destroyAllWindows()</code>的使用</p>
+<h4 id="2-1-7-在窗口显示摄像头帧"><a href="#2-1-7-在窗口显示摄像头帧" class="headerlink" title="2.1.7 在窗口显示摄像头帧"></a>2.1.7 在窗口显示摄像头帧</h4><p>OpenCV的namedWindow()，imshow()和DestroyWindow()，函数允许指定窗口名、创建、显示和销毁窗口。配合获取键盘/鼠标输入交互显示摄像头帧。</p>
+<ul>
+<li>namedWindow() 创建</li>
+<li>imshow() 显示</li>
+<li>DestroyWindow() 销毁</li>
+<li>wait() 获取键盘输入</li>
+<li>setMouseCallback() 获取鼠标输入</li>
+</ul>
+<p><strong><em>OpenCV的窗口函数和waitKey()函数相互依赖，窗口函数只有调用waitKey()才会更新，waitKey()函数只有在窗口成为活动窗口时才能捕获输入信息</em></strong></p>
+<p>setMouseCallback()函数详解：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">onMouse</span><span class="params">(event, x, y, flags, param)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> clicked</span><br><span class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDBLCLK:</span><br><span class="line">        clicked = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">cv2.setMouseCallback(<span class="string">'MyWindow'</span>, onMouse)</span><br></pre></td></tr></table></figure>
+
+<p>有五个参数,param可选参数，默认为0，event回调用函数有10种，flags标志参数有6种参数选择（查资料）</p>
+<p><em>OpenCV不提供任何处理窗口事件的方法。例如，当单击窗口的关闭按钮不能关闭应用程序，因此多将OpenCV集成到其他应用程序框架中。后面的项目实例设计了一个抽象层，有助于将OpenCV集成到任意应用程序中。</em></p>
+<h2 id="第3章-使用OpenCV-3处理图像"><a href="#第3章-使用OpenCV-3处理图像" class="headerlink" title="第3章 使用OpenCV 3处理图像"></a>第3章 使用OpenCV 3处理图像</h2><p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C3.png" alt="C3"></p>
+<h3 id="3-1-不同色彩空间的转换"><a href="#3-1-不同色彩空间的转换" class="headerlink" title="3.1 不同色彩空间的转换"></a>3.1 不同色彩空间的转换</h3><p>OpenCV有数百种色彩空间转换方法，有三种常用的色彩空间：灰度、BGR以及HSV</p>
+<ul>
+<li>灰度：去除彩色信息转换成灰阶，对中间处理很有效</li>
+<li>BGR：蓝-绿-红色彩空间，每一个像素点由一个三元数组构成，与RBG只是颜色上不同</li>
+<li>HSV：色调+饱和度+黑暗的程度/光谱另一端的明亮程度<h3 id="3-2-傅立叶转换"><a href="#3-2-傅立叶转换" class="headerlink" title="3.2 傅立叶转换"></a>3.2 傅立叶转换</h3>OpenCV中，对图像和视频大多数处理或多或少会涉及到傅立叶变换。人们所看到的波形都是由其他波形叠加得到的，这样可以<strong>区分</strong>图像里<strong>哪些区域的信号（比如图像像素）变化特别强，哪些区域的信号变化不那么强</strong>，从而任意标记区域，原始图像由许多频率组成，人们能分离这些频率来理解图像和提取感兴趣的数据。</li>
+<li>幅度谱：由傅立叶变换，幅度谱图像呈现了原始图像在变化方面的一种表示：把图像中最明亮的像素放到中央，逐渐变暗，边缘上的像素最暗。<h4 id="3-2-1-高通滤波器"><a href="#3-2-1-高通滤波器" class="headerlink" title="3.2.1 高通滤波器"></a>3.2.1 高通滤波器</h4>高通滤波器检测图像的某个区域，然后根据像素与周围像素的亮度差来提升该像素的滤波器，在计算中央像素的亮度差值之和之后，如果一个像素比它周围的像素更突出，就会提升它的亮度。边缘检测尤其有效<h4 id="3-2-2-低通滤波器"><a href="#3-2-2-低通滤波器" class="headerlink" title="3.2.2 低通滤波器"></a>3.2.2 低通滤波器</h4>在像素与周围像素的亮度差值小于一个特定值时，平滑该像素的亮度，主要用于去噪和模糊化。比如高斯模糊是最常用的模糊滤波器。</li>
+</ul>
+<p><strong><em>很多操作都是以傅立叶变换和高/低通滤波器为基础来实现的</em></strong></p>
+<h3 id="3-3-创建模块"><a href="#3-3-创建模块" class="headerlink" title="3.3 创建模块"></a>3.3 创建模块</h3><h3 id="3-4-边缘检测"><a href="#3-4-边缘检测" class="headerlink" title="3.4 边缘检测"></a>3.4 边缘检测</h3><h3 id="3-5-用定制内核做卷积"><a href="#3-5-用定制内核做卷积" class="headerlink" title="3.5 用定制内核做卷积"></a>3.5 用定制内核做卷积</h3><h3 id="3-6-修改应用"><a href="#3-6-修改应用" class="headerlink" title="3.6 修改应用"></a>3.6 修改应用</h3><h3 id="3-7-Canny-边缘检测"><a href="#3-7-Canny-边缘检测" class="headerlink" title="3.7 Canny 边缘检测"></a>3.7 Canny 边缘检测</h3><p>OpenCV提供了方便的Canny函数，虽然算法复杂，封装好后使用很简单。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.imwrite(<span class="string">"canny.jpg"</span>, cv2.Canny(img, <span class="number">200</span>, <span class="number">300</span>))</span><br></pre></td></tr></table></figure>
+
+<p>它有五个步骤：</p>
+<ol>
+<li>使用高通滤波器进行去噪</li>
+<li>计算梯度</li>
+<li>在边缘上使用非最大抑制（NMS）</li>
+<li>在检测到的边缘上使用双阀值去除假阳性</li>
+<li>分析所有边缘及其之间的连接<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/canny.png" alt="canny"></li>
+</ol>
+<h3 id="3-8-轮廓检测"><a href="#3-8-轮廓检测" class="headerlink" title="3.8 轮廓检测"></a>3.8 轮廓检测</h3><blockquote>
+<p><strong>边缘检测</strong>是检测图像的边缘 也就是图像差异比较大的地方<br><strong>轮廓提取</strong>是提取出你想要得到的轮廓 轮廓可能是边缘的一部分</p>
+</blockquote>
+<p>轮廓检测不单是检测轮廓，还需要其他操作：<strong>计算多边形边界、形状逼近和计算感兴趣区域</strong><br>上诉操作可以用NumPy中的数组切片(slice)来定义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ret, thresh = cv2.threshold(img, <span class="number">127</span>, <span class="number">255</span>, <span class="number">0</span>)  <span class="comment">#对图像进行二值化操作</span></span><br><span class="line">contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p><strong>Webpack</strong> 是一个前端资源加载和打包工具。所谓的模块就是在平时的前端开发中，用到一些静态资源，如JavaScript、CSS、图片等文件，webpack就将这些静态资源文件称之为模块。 webpack支持AMD和CommonJS，以及其他的一些模块系统，并且兼容多种JS书写规范，可以处理模块间的依赖关系，所以具有更强大的JS模块化的功能，它能对静态资源进行统一的管理以及打包发布。</p>
+<p>二值化操作：在数字图像处理中，二值图像占有非常重要的地位，图像的二值化使图像中数据量大为减少，从而能凸显出目标的轮廓。</p>
 </blockquote>
-<p>我的理解就是将多种格式的前端设计素材打包成更规范更清晰的格式便于使用和交流。</p>
-<h2 id="一、艰难的Webpack安装"><a href="#一、艰难的Webpack安装" class="headerlink" title="一、艰难的Webpack安装"></a>一、艰难的Webpack安装</h2><h3 id="问题一：Webpack全局安装"><a href="#问题一：Webpack全局安装" class="headerlink" title="问题一：Webpack全局安装"></a>问题一：Webpack全局安装</h3><p>首先要明白的是，webpack可以针对某一个前端项目来使用，这时候在项目文件夹执行:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack</span><br></pre></td></tr></table></figure>
+<p>上面操作就是先对图像进行二值化操作，之后 findContours函数对二值化后的图像进行轮廓检测更容易检测到，虽然api有变化。</p>
+<p>注意：</p>
+<ul>
+<li>这个函数会修改图像，简易对原始图像拷贝（img.copy()）</li>
+<li>函数返回的层次树很重要：cv2.RETR_TREE参数会得到图像中轮廓层次的整体结构，以此来建立轮廓之间的“关系”。如果只想要最外层的轮廓，可用cv2.RETR_EXTERNAL。这对消除包含在其他轮廓中的轮廓很有用（很多时候不需要检测一个目标在另一个与之相同的目标里）</li>
+<li>findContours()函数返回两个值：图像的轮廓和它的层次。</li>
+</ul>
+<p>之后使用轮廓（画成绿色）来显示轮廓。<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours.png" alt="contours"></p>
+<h3 id="3-9-边界框、最小矩形区域和最小闭圆的轮廓"><a href="#3-9-边界框、最小矩形区域和最小闭圆的轮廓" class="headerlink" title="3.9 边界框、最小矩形区域和最小闭圆的轮廓"></a>3.9 边界框、最小矩形区域和最小闭圆的轮廓</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img = cv2.pyrDown(cv2.imread(<span class="string">"hammer.jpg"</span>, cv2.IMREAD_UNCHANGED))</span><br><span class="line"></span><br><span class="line">ret, thresh = cv2.threshold(cv2.cvtColor(img.copy(), cv2.COLOR_BGR2GRAY) , <span class="number">127</span>, <span class="number">255</span>, cv2.THRESH_BINARY)</span><br><span class="line">contours, hier = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> contours:</span><br><span class="line">  <span class="comment"># find bounding box coordinates 将轮廓信息转换成边界坐标，并加上矩形的高度和宽度</span></span><br><span class="line">  x,y,w,h = cv2.boundingRect(c)</span><br><span class="line">  <span class="comment"># 画出矩形</span></span><br><span class="line">  cv2.rectangle(img, (x,y), (x+w, y+h), (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># find minimum area 计算出包围目标的最小矩形区域</span></span><br><span class="line">  rect = cv2.minAreaRect(c)</span><br><span class="line">  <span class="comment"># calculate coordinates of the minimum area rectangle 不能直接从轮廓信息得到最小矩形定点的坐标，所以需要计算出最小矩形区域，然后计算这个矩形的定点</span></span><br><span class="line">  box = cv2.boxPoints(rect)</span><br><span class="line">  <span class="comment"># normalize coordinates to integers 计算出来是浮点数，需要转换成整数</span></span><br><span class="line">  box = np.int0(box)</span><br><span class="line">  <span class="comment"># draw contours 画出边界，会修改图像，[box]数组包含一系列轮廓，从而在一次操作中绘制一系列的轮廓，第三个参数绘制数组轮廓索引，第四第五是绘制颜色和密度</span></span><br><span class="line">  cv2.drawContours(img, [box], <span class="number">0</span>, (<span class="number">0</span>,<span class="number">0</span>, <span class="number">255</span>), <span class="number">3</span>)</span><br><span class="line">  </span><br><span class="line">  <span class="comment"># calculate center and radius of minimum enclosing circle 检查最小闭圆 返回圆中心坐标和半径 再绘制</span></span><br><span class="line">  (x,y),radius = cv2.minEnclosingCircle(c)</span><br><span class="line">  <span class="comment"># cast to integers</span></span><br><span class="line">  center = (int(x),int(y))</span><br><span class="line">  radius = int(radius)</span><br><span class="line">  <span class="comment"># draw the circle</span></span><br><span class="line">  img = cv2.circle(img,center,radius,(<span class="number">0</span>,<span class="number">255</span>,<span class="number">0</span>),<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">cv2.drawContours(img, contours, <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), <span class="number">1</span>)</span><br><span class="line">cv2.imshow(<span class="string">"contours"</span>, img)</span><br><span class="line"></span><br><span class="line">cv2.waitKey()</span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
 
-<p>只会在当前文件夹能够使用webpack指令，因此需要使用全局安装,才能在所有项目使用Webpack</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br></pre></td></tr></table></figure>
+<p><strong><em>这里最纠结<code>for c in contours</code>想清楚是for循环出contours里的东西，contours只有一个二维坐标的集合的一个内容，for循环出一个ndarray的c</em></strong></p>
+<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours_2.png" alt="contours_2"></p>
+<h3 id="3-10-凸轮廓与Douglas-Peucker-算法"><a href="#3-10-凸轮廓与Douglas-Peucker-算法" class="headerlink" title="3.10 凸轮廓与Douglas-Peucker 算法"></a>3.10 凸轮廓与Douglas-Peucker 算法</h3><p>大多数处理轮廓的时候，物体的形状是变化多样的。凸形状内部任意两点的连线都在该形状里面。<br>cv2.approxPloyDP是一个OpenCV函数，用来计算近似的多边形框。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">approx = cv2.approxPolyDP(cnt,epsilon,<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="问题二：Webpack-cli安装"><a href="#问题二：Webpack-cli安装" class="headerlink" title="问题二：Webpack-cli安装"></a>问题二：Webpack-cli安装</h3><p>当你安装完Webpack之后，使用它还需要安装Webpack-cli,提示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The CLI moved into a separate package: webpack-cli</span><br><span class="line">Would you like to install webpack-cli? (That will run npm install -D webpack-cli) (yes/NO</span><br></pre></td></tr></table></figure>
+<p>三个参数：</p>
+<ul>
+<li>第一个“轮廓”</li>
+<li>第二个“𝜀值”，表示源轮廓与近似多边形的最大差值（值个值越小，多边形与源轮廓越接近）</li>
+<li>第三个“布尔标记”，表示这个多边形是否闭合</li>
+</ul>
+<p><em>𝜀这个值非常重要，值越小，近似多边形与源轮廓就越相似</em><br><strong>为什么有了轮廓还需要一个近似多边形呢？因为一个多边形由一组直线直线构成，能够再一个区域里定义多边形，以便于之后进行操作与处理，这在许多计算机视觉任务中非常重要</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> cnt <span class="keyword">in</span> contours:</span><br><span class="line">  epsilon = <span class="number">0.01</span> * cv2.arcLength(cnt,<span class="literal">True</span>)</span><br><span class="line">  approx = cv2.approxPolyDP(cnt,epsilon,<span class="literal">True</span>)</span><br><span class="line">  hull = cv2.convexHull(cnt)</span><br><span class="line">  cv2.drawContours(black, [cnt], <span class="number">-1</span>, (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)  <span class="comment">#这个是准确检测出来的轮廓</span></span><br><span class="line">  cv2.drawContours(black, [approx], <span class="number">-1</span>, (<span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)  <span class="comment">#用多边形拟合的多边形轮廓</span></span><br><span class="line">  cv2.drawContours(black, [hull], <span class="number">-1</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>)  <span class="comment">#获取处理过的轮廓信息，计算凸形状</span></span><br><span class="line"></span><br><span class="line">cv2.imshow(<span class="string">"hull"</span>, black)   <span class="comment">#将轮廓放在黑色图像上，这样就看不见源目标</span></span><br></pre></td></tr></table></figure>
 
-<p>还有个尴尬的问题😂，当你安装完cli她要你反复的安装Webpack-cli!因为Webpack-cli也需要全局安装！！<br>执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack-cli -g</span><br></pre></td></tr></table></figure>
-
-<h3 id="问题三：npm下载慢"><a href="#问题三：npm下载慢" class="headerlink" title="问题三：npm下载慢"></a>问题三：npm下载慢</h3><p>由于 npm 安装速度慢，本教程使用了淘宝的镜像及其命令 cnpm，安装使用介绍参照：<a href="https://www.runoob.com/nodejs/nodejs-npm.html" target="_blank" rel="noopener">使用淘宝 NPM 镜像</a>。<br><strong><em>同时注意npm和cnpm不能混用，否则也会有错误，要安装Webpack统一使用cnpm</em></strong></p>
-<h3 id="问题四：Webpack执行打包命令出现问题"><a href="#问题四：Webpack执行打包命令出现问题" class="headerlink" title="问题四：Webpack执行打包命令出现问题"></a>问题四：Webpack执行打包命令出现问题</h3><p>好不容易安装完了，要打包项目又出现问题：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack runoob1.js boundle.js</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2019/10/04/Webpack学习过程/error.png" alt="error"><br>这个代码实际上是以前的代码，现在需要更严格的代码说明</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack runoob1.js --output-filename bundle.js --output-path . --mode development</span><br></pre></td></tr></table></figure>
-
-<p>上述代码就不会报错，进一步可以使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
-
-<p>生成package.json文件，配置mode和输出路径与输出文件名就不会报错。</p>
-<h2 id="二、Webpack系统学习-阮一峰教程"><a href="#二、Webpack系统学习-阮一峰教程" class="headerlink" title="二、Webpack系统学习(阮一峰教程)"></a>二、Webpack系统学习(<a href="https://github.com/ruanyf/webpack-demos" target="_blank" rel="noopener">阮一峰教程</a>)</h2><blockquote>
-<p>这里需说明先全局安装npm i -g webpack webpack-dev-server才能跑阮一峰的项目</p>
+<blockquote>
+<p>convexhull函数的作用：计算出图像的凸包，根据图像的轮廓点，通过函数convexhull转化成凸包的点点坐标</p>
 </blockquote>
-<h4 id="foreword"><a href="#foreword" class="headerlink" title="foreword"></a>foreword</h4><p>介绍啥是webpack，需要一个webpack.config.js文件，这样就可以使用webpack不带其他参数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/contours_hull.png" alt="contours_hull"></p>
+<h3 id="3-11-直线和圆的检测"><a href="#3-11-直线和圆的检测" class="headerlink" title="3.11 直线和圆的检测"></a>3.11 直线和圆的检测</h3><p>检测边缘和轮廓是其他复杂操作的基础。直线和形状检测是它们的基础，与检测边缘和轮廓有密切的关系。<br>Hough是直线和形状检测背后的理论基础。</p>
+<h4 id="3-11-1-直线检测"><a href="#3-11-1-直线检测" class="headerlink" title="3.11.1 直线检测"></a>3.11.1 直线检测</h4><p>两种函数</p>
+<ol>
+<li>HoughLines() 标准的hough变换</li>
+<li>HoughLinesP() 使用概率Hough变换，是标准变换的优化版本，通过分析点的子集并估计这些点都属于一条直线的概率，执行效率更高。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lines = cv2.HoughLinesP(edges,<span class="number">1</span>,np.pi/<span class="number">180</span>,<span class="number">20</span>,minLineLength,maxLineGap)</span><br></pre></td></tr></table></figure>
 
-<p>webpack的参数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">webpack <span class="comment">// building for development</span></span><br><span class="line">webpack -p <span class="comment">// building for production (minification)</span></span><br><span class="line">webpack --watch <span class="comment">// for continuous incremental building</span></span><br><span class="line">webpack -d <span class="comment">// including source maps</span></span><br><span class="line">webpack --colors <span class="comment">// making building output pretty</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>HoughtLines函数：</em></strong><br>| 参数 | 功能 |<br>| :-: | :-: |<br>| edges | 需要处理的图像 |<br>| 1 | 几何表示rho |<br>| np.pi/180| 几何表示theta|<br>| 20 | 阀值。低于阀值的直线被忽略。Hough变换可以理解为投票关系，每个线相当于投票箱。|<br>|minLineLength|最小直线长度（更短会被消除）|<br>|maxLineGap|最大线段间隙（一条线段长度大于这个值会被视为两条分开的线段）|<br><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/lines.png" alt="lines"></p>
+<h4 id="3-11-2-圆检测"><a href="#3-11-2-圆检测" class="headerlink" title="3.11.2 圆检测"></a>3.11.2 圆检测</h4><p>类似直线检测，圆检测有圆心间的最小距离和圆的最小及最大半径参数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,<span class="number">1</span>,<span class="number">120</span>,</span><br><span class="line">                            param1=<span class="number">100</span>,param2=<span class="number">30</span>,minRadius=<span class="number">0</span>,maxRadius=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
-<p>也可以定义package.json 来使用npm run dev方法</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// ...</span><br><span class="line"> "scripts": &#123;</span><br><span class="line">   "dev": "webpack-dev-server --devtool eval --progress --colors",</span><br><span class="line">   "deploy": "NODE_ENV=production webpack -p"</span><br><span class="line"> &#125;,</span><br><span class="line"> // ...</span><br></pre></td></tr></table></figure>
-
-<h4 id="demo01"><a href="#demo01" class="headerlink" title="demo01"></a>demo01</h4><p>webpack有个入口文件main.js用来打包<br>webpack依照webpack.config.js方法来打包</p>
-<h4 id="demo02"><a href="#demo02" class="headerlink" title="demo02"></a>demo02</h4><p>可以有多个打包入口文件，则在config中设定：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    bundle1: <span class="string">'./main1.js'</span>,</span><br><span class="line">    bundle2: <span class="string">'./main2.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].js'</span> <span class="comment">//这里输出名称可以默认</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Demo03-Babel-loader"><a href="#Demo03-Babel-loader" class="headerlink" title="Demo03: Babel-loader"></a>Demo03: Babel-loader</h4><p>预处理器，将jsx语言转成就是语言Babel-loader，还有其他种类的<br>jsx:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.jsx</span></span><br><span class="line"><span class="keyword">const</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">const</span> ReactDOM = <span class="built_in">require</span>(<span class="string">'react-dom'</span>);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;h1&gt;Hello, world!&lt;/h1&gt;,</span><br><span class="line">  <span class="built_in">document</span>.querySelector(<span class="string">'#wrapper'</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>webpack.config.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.jsx'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123; <span class="comment">//要多定义模块</span></span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.jsx?$/</span>,</span><br><span class="line">        exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">        use: &#123;</span><br><span class="line">          loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">          options: &#123;</span><br><span class="line">            presets: [<span class="string">'es2015'</span>, <span class="string">'react'</span>]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Demo04-CSS-loader"><a href="#Demo04-CSS-loader" class="headerlink" title="Demo04: CSS-loader"></a>Demo04: CSS-loader</h4><p>如果在JS文件包含CSS，也可以打包css<br>webpack.config.js：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules:[</span><br><span class="line">      &#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [ <span class="string">'style-loader'</span>, <span class="string">'css-loader'</span> ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>这样打包成一个js文件就会方便得多。同时注意这里需要’style-loader’, ‘css-loader’两个loader</p>
-<h4 id="Demo05-Image-loader"><a href="#Demo05-Image-loader" class="headerlink" title="Demo05: Image loader"></a>Demo05: Image loader</h4><p>打包图片<br>webpack.config.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &apos;./main.js&apos;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: &apos;bundle.js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules:[</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.(png|jpg)$/,</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &apos;url-loader&apos;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              limit: 8192</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>根据图片大大小不同会有不同的转化方法<br><img src="/2019/10/04/Webpack学习过程/diff.png" alt="diff"></p>
-<h4 id="Demo06-CSS-Module"><a href="#Demo06-CSS-Module" class="headerlink" title="Demo06: CSS Module"></a>Demo06: CSS Module</h4><p>css-loader?modules 的 CSS Module 功能可以给 JS 模块的 CSS 设置一个局部作用域。你可以用 :global(selector) (更多) 关掉它，使样式变成全局的。<br>webpack.config.js</p>
-<h4 id="Demo07-UglifyJs-Plugin"><a href="#Demo07-UglifyJs-Plugin" class="headerlink" title="Demo07: UglifyJs Plugin"></a>Demo07: UglifyJs Plugin</h4><p>Webpack 用一套插件系统扩展了它的功能。比如，UglifyJs Plugin 就是其中的一个流行的插件，它可以压缩混淆输出的 js 代码。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">var</span> UglifyJsPlugin = <span class="built_in">require</span>(<span class="string">'uglifyjs-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: <span class="string">'./main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 使用插件</span></span><br><span class="line">  plugins: [<span class="keyword">new</span> UglifyJsPlugin()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Demo08-HTML-Webpack-Plugin-and-Open-Browser-Webpack-Plugin"><a href="#Demo08-HTML-Webpack-Plugin-and-Open-Browser-Webpack-Plugin" class="headerlink" title="Demo08: HTML Webpack Plugin and Open Browser Webpack Plugin"></a>Demo08: HTML Webpack Plugin and Open Browser Webpack Plugin</h4><p>这个例子将讲讲怎么载入第三方的插件。</p>
-<p>html-webpack-plugin 将会<br>为你创建一个 index.html 文件。 open-browser-webpack-plugin 可以在 Webpack 编译完成后打开一个新窗口。</p>
-<p>现在你不仅不需要手动的写 index.html 文件，而且也不用手动的打开浏览器了。Webpack 都帮你完成了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> HtmlwebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">var</span> OpenBrowserPlugin = <span class="built_in">require</span>(<span class="string">'open-browser-webpack-plugin'</span>)</span><br></pre></td></tr></table></figure>
-
-<h4 id="Demo09-Environment-flags"><a href="#Demo09-Environment-flags" class="headerlink" title="Demo09: Environment flags"></a>Demo09: Environment flags</h4><p>你可以用环境变量来区分开发环境。<br><img src="/2019/10/04/Webpack学习过程/envir.png" alt="envir"></p>
-<h4 id="Demo10-Code-splitting"><a href="#Demo10-Code-splitting" class="headerlink" title="Demo10: Code splitting"></a>Demo10: Code splitting</h4><p>对于一个大型 app，把所有代码塞到一个文件可能不是很好维护。Webpack 可以把一个庞大的 JS 文件拆分成几块。尤其，有些代码只有用的时候才引入可以按需加载。</p>
-<p>Webpack 用 require.ensure 来定义一个代码点。</p>
-<p>require.ensure 告诉 Webpack ./a.js 应该从 bundle.js 中拆分出来，单独生成一个文件。</p>
-<p>现在 Webpack 来负责依赖、输出和运行时需要的一些东西。你不必在投入过多的精力在 index.html 和 webpack.config.js 上了。</p>
-<p>表面上，你不会感到什么变化。然而，Webpack 已经把 main.js 和 a.js 构建成两个不同的文件（bundle.js and 0.bundle.js），并且按依赖关系依次引入。</p>
-<h4 id="Demo11-Code-splitting-with-bundle-loader"><a href="#Demo11-Code-splitting-with-bundle-loader" class="headerlink" title="Demo11: Code splitting with bundle-loader"></a>Demo11: Code splitting with bundle-loader</h4><p>另一种进行代码分离的方法是用 bundle-loader。</p>
-<p>require(‘bundle-loader!./a.js’) 告诉 Webpack 从另一个包里加载 a.js。</p>
-<p>现在 Webpack 将会构建 main.js 到 bundle.js 中, a.js 到 0.bundle.js 中。</p>
-<h4 id="Demo12-Common-chunk"><a href="#Demo12-Common-chunk" class="headerlink" title="Demo12: Common chunk"></a>Demo12: Common chunk</h4><p>当多个 Js 文件有共同的依赖，我们可以 CommonsChunkPlugin 把公共的部分提取出来生成一个文件。这对浏览器缓存和节省带宽是非常有用的。</p>
-<p>上面的 commons.js 就是 main1.jsx 和 main2.jsx 的公共部分。也就是包含了 react 和 react-dom。</p>
-<h4 id="Demo13-Vendor-chunk"><a href="#Demo13-Vendor-chunk" class="headerlink" title="Demo13: Vendor chunk"></a>Demo13: Vendor chunk</h4><p>你也可以用 CommonsChunkPlugin 提取第三方的 Js 生成一个单独的文件。</p>
-<p>上面的代码，entry.vendor: [‘jquery’] 告诉 Webpack jeuery 应该被打包到一个公共 vendor.js 包中去。</p>
-<p>如果你想让一个全局的变量在每一个模块可用，比如 $ 和 jQuery 不用 require(“jquery”) 就可以直接用。那么你需要使用 ProvidePlugin (Official doc) 这个插件，它可以自动的载入模块，而不需要到处 import 或者 require。</p>
-<p>当然，这种情况，你还需要手动的全局的载入 jquery.js</p>
-<p><strong><em>以上是主要的方法中文翻译，实际使用完全可以翻阅<a href="https://blog.csdn.net/userkang/article/details/83504048#demo06-css-module-source" target="_blank" rel="noopener">阮一峰</a>的手册</em></strong></p>
+<p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/circles.png" alt="circles"></p>
+<h3 id="3-12-检测其他形状"><a href="#3-12-检测其他形状" class="headerlink" title="3.12 检测其他形状"></a>3.12 检测其他形状</h3><p>Hough仅限与检测圆，但之前提到的approxPloyDP函数和findContours函数结合能检测出任意形状。</p>
+<h3 id="3-13-总结"><a href="#3-13-总结" class="headerlink" title="3.13 总结"></a>3.13 总结</h3><p>本章节介绍了色彩空间、傅立叶变换和多种由OpenCV提供的处理图像的滤波器。还介绍了检测边缘、直线、圆和一些普通情况。另还介绍如何寻找轮廓，并由此得到关于图像中所包含饿目标信息，这些都是后续章节的基础。</p>
+<h2 id="第3章-使用OpenCV-3-处理图像"><a href="#第3章-使用OpenCV-3-处理图像" class="headerlink" title="第3章 使用OpenCV 3 处理图像"></a>第3章 使用OpenCV 3 处理图像</h2><p><img src="/2019/11/03/OpenCV3计算机视觉阅读笔记/C3.png" alt="C3"></p>
 
         
       
@@ -438,7 +588,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/04/我的第一篇博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/18/CNN重读笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="望星的太阳花">
@@ -452,7 +602,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2019/10/04/我的第一篇博客/" class="post-title-link" itemprop="url">我的第一篇博客</a>
+            <a href="/2019/10/18/CNN重读笔记/" class="post-title-link" itemprop="url">CNN重读笔记</a>
           
         </h1>
 
@@ -467,12 +617,33 @@
                 
               
 
-              <time title="创建时间：2019-10-04 08:20:38 / 修改时间：22:03:18" itemprop="dateCreated datePublished" datetime="2019-10-04T08:20:38+08:00">2019-10-04</time>
+              <time title="创建时间：2019-10-18 15:16:55" itemprop="dateCreated datePublished" datetime="2019-10-18T15:16:55+08:00">2019-10-18</time>
             </span>
           
             
 
             
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 12:05:53" itemprop="dateModified" datetime="2020-02-11T12:05:53+08:00">2020-02-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -486,18 +657,239 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>这是我第一次尝试创建博客，期间费了很大的功夫，要感谢此篇<a href="https://blog.csdn.net/qq_36759224/article/details/82121420" target="_blank" rel="noopener">Hexo博客搭建教程</a>作者的帮助，写自己的博客在我看来一是为了记录自己的学习记录过程，而是能写下一些实用性的教程，当有一定能力时能帮助别人也是帮助自己。</p>
+          <h1 id="CNN重读笔记"><a href="#CNN重读笔记" class="headerlink" title="CNN重读笔记"></a>CNN重读笔记</h1><p>因为后续实验重点要掌握应用图像识别，这里深入归纳一下CNN。</p>
+<h2 id="章节框架"><a href="#章节框架" class="headerlink" title="章节框架"></a>章节框架</h2><p><img src="/2019/10/18/CNN重读笔记/CNN%E6%A1%86%E6%9E%B6.png" alt="CNN框架"><br>由上图可见这章，先介绍CNN起源，再介绍卷积神经网络的理论概念，跟着PyTorch的CNN实现，后面是两个拓展：实用的CNN实例与项目，图片增强方法与实例</p>
+<h2 id="4-1-主要任务及起源"><a href="#4-1-主要任务及起源" class="headerlink" title="4.1 主要任务及起源"></a>4.1 主要任务及起源</h2><p>在卷积神经网络流行起来之前，图像处理使用的都是→些传统的方法.比如提取图像中的边缘、纹理、线条、边界等特征，依据这些特征再进行下一步的处理，这样的处理不仅效率特别低，准确率也不高。 归功于卷积神经网络。</p>
+<h2 id="4-2-卷积神经网络的原理和结构"><a href="#4-2-卷积神经网络的原理和结构" class="headerlink" title="4.2 卷积神经网络的原理和结构"></a>4.2 卷积神经网络的原理和结构</h2><h3 id="4-2-0-概述"><a href="#4-2-0-概述" class="headerlink" title="4.2.0 概述"></a>4.2.0 概述</h3><p>三个观点让卷积神经网络真正起作用</p>
+<ol>
+<li>局部性：特征不是整张图片决定的，而是一些局部的特征决定的，如看鸟看鸟嘴。</li>
+<li>相同性：特征出现在不同位置，但是决定相同的特征机制是一样的，如不同鸟都有鸟嘴。</li>
+<li>不变性：一张大图片，进行图片缩小也不会影响图片的性质。<hr>
+</li>
+</ol>
 <ul>
-<li>接下来我将总结开学一个月来学到的东西<ul>
-<li>用Hexo搭建基于Github Pages的博客</li>
-<li>Webpack的使用（前端进阶）</li>
-<li>Eloquent Javascript深度学习</li>
-<li>菜鸟教程html+css+javascript框架学习</li>
-<li><strong>深度学习之Pytorch</strong></li>
+<li><strong>卷积神经网络与全连接神经网络不同：</strong><ul>
+<li><strong>全连接网络神经网络</strong>由一系列隐藏层构成，每个隐藏层由若干神经元构成，其中每个神经元都和前一层的所有神经元相关联，但每一层的神经元是相互独立的。<br><img src="/2019/10/18/CNN重读笔记/diff.png" alt="diff"></li>
+<li><strong>卷积神经网络</strong>不同于一般的全连接神经网络，卷积神经网络是一个3D容量的神经元，通过宽度，高度和深度来排列。主要层结构有三个:卷积层、池化层和全连接层，通过堆叠这些层结构形成了一个完整的卷积神经网络结构。<br><img src="/2019/10/18/CNN重读笔记/CNN%E7%BB%93%E6%9E%84.png" alt="CNN结构"></li>
 </ul>
 </li>
 </ul>
-<p><strong><em>由学习的结构性排列</em></strong></p>
+<h3 id="4-2-1-卷积层"><a href="#4-2-1-卷积层" class="headerlink" title="4.2.1 卷积层"></a>4.2.1 卷积层</h3><p><strong><em>这里插入题外思考，想了半天不理解为啥卷积神经网络是这个样子，其实就是长宽只扫描3x3或者5x5实际上有30x30或者更大，然后零层可以让输入的个数等于输出的个数，这只是一层卷积层，这个里面包含了滤波器就是一小块，滤波器的参数是可以学习的，而全连接神经网络就是可以将所有的输出都输入给下一个层，当然层数越复杂 模型可以学习的参数也越多 拟合效果越好，时间越长。卷积神经网络只提取部分的，然后分析。阿哈 终于懂了</em></strong><br><img src="/2019/10/18/CNN重读笔记/%E5%85%A8%E8%BF%9E%E6%8E%A5.png" alt="全连接"></p>
+<hr>
+
+<ul>
+<li><p>要点</p>
+<ul>
+<li>局部连接 只获取局部的参数（图像局部性）</li>
+<li>空间排列 输出深度、滑动步长，以及边界填充控制着卷积层的空间排布。</li>
+<li>零填充的使用 来让输入大小等于输出大小</li>
+<li>步长 配合与零填充使用</li>
+<li><strong>参数共享</strong>：单个滤波器可以扫描到相同的特征（图像相同性）,就可以把参数减少，如下。这里相同性也不总是有用的，比如人脸识别就需要某个位置有某个特征与位置有关了。<hr>
+</li>
+</ul>
+<p> <strong><em>问题</em></strong></p>
+<p> <img src="/2019/10/18/CNN重读笔记/%E6%BB%A4%E6%B3%A2%E5%99%A8.png" alt="滤波器"></p>
+ <hr>
+
+<p> <img src="/2019/10/18/CNN重读笔记/solution.png" alt="solution"><br> <strong><em>上面又想半天，滤波器就是提取激活学习的层数，32个层数是自己指定的，你可以任意增加滤波器的个数结果输出图片的深度会增加，然后3x3x10是单个滤波器扫描得到的参数，这个10要和输入图片的深度一致，如上图输入6x6x3，输出4x4x2，然后开头的20x20就是输入的图片大小可以指定3x3参数合适让输出也等于20x20</em></strong></p>
+<hr>
+
+</li>
+</ul>
+<p><img src="/2019/10/18/CNN重读笔记/%E6%80%BB%E7%BB%93.png" alt="总结"></p>
+<h3 id="4-2-2-池化层"><a href="#4-2-2-池化层" class="headerlink" title="4.2.2 池化层"></a>4.2.2 池化层</h3><blockquote>
+<p>池化层作用是逐渐降低数据体的空间尺 寸.这样就能够减少网络中参数的数量 .减少计算资服耗费， 同时也能够有效地控制过 拟合。</p>
+</blockquote>
+<p>依据图片的不变性，将一个层的大小变小也不会改变值。</p>
+<p><strong>总结</strong><br><img src="/2019/10/18/CNN重读笔记/pooling.png" alt="pooling"></p>
+<h3 id="4-2-3-全连接层"><a href="#4-2-3-全连接层" class="headerlink" title="4.2.3 全连接层"></a>4.2.3 全连接层</h3><p>一般经过卷积层和池化层之后再经过一个全连接层，将3D的立方体重新排列变成全全连接层，再经过几个隐藏层，最后得到结果。<br>一般会添加dropout防止过拟合</p>
+<h3 id="4-2-4-卷积神经网络的基本形式"><a href="#4-2-4-卷积神经网络的基本形式" class="headerlink" title="4.2.4 卷积神经网络的基本形式"></a>4.2.4 卷积神经网络的基本形式</h3><p>基本由以上三个层构成，还会添加激活函数来增加非线性，也会增加批标准化等权重初始化的函数等等来缩小图像，最后全连接层展开，一般结构：<br><strong><em>卷积层&rarr;ReLU层&rarr;批标准化层&rarr;池化层&rarr;…&rarr;全连接层</em></strong><br><strong>1，小滤波器的有效性</strong><br><img src="/2019/10/18/CNN重读笔记/77v33.png" alt="77v33"><br>多个小卷积层比单个大卷积层效果好，上图同时感受野同是7x7，大的有7x7xCxC=49C<sup>2</sup>，小的有3x(3x3)xCxC=49C<sup>2</sup>，参数变小。同时多个小卷积层增加了复杂度。<br><strong>2，网络的尺寸</strong><br>根据经验会有一些规则无严格数学证明。<br><img src="/2019/10/18/CNN重读笔记/size.png" alt="size"></p>
+<h2 id="4-3-PyTorch卷积模块"><a href="#4-3-PyTorch卷积模块" class="headerlink" title="4.3 PyTorch卷积模块"></a>4.3 PyTorch卷积模块</h2><p>在nn这个模块包中调用卷积神经的层结构</p>
+<h3 id="4-3-1-卷积层"><a href="#4-3-1-卷积层" class="headerlink" title="4.3.1 卷积层"></a>4.3.1 卷积层</h3><p><img src="/2019/10/18/CNN重读笔记/nn.Conv2d().png" alt="nn.Conv2d()"></p>
+<h3 id="4-3-2-池化层"><a href="#4-3-2-池化层" class="headerlink" title="4.3.2 池化层"></a>4.3.2 池化层</h3><p><img src="/2019/10/18/CNN重读笔记/nn.MaxPool2d().png" alt="nn.MaxPool2d()"><br>构造简单的卷积神经网络</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleCNN</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(SimpleCNN, self).__init__()</span><br><span class="line">        layer1 = nn.Sequential()</span><br><span class="line">        layer1.add_module(<span class="string">'conv1'</span>, nn.Conv2d(<span class="number">3</span>, <span class="number">32</span>, <span class="number">3</span>, <span class="number">1</span>, padding=<span class="number">1</span>)) <span class="comment"># b, 32, 32, 32</span></span><br><span class="line">        layer1.add_module(<span class="string">'relu1'</span>, nn.ReLU(<span class="literal">True</span>))</span><br><span class="line">        layer1.add_module(<span class="string">'pool1'</span>, nn.MaxPool2d(<span class="number">2</span>, <span class="number">2</span>)) <span class="comment">#b, 32, 16, 16</span></span><br><span class="line">        self.layer1 = layer1</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        layer2 = nn.Sequential()</span><br><span class="line">        layer2.add_module(<span class="string">'conv2'</span>, nn.Conv2d(<span class="number">32</span>, <span class="number">64</span>, <span class="number">3</span>, <span class="number">1</span>, padding=<span class="number">1</span>)) <span class="comment">#b, 64, 16, 16</span></span><br><span class="line">        layer2.add_module(<span class="string">'relu2'</span>, nn.ReLU(<span class="literal">True</span>))</span><br><span class="line">        layer2.add_module(<span class="string">'pool2'</span>, nn.MaxPool2d(<span class="number">2</span>, <span class="number">2</span>)) <span class="comment">#b, 64, 8, 8</span></span><br><span class="line">        self.layer2 = layer2</span><br><span class="line">        </span><br><span class="line">        layer3 = nn.Sequential()</span><br><span class="line">        layer3.add_module(<span class="string">'conv3'</span>, nn.Conv2d(<span class="number">64</span>, <span class="number">128</span>, <span class="number">3</span>, <span class="number">1</span>, padding=<span class="number">1</span>)) <span class="comment"># 128, 8, 8</span></span><br><span class="line">        layer3.add_module(<span class="string">'relu3'</span>, nn.ReLU(<span class="literal">True</span>))</span><br><span class="line">        layer3.add_module(<span class="string">'pool3'</span>, nn.MaxPool2d(<span class="number">2</span>, <span class="number">2</span>)) <span class="comment">#b, 128, 4, 4</span></span><br><span class="line">        self.layer3 = layer3</span><br><span class="line">        </span><br><span class="line">        layer4 = nn.Sequential()</span><br><span class="line">        layer4.add_module(<span class="string">'fc1'</span>, nn.Linear(<span class="number">2048</span>, <span class="number">512</span>))</span><br><span class="line">        layer4.add_module(<span class="string">'fc_relu1'</span>, nn.ReLU(<span class="literal">True</span>))</span><br><span class="line">        layer4.add_module(<span class="string">'fc2'</span>, nn.Linear(<span class="number">512</span>, <span class="number">64</span>))</span><br><span class="line">        layer4.add_module(<span class="string">'fc_relu2'</span>, nn.ReLU(<span class="literal">True</span>))</span><br><span class="line">        layer4.add_module(<span class="string">'fc3'</span>, nn.Linear(<span class="number">64</span>, <span class="number">10</span>))</span><br><span class="line">        self.layer4 = layer4</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        conv1 = self.layer1(x)</span><br><span class="line">        conv2 = self.layer2(conv1)</span><br><span class="line">        conv3 = self.layer3(conv2)</span><br><span class="line">        fc_input = conv3.view(conv3.size(<span class="number">0</span>), <span class="number">-1</span>)</span><br><span class="line">        fc_out = self.layer4(fc_input)</span><br><span class="line">        <span class="keyword">return</span> fc_out</span><br><span class="line">model = SimpleCNN()</span><br></pre></td></tr></table></figure>
+
+<p>概括上面：将卷积层、激活层和池化层组合乘一个层结构，定义3个这样层结构，最后定义全连接层，输出10.<br>也可以在forward添加输出中间层观察中间层输出。<br>还可以print(model)显示哪些层结构</p>
+<h3 id="4-3-3-提取层结构"><a href="#4-3-3-提取层结构" class="headerlink" title="4.3.3 提取层结构"></a>4.3.3 提取层结构</h3><p>对于一个给定的模型，如果不想要模型中所有的层结构，只希望提取网络中某一层或者几层。</p>
+<ul>
+<li>nn.Module几个重要属性<ul>
+<li>nn.Module.children() 返回下一级模块的迭代器，只会返回layer1,2,3,4</li>
+<li>nn.Module.modules() 返回所有模块的迭代器，好处是能访问到最内层，比如self.layer1.conv1</li>
+<li>与以上两个对应的下面两个，不仅会返回模块迭代器，还会返回网路层的名字<ul>
+<li>nn.Module.named_children()</li>
+<li>nn.Module.named_modules()<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">new_module = nn.Sequential(*list(model.children())[:<span class="number">2</span>]) <span class="comment">#提取模型前两层</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> layer <span class="keyword">in</span> model.named_modules():</span><br><span class="line">    <span class="keyword">if</span> isinstance(layer[<span class="number">1</span>], nn.Conv2d): <span class="comment"># isinstance判断是不是需要的类型实例</span></span><br><span class="line">        conv_model.add_module(layer[<span class="number">0</span>], layer[<span class="number">1</span>])  <span class="comment">#提取除所有的卷积模块(内层的)</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-3-4-如何提取参数及自定义初始化"><a href="#4-3-4-如何提取参数及自定义初始化" class="headerlink" title="4.3.4 如何提取参数及自定义初始化"></a>4.3.4 如何提取参数及自定义初始化</h3><p>提取层结构不够还需要对<strong>参数初始化</strong></p>
+<ul>
+<li>nn.Module特别重要关于参数的属性<ul>
+<li>nn.Module.named_parameters() 给出网络层的名字和参数的迭代器</li>
+<li>nn.Module.parameters() 给出一个网络的全部参数的迭代器<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> model.named_parameters():</span><br><span class="line">    print(param[<span class="number">0</span>]) <span class="comment">#得到每一层参数的名字</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<p>对<strong>权重初始化</strong>，因为权重是一个Variable，只需要提取data属性再处理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> model.modules():</span><br><span class="line">    <span class="keyword">if</span> isinstane(m, nn.Conv2d):</span><br><span class="line">        init.normal(m.weight.data)</span><br><span class="line">        init.xavier_normal(m.weight.data)</span><br><span class="line">        init.kaiming_normal(m.weight.data)</span><br><span class="line">        m.bias.data.fill_(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">elif</span> isinstane(m, nn.Linear):</span><br><span class="line">        m.weight.data.normal_()</span><br></pre></td></tr></table></figure>
+
+<p><strong>上面参数就是权重，一种是parameter提取出名字，另一种是直接调用.weight属性修改</strong></p>
+<h2 id="4-4-卷积神经网络案例分析"><a href="#4-4-卷积神经网络案例分析" class="headerlink" title="4.4 卷积神经网络案例分析"></a>4.4 卷积神经网络案例分析</h2><h3 id="4-4-1-LeNeT"><a href="#4-4-1-LeNeT" class="headerlink" title="4.4.1 LeNeT"></a>4.4.1 LeNeT</h3><blockquote>
+<p>整个卷积神经网络的开山之作，1998年提出，结构简单，一共7层，其中2层卷积层和2层池化层教徒出现，最后三层全连接层得到整体的结果。层数很浅，没有添加激活层</p>
+</blockquote>
+<h3 id="4-4-2-AlexNet"><a href="#4-4-2-AlexNet" class="headerlink" title="4.4.2 AlexNet"></a>4.4.2 AlexNet</h3><blockquote>
+<p>2012年在ImageNet竞赛上大放异彩的AlexNet。结构复杂因为当时GPU性能不好用了两个，现在可以用一个GPU替代。AlexNet网络层数更深，第一次引入激活层ReLu,全连接层引入Dropout层防止过拟合。</p>
+</blockquote>
+<h3 id="4-4-3-VGGNet"><a href="#4-4-3-VGGNet" class="headerlink" title="4.4.3 VGGNet"></a>4.4.3 VGGNet</h3><blockquote>
+<p>2014年ImageNet竞赛亚军，总结用了更小的滤波器，更深的结构，AlexNet只有8层，而VGGNet有16层～19层，这就是运用多个小滤波器减少参数。</p>
+</blockquote>
+<h3 id="4-4-4-GoogLeNet"><a href="#4-4-4-GoogLeNet" class="headerlink" title="4.4.4 GoogLeNet"></a>4.4.4 GoogLeNet</h3><blockquote>
+<p>2014年提出，如今进化到v4版本，最核心部分采取了比VGGNet更深的结构，一共有22层，但它的参数比AlexNet少了12倍，同时有很高的计算效率，因为采用了很有效的Inception模块，没有全连接层，是2014年比赛冠军。<br>Inception模块设计了一个局部的网络拓扑结构，然后将这些模块对别一起形成抽象层网络结构，具体来说是几个并行的滤波器对输入进行卷积和池化，这些滤波器有不同的感受野，最后按深度拼接一起形成输出层。<br>问题是参数较多，对这个版本有了Inception模块新设计。</p>
+</blockquote>
+<h3 id="4-4-5-ResNet"><a href="#4-4-5-ResNet" class="headerlink" title="4.4.5 ResNet"></a>4.4.5 ResNet</h3><ul>
+<li>误差:即观测值与真实值的偏离;</li>
+<li>残差:观测值与拟合值的偏离.<blockquote>
+<p>2015年ImageNet竞赛冠军，由微软研究院提出，通过残差模块能欧成功地训练高达152层深的神经网络<br>残差学习单元相当于将学习莫表改变了，不再是学习一个完整的输出h(x)，而是学习输出和输入的差别H(x)-x，即残差。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong><em>以上的模型都定义在torchvision里面，也有预训练好的参数，这些预训练好的网络为后面介绍的前一学习和微调做了很好的铺垫。</em></strong></p>
+<h2 id="4-5-再实现MNIST手写数字分类"><a href="#4-5-再实现MNIST手写数字分类" class="headerlink" title="4.5 再实现MNIST手写数字分类"></a>4.5 再实现MNIST手写数字分类</h2><p>成功跑出了MNIST分类模型，挺激动的，就是电脑cpu太慢了，训练半天。</p>
+<h2 id="4-6-图像增强的方法"><a href="#4-6-图像增强的方法" class="headerlink" title="4.6 图像增强的方法"></a>4.6 图像增强的方法</h2><p>前面专注于CNN的层结构，现在从另外的角度——图像增强的方面入手，提高模型的准确率和泛化能力。</p>
+<ul>
+<li>影响图像的因素<ul>
+<li>拍摄的光照强度</li>
+<li>物体的姿势</li>
+<li>是否有遮蔽物</li>
+</ul>
+</li>
+</ul>
+<p><strong><em>针对这些问题，Torchvision.transforms包括所有图像增强的方法</em></strong></p>
+<ul>
+<li>torchvision.transforms图像增强的方法.<ol>
+<li>Scale，对图片的尺度进行缩小和放大；</li>
+<li>CenterCrop，对图片正中心进行给定大小的裁剪；</li>
+<li>RandomCrop，对图片进行给定大小的随机裁剪；</li>
+<li>RandomHorizaontalFlip，对图片进行概率为0.5的随机水平反转；</li>
+<li>RandomSizedCrop，首先对图片进行随机尺寸的裁剪，然后对裁剪的图片进行一个随机比例的缩放，最后将图片边尘给定的大小，在InceptionNet中比较流行</li>
+<li>pad对图片进行边界零填充<br>还有其他方法，可以用OpenCV或者PIL等第三方图形库实现。<h2 id="4-7-实现cifar10分类"><a href="#4-7-实现cifar10分类" class="headerlink" title="4.7 实现cifar10分类"></a>4.7 实现cifar10分类</h2></li>
+</ol>
+</li>
+</ul>
+<p><strong><em>下个星期再重点学习，先复习考试。</em></strong></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/13/Pytorch文档阅读笔记/" class="post-title-link" itemprop="url">Pytorch文档阅读笔记</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-13 23:09:35" itemprop="dateCreated datePublished" datetime="2019-10-13T23:09:35+08:00">2019-10-13</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 12:07:01" itemprop="dateModified" datetime="2020-02-11T12:07:01+08:00">2020-02-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="PYTORCH-DOCUMENTATION"><a href="#PYTORCH-DOCUMENTATION" class="headerlink" title="PYTORCH DOCUMENTATION"></a>PYTORCH DOCUMENTATION</h1><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h3 id="Autograd-mechanics"><a href="#Autograd-mechanics" class="headerlink" title="Autograd mechanics"></a>Autograd mechanics</h3><ul>
+<li><p><strong>自动的梯度传递过程，主要介绍requires_grad</strong></p>
+<p>  可以用requires_grad来’freeze part of your model’<br>  底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model = torchvision.models.resnet18(pretrained=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> model.parameters():</span><br><span class="line">    param.requires_grad = <span class="literal">False</span></span><br><span class="line"><span class="comment"># Replace the last fully-connected layer</span></span><br><span class="line"><span class="comment"># Parameters of newly constructed modules have requires_grad=True by default </span></span><br><span class="line">model.fc = nn.Linear(<span class="number">512</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Optimize only the classifier</span></span><br><span class="line">optimizer = optim.SGD(model.fc.parameters(), lr=<span class="number">1e-2</span>, momentum=<span class="number">0.9</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自动求道如何编码历史</p>
+</li>
+<li><p>不建议使用in-place操作<br><img src="/2019/10/13/Pytorch文档阅读笔记/in-place.png" alt="in-place"></p>
+</li>
+<li><p>可以用self.faved_tensors来检测是否正确：</p>
+<blockquote>
+<p>Once you access self.saved_tensors it is checked, and if it is greater than the saved value an error is raised. </p>
+</blockquote>
+</li>
+</ul>
 
         
       
@@ -521,7 +913,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -573,6 +965,19 @@
         </a>
       </div>
     
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
   </nav>
 </div>
 
@@ -598,7 +1003,7 @@
 </div>
   <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.1</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1</div>
 
         
 
@@ -619,11 +1024,12 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/pisces.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
 
 <script src="/js/next-boot.js?v=7.4.1"></script>
 
