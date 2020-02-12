@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: black; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="训练Yolov3（深度学习流程） 总结整个深度学习的流程，数据集-&amp;gt;模型训练-&amp;gt;部署模型。  数据集想训练自己的数据集就必须学会如何标注样本做目标检测。 不同格式的数据集总结数据集常用格式：  PASCAL VOC COCO YOLO  PASCAL VOC voc数据集是由PASCAL VOC竞赛发起。PASCAL VOC竞赛目标主要是目标识别，其提供的数据集里包含了20类的物体。使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Training Yolov3">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/Training-Yolov3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="训练Yolov3（深度学习流程） 总结整个深度学习的流程，数据集-&amp;gt;模型训练-&amp;gt;部署模型。  数据集想训练自己的数据集就必须学会如何标注样本做目标检测。 不同格式的数据集总结数据集常用格式：  PASCAL VOC COCO YOLO  PASCAL VOC voc数据集是由PASCAL VOC竞赛发起。PASCAL VOC竞赛目标主要是目标识别，其提供的数据集里包含了20类的物体。使">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/yolo.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/labelimg.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/datasets.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/data.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/cfg.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/cards_data.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/log.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/predictions.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/png.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/dnn.png">
+<meta property="og:updated_time" content="2020-02-12T13:09:40.057Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Training Yolov3">
+<meta name="twitter:description" content="训练Yolov3（深度学习流程） 总结整个深度学习的流程，数据集-&amp;gt;模型训练-&amp;gt;部署模型。  数据集想训练自己的数据集就必须学会如何标注样本做目标检测。 不同格式的数据集总结数据集常用格式：  PASCAL VOC COCO YOLO  PASCAL VOC voc数据集是由PASCAL VOC竞赛发起。PASCAL VOC竞赛目标主要是目标识别，其提供的数据集里包含了20类的物体。使">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/12/Training-Yolov3/yolo.png">
+  <link rel="canonical" href="http://yoursite.com/2020/02/12/Training-Yolov3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Training Yolov3 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/12/Training-Yolov3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Training Yolov3
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-12 09:30:41 / 修改时间：21:09:40" itemprop="dateCreated datePublished" datetime="2020-02-12T09:30:41+08:00">2020-02-12</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="训练Yolov3（深度学习流程）"><a href="#训练Yolov3（深度学习流程）" class="headerlink" title="训练Yolov3（深度学习流程）"></a>训练Yolov3（深度学习流程）</h1><blockquote>
+<p><strong>总结</strong>整个深度学习的流程，数据集-&gt;模型训练-&gt;部署模型。</p>
+</blockquote>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p>想训练自己的数据集就必须学会如何标注样本做目标检测。</p>
+<h3 id="不同格式的数据集总结"><a href="#不同格式的数据集总结" class="headerlink" title="不同格式的数据集总结"></a>不同格式的数据集总结</h3><p>数据集常用格式：</p>
+<ul>
+<li>PASCAL VOC</li>
+<li>COCO</li>
+<li>YOLO</li>
+</ul>
+<h4 id="PASCAL-VOC"><a href="#PASCAL-VOC" class="headerlink" title="PASCAL VOC"></a>PASCAL VOC</h4><blockquote>
+<p>voc数据集是由PASCAL VOC竞赛发起。PASCAL VOC竞赛目标主要是目标识别，其提供的数据集里包含了20类的物体。使用xml文件标注。</p>
+</blockquote>
+<p>详解：<a href="https://blog.csdn.net/pxh_ww/article/details/98961168" target="_blank" rel="noopener">https://blog.csdn.net/pxh_ww/article/details/98961168</a></p>
+<h4 id="COCO"><a href="#COCO" class="headerlink" title="COCO"></a>COCO</h4><blockquote>
+<p>COCO数据集是一个大型的、丰富的物体检测，分割和字幕数据集。这个数据集以scene understanding为目标，主要从复杂的日常场景中截取，图像中的目标通过精确的segmentation进行位置的标定。使用json文件标注。</p>
+</blockquote>
+<p>详解：<a href="https://blog.csdn.net/fireflychh/article/details/83040205" target="_blank" rel="noopener">https://blog.csdn.net/fireflychh/article/details/83040205</a></p>
+<h4 id="YOLO"><a href="#YOLO" class="headerlink" title="YOLO"></a>YOLO</h4><blockquote>
+<p>YOLO格式用于YOLO模型的检测。使用txt文件标注。</p>
+</blockquote>
+<img src="/2020/02/12/Training-Yolov3/yolo.png" width="400" height="250" alt="图片名称" align="center">
+
+<h3 id="使用labelImage标注"><a href="#使用labelImage标注" class="headerlink" title="使用labelImage标注"></a>使用labelImage标注</h3><p>使用标注工具标注自己的图片，应用也很简单，下载github代码运行后，一看就会用。支持导出PASCAL VOC和YOLO两种格式<br><img src="/2020/02/12/Training-Yolov3/labelimg.png" width="700" height="350" alt="图片名称" align="center"><br>（为方便，可先定义根目录下data文件的predefined_classes.txt）</p>
+<hr>
+<p>若格式需求不同也可以用整理好的datasets工具：<br><img src="/2020/02/12/Training-Yolov3/datasets.png" width="800" height="350" alt="图片名称" align="center"><br>主要是使用每个工具配置一下文件路径，比如配置voc_to_yolo_cfg.py<br>同时还有啥样本分割的工具在utils目录下。<br>最后按照不同框架需求的数据集使用就可以训练数据集了。（以下yolo例子）<br><a href="https://github.com/pjreddie/darknet" target="_blank" rel="noopener">https://github.com/pjreddie/darknet</a></p>
+<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2><p>本来要学习mmdetection工具箱，但是折腾很久发现不支持cpu，安装必须要求有cuda(gpu)，就转而学习yolov3的训练，yolov3支持cpu和gpu两种，原理有相似处，不过这里总结yolov3的配置方法与训练方法。<br>（还有之前老师视频是ultralytics/yolov3，但是版本更新了，之前录的视频跑出来报错也不知道为啥，就改成了darknet的yolov3，视频的数据集啊差不多也能跑）</p>
+<h3 id="配置数据集"><a href="#配置数据集" class="headerlink" title="配置数据集"></a>配置数据集</h3><p>按照视频来，很详细，一看文件就会：<br>放在根路径下：<br><img src="/2020/02/12/Training-Yolov3/data.png" alt="data"></p>
+<h3 id="配置config"><a href="#配置config" class="headerlink" title="配置config"></a>配置config</h3><h4 id="yolov3-cfg"><a href="#yolov3-cfg" class="headerlink" title="yolov3.cfg"></a>yolov3.cfg</h4><p>定义yolov3的一些模型参数，有些参数需要调整比如classes=6.filters=33啥的视频很详细。<br><img src="/2020/02/12/Training-Yolov3/cfg.png" alt="cfg"></p>
+<h4 id="cards-data"><a href="#cards-data" class="headerlink" title="cards.data"></a>cards.data</h4><p>定义所有自定义内容的路径<br><img src="/2020/02/12/Training-Yolov3/cards_data.png" alt="data"></p>
+<h3 id="下载预训练模型参数"><a href="#下载预训练模型参数" class="headerlink" title="下载预训练模型参数"></a>下载预训练模型参数</h3><p>我们这里下载<code>darknet53.conv.74</code>放到根目录下，之后根据预先训练模型进行一些参数调整就会比较快</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://pjreddie.com/media/files/darknet53.conv<span class="number">.74</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h3><p>上诉三个步骤完成之后，就可以运行代码开始训练</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet detector train cfg/cards.data  cfg/yolov3.cfg  darknet53.conv<span class="number">.74</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>执行上述命令就会开始训练的，但是我的电脑太慢😂，16张图片训练要花5-10分钟，昨天训练几个小时只训练了20个batch😂，同时darknet的输出打印信息也需要读懂：</strong><br><img src="/2020/02/12/Training-Yolov3/log.png" alt="log"><br><strong>昨天训练很久 损失很大 iou很小 class契合度也不高，不知道什么地方有问题，由于模型训练太慢，看了代码训练100个batch才会在backup里保存一次权重，也不知道咋改。</strong><br>如果之后在集群上改 可以快点跑出结果然后学习如何调参数</p>
+<h3 id="测试模型"><a href="#测试模型" class="headerlink" title="测试模型"></a>测试模型</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./darknet detect cfg/yolov3.cfg yolov3.weights data/doa.jpg</span><br></pre></td></tr></table></figure>
+
+<p>训练好模型之后就可以使用类似上述的命令对一张图片进行目标检测，若训练好的权重可以比较好的识别图片就可以尽心下一步，将模型部署到我们的机器上面进行汽车计数（上述是yolov3的权重比较好的识别物体）<br><img src="/2020/02/12/Training-Yolov3/predictions.jpg" alt="log"></p>
+<h3 id="mmdetection"><a href="#mmdetection" class="headerlink" title="mmdetection"></a>mmdetection</h3><p>网上学了一些mmdetection的博文，它现在支持voc和coco数据集格式，原理差不多，看着操作应该不难，关键是自己电脑不能安装mmdetection不能实践。<br><a href="https://blog.csdn.net/qq_36302589/article/details/86149293" target="_blank" rel="noopener">https://blog.csdn.net/qq_36302589/article/details/86149293</a><br>比较类似的命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python tools/train.py &lt;CONFIG_FILE&gt; --gpus &lt;GPU_NUM&gt; --work_dir &lt;WORK_DIR&gt;</span><br><span class="line">python tools/test.py configs/cascade_rcnn_r101_fpn_1x.py ../work_dirs/cascade_rcnn_r101_fpn_1x/epoch_16.pth --gpus <span class="number">4</span> --out ./result/result_16.pkl --eval bbox --show</span><br></pre></td></tr></table></figure>
+
+<p>流程大体是：<br><strong>放好数据集-&gt;配置配置文件-&gt;命令行开始训练</strong><br>光会使用可能还不够，还需要学习内部代码是如何实现的，比如看了yolov3发现python的代码里面还有c语言代码，一些batch啥的仔细看</p>
+<h2 id="部署模型"><a href="#部署模型" class="headerlink" title="部署模型"></a>部署模型</h2><p>将训练好的模型 使用opencv实现，<br>在网上找到一个使用yolov2权重的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(<span class="string">'solidYellowLeft.mp4'</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_cfg_model</span><span class="params">()</span>:</span></span><br><span class="line">    model_path = <span class="string">'/Users/suyapeng/Desktop/darknet/cfg/yolov2.weights'</span></span><br><span class="line">    cfg_path = <span class="string">'/Users/suyapeng/Desktop/darknet/cfg/yolov2.cfg'</span></span><br><span class="line">    yolo_net = cv2.dnn.readNet(model_path, cfg_path, <span class="string">'darknet'</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        flag, img = cap.read()</span><br><span class="line">        <span class="keyword">if</span> flag:</span><br><span class="line">            rows = img.shape[<span class="number">0</span>]</span><br><span class="line">            cols = img.shape[<span class="number">1</span>]</span><br><span class="line">            yolo_net.setInput(cv2.dnn.blobFromImage(img, <span class="number">1.0</span>/<span class="number">127.5</span>, (<span class="number">416</span>, <span class="number">416</span>), (<span class="number">127.5</span>, <span class="number">127.5</span>, <span class="number">127.5</span>), <span class="literal">False</span>, <span class="literal">False</span>))</span><br><span class="line">            cvOut = yolo_net.forward()</span><br><span class="line">            <span class="keyword">for</span> detection <span class="keyword">in</span> cvOut:</span><br><span class="line">                confidence = np.max(detection[<span class="number">5</span>:])</span><br><span class="line">                <span class="keyword">if</span> confidence &gt; <span class="number">0</span>:</span><br><span class="line">                    classIndex = np.argwhere(detection == confidence)[<span class="number">0</span>][<span class="number">0</span>] - <span class="number">5</span></span><br><span class="line">                    x_center = detection[<span class="number">0</span>] * cols</span><br><span class="line">                    y_center = detection[<span class="number">1</span>] * rows</span><br><span class="line">                    width = detection[<span class="number">2</span>] * cols</span><br><span class="line">                    height = detection[<span class="number">3</span>] * rows</span><br><span class="line">                    start = (int(x_center - width/<span class="number">2</span>), int(y_center - height/<span class="number">2</span>))</span><br><span class="line">                    end = (int(x_center + width/<span class="number">2</span>), int(y_center + height/<span class="number">2</span>))</span><br><span class="line">                    cv2.rectangle(img,start, end , (<span class="number">23</span>, <span class="number">230</span>, <span class="number">210</span>), thickness=<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        cv2.imshow(<span class="string">'show'</span>, img)</span><br><span class="line">        cv2.waitKey(<span class="number">10</span>)</span><br><span class="line">        </span><br><span class="line">read_cfg_model()</span><br></pre></td></tr></table></figure>
+
+<p>运行了一下，是可以实现的，只不过这个例子效果比较差，到时候可以尽量训练好我们的模型。<br><strong>主要是opencv的加载深度学习模型的api:cv2.dnn.readNet</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yolo_net = cv2.dnn.readNet(model_path, cfg_path, <span class="string">'darknet'</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/12/Training-Yolov3/png.png" alt="png"><br>现在官网更新了api，支持多种深度学习框架：<br><img src="/2020/02/12/Training-Yolov3/dnn.png" alt="png"></p>
+<p><strong>次要是调取videoCapture()获取摄像头帧并进行检测</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.VideoCapture(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>大体就能完成目标检测的流程，当然还有很多细节需要去实践处理，到时候有了gpu集群训练快一点再来修改超参数学习也许理解应用更深刻，现在在理论上串联起来（实践使用mmdetection，现在是yolo）。</strong></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/02/11/Don-t-Starve/" rel="next" title="Don't Starve">
+                  <i class="fa fa-chevron-left"></i> Don't Starve
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#训练Yolov3（深度学习流程）"><span class="nav-number">1.</span> <span class="nav-text">训练Yolov3（深度学习流程）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集"><span class="nav-number">1.1.</span> <span class="nav-text">数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不同格式的数据集总结"><span class="nav-number">1.1.1.</span> <span class="nav-text">不同格式的数据集总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PASCAL-VOC"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">PASCAL VOC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#COCO"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">COCO</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#YOLO"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">YOLO</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用labelImage标注"><span class="nav-number">1.1.2.</span> <span class="nav-text">使用labelImage标注</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型训练"><span class="nav-number">1.2.</span> <span class="nav-text">模型训练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置数据集"><span class="nav-number">1.2.1.</span> <span class="nav-text">配置数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置config"><span class="nav-number">1.2.2.</span> <span class="nav-text">配置config</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#yolov3-cfg"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">yolov3.cfg</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cards-data"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">cards.data</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载预训练模型参数"><span class="nav-number">1.2.3.</span> <span class="nav-text">下载预训练模型参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#训练模型"><span class="nav-number">1.2.4.</span> <span class="nav-text">训练模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试模型"><span class="nav-number">1.2.5.</span> <span class="nav-text">测试模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mmdetection"><span class="nav-number">1.2.6.</span> <span class="nav-text">mmdetection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署模型"><span class="nav-number">1.3.</span> <span class="nav-text">部署模型</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658"
+      alt="望星的太阳花">
+  <p class="site-author-name" itemprop="name">望星的太阳花</p>
+  <div class="site-description" itemprop="description">You are my JavaSript in my HTML.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">望星的太阳花</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

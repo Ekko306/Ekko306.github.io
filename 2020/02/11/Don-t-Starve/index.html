@@ -71,20 +71,18 @@
   };
 </script>
 
-  <meta name="description" content="PYTORCH DOCUMENTATIONNotesAutograd mechanics 自动的梯度传递过程，主要介绍requires_grad   可以用requires_grad来’freeze part of your model’  底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正) 123456789model = torchvision.mod">
+  <meta name="description" content="饥荒心得总结 饥荒是一个很好玩的生存类游戏，内容特别丰富，但需要很多技巧也挺有难度，这里边玩便总结。  饥荒秋季生存心得">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pytorch文档阅读笔记">
-<meta property="og:url" content="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/index.html">
+<meta property="og:title" content="Don&#39;t Starve">
+<meta property="og:url" content="http://yoursite.com/2020/02/11/Don-t-Starve/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="PYTORCH DOCUMENTATIONNotesAutograd mechanics 自动的梯度传递过程，主要介绍requires_grad   可以用requires_grad来’freeze part of your model’  底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正) 123456789model = torchvision.mod">
+<meta property="og:description" content="饥荒心得总结 饥荒是一个很好玩的生存类游戏，内容特别丰富，但需要很多技巧也挺有难度，这里边玩便总结。  饥荒秋季生存心得">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/in-place.png">
-<meta property="og:updated_time" content="2020-02-11T04:07:01.124Z">
+<meta property="og:updated_time" content="2020-02-11T10:41:46.248Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pytorch文档阅读笔记">
-<meta name="twitter:description" content="PYTORCH DOCUMENTATIONNotesAutograd mechanics 自动的梯度传递过程，主要介绍requires_grad   可以用requires_grad来’freeze part of your model’  底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正) 123456789model = torchvision.mod">
-<meta name="twitter:image" content="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/in-place.png">
-  <link rel="canonical" href="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/">
+<meta name="twitter:title" content="Don&#39;t Starve">
+<meta name="twitter:description" content="饥荒心得总结 饥荒是一个很好玩的生存类游戏，内容特别丰富，但需要很多技巧也挺有难度，这里边玩便总结。  饥荒秋季生存心得">
+  <link rel="canonical" href="http://yoursite.com/2020/02/11/Don-t-Starve/">
 
 
 <script id="page-configurations">
@@ -98,7 +96,7 @@
   };
 </script>
 
-  <title>Pytorch文档阅读笔记 | Hexo</title>
+  <title>Don't Starve | Hexo</title>
   
 
 
@@ -228,7 +226,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/13/Pytorch文档阅读笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/Don-t-Starve/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="望星的太阳花">
@@ -240,7 +238,7 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Pytorch文档阅读笔记
+        <h1 class="post-title" itemprop="name headline">Don't Starve
 
           
         </h1>
@@ -256,19 +254,11 @@
                 
               
 
-              <time title="创建时间：2019-10-13 23:09:35" itemprop="dateCreated datePublished" datetime="2019-10-13T23:09:35+08:00">2019-10-13</time>
+              <time title="创建时间：2020-02-11 18:39:05 / 修改时间：18:41:46" itemprop="dateCreated datePublished" datetime="2020-02-11T18:39:05+08:00">2020-02-11</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-11 12:07:01" itemprop="dateModified" datetime="2020-02-11T12:07:01+08:00">2020-02-11</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -277,7 +267,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Daily/" itemprop="url" rel="index"><span itemprop="name">Daily</span></a></span>
 
                 
                 
@@ -296,22 +286,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="PYTORCH-DOCUMENTATION"><a href="#PYTORCH-DOCUMENTATION" class="headerlink" title="PYTORCH DOCUMENTATION"></a>PYTORCH DOCUMENTATION</h1><h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><h3 id="Autograd-mechanics"><a href="#Autograd-mechanics" class="headerlink" title="Autograd mechanics"></a>Autograd mechanics</h3><ul>
-<li><p><strong>自动的梯度传递过程，主要介绍requires_grad</strong></p>
-<p>  可以用requires_grad来’freeze part of your model’<br>  底下model.fc就是最后一层的模型 这里将前面的冻结(梯度变为零，新的最后一层梯度为正)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">model = torchvision.models.resnet18(pretrained=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> param <span class="keyword">in</span> model.parameters():</span><br><span class="line">    param.requires_grad = <span class="literal">False</span></span><br><span class="line"><span class="comment"># Replace the last fully-connected layer</span></span><br><span class="line"><span class="comment"># Parameters of newly constructed modules have requires_grad=True by default </span></span><br><span class="line">model.fc = nn.Linear(<span class="number">512</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Optimize only the classifier</span></span><br><span class="line">optimizer = optim.SGD(model.fc.parameters(), lr=<span class="number">1e-2</span>, momentum=<span class="number">0.9</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自动求道如何编码历史</p>
-</li>
-<li><p>不建议使用in-place操作<br><img src="/2019/10/13/Pytorch文档阅读笔记/in-place.png" alt="in-place"></p>
-</li>
-<li><p>可以用self.faved_tensors来检测是否正确：</p>
-<blockquote>
-<p>Once you access self.saved_tensors it is checked, and if it is greater than the saved value an error is raised. </p>
+        <h1 id="饥荒心得总结"><a href="#饥荒心得总结" class="headerlink" title="饥荒心得总结"></a>饥荒心得总结</h1><blockquote>
+<p><strong>饥荒</strong>是一个很好玩的生存类游戏，内容特别丰富，但需要很多技巧也挺有难度，这里边玩便总结。</p>
 </blockquote>
-</li>
-</ul>
-
+<h1 id="饥荒秋季生存心得"><a href="#饥荒秋季生存心得" class="headerlink" title="饥荒秋季生存心得"></a>饥荒秋季生存心得</h1>
     </div>
 
     
@@ -327,8 +305,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/10/深度学习总结/" rel="next" title="深度学习总结">
-                  <i class="fa fa-chevron-left"></i> 深度学习总结
+                <a href="/2020/02/06/regular-expression/" rel="next" title="regular expression">
+                  <i class="fa fa-chevron-left"></i> regular expression
                 </a>
               
             </div>
@@ -337,8 +315,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/10/18/CNN重读笔记/" rel="prev" title="CNN重读笔记">
-                  CNN重读笔记 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/02/12/Training-Yolov3/" rel="prev" title="Training Yolov3">
+                  Training Yolov3 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -386,7 +364,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PYTORCH-DOCUMENTATION"><span class="nav-number">1.</span> <span class="nav-text">PYTORCH DOCUMENTATION</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">1.1.</span> <span class="nav-text">Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Autograd-mechanics"><span class="nav-number">1.1.1.</span> <span class="nav-text">Autograd mechanics</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#饥荒心得总结"><span class="nav-number">1.</span> <span class="nav-text">饥荒心得总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#饥荒秋季生存心得"><span class="nav-number">2.</span> <span class="nav-text">饥荒秋季生存心得</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
