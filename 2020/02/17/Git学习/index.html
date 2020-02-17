@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: black; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Git学习学习廖雪峰教程：https://www.liaoxuefeng.com/wiki/896043488029600 Git简介 Git是目前世界上最先进的分布式版本控制系统（没有之一）。 这样，你就结束了手动管理多个“版本”的史前时代，进入到版本控制的20世纪。 Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git！一个月之内，Linux系统的源码已经由Git管理了！集中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git学习">
+<meta property="og:url" content="http://yoursite.com/2020/02/17/Git学习/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Git学习学习廖雪峰教程：https://www.liaoxuefeng.com/wiki/896043488029600 Git简介 Git是目前世界上最先进的分布式版本控制系统（没有之一）。 这样，你就结束了手动管理多个“版本”的史前时代，进入到版本控制的20世纪。 Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git！一个月之内，Linux系统的源码已经由Git管理了！集中">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.liaoxuefeng.com/files/attachments/919020037470528/0">
+<meta property="og:image" content="http://yoursite.com/2020/02/17/Git学习/merge.png">
+<meta property="og:image" content="https://www.liaoxuefeng.com/files/attachments/919023260793600/0">
+<meta property="og:image" content="http://yoursite.com/2020/02/17/Git学习/push.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/17/Git学习/cor.png">
+<meta property="og:updated_time" content="2020-02-17T16:00:22.465Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git学习">
+<meta name="twitter:description" content="Git学习学习廖雪峰教程：https://www.liaoxuefeng.com/wiki/896043488029600 Git简介 Git是目前世界上最先进的分布式版本控制系统（没有之一）。 这样，你就结束了手动管理多个“版本”的史前时代，进入到版本控制的20世纪。 Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git！一个月之内，Linux系统的源码已经由Git管理了！集中">
+<meta name="twitter:image" content="https://www.liaoxuefeng.com/files/attachments/919020037470528/0">
+  <link rel="canonical" href="http://yoursite.com/2020/02/17/Git学习/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Git学习 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/17/Git学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Git学习
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-17 15:52:27" itemprop="dateCreated datePublished" datetime="2020-02-17T15:52:27+08:00">2020-02-17</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-18 00:00:22" itemprop="dateModified" datetime="2020-02-18T00:00:22+08:00">2020-02-18</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Daily/" itemprop="url" rel="index"><span itemprop="name">Daily</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Git学习"><a href="#Git学习" class="headerlink" title="Git学习"></a>Git学习</h1><p>学习廖雪峰教程：<a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
+<h2 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h2><ul>
+<li>Git是目前世界上最先进的分布式版本控制系统（没有之一）。</li>
+<li>这样，你就结束了手动管理多个“版本”的史前时代，进入到版本控制的20世纪。</li>
+<li>Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git！一个月之内，Linux系统的源码已经由Git管理了！<h3 id="集中式vs分布式"><a href="#集中式vs分布式" class="headerlink" title="集中式vs分布式"></a>集中式vs分布式</h3></li>
+<li>Linus一直痛恨的CVS及SVN都是集中式的版本控制系统，而Git是分布式版本控制系统</li>
+<li>集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。</li>
+<li>分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。既然每个人电脑上都有一个完整的版本库</li>
+<li>Git的优势不单是不必联网这么简单，后面我们还会看到Git极其强大的分支管理，把SVN等远远抛在了后面。<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><h3 id="创建版本库-1"><a href="#创建版本库-1" class="headerlink" title="创建版本库"></a>创建版本库</h3><blockquote>
+<p><strong>版本库</strong>又名仓库，英文名repository，特点是这个目录里面的所有文件都可以被Git管理起来，每个文件的修改、删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻可以“还原”。<br>命令行操作是先创建一个目录，再进行git初始化</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir learngit</span><br><span class="line">cd learngit</span><br><span class="line">pwd</span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>操作完成之后多了一个<code>.git</code>的隐藏文件，用来记录版本信息。<br><em>也可以在一个已有的项目创建Git仓库</em></p>
+<h3 id="把文件添加到版本库"><a href="#把文件添加到版本库" class="headerlink" title="把文件添加到版本库"></a>把文件添加到版本库</h3><p>版本控制系统，其实只能跟踪文本文件的改动<br>|文件类型|版本控制|<br>|-|-|<br>|txt,html，代码|Git可告诉每次的改动|<br>|图片、视频这些二进制文件|虽然可Git管理，但是不能跟踪文件具体的变化，只能把二进制文件串联知道大小改变|<br>|微软的word|也是二进制文件，无法跟踪|<br><em>因为文本是有编码的，如果没有历史遗留问题，强烈建议使用标准的UTF-8编码，所有语言使用同一种编码，既没有冲突，又被所有平台所支持。</em><br><strong>两步命令</strong>提交仓库目录下的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git add readme.txt</span><br><span class="line">git commit -m &quot;wrote a readme file&quot;</span><br><span class="line">//-m后面输入的是本次提交的说明</span><br><span class="line">[master (root-commit) 63f05d9] wrote a readme file</span><br><span class="line"> 1 file changed, 2 insertions(+)</span><br><span class="line"> create mode 100644 readme.txt</span><br><span class="line">//1个文件改变，2处增加</span><br></pre></td></tr></table></figure>
+
+<p>分<strong>两步命令</strong>是因为commit一次可以提交很多文件：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add file1.txt</span><br><span class="line">git add file2.txt file3.txt</span><br><span class="line">git commit -m <span class="string">"add 3 files."</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="时光穿梭机"><a href="#时光穿梭机" class="headerlink" title="时光穿梭机"></a>时光穿梭机</h2><p>修改readme.txt.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git status // 查看仓库现在还咋u哪个台</span><br><span class="line">git diff //查看修改的地方</span><br></pre></td></tr></table></figure>
+
+<h3 id="版本退回"><a href="#版本退回" class="headerlink" title="版本退回"></a>版本退回</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git log // 显示从最近到最远的提交日志</span><br><span class="line">git log --pretty=oneline  //嫌输出信息太多，可以试试加上--pretty=oneline参数</span><br><span class="line">1094adb7b9b3807259d8cb349e7df1d4d6477073 (HEAD -&gt; master) append GPL</span><br><span class="line">e475afc93c209a690c39c13a46716e8fa000c366 add distributed</span><br><span class="line">eaadf4e385e865d25c48e7ca9c8395c3f7dfaef0 wrote a readme file</span><br></pre></td></tr></table></figure>
+
+<p>一大串类似1094adb…的是commit id（版本号），而是一个SHA1计算出来的一个非常大的数字，用十六进制表示，因为Git是分布式的版本控制系统，后面我们还要研究多人在同一个版本库里工作</p>
+<p><strong>现在返回上一个版本：</strong></p>
+<ul>
+<li>需要版本号，HEAD表示当前版本，上一版本表示HEAD^，上上版本HEAD^^，上100个版本HEAD~100</li>
+<li><code>git reset --hard HEAD^</code></li>
+<li><code>--hard</code>参数之后讲</li>
+</ul>
+<p>现在成功返回上一个版本，但是先前版本没有了，可返回，前提终端没有关闭，记录了上次的版本号码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git reflog //打印之前的git指令</span><br><span class="line">0b859e2 HEAD@&#123;3&#125;: reset: moving to HEAD^</span><br><span class="line">5836da2 (HEAD -&gt; master) HEAD@&#123;4&#125;: commit: append GPL    //得出id5836da2</span><br><span class="line">0b859e2 HEAD@&#123;5&#125;: commit: add distributed</span><br><span class="line">63f05d9 HEAD@&#123;6&#125;: commit (initial): wrote a readme file</span><br><span class="line"></span><br><span class="line">git reset --hard 5836da2 //就返回成功</span><br></pre></td></tr></table></figure>
+
+<h3 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h3><p>Git和其他版本控制系统如SVN的一个不同之处就是有暂存区的概念。</p>
+<ul>
+<li>工作区（Working Directory）<br>就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区</li>
+<li>版本库（Repository）<br>工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。</li>
+<li>暂存区（称为stage或者index）</li>
+<li>还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。<img src="https://www.liaoxuefeng.com/files/attachments/919020037470528/0">
+
+</li>
+</ul>
+<p>分支和HEAD的概念我们以后再讲。<br><strong>你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。</strong></p>
+<h3 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h3><p><strong>Git比其他版本控制系统设计得优秀，因为Git跟踪并管理的是修改，而非文件。</strong><br>第一次修改 -&gt; git add -&gt; 第二次修改 -&gt; git commit<br>上述修改只会提交第一次修改，第二次不会提交</p>
+<p>第一次修改 -&gt; git add -&gt; 第二次修改 -&gt; git add -&gt; git commit<br>这样合并两次修改才正确</p>
+<h3 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h3><ul>
+<li><p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout – file。</p>
+<ul>
+<li><p>一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+</li>
+<li><p>一种是readme.txt已经添加到暂存区后，又作了<strong>修改</strong>，现在，撤销修改就回到添加到暂存区后的状态。</p>
+</li>
+<li><p>总之，就是让这个文件回到最近一次git commit或git add时的状态。</p>
+</li>
+</ul>
+</li>
+<li><p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD <file>，就回到了场景1，第二步按场景1操作。</file></p>
+</li>
+<li><p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。</p>
+</li>
+</ul>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>将工作区的一个文件删除了，如果已经上传到版本库可以用git操作，没有到版本库则不行。</p>
+<ol>
+<li>从版本库删除文件，<code>git rm</code> 和 <code>git commit</code></li>
+<li>另一种从工作区删错了， <code>git checkout -- file</code>返回原状态，无论修改或删除都可以返回</li>
+</ol>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><p>git是分布式的，完全可以一个人有几个版本库，也可以两个人有版本库，最好是Github托管的方法。<br>首先给Github账号配置ssh密钥，这样Github账号就有本地你的电脑的密钥，可以上传文件到远程Github仓库。以前配置过hexo，也是基于Github托管的。</p>
+<h3 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h3><p>在Github上创建一个仓库后,origin是远程库的名字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:Ekko306/learngit.git //本地与远程关联 </span><br><span class="line">git push -u origin master //将当前分支master推送到远程</span><br></pre></td></tr></table></figure>
+
+<p>由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会<strong>把本地的master分支和远程的master分支关联起来</strong>，在以后的推送或者拉取时就可以简化命令。<br>从现在起，只要本地作了提交，就可以通过命令：</p>
+<p><code>$ git push origin master</code></p>
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/898732864121440" target="_blank" rel="noopener">SSH警告</a></p>
+<p>分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步，真是太方便了！</p>
+<h3 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h3><p>要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:michaelliao/gitskills.git</span><br><span class="line">git clone https://github.com/michaelliao/gitskills.git</span><br></pre></td></tr></table></figure>
+
+<p>Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。</p>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p>分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。</p>
+<p>现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作。</p>
+<p>哦哦：</p>
+<ul>
+<li>创建一个分支是可以从团队分离出来，只完成自己负责的，最后汇总到主干分支</li>
+<li>而也可以多个人在同一个分支里进行工作（比如开发一个特定功能），这时候会有冲突，然后解决。</li>
+</ul>
+<h3 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><p>一开始的时候，master分支是一条线，Git用<strong>master指向最新的提交</strong>，再用<strong>HEAD指向master</strong>，就能<strong>确定当前分支</strong>，以及当前分支的提交点：<br>当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把<strong>HEAD指向dev</strong>，就<strong>表示当前分支在dev上</strong><br><a href="https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424" target="_blank" rel="noopener">git管理分支高效原理</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev  //创建dev分支，然后切换到dev分支</span><br><span class="line">//相当于底下两条命令</span><br><span class="line">git branch dev  //加参数dev创建新分支dev 不加查看所有分支</span><br><span class="line">git checkout dev  //切换分支为dev</span><br><span class="line"></span><br><span class="line">//dev上修改readme.txt并提交</span><br><span class="line"></span><br><span class="line">//在分支dev提交后 并不会改变master分支内容 必须merge合并，并且 更新是在master分支上</span><br><span class="line">git checkout master //切换到master</span><br></pre></td></tr></table></figure>
+
+<p>git merge命令用于合并指定分支到当前分支。合并后，再查看readme.txt的内容，就可以看到，和dev分支的最新提交是完全一样的。<br>（注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。<br>当然，也不是每次合并都能Fast-forward，我们后面会讲其他方式的合并。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//合并完成后删除分支</span><br><span class="line">git branch -d dev</span><br></pre></td></tr></table></figure>
+
+<p>因为创建、合并和删除分支非常快，所以Git<strong>鼓励你使用分支完成某个任务，合并后再删掉分支</strong>，这和直接在master分支上工作效果是一样的，但<strong>过程更安全</strong>。</p>
+<h3 id="创建与合并分支-1"><a href="#创建与合并分支-1" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><p>当一个分支改了一个文件，master也有这个文件改动，会有冲突，要解决冲突。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git merge feature1   //有冲突</span><br><span class="line">Auto-merging readme.txt</span><br><span class="line">CONFLICT (content): Merge conflict in readme.txt</span><br><span class="line">Automatic merge failed; fix conflicts and then commit the result. </span><br><span class="line">git status //告诉我们冲突的文件</span><br><span class="line">vim readme.txt //打开冲突文件修改</span><br><span class="line">git add readme.txt </span><br><span class="line">git commit -m &quot;conflict fixed&quot; //再提交修改</span><br><span class="line">git log --graph --pretty=oneline --abbrev-commit //可查看冲突解决情况</span><br><span class="line">git branch -d feature1 //最后，删除feature1分支</span><br></pre></td></tr></table></figure>
+
+<h2 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h2><p>就是之前的merge是Fast forward模式，这种模式，删除分支后会丢失分支信息，改良不用fast模式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff -m &quot;merge with no-ff&quot; dev //这样就会有1一次分支提交信息，避免这次分支信息丢失，然后版本回退可以找到</span><br><span class="line">git log --graph --pretty=oneline --abbrev-commit //查看信息</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/02/17/Git学习/merge.png" alt="merge"></p>
+<p><strong>分支策略</strong><br>大体意思是master保持最稳定最新的，其他人在dev上合并<br><img src="https://www.liaoxuefeng.com/files/attachments/919023260793600/0"></p>
+<h2 id="BUG分支"><a href="#BUG分支" class="headerlink" title="BUG分支"></a>BUG分支</h2><p>就是你做你的工作做到一般的时候接到另一个任务（或者BUG任务），你可以临时保存现在的工作状态，去解决另一个任务，然后回来，如果是BUG任务，则有方法把修好的BUG更新到原来一半存好的任务里面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git stash //保存原来状态</span><br><span class="line">git checkout master //确定到master上修BUG，切换master分支</span><br><span class="line">//到issues-101上解决分支 并修改到master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git checkout dev //回来</span><br><span class="line">git status //原来状态没有</span><br><span class="line">git stash list //查看有一个stash保存状态</span><br><span class="line"></span><br><span class="line">//有两种恢复方式</span><br><span class="line">git stash apply // 恢复后不删除 要用git stash drop删除</span><br><span class="line">git stash pop //恢复后也删除了 &lt;-用这个</span><br><span class="line">git stash list //发现没有了</span><br><span class="line">git stash apply stash@&#123;0&#125;  //你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命</span><br></pre></td></tr></table></figure>
+
+<p>由于是在master上修好了bug，dev仍然有bug，可以用命令指定某一次修BUG的提交，只修改特定的部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4c805e2 fix bug 101  // 找到修好bug的提交</span><br><span class="line">git cherry-pick 4c805e2</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意指定特定的修改也会可能有冲突，解决即可</strong></p>
+<h3 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h3><p>每新加一个新功能，新建立一个branch来合并，这个分支称为feature分支，如果中途不需要了，用新命令行删除没有合并的分支。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -D feature-vulan //删除没有用合并的分支</span><br></pre></td></tr></table></figure>
+
+<h2 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h2><p>当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。</p>
+<p>要查看远程库的信息，用<code>git remote</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br><span class="line">origin</span><br></pre></td></tr></table></figure>
+
+<p>或者，用<code>git remote -v</code>显示更详细的信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote -v</span><br><span class="line">origin  git@github.com:michaelliao/learngit.git (fetch)</span><br><span class="line">origin  git@github.com:michaelliao/learngit.git (push)</span><br></pre></td></tr></table></figure>
+
+<p>上面显示了可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址。</p>
+<p><strong>推送分支：（按自己需求推送分支）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push origin master  //推送master</span><br><span class="line">git push origin dev     //推送dev</span><br></pre></td></tr></table></figure>
+
+<p>分支推送约定：<br><img src="/2020/02/17/Git学习/push.png" alt="push"></p>
+<p><strong>抓取分支：</strong><br>当一个新同事克隆仓库，默认只有master分支，想和你一起开发dev，就要手动抓取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:michaelliao/learngit.git</span><br><span class="line">git branch //只有master</span><br><span class="line">git checkout -b dev origin/dev //注意是origin就可以抓取远程分支</span><br></pre></td></tr></table></figure>
+
+<p><strong>远程冲突</strong><br>小伙伴修改dev后，恰好你也在修改dev，自己push会有冲突，可以先pull获取最新的，在自己本地修改完冲突后再提交。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git pull //也可能遇到dev没有和远程origin/dev对应问题，解决：</span><br><span class="line">git branch --set-upstream-to=origin/dev dev</span><br><span class="line">//再解决完冲突提交</span><br></pre></td></tr></table></figure>
+
+<p><strong>重要：</strong><br><img src="/2020/02/17/Git学习/cor.png" alt="cor"></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/02/12/Training-Yolov3/" rel="next" title="Training Yolov3">
+                  <i class="fa fa-chevron-left"></i> Training Yolov3
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git学习"><span class="nav-number">1.</span> <span class="nav-text">Git学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git简介"><span class="nav-number">1.1.</span> <span class="nav-text">Git简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集中式vs分布式"><span class="nav-number">1.1.1.</span> <span class="nav-text">集中式vs分布式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建版本库"><span class="nav-number">1.2.</span> <span class="nav-text">创建版本库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建版本库-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">创建版本库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把文件添加到版本库"><span class="nav-number">1.2.2.</span> <span class="nav-text">把文件添加到版本库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时光穿梭机"><span class="nav-number">1.3.</span> <span class="nav-text">时光穿梭机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#版本退回"><span class="nav-number">1.3.1.</span> <span class="nav-text">版本退回</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区和暂存区"><span class="nav-number">1.3.2.</span> <span class="nav-text">工作区和暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管理修改"><span class="nav-number">1.3.3.</span> <span class="nav-text">管理修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销修改"><span class="nav-number">1.3.4.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件"><span class="nav-number">1.3.5.</span> <span class="nav-text">删除文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库"><span class="nav-number">1.4.</span> <span class="nav-text">远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加远程库"><span class="nav-number">1.4.1.</span> <span class="nav-text">添加远程库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">1.4.2.</span> <span class="nav-text">从远程库克隆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理"><span class="nav-number">1.5.</span> <span class="nav-text">分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建与合并分支"><span class="nav-number">1.5.1.</span> <span class="nav-text">创建与合并分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建与合并分支-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">创建与合并分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理策略"><span class="nav-number">1.6.</span> <span class="nav-text">分支管理策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BUG分支"><span class="nav-number">1.7.</span> <span class="nav-text">BUG分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature分支"><span class="nav-number">1.7.1.</span> <span class="nav-text">Feature分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多人协作"><span class="nav-number">1.8.</span> <span class="nav-text">多人协作</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658"
+      alt="望星的太阳花">
+  <p class="site-author-name" itemprop="name">望星的太阳花</p>
+  <div class="site-description" itemprop="description">You are my JavaSript in my HTML.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">望星的太阳花</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
