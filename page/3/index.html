@@ -45,7 +45,7 @@
     version: '7.4.1',
     exturl: false,
     sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
@@ -73,13 +73,13 @@
 
   <meta name="description" content="You are my JavaSript in my HTML.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="SyPeng">
 <meta property="og:url" content="http://yoursite.com/page/3/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="SyPeng">
 <meta property="og:description" content="You are my JavaSript in my HTML.">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="SyPeng">
 <meta name="twitter:description" content="You are my JavaSript in my HTML.">
   <link rel="canonical" href="http://yoursite.com/page/3/">
 
@@ -95,7 +95,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>SyPeng</title>
   
 
 
@@ -146,7 +146,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">SyPeng</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -224,6 +224,138 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/28/目标检测学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SyPeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/11/28/目标检测学习笔记/" class="post-title-link" itemprop="url">目标检测学习笔记</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-28 17:02:44" itemprop="dateCreated datePublished" datetime="2019-11-28T17:02:44+08:00">2019-11-28</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 12:07:17" itemprop="dateModified" datetime="2020-02-11T12:07:17+08:00">2020-02-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="YOLO-学习笔记"><a href="#YOLO-学习笔记" class="headerlink" title="YOLO 学习笔记"></a>YOLO 学习笔记</h2><h3 id="YOLO-v1深入理解"><a href="#YOLO-v1深入理解" class="headerlink" title="YOLO v1深入理解"></a>YOLO v1深入理解</h3><p>yolo1 448<em>448</em>3 输入之前做resize 分成7<em>7网格 如果目标中心在网格里就进行预测<br>网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测<br>输出是7</em>7*10 tensor</p>
+<p>每一个网格产生 30个通道的信息<br>2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个boundingbox 的物体执行度） 前10个<br>分类信息 yolov1 会有20个分类目标 所以总的有30</p>
+<p>目标检测： 位置信息与分类  包含回归和分类 </p>
+<p>fast rcnn 会有<br>yolo3 416* 416 608*608</p>
+<p>bounding box的置信度 = 该boudnig box 内存在对象的概率* 该boudingbox与该对象实际boundingbox的iou交并比</p>
+<p>YOLO标签与以往不一样<br>是在训练才会出现 置信度的标签 依赖于标签的裱框 </p>
+<p>交集除以并集 值越大 重合的概率越大</p>
+<p>7*7的网格可以训练2个bounding box<br>v3里面 每个grid里面 有3个ancor多个 </p>
+<p>训练样本标注之后 会有边框 </p>
+<p>损失是去找损失的中心点<br>中心点在那个位置 这个cell来负责预测狗对象 如何负责看计算<br>20个对象的概率 </p>
+<p>对一个框 是狗的框 若是狗则是1 其他的都是0 </p>
+<p>bounding box怎么输出<br>一个cel里面有cell 和 ancor<br>挑选一个比较符合的  </p>
+<p>这个样本标签 bouding box1填什么是依赖于 训练过程中得到的iou</p>
+<p>损失：<br>中心点的损失+宽高的损失 有目标在才有</p>
+<p>静态目标和动态目标的效果不一样<br>置信度的损失 有目标的损失参考值是一 没有的目标的损失参考值是0</p>
+<p>预测阶段 输出就是置信度  可以根据置信度来做预测</p>
+<p>非极大值抑制</p>
+<p>找置信度最高的 根据预值 计算iou 大于预值 就删除 得到两个框 一样的流程</p>
+<h2 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h2><blockquote>
+<p>目标检测 发展迅速  yolo anglefree yolo v3借助 ssd的思想 给了 angle建议</p>
+</blockquote>
+<p>faster rcnn 与 rcnn的区别</p>
+<p>是 Region Proposal Network 和 Rol pooling </p>
+<p>早期的分类器 找到区域 再把区域拿出去做分类  计算复杂度很高 </p>
+<p>faster rcnn 是把多次的特征提取只做一次</p>
+<p>图片经过卷积层 会得到特征映射 得到建议的区域 box 再根据原来feature maps 做一个融合 找到<br>proposals的建议特征<br>再做一个 rol pooling<br>classier 在做分类特征 同时做bounding box的回归</p>
+<p>1、第一步特征提取 卷积神经网络<br>2、region proposal networks 包含两个操作 一个是分类器 softmax 判断假定的 anchors是 前景还是背景 过滤一些ancor rpn网络 给很多box 实际上做 rlpooling 只是一个部分   另一个 做bounding 回归<br>3、创造性的 roi pooling  给定建议区域 由于形状大小不一致 但是分类起要求输入大小形状相同 对 不同形状的box 做一个pooling 参数不一样 但是最后pooling的结果是一样的<br>4、分类层 两个任务：目标的分类 和 bounding box 回归</p>
+<p>核心<br>具体细节不讲</p>
+<p>重点看 anchor</p>
+<p><strong>anchor</strong></p>
+<p>anchor 只有宽度和高 位置由中心点 确定  以一个点生成 k个 框 一个框4个坐标  共4k个坐标（根据原始图片的bbox做回归）（到原始图片上）做检测     2k scores softmax 二分类 判断前景还是背景</p>
+<p>？？？？</p>
+<p>anchor 下采样 做回归和而分类</p>
+<p>还可以改变 采样的大小 </p>
+<p>回归操作 是预测值尽可能接近参考值 </p>
+<p>roi pooling<br>需要尺寸一样<br>要么切割 要么是转向相同的尺寸 </p>
+<p>就可以给不同的pooling的参数 </p>
+<p>虽然 ancor尺寸不一样 但是结果一样  根据之前的参数来判断</p>
+<p>最后把 roi pooling给网络 一个做回归 一个做目标分类      </p>
+<h2 id="training-yolov3"><a href="#training-yolov3" class="headerlink" title="training yolov3"></a>training yolov3</h2>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/03/OpenCV3计算机视觉阅读笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -233,7 +365,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="SyPeng">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -485,7 +617,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="SyPeng">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -703,7 +835,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="SyPeng">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -797,153 +929,11 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/10/深度学习总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="望星的太阳花">
-      <meta itemprop="description" content="You are my JavaSript in my HTML.">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/10/深度学习总结/" class="post-title-link" itemprop="url">深度学习总结</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-10 22:48:42" itemprop="dateCreated datePublished" datetime="2019-10-10T22:48:42+08:00">2019-10-10</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-11 12:05:29" itemprop="dateModified" datetime="2020-02-11T12:05:29+08:00">2020-02-11</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="深度学习总结"><a href="#深度学习总结" class="headerlink" title="深度学习总结"></a>深度学习总结</h1><blockquote>
-<p>不管怎么说也快挺长时间的人工智能，有困难的地方也有容易的地方，总结归纳下也许更利于提升。</p>
-</blockquote>
-<h2 id="1-深度学习的历史发展"><a href="#1-深度学习的历史发展" class="headerlink" title="1.深度学习的历史发展"></a>1.深度学习的历史发展</h2><p><img src="/2019/10/10/深度学习总结/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD.png" alt="Ai"></p>
-<ul>
-<li>数据挖掘就是在大型的数据库中发现有效信息的数据处理的过程。</li>
-<li>机器学习是实现人工智能的一种途径，和数据挖掘有相似性。主要是通过算法的设计，让计算机能够自动地从数据中“学习规律”，利用规律进行预测。</li>
-<li>深度学习最初版本是人工神经网络（机器学习的一个分支），试图通过模拟人脑，通过复杂的结构自动提取数据特征。</li>
-</ul>
-<p>而现在主要兴起的是深度学习，得益于大数据的兴起和高性能GPU的出现，使复杂的网络模型成为可能<br><img src="/2019/10/10/深度学习总结/DL%E5%8F%91%E5%B1%95.png" alt="Dl"></p>
-<h2 id="2-机器学习总结"><a href="#2-机器学习总结" class="headerlink" title="2.机器学习总结"></a>2.机器学习总结</h2><blockquote>
-<p>机器学习是基础。首先理解清楚机器学习中的一些概念算法。很多模型的建立都是根据复杂的数学模型得来的。</p>
-</blockquote>
-<h3 id="1、主要概念理解"><a href="#1、主要概念理解" class="headerlink" title="1、主要概念理解"></a>1、主要概念理解</h3><p><img src="/2019/10/10/深度学习总结/map.png" alt="map"></p>
-<p>重要难理解的：</p>
-<ul>
-<li>KNN邻近算法，距离算法 找最近的邻居判断 属于什么类别 也可以做回归问题（多种判断） k是取的邻居数，距离算法的选择 ： 欧式距离 余弦距离 马斯距离 汉民距离 判断对新样本如何分类，可能必须缩放属性以防止距离度量被其中一个属性支配。</li>
-<li>支持向量机：通过训练模型参数找到一个合适的分离界面将数据分离开。有松弛变量，惩罚函数，margin，多种范数距离，另有积分变换将多维降纬。</li>
-<li>决策树，其中每个内部结点表示在一个属性上的测试对未知数据进行分类，每个分支代表一个属性输出，每个树叶结点代表类或类分布。根据分类最后叶子得到一个类。向前向后剪枝，信息熵增益，随机森林</li>
-<li>集成方法 集成方法 就是用很多 简单分类器 来构造复杂的分类函数，原始样本的抽样：bagging 抽了之后放，Bosting 抽了之后 下一次再抽 就加权。多个弱分类器分出好的结果像盲人摸象。<h3 id="2、实战（python）"><a href="#2、实战（python）" class="headerlink" title="2、实战（python）"></a>2、实战（python）</h3><img src="/2019/10/10/深度学习总结/Ku.png" alt="ku"></li>
-<li>numpy 包含矩阵运算，向量运算的包，扩展python的运算</li>
-<li>Scipy 世界上著名的Python开源科学计算库，建立在Numpy上，它增加的功能包括数值积分、最优化、统计和一些专用函数。</li>
-<li>pandas 数据集处理包，学习的数据存在数据集中，需要pandas处理</li>
-<li>matplotlib 绘图用的包，数据可视化</li>
-<li>seaborn 基于matplotlib的图形可视化python包。它提供了一种高度交互式界面,便于用户能够做出各种有吸引力的统计图表</li>
-<li>scikit-learn 机器学习的包，包含了很多机器学习的模型与方法函数</li>
-<li>OpenCv 图像处理的包，对图像的操作</li>
-<li>TensorFlow与Pytorch 深度学习的框架</li>
-</ul>
-<p><strong><em>以上每个包都需要学习的大量的资料才能掌握</em></strong></p>
-<h3 id="3、代码实现-基础框架"><a href="#3、代码实现-基础框架" class="headerlink" title="3、代码实现(基础框架)"></a>3、代码实现(基础框架)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np   <span class="comment">#导入numpy</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt     <span class="comment">#导入画图包</span></span><br><span class="line">x_data = np.array([<span class="number">1.0</span>, <span class="number">2.0</span>, <span class="number">3.0</span>])     <span class="comment">#手动创建三个数据</span></span><br><span class="line">y_data = np.array([<span class="number">1.968</span>, <span class="number">4.125</span>, <span class="number">5.671</span>])    </span><br><span class="line">plt.scatter(x_data,y_data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#define linear model </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x * w</span><br><span class="line">    <span class="comment"># Loss function </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loss</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    y_pred = forward(x)</span><br><span class="line">    <span class="keyword">return</span> (y_pred - y) * (y_pred - y)</span><br><span class="line">    <span class="comment"># gradient function  </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient</span><span class="params">(x, y)</span>:</span>  <span class="comment"># d_loss/d_w</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * x * (x * w - y)</span><br><span class="line">    <span class="comment">#define parameters  </span></span><br><span class="line">w = <span class="number">1.0</span>  <span class="comment"># start points</span></span><br><span class="line">lr = <span class="number">0.001</span> <span class="comment">#learning rate</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Training loop </span></span><br><span class="line">i=<span class="number">1</span></span><br><span class="line">epochs=<span class="number">500</span></span><br><span class="line">weights=[]</span><br><span class="line">losses=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> np.arange(epochs):</span><br><span class="line">    <span class="keyword">for</span> x_val, y_val <span class="keyword">in</span> zip(x_data, y_data):  <span class="comment">#zip() 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。</span></span><br><span class="line">        grad = gradient(x_val, y_val)</span><br><span class="line">        w = w - lr * grad</span><br><span class="line">        l = loss(x_val, y_val)</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">10</span>==<span class="number">0</span>:</span><br><span class="line">        weights+=[w]         </span><br><span class="line">        losses+=[l]          </span><br><span class="line">        print(<span class="string">"progress:"</span>, i, <span class="string">"w="</span>, round(w, <span class="number">2</span>), <span class="string">"loss="</span>, round(l, <span class="number">2</span>))   </span><br><span class="line">    <span class="keyword">if</span> np.linalg.norm(grad)&lt;=<span class="number">1e-6</span>: </span><br><span class="line">        <span class="keyword">break</span>  </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="comment"># After training</span></span><br><span class="line">print(weights)</span><br><span class="line">print(losses)</span><br><span class="line">plt.plot(weights,losses) </span><br><span class="line">plt.plot(x_data,y_predict) </span><br><span class="line">plt.scatter(x_data,y_data)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2019/10/10/深度学习总结/simp1.png" alt="simp1"></p>
-<h2 id="3-深度学习总结"><a href="#3-深度学习总结" class="headerlink" title="3.深度学习总结"></a>3.深度学习总结</h2><p>深度学习是现在主流的人工智能方向，是一种基于大数据和高性能Gpu的方法，有Pytorch和TensorFlow两种主流框架，现在学的是Pytorch</p>
-<blockquote>
-<p>PyTorch 是 Torch7 团队开发的，从它的名字就可以看出，其 与 Torch 的不同之处 在于 PyTorch 使用了 Python 作为开发语言 ζ 所谓 “Python first” ，同样说明它是 一 个以 Python 优先的深度学习框架，不仅能够实现强大的 GPU 加速，同时还支持功态神经网 络，这是现在很多主流框架比如 Tensorflow 等都不支持的。</p>
-</blockquote>
-<h3 id="1-多层全连接神经网络"><a href="#1-多层全连接神经网络" class="headerlink" title="1. 多层全连接神经网络"></a>1. 多层全连接神经网络</h3><p><img src="/2019/10/10/深度学习总结/ptha.png" alt="ptha"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#回归问题 线性回归 </span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn,optim</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#导入数据集</span></span><br><span class="line">x_train=np.array([[<span class="number">3.3</span>], [<span class="number">4.4</span>], [<span class="number">5.5</span>], [<span class="number">6.71</span>], [<span class="number">6.93</span>], [<span class="number">4.168</span>], [<span class="number">9.779</span>], [<span class="number">6.182</span>], [<span class="number">7.59</span>], [<span class="number">2.167</span>], [<span class="number">7.042</span>], [<span class="number">10.791</span>], [<span class="number">5.313</span>], [<span class="number">7.997</span>], [<span class="number">3.1</span>]], dtype=np.float32)</span><br><span class="line">y_train=np.array([[<span class="number">1.7</span>], [<span class="number">2.76</span>], [<span class="number">2.09</span>], [<span class="number">3.19</span>], [<span class="number">1.694</span>], [<span class="number">1.573</span>], [<span class="number">3.366</span>], [<span class="number">2.596</span>], [<span class="number">2.53</span>], [<span class="number">1.221</span>], [<span class="number">2.827</span>], [<span class="number">3.465</span>], [<span class="number">1.65</span>], [<span class="number">2.904</span>], [<span class="number">1.3</span>]], dtype=np.float32)</span><br><span class="line">plt.plot(x_train,y_train, <span class="string">'ro'</span>)</span><br><span class="line">x_train = torch.from_numpy(x_train)</span><br><span class="line">y_train = torch.from_numpy(y_train)</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2019/10/10/深度学习总结/p1.png" alt="p1"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义模型</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinearRegression</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(LinearRegression, self).__init__()</span><br><span class="line">        self.linear = nn.Linear(<span class="number">1</span>,<span class="number">1</span>)  <span class="comment">#输入输出都是一维</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        out = self.linear(x)</span><br><span class="line">        <span class="keyword">return</span> out</span><br><span class="line">criterion = nn.MSELoss()</span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">1e-2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#训练模型</span></span><br><span class="line">num_epochs = <span class="number">1000</span></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(num_epochs):</span><br><span class="line">    inputs = Variable(x_train)</span><br><span class="line">    target = Variable(y_train)</span><br><span class="line">    <span class="comment">#forward</span></span><br><span class="line">    out=model(inputs)</span><br><span class="line">    loss=criterion(out, target)</span><br><span class="line">    <span class="comment">#backward</span></span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line">    <span class="keyword">if</span> (epoch+<span class="number">1</span>) % <span class="number">20</span> == <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">'Epoch[&#123;&#125;/&#123;&#125;], loss:&#123;:.6f&#125;'</span>.format(epoch+<span class="number">1</span>, num_epochs, loss.item()))</span><br><span class="line"></span><br><span class="line"><span class="comment">#评估模型</span></span><br><span class="line">model.eval()  <span class="comment">#转变成eval的测试模式</span></span><br><span class="line">predict = model(Variable(x_train))</span><br><span class="line">predict = predict.data.numpy()  <span class="comment">#转numpy</span></span><br><span class="line">plt.plot(x_train.numpy(), y_train.numpy(), <span class="string">'ro'</span>, label=<span class="string">'Original data'</span>)</span><br><span class="line">plt.plot(x_train.numpy(), predict, label=<span class="string">'Fitting Line'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2019/10/10/深度学习总结/p2.png" alt="p2"></p>
-<h3 id="2-其他流行网络"><a href="#2-其他流行网络" class="headerlink" title="2.其他流行网络"></a>2.其他流行网络</h3><ul>
-<li>卷积神经网络（计算机视觉）</li>
-<li>循环神经网络（基于记忆的网络模型——序列预测）</li>
-<li>生成对抗网络（对抗网络就是让两个网络相互竞争，通过生成网络来生成假的数据，对抗网络通过判别器判别真伪，最后希望 生成网络生成的数据能够以假乱真骗过判别器 。）</li>
-</ul>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -990,7 +980,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1010,6 +1000,30 @@
     
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Ekko306" title="GitHub &rarr; https://github.com/Ekko306" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1186179435@qq.com" title="E-Mail &rarr; 1186179435@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
 
 
 

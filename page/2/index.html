@@ -45,7 +45,7 @@
     version: '7.4.1',
     exturl: false,
     sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
@@ -73,13 +73,13 @@
 
   <meta name="description" content="You are my JavaSript in my HTML.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="SyPeng">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="SyPeng">
 <meta property="og:description" content="You are my JavaSript in my HTML.">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="SyPeng">
 <meta name="twitter:description" content="You are my JavaSript in my HTML.">
   <link rel="canonical" href="http://yoursite.com/page/2/">
 
@@ -95,7 +95,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>SyPeng</title>
   
 
 
@@ -146,7 +146,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">SyPeng</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -224,6 +224,257 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/06/regular-expression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SyPeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/02/06/regular-expression/" class="post-title-link" itemprop="url">regular expression</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-06 10:21:27" itemprop="dateCreated datePublished" datetime="2020-02-06T10:21:27+08:00">2020-02-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 12:16:47" itemprop="dateModified" datetime="2020-02-11T12:16:47+08:00">2020-02-11</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Daily/" itemprop="url" rel="index"><span itemprop="name">Daily</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>学习地址（B站视频）：<a href="https://www.bilibili.com/video/av47287083\?p\=2" target="_blank" rel="noopener">https://www.bilibili.com/video/av47287083\?p\=2</a></p>
+<h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><p><img src="/2020/02/06/regular-expression/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" alt="正则表达式"></p>
+<h2 id="分节笔记"><a href="#分节笔记" class="headerlink" title="分节笔记"></a>分节笔记</h2><h3 id="第一节-正则表达式入门简介、使用场景、学习工具介绍和环境搭建"><a href="#第一节-正则表达式入门简介、使用场景、学习工具介绍和环境搭建" class="headerlink" title="第一节 正则表达式入门简介、使用场景、学习工具介绍和环境搭建)"></a>第一节 正则表达式入门简介、使用场景、学习工具介绍和环境搭建)</h3><blockquote>
+<p><strong>正则表达式的概念</strong>：使用<em>单个字符串</em>来描述，匹配一系列符合某个<em>句法规则</em>的字符串。</p>
+</blockquote>
+<p><img src="/2020/02/06/regular-expression/example.png" alt="example"></p>
+<p><strong>正则表达式使用场景：</strong></p>
+<ul>
+<li>批量提取/替换有规律的字符函</li>
+<li>各类高级文本编辑器中使用</li>
+<li>各类办公软件（Office等）中使用</li>
+<li>各种开发语言汇中的使用</li>
+<li>用户输入的合法性验证（IP地址，特殊的订单号要求等）</li>
+<li>模版引擎的标签库开发（c语言模版概念）</li>
+<li>网络爬虫（抓取机器人）的开发 ✅</li>
+<li>批量的文本高效处理</li>
+</ul>
+<p><strong>正则表达式的测试工具</strong><br><img src="/2020/02/06/regular-expression/tool.png" alt="tool"> </p>
+<h3 id="第二节-初识正则表达式以及元字符概念"><a href="#第二节-初识正则表达式以及元字符概念" class="headerlink" title="第二节 初识正则表达式以及元字符概念"></a>第二节 初识正则表达式以及元字符概念</h3><p><strong>Windows命令行这种存在的简单的正则表达式</strong></p>
+<ul>
+<li>*任意长度的字符串</li>
+<li>?长度为1的任意字符串</li>
+</ul>
+<p><strong>元字符概念以及元字符的反义</strong><br>|元字符|说明|<br>|-|-|<br>|.|匹配除换行符以外的任意字符|<br>|\w|匹配字母或数字或下划线或汉字|<br>|\s|匹配任意的空白符|<br>|\d|匹配数字|<br>|\b|匹配单词的开始或结束|<br>|^|匹配字符串的开始|<br>|$|匹配字符串的结束|</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\bgood\b  <span class="comment">#只匹配good单词，啥12wgoodda1不匹配</span></span><br><span class="line">^\d+$  <span class="comment">#要匹配的必须是开始到结尾都是数字，</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>反义</strong><br>|语法|说明|<br>|-|-|<br>|\W|匹配任意不是汉字，数字，下划线和汉字的字符|<br>|\S|匹配任意不是空白符的字符|<br>|\D|匹配任意**非数字的字符|<br>|\B|匹配不是单词开头或结束的位置|<br>|[^x]|匹配除了x以外的任意字符|<br>|[^aeiou]|匹配除了aeiou这几个字母以外的任意字符|</p>
+<p><strong>转义的概念以及正则表达式中的使用</strong></p>
+<ul>
+<li>如果就是想匹配.或者?这样的字符：</li>
+<li>转义字符\</li>
+<li>\. \* \?</li>
+</ul>
+<p><strong>正则表达式语言中的注释方法</strong></p>
+<ol>
+<li><code>2[0-4]\d(?#200-249)|25[0-5](?#250-255)[01]?\d\d?(?#0-199)</code><br>一般不写注释</li>
+<li>启用“忽略模式里的空白符”选项（平衡组多项可以在多行正则表达式使用） <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(?&lt;=    <span class="comment">#断言要匹配的文本的前缀</span></span><br><span class="line">&lt;(\w+)&gt;  <span class="comment">#查找尖括号括起来的字母或数字(即HTML/XML标签)</span></span><br><span class="line">)   <span class="comment">#前缀结束</span></span><br><span class="line">.*  <span class="comment">#匹配任意文本</span></span><br><span class="line">(?=  <span class="comment">#断言要匹配的文本的后缀</span></span><br><span class="line">&lt;V\<span class="number">1</span>&gt;  <span class="comment">#查找尖括号扩起来的内容：前面是一个"\"，后面是先前捕获的标签</span></span><br><span class="line">)    <span class="comment">#后缀结束</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="第三节-元字符的实例讲解"><a href="#第三节-元字符的实例讲解" class="headerlink" title="第三节 元字符的实例讲解"></a>第三节 元字符的实例讲解</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">\.</span><br><span class="line">.*d <span class="comment">#贪婪匹配 和其他的结合起来使用.</span></span><br><span class="line">.?ld  <span class="comment">#之后讲贪婪匹配</span></span><br><span class="line">\d</span><br><span class="line">\b.?ld\b</span><br><span class="line">^.?ld$</span><br><span class="line">\S</span><br><span class="line">\D</span><br><span class="line">\B  <span class="comment">#不做单词的限定</span></span><br><span class="line">[aeiou]ld   <span class="comment">#小的分组概念</span></span><br><span class="line">[^aeiou]ld</span><br></pre></td></tr></table></figure>
+
+<h3 id="第四节-正则表达式中的重复"><a href="#第四节-正则表达式中的重复" class="headerlink" title="第四节 正则表达式中的重复"></a>第四节 正则表达式中的重复</h3><p>可以写高阶的正则表达式</p>
+<p><strong>讲解正则表达式中的几种重复模式</strong><br>|语法|说明|<br>|-|-|<br>|<em>|重复零次或更多次|<br>|+|重复一次或更多次|<br>|?|重复零次或一次|<br>|{n}|重复n次|<br>|{n,}|重复n次或更多次|<br>|{n,m}|重复n到m次|<br>*</em>分支条件**</p>
+<ul>
+<li>用|把不同的规则分隔开</li>
+<li>从左到右地测试每个条件，如果满足了某个分支的话，就<strong>不会再管</strong>其他的条件了</li>
+<li>0\d{2}-\d{8}|0\d{3}-\d{7}<br>  <img src="/2020/02/06/regular-expression/fenzhi.png" alt="fenzhi"></li>
+</ul>
+<p><strong>字符类</strong></p>
+<ul>
+<li>[0-9] == \d</li>
+<li>[a-z0-9A-Z] == \w</li>
+<li>[&amp;?.]</li>
+<li>[aeiou]</li>
+<li>(?0\d{2}[)-]?\d{8}</li>
+</ul>
+<p><img src="/2020/02/06/regular-expression/zifu.png" alt="zifu"><br>（之后会有平衡组的概念 防止(02188888888 )<br><strong>重点解释重复的几种模式的区别</strong><br><strong>讲解正则表达式中重复的使用场景</strong></p>
+<h3 id="第五节-重复的示例讲解"><a href="#第五节-重复的示例讲解" class="headerlink" title="第五节 重复的示例讲解"></a>第五节 重复的示例讲解</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> </span><br><span class="line"><span class="number">1</span>* <span class="comment">#可以会有零次 会匹配出来位置 （没有1）</span></span><br><span class="line"><span class="number">1</span>+ <span class="comment">#只允许一次或多次</span></span><br><span class="line"><span class="number">1</span>? <span class="comment">#重重一次或多次</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#匹配电话号码</span></span><br><span class="line"><span class="number">021</span>-<span class="number">1234567</span></span><br><span class="line"><span class="number">025</span>-<span class="number">12345678</span></span><br><span class="line"><span class="number">027</span>-<span class="number">123456789</span></span><br><span class="line"><span class="number">010</span>-<span class="number">12345678</span></span><br><span class="line"><span class="number">08671</span>-<span class="number">12345678</span></span><br><span class="line"></span><br><span class="line">^<span class="number">0</span>\d&#123;<span class="number">2</span>,<span class="number">3</span>&#125;-\d&#123;<span class="number">7</span>,<span class="number">8</span>&#125;$</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更复杂</span></span><br><span class="line"><span class="number">021</span>-<span class="number">1234567</span></span><br><span class="line"><span class="number">025</span>-<span class="number">12345678</span></span><br><span class="line">(<span class="number">027</span>)<span class="number">12345678</span></span><br><span class="line"><span class="number">010</span> <span class="number">12345678</span></span><br><span class="line"><span class="number">08671</span>-<span class="number">12345678</span></span><br><span class="line"></span><br><span class="line">^[(]?\d&#123;<span class="number">2</span>,<span class="number">3</span>&#125;[-\s)]\d&#123;<span class="number">7</span>,<span class="number">8</span>&#125;$</span><br></pre></td></tr></table></figure>
+
+<h3 id="第六节-正则表达式中的分组概念-amp-贪婪与懒惰"><a href="#第六节-正则表达式中的分组概念-amp-贪婪与懒惰" class="headerlink" title="第六节 正则表达式中的分组概念 &amp; 贪婪与懒惰"></a>第六节 正则表达式中的分组概念 &amp; 贪婪与懒惰</h3><p><strong>讲解正则表达式一个重要的概念：分组</strong><br>分组：</p>
+<ul>
+<li>将子表达式进行做成子集</li>
+<li>使用<strong>()</strong>进行分组</li>
+<li>方便对match的字符串进行划分</li>
+<li>(\d{1,3}.){3}\d{1,3}</li>
+<li>分组的命名：(?<groupname>exp) ，很有用，利用别名提取，exp就是一大串正则</groupname></li>
+<li>(?:exp) 匹配exp,不捕获匹配的文本，也不给此分组分配组号，剔除这种分配，？是123三四</li>
+</ul>
+<p><strong>分组的概念</strong><br><strong>分组的命名模式</strong><br><strong>分组的用途</strong></p>
+<p><strong>正则表达式中贪婪和懒惰</strong><br>贪婪与懒惰</p>
+<ul>
+<li><p>贪婪(尽可能多)<br><code>a.*b (aabab) -&gt; aabab</code></p>
+</li>
+<li><p>懒惰(尽可能少)<br>匹配任意数量的重复，但是咋子能使整个匹配成功的前提下使用最少的重复<br><code>a.*? (aabab) -&gt; aab</code></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*?</td>
+<td>重复任意次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>+?</td>
+<td>重复1次或更多次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>??</td>
+<td>重复0次或1i，但尽可能少重复</td>
+</tr>
+<tr>
+<td>{n,m}?</td>
+<td>重复n到m次，但尽可能少重复</td>
+</tr>
+<tr>
+<td>{n,}?</td>
+<td>重复n次以上，但尽可能少重复</td>
+</tr>
+</tbody></table>
+<p><strong>处理选项(RegexOptions)</strong><br>|语法|说明|<br>|-|-|<br>|IgnoreCase|匹配时不区分大小写|<br>|Multiline|更改^和$的含义，使他们分别在任意一行的行首和行尾匹配，而不仅仅在整个字符串的靠头和结尾匹配(此模式下，$的精确含义是:匹配\n之前的位置以及字符串结束前的位置)|<br>|Singleline|更改.的含义，使它与每一个字符匹配(包括换行符\n)|<br>|IgnorePatternWhitespace|忽略表达式中的非转义空白并启用由#标记的注释|<br>|ExplicitCapture|仅捕获已被显式命名的组|</p>
+<h3 id="第七节-分组概念的实例讲解"><a href="#第七节-分组概念的实例讲解" class="headerlink" title="第七节 分组概念的实例讲解"></a>第七节 分组概念的实例讲解</h3><p>匹配百度搜索结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div\s+class=&quot;(?:result|result-op)\s+c-container\s+.*?&lt;a.*?&gt;(?&lt;baiduTitle&gt;.*?)&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="第八节-正则表达式高阶讲解"><a href="#第八节-正则表达式高阶讲解" class="headerlink" title="第八节 正则表达式高阶讲解"></a>第八节 正则表达式高阶讲解</h3><p><strong>反向引用</strong></p>
+<ul>
+<li>要匹配taobao taobao,home home这样的情况怎么样？</li>
+<li>\b(\w+)\b\s+\1\b</li>
+<li>\b(?<word>\w+)\b\s+\k<word>\b 这是命名后的另一种写法</word></word></li>
+</ul>
+<p><strong>零宽断言的概念以及使用场景</strong><br>断言就是真或者假，零宽就是不占位的意思</p>
+<ul>
+<li>?=exp零宽正预测先行断言，自身出现的位置的<strong>后面</strong>能匹配表达式exp<br>\b\w+(?=ing\b)<br>I’m <strong>sing</strong>ing while you’re <strong>danc</strong>ing.</li>
+<li>?&lt;=exp零宽正回顾后发断言,自身出现的位置的<strong>前面</strong>能匹配表达式exp<br>(?&lt;=\bre)\w+\b<br>re<strong>ading</strong> a book</li>
+</ul>
+<p><strong>负向零宽断言的概念以及使用场景</strong></p>
+<ul>
+<li>查找这样的单词–它里面出现了字母q,但是q后面跟的不是字母u<ul>
+<li>\b\w<em>q[^u]\w</em>\b</li>
+<li>上面的表达式有没有问题？<strong>有，要用零宽！</strong>使用零宽度负预测先行断言</li>
+<li>\b\w<em>q(?!u)\w</em>\b<strong>并不消费任何字符</strong></li>
+<li>\d{3}(?!\d)匹配三位数字，而且这三位数字的后面不能是数字</li>
+<li>\b((?!abc)\w)+\b 匹配不包含连续字符串abc的单词</li>
+</ul>
+</li>
+<li>同样，还有零宽度负回顾后发断言<ul>
+<li>(?&lt;![a-z]\d(7)&gt;) 匹配前面不是小写字母的七位数字</li>
+<li>(?&lt;=&lt;(\w+)&gt;).<em>(?=&lt;V\1&gt;)*</em>不包括前缀和后缀本身**</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2020/02/06/regular-expression/duanyan.png" alt="duanyan"></p>
+<p><strong>冗长的平衡组和递归匹配</strong></p>
+<ul>
+<li>如何把xx&lt;aa &lt;bbb&gt; &lt;bbb&gt; aa&gt; yy这样的字符串里，最长的配对的尖括号内的内容捕获出来？</li>
+<li>(?’group’)把捕获的内容命名为group，并压入堆栈(stack)</li>
+<li>(?’-group’)把堆栈上弹出最后押入堆栈的名为group的捕获内容，如果堆栈本来为空，则本分组的匹配失败</li>
+<li>(?(group)yes|no)如果堆栈上存在1⃣️名为group的捕获内容的话，继续匹配yes部分的表达式，否则继续匹配no部分</li>
+<li>(?!)零宽负向先行断言，由于没有后缀表达式，试图匹配总是失败</li>
+</ul>
+<h3 id="第九节-高阶正则表达式的实例讲解"><a href="#第九节-高阶正则表达式的实例讲解" class="headerlink" title="第九节 高阶正则表达式的实例讲解"></a>第九节 高阶正则表达式的实例讲解</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#反向引用</span></span><br><span class="line">\b(\w+)\s+(\<span class="number">1</span>)\s+(\<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">taobao taobao  taobao hugi taobao taobao taobao hyff alipay alipay jjhyyd ddd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#零宽断言 就是是后面那个东西 可能或没有占位</span></span><br><span class="line"><span class="comment">#负向零宽断言 就是是后面不是那个东西 可能或没有占位</span></span><br><span class="line">(?&lt;=\s+)\d(?=\s)|(?&lt;=\s+)\d(?!\d+)|(?&lt;!\d+)\d(?=\s+)</span><br><span class="line"></span><br><span class="line"><span class="number">5</span> <span class="number">5</span>  <span class="number">6</span> <span class="number">777665</span> <span class="number">6655</span> <span class="number">6</span> <span class="number">5</span> <span class="number">5</span> <span class="number">58</span> <span class="number">0</span> <span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#使用注释 打开成free-spacing</span></span><br><span class="line">\w+<span class="comment">#匹配出来的是字符串</span></span><br><span class="line"></span><br><span class="line">test<span class="comment">#123</span></span><br></pre></td></tr></table></figure>
+
+<p>使用平衡组 找最长标签 有局限性java8和js都不支持，现在只在c#.NET里面：<br><img src="/2020/02/06/regular-expression/pingheng.png" alt="pingheng"></p>
+<h3 id="第十节-综合实例以及掌握后正则表达式后处理文本的锋利"><a href="#第十节-综合实例以及掌握后正则表达式后处理文本的锋利" class="headerlink" title="第十节 综合实例以及掌握后正则表达式后处理文本的锋利"></a>第十节 综合实例以及掌握后正则表达式后处理文本的锋利</h3><p><img src="/2020/02/06/regular-expression/final.png" alt="final"><br><img src="/2020/02/06/regular-expression/final2.png" alt="final2"></p>
+<h2 id="划重点："><a href="#划重点：" class="headerlink" title="划重点："></a>划重点：</h2><p>以上是通用的正则表达式理论，用到javascript还需要掌握javascript的正则表达式。<br><a href="https://blog.csdn.net/liupeifeng3514/article/details/79005604" target="_blank" rel="noopener">https://blog.csdn.net/liupeifeng3514/article/details/79005604</a><br><img src="/2020/02/06/regular-expression/re.png" alt="re"><br>项目中代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取src最后的文件类型(docx),exec:</span></span><br><span class="line"><span class="keyword">const</span> regular = <span class="regexp">/.*\.(\w+)/</span></span><br><span class="line"><span class="keyword">const</span> url = <span class="string">'http://ossworkbench.muxixyz.com/1580464971.0602913.matlab.docx'</span></span><br><span class="line"><span class="keyword">const</span> DocType = regular.exec(url)</span><br><span class="line"><span class="built_in">console</span>.log(DocType)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 学姐使用的split：</span></span><br><span class="line"><span class="keyword">const</span> regex = <span class="regexp">/\D/</span>;</span><br><span class="line"><span class="keyword">const</span> timeArr = res.FileList[<span class="number">0</span>].create_time.split(regex);</span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/05/Summary-of-Pytorch-and-OpenCV/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -233,7 +484,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="SyPeng">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -478,7 +729,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="SyPeng">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -1274,7 +1525,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="SyPeng">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -1400,143 +1651,11 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/28/目标检测学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="望星的太阳花">
-      <meta itemprop="description" content="You are my JavaSript in my HTML.">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/28/目标检测学习笔记/" class="post-title-link" itemprop="url">目标检测学习笔记</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-11-28 17:02:44" itemprop="dateCreated datePublished" datetime="2019-11-28T17:02:44+08:00">2019-11-28</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-11 12:07:17" itemprop="dateModified" datetime="2020-02-11T12:07:17+08:00">2020-02-11</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep-Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="YOLO-学习笔记"><a href="#YOLO-学习笔记" class="headerlink" title="YOLO 学习笔记"></a>YOLO 学习笔记</h2><h3 id="YOLO-v1深入理解"><a href="#YOLO-v1深入理解" class="headerlink" title="YOLO v1深入理解"></a>YOLO v1深入理解</h3><p>yolo1 448<em>448</em>3 输入之前做resize 分成7<em>7网格 如果目标中心在网格里就进行预测<br>网格称呼cell  每一个cell 负责预测两个 boundingbox 选择其中一个 iou最大的进行预测<br>输出是7</em>7*10 tensor</p>
-<p>每一个网格产生 30个通道的信息<br>2个bounding box  会有边框信息 （中心点坐标和宽高） （每一个boundingbox 的物体执行度） 前10个<br>分类信息 yolov1 会有20个分类目标 所以总的有30</p>
-<p>目标检测： 位置信息与分类  包含回归和分类 </p>
-<p>fast rcnn 会有<br>yolo3 416* 416 608*608</p>
-<p>bounding box的置信度 = 该boudnig box 内存在对象的概率* 该boudingbox与该对象实际boundingbox的iou交并比</p>
-<p>YOLO标签与以往不一样<br>是在训练才会出现 置信度的标签 依赖于标签的裱框 </p>
-<p>交集除以并集 值越大 重合的概率越大</p>
-<p>7*7的网格可以训练2个bounding box<br>v3里面 每个grid里面 有3个ancor多个 </p>
-<p>训练样本标注之后 会有边框 </p>
-<p>损失是去找损失的中心点<br>中心点在那个位置 这个cell来负责预测狗对象 如何负责看计算<br>20个对象的概率 </p>
-<p>对一个框 是狗的框 若是狗则是1 其他的都是0 </p>
-<p>bounding box怎么输出<br>一个cel里面有cell 和 ancor<br>挑选一个比较符合的  </p>
-<p>这个样本标签 bouding box1填什么是依赖于 训练过程中得到的iou</p>
-<p>损失：<br>中心点的损失+宽高的损失 有目标在才有</p>
-<p>静态目标和动态目标的效果不一样<br>置信度的损失 有目标的损失参考值是一 没有的目标的损失参考值是0</p>
-<p>预测阶段 输出就是置信度  可以根据置信度来做预测</p>
-<p>非极大值抑制</p>
-<p>找置信度最高的 根据预值 计算iou 大于预值 就删除 得到两个框 一样的流程</p>
-<h2 id="Faster-RCNN"><a href="#Faster-RCNN" class="headerlink" title="Faster RCNN"></a>Faster RCNN</h2><blockquote>
-<p>目标检测 发展迅速  yolo anglefree yolo v3借助 ssd的思想 给了 angle建议</p>
-</blockquote>
-<p>faster rcnn 与 rcnn的区别</p>
-<p>是 Region Proposal Network 和 Rol pooling </p>
-<p>早期的分类器 找到区域 再把区域拿出去做分类  计算复杂度很高 </p>
-<p>faster rcnn 是把多次的特征提取只做一次</p>
-<p>图片经过卷积层 会得到特征映射 得到建议的区域 box 再根据原来feature maps 做一个融合 找到<br>proposals的建议特征<br>再做一个 rol pooling<br>classier 在做分类特征 同时做bounding box的回归</p>
-<p>1、第一步特征提取 卷积神经网络<br>2、region proposal networks 包含两个操作 一个是分类器 softmax 判断假定的 anchors是 前景还是背景 过滤一些ancor rpn网络 给很多box 实际上做 rlpooling 只是一个部分   另一个 做bounding 回归<br>3、创造性的 roi pooling  给定建议区域 由于形状大小不一致 但是分类起要求输入大小形状相同 对 不同形状的box 做一个pooling 参数不一样 但是最后pooling的结果是一样的<br>4、分类层 两个任务：目标的分类 和 bounding box 回归</p>
-<p>核心<br>具体细节不讲</p>
-<p>重点看 anchor</p>
-<p><strong>anchor</strong></p>
-<p>anchor 只有宽度和高 位置由中心点 确定  以一个点生成 k个 框 一个框4个坐标  共4k个坐标（根据原始图片的bbox做回归）（到原始图片上）做检测     2k scores softmax 二分类 判断前景还是背景</p>
-<p>？？？？</p>
-<p>anchor 下采样 做回归和而分类</p>
-<p>还可以改变 采样的大小 </p>
-<p>回归操作 是预测值尽可能接近参考值 </p>
-<p>roi pooling<br>需要尺寸一样<br>要么切割 要么是转向相同的尺寸 </p>
-<p>就可以给不同的pooling的参数 </p>
-<p>虽然 ancor尺寸不一样 但是结果一样  根据之前的参数来判断</p>
-<p>最后把 roi pooling给网络 一个做回归 一个做目标分类      </p>
-<h2 id="training-yolov3"><a href="#training-yolov3" class="headerlink" title="training yolov3"></a>training yolov3</h2>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1583,7 +1702,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1603,6 +1722,30 @@
     
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/Ekko306" title="GitHub &rarr; https://github.com/Ekko306" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="/1186179435@qq.com" title="E-Mail &rarr; 1186179435@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
 
 
 
