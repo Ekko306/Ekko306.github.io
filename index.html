@@ -224,6 +224,140 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/Sharing-of-2020-s-Spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SYPeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/03/26/Sharing-of-2020-s-Spring/" class="post-title-link" itemprop="url">Sharing of 2020's Spring</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-26 11:22:52" itemprop="dateCreated datePublished" datetime="2020-03-26T11:22:52+08:00">2020-03-26</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-27 16:00:20" itemprop="dateModified" datetime="2020-03-27T16:00:20+08:00">2020-03-27</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前端分享"><a href="#前端分享" class="headerlink" title="前端分享"></a>前端分享</h1><p>本次分享并不太正式，是把我前端学习过程中遇到的一些问题和新的用小本本记下来，想到什么分享什么，希望大家能喜欢，能了解一些前端的基础知识和一些很酷的东西。</p>
+<h2 id="抓取音乐、MV的src，对象存储cos"><a href="#抓取音乐、MV的src，对象存储cos" class="headerlink" title="抓取音乐、MV的src，对象存储cos"></a>抓取音乐、MV的src，对象存储cos</h2><blockquote>
+<p>用到一些tags中的src，想要引用自己的资源，有一些特别的方式（虽然以后经常是后端提供的服务器上的数据）</p>
+</blockquote>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>图片引入资源，最方便的方式是把需要的本地图片上传到自己的qq空间的相册里面，然后右键复制图片链接。</p>
+<h3 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h3><h4 id="上传到对象存储（后端）"><a href="#上传到对象存储（后端）" class="headerlink" title="上传到对象存储（后端）"></a>上传到对象存储（后端）</h4><ol>
+<li>这里需要注意是但凡是src引用的资源都是<strong>直链</strong>，直链资源是可以从地址名称后面看到需要的地址，并且可以直接作为下载链接下载下来。</li>
+<li><strong>对象存储cos</strong>就是一种完成这种直接存储资源的云服务。</li>
+</ol>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">❌（百度网盘）https://xact01.baidupcs.com/file/d00c83c210a43c672fcb1dbbae885178?bkt=en-cf7b18a7c51d9078138e5349f8e729ced6dbc2ade37a226cfe7de5aa430e0fe0390d768f7daa9935&amp;fid=1332307664-250528-1056090756407045&amp;time=1585216730&amp;sign=FDTAXGERLQlBHSKfW-DCb740ccc5511e5e8fedcff06b081203-V1hJzrKhbqBHznt5jeIlq1kpm1E%3D&amp;to=125&amp;size=4697782&amp;sta_dx=4697782&amp;sta_cs=1&amp;sta_ft=mp3&amp;sta_ct=7&amp;sta_mt=7&amp;fm2=MH%2CYangquan%2CAnywhere%2C%2Chubei%2Cct&amp;ctime=1535616269&amp;mtime=1535616269&amp;resv0=-1&amp;resv1=0&amp;resv2=rlim&amp;resv3=5&amp;resv4=4697782&amp;vuk=1332307664&amp;iv=0&amp;htype=&amp;randtype=&amp;newver=1&amp;newfm=1&amp;secfm=1&amp;flow_ver=3&amp;pkey=en-f14ccc04348d529105b59a5fa1f8d0b521b68520a82cced96be31028b10a4e0470a2aaab8f19184b&amp;sl=76480590&amp;expires=8h&amp;rt=pr&amp;r=616428251&amp;vbdid=3796106487&amp;fin=Axero-Trip.mp3&amp;fn=Axero-Trip.mp3&amp;rtype=1&amp;dp-logid=1988765693323297437&amp;dp-callid=0.1&amp;hps=1&amp;tsl=80&amp;csl=80&amp;fsl=-1&amp;csign=Dm5C8BgVJzST%2FVxbRwGdhi3mM10%3D&amp;so=0&amp;ut=6&amp;uter=4&amp;serv=0&amp;uc=3589459144&amp;ti=90e00819b6f54250900be0bd0f43baa82c67ad376e090cdc&amp;reqlabel=250528_f_ad8bcf02480b246b1f7b14b4585f9ec4_-1_a76f34a157f7e10b7e168b076b14195a&amp;by=themis</span><br><span class="line">❌（迅雷磁力链接）magnet:?xt=urn:btih:AE07A7A461010713CDB96BE944CDEC0A9FA549F6</span><br><span class="line">❌（迅雷链接）thunder://QUFmdHA6Ly9keTpkeUB4bGEueHVuYm8uY2M6MjAzMjcvW9G4wNfPwtTYd3d3Llh1bkJvLkNjXc3mvt/X3Lav1LExLkJEMTI4MLjfx+XW0NOiy6vX1i5ybXZiWlo=</span><br><span class="line">``` </span><br><span class="line">以上是我们平时用的普通下载链接，这些链接并不是直链，虽然打开地址可以下载下来资源，但不能用于src，因为他是一种下载地址，需要特定应用解析。</span><br><span class="line"></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>✅<a href="http://ossworkbench.muxixyz.com/1580392299.2325602.src.pdf" target="_blank" rel="noopener">http://ossworkbench.muxixyz.com/1580392299.2325602.src.pdf</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">而[工作台](http://work.muxixyz.com/project/6/file/58)里面的文件上传的地址是**直链**</span><br><span class="line">可以看到最后是直接用pdf这种文件格式结尾的，可以直接用于html标签。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">**使用对象存储服务cos(七牛云/腾讯云cos)**</span><br><span class="line">使用租用的云存储服务上传自己想要的资源。</span><br><span class="line">[腾讯云cos](https://cloud.tencent.com/product/cos)</span><br><span class="line">1. 确定收费模式（按量/按时间）</span><br><span class="line">2. 上传资源</span><br><span class="line">3. 设置安全权限（公共获取/私有获取）</span><br><span class="line"></span><br><span class="line">P.S.:还有很多这种能够上传使用网络地址资源的方式，比如linux系统上搭建web服务器比如tomcat或者docker（老板推荐的部署web应用方法），现在不会，大家可以学学一起分享。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 获取网易云音乐及酷我音乐的src</span><br><span class="line">&gt; 不自己上传也可以用特别的方法获取网上已经有的**直链资源**</span><br><span class="line"></span><br><span class="line">1. [网易云音乐](https://music.163.com/#/song?id=1312017438)的**非VIP**资源全在以下链接中</span><br><span class="line">`http://music.163.com/song/media/outer/url?id=[id].mp3`</span><br><span class="line">需要将id换成自己想要的网易云音乐的地址上的id。VIP资源行不通。</span><br><span class="line">2. [酷我音乐](http://www.kuwo.cn/play_detail/23540977)很不科学，直接在控制台network的media中复制就能获取😂。</span><br><span class="line">3. 以上都是网上找到的方法（很菜花了好大功夫才找到，可以用于一些参加比赛啥的又没有后端引用资源的快捷方法，也可以自用下载一些想要的资源，很酷。）</span><br><span class="line"></span><br><span class="line">### 视频</span><br><span class="line">没有特别方便获取网上视频直链的方法，这里提供两种奇葩方法下载视频（想引用成直链上传到对象存储）</span><br><span class="line">1. https://yunyinyue.iiilab.com/ </span><br><span class="line">输入网易云[mv](https://music.163.com/#/video?id=F8C289FD3AA02EAE91198EB9D399886A)的地址，帮你解析出来地址，也可以用于html的src，也可以供你下载，但是发现，过一段时间这个服务器地址上的文件会消失，最好还是存到自己的服务器上。</span><br><span class="line">2. 命令行下载神器：[you-get](https://github.com/soimort/you-get#supported-sites)</span><br><span class="line">有了命令行可以比普通用户用鼠标点来点去更方便的使用一些终端带有的工具。</span><br></pre></td></tr></table></figure>
+
+<p>exe //windows最方便<br>pip3 install you-get //命令行安装you-get工具</p>
+<p>//显示目标资源的格式(清晰度)<br>you-get -i <a href="https://www.bilibili.com/video/BV18W411j7Rf?from=search&amp;seid=15059123380627704164" target="_blank" rel="noopener">https://www.bilibili.com/video/BV18W411j7Rf?from=search&amp;seid=15059123380627704164</a><br>//下载指定清晰度的视频<br>you-get –format=mp4hd <a href="https://www.bilibili.com/video/BV18W411j7Rf?from=search&amp;" target="_blank" rel="noopener">https://www.bilibili.com/video/BV18W411j7Rf?from=search&amp;</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 正则表达式 与 JavaScript里的正则表达式 与 WebStorm</span><br><span class="line">&gt; **正则表达式**是一种学起来有点复杂，但是当你熟练理解掌握后威力无穷的工具。还可以网络爬虫啥的。</span><br><span class="line"></span><br><span class="line">很多语言都有正则表达式，要掌握某一种语言正则表达式的用法。</span><br><span class="line">1. string.match() ⭐️</span><br><span class="line">2. string.search()</span><br><span class="line">3. string.replace()</span><br><span class="line">4. string.split()</span><br><span class="line"></span><br><span class="line">1. regExp.test()</span><br><span class="line">2. regExp.exec()  ⭐️</span><br><span class="line">3. regExp.complie()</span><br><span class="line"></span><br><span class="line">**/\r?\n/**</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 简单部署react打包项目（最基础可用）</span><br><span class="line">### 打包项目</span><br><span class="line">1. json:`&quot;homepage&quot;: &quot;./&quot;`</span><br><span class="line">2. npm run build</span><br><span class="line">### 上传项目</span><br><span class="line">1. scp命令</span><br></pre></td></tr></table></figure>
+
+<p>scp /home/work/source.txt <a href="mailto:work@192.168.0.10" target="_blank" rel="noopener">work@192.168.0.10</a>:/home/work/   #把本地的source.txt文件拷贝到192.168.0.10机器上的/home/work目录下</p>
+<p>scp <a href="mailto:work@192.168.0.10" target="_blank" rel="noopener">work@192.168.0.10</a>:/home/work/source.txt /home/work/   #把192.168.0.10机器上的source.txt文件拷贝到本地的/home/work目录下</p>
+<p>scp <a href="mailto:work@192.168.0.10" target="_blank" rel="noopener">work@192.168.0.10</a>:/home/work/source.txt <a href="mailto:work@192.168.0.11" target="_blank" rel="noopener">work@192.168.0.11</a>:/home/work/   #把192.168.0.10机器上的source.txt文件拷贝到192.168.0.11机器的/home/work目录下</p>
+<p>scp -r /home/work/sourcedir <a href="mailto:work@192.168.0.10" target="_blank" rel="noopener">work@192.168.0.10</a>:/home/work/   #拷贝文件夹，加-r参数</p>
+<p>scp -P 1362 -r <a href="mailto:work@192.168.0.10" target="_blank" rel="noopener">work@192.168.0.10</a>:/public/home/abc /Users/abc/ #指定服务器端口-P以及文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">2. sftp协议上传（搭建麻烦，使用方便）</span><br><span class="line">### 环境搭建 </span><br><span class="line">https://www.html.cn/qa/react/14488.html </span><br><span class="line">尽量用yum指令安装</span><br><span class="line">java-&gt;tomcat-&gt;nodejs-&gt;create-react-app</span><br><span class="line"></span><br><span class="line">### 部署项目</span><br><span class="line">1. serve -s build （so easy）</span><br><span class="line">2. ctrl+z 隐藏到后台</span><br><span class="line">(1) CTRL+Z挂起进程并放入后台</span><br><span class="line">(2) jobs 显示当前暂停的进程</span><br><span class="line">(3) bg %N 使第N个任务在后台运行(%前有空格)</span><br><span class="line">(4) fg %N 使第N个任务在前台运行</span><br><span class="line">默认bg,fg不带%N时表示对最后一个进程操作!</span><br><span class="line">3. 有安全组的服务器打开端口5000</span><br><span class="line">4. 浏览器输入ip地址+端口号 成功进入。</span><br><span class="line"></span><br><span class="line">### 关闭项目</span><br></pre></td></tr></table></figure>
+
+<p>lsof -i:5000 #查看5000端口的进程的PID<br>kill -s 9 [PID] #杀死指定PID进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 文档在线预览的方法</span><br><span class="line">### 微软</span><br><span class="line">- 仅支持office系列：doc,docx,ppt,pptx,xls,xlsx</span><br><span class="line">- https://view.officeapps.live.com/op/view.aspx?src=[source]</span><br><span class="line">- source填上可直接访问的直链地址</span><br><span class="line">### idocv</span><br><span class="line">- 国产，支持类型多，收钱😂</span><br><span class="line">- http://api.idocv.com/view/url?url=[source]</span><br><span class="line">- source支持多种格式包括txt再也不乱码啦</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## h5页面心得</span><br><span class="line">### 苹果iosh5页面 获取摇一摇权限和陀螺仪参数</span><br><span class="line">```js</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  if (location.protocol != &apos;https:&apos;) &#123;</span><br><span class="line">   location.href = &apos;https:&apos; + window.location.href.substring(window.location.protocol.length);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">function requestT () &#123;</span><br><span class="line">      if (typeof(DeviceMotionEvent) !== &apos;undefined&apos; &amp;&amp; typeof(DeviceMotionEvent.requestPermission) === &apos;function&apos;) &#123;</span><br><span class="line">          </span><br><span class="line">          DeviceMotionEvent.requestPermission()</span><br><span class="line">          .then(response =&gt; &#123;</span><br><span class="line">	alert(&apos;Orientation tracking &apos;+ response);</span><br><span class="line">          </span><br><span class="line">            if (response == &apos;granted&apos;) &#123;</span><br><span class="line">              window.addEventListener(&apos;devicemotion&apos;, (e) =&gt; &#123;</span><br><span class="line">               document.getElementById(&apos;request&apos;).style.visibility=&apos;hidden&apos;;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">      .catch(console.error)</span><br><span class="line">      &#125;else &#123;</span><br><span class="line">          alert(&apos;DeviceMotionEvent is not defined&apos;);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  document.getElementById(&apos;request&apos;).onclick = requestT;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>跟我们之前用taro里登陆获取用户信息权限一样，这个基于safaris内核比较严格，也要<strong>点击</strong>一个按钮，申请获取权限，必须是点击，跟taro一样，你放在函数体顺下来执行都不行。<br><img src="/2020/03/26/Sharing-of-2020-s-Spring/%E8%8B%B9%E6%9E%9Ch5_1.png" alt="h5"><br><img src="/2020/03/26/Sharing-of-2020-s-Spring/%E8%8B%B9%E6%9E%9Ch5_2.png" alt="h5"><br><a href="https://developer.apple.com/documentation/safari_release_notes/safari_13_release_notes#3314664" target="_blank" rel="noopener">苹果开发者文档</a><br><a href="https://stackoverflow.com/questions/56514116/how-do-i-get-deviceorientationevent-and-devicemotionevent-to-work-on-safari" target="_blank" rel="noopener">stack overflow 问题解答 早看到就好了😭</a></p>
+<h3 id="一顿操作-引入tinymce-傻呆呆"><a href="#一顿操作-引入tinymce-傻呆呆" class="headerlink" title="一顿操作 引入tinymce 傻呆呆"></a>一顿操作 引入tinymce 傻呆呆</h3><ol>
+<li>react项目里面最好不要再index.html里面再引入 外部的js文件，因为有保护措施 会有错误 详情看这篇问题</li>
+<li>要引入 tinymce 要好好引入 每用到一个东西就都要引入进来 一些内置的方法就不能直接用 必须引入必须的包</li>
+<li>跨域请求：本地想跨域请求设置代理，记住打包时用全url。</li>
+</ol>
+<h3 id="基于react的h5页面-与-安卓交互"><a href="#基于react的h5页面-与-安卓交互" class="headerlink" title="基于react的h5页面 与 安卓交互"></a>基于react的h5页面 与 安卓交互</h3><p>js与android交互<br>总体方法：<a href="https://blog.csdn.net/cs15229216584/article/details/53321750" target="_blank" rel="noopener">https://blog.csdn.net/cs15229216584/article/details/53321750</a><br>有些小问题<br>1、安卓 远程调试 webview网页<br><a href="https://www.jianshu.com/p/82f1465a07c9" target="_blank" rel="noopener">https://www.jianshu.com/p/82f1465a07c9</a></p>
+<p>2、getitem undefined<br><a href="https://blog.csdn.net/HongEnIT/article/details/53558808" target="_blank" rel="noopener">https://blog.csdn.net/HongEnIT/article/details/53558808</a></p>
+<p>3、react框架 java调用js 的函数 不是简单的写一个函数给 java调用 需要 在componetndidMount里面暴露给 window<br><a href="https://segmentfault.com/q/1010000017558921" target="_blank" rel="noopener">https://segmentfault.com/q/1010000017558921</a></p>
+<p>4、让webview加载的页面有 调用相册的权限 <a href="https://www.jianshu.com/p/aa589c05c307" target="_blank" rel="noopener">https://www.jianshu.com/p/aa589c05c307</a></p>
+<p>5、跨域调用api 需要再服务器端开启调用权限<br><a href="https://www.jianshu.com/p/aa589c05c307" target="_blank" rel="noopener">https://www.jianshu.com/p/aa589c05c307</a><br>或者 安卓端开启跨域权限<br><a href="https://blog.csdn.net/yclfdn2004/article/details/51364660" target="_blank" rel="noopener">https://blog.csdn.net/yclfdn2004/article/details/51364660</a></p>
+<p>6、传递相互调用字符串跑出来了unicode<br>java那边将unicode字符串转换成java的string类型：<br><a href="https://blog.csdn.net/JodenHe/article/details/77343197" target="_blank" rel="noopener">https://blog.csdn.net/JodenHe/article/details/77343197</a><br><a href="https://www.cnblogs.com/yingyujyf/p/6861462.html" target="_blank" rel="noopener">https://www.cnblogs.com/yingyujyf/p/6861462.html</a></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/LeetCode记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -691,220 +825,6 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/Don-t-Starve/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="望星的太阳花">
-      <meta itemprop="description" content="You are my JavaSript in my HTML.">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SYPeng">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/02/11/Don-t-Starve/" class="post-title-link" itemprop="url">Don't Starve</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-02-11 18:39:05" itemprop="dateCreated datePublished" datetime="2020-02-11T18:39:05+08:00">2020-02-11</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-24 16:16:28" itemprop="dateModified" datetime="2020-02-24T16:16:28+08:00">2020-02-24</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Daily/" itemprop="url" rel="index"><span itemprop="name">Daily</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="饥荒心得总结"><a href="#饥荒心得总结" class="headerlink" title="饥荒心得总结"></a>饥荒心得总结</h1><blockquote>
-<p><strong>饥荒</strong>很酷，准备入坑，积累一些游戏经验，供积累与查阅，玩成大神难度不比学校课程难度低😁，不断学习积累。<br><img src="http://m.qpic.cn/psc?/5219df0e-85ba-456c-b509-170d6b73dae4/uMeul31pGB4ZvQm8Ou4xcbWeiZkMIdJtMhiZyo7sc3WAa6GYpjiLYin0qjzz9R3c.O2vmrZ.O89lv.Q5U435p2WTVcrV.B3sctWrgjGmUdE!/b&bo=gAc4BIAHOAQDCSw!&rf=viewer_4"></p>
-</blockquote>
-<h2 id="饥荒生存必知小知识点"><a href="#饥荒生存必知小知识点" class="headerlink" title="饥荒生存必知小知识点"></a>饥荒生存必知小知识点</h2><ol>
-<li><p>饥荒<strong>地面</strong>地形汇总<br>a. 森林 Forest 深绿色<br>b. 草地 Grasslands 浅绿色<br>c. 沼泽 Marsh 紫色<br>d. 岩石 Rockyland 灰色<br>e. 草原 Savanna 黄色<br>f. 桦树林 Deciduous Forest 橘黄色<br>g. 沙漠 Desert 青黄色<br>总共七种，每种地区有特定资源</p>
-</li>
-<li><p>饥荒各种资源燃烧时间表，时间表每半格是30秒</p>
-<table>
-<thead>
-<tr>
-<th>燃料</th>
-<th>燃烧时间</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>格罗姆粘液</td>
-<td>12格</td>
-</tr>
-<tr>
-<td>各种作物根</td>
-<td>12格</td>
-</tr>
-<tr>
-<td>木板</td>
-<td>12格</td>
-</tr>
-<tr>
-<td>木头/活木/木炭</td>
-<td>3格</td>
-</tr>
-<tr>
-<td>绳子/牛毛/胡子</td>
-<td>3格</td>
-</tr>
-<tr>
-<td>所有地皮</td>
-<td>3格</td>
-</tr>
-<tr>
-<td>草/树枝/松果</td>
-<td>1格</td>
-</tr>
-<tr>
-<td>可以根据合适材料以及燃烧</td>
-<td></td>
-</tr>
-</tbody></table>
-</li>
-<li><p>基本的资源：</p>
-<table>
-<thead>
-<tr>
-<th>资源</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>草</td>
-<td>前期探图够火把使用即可，照明必须燃料（火堆），后期可铲走种植，需施肥</td>
-</tr>
-<tr>
-<td>树枝</td>
-<td>前期探图够火把使用即可，后期可铲走种植，不需施肥</td>
-</tr>
-<tr>
-<td>木头</td>
-<td>后期建立营地火堆必须</td>
-</tr>
-<tr>
-<td>石头</td>
-<td>全图不可再生，可获取金子以及石块</td>
-</tr>
-<tr>
-<td>浆果</td>
-<td>前期主要食品维持饥饿度，后期可铲走种植，需施肥</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>全图有许多种陷阱，见总结：<a href="https://www.downos.com/youxixiangguan/1853_4.html" target="_blank" rel="noopener">https://www.downos.com/youxixiangguan/1853_4.html</a></p>
-<h2 id="饥荒秋季生存心得"><a href="#饥荒秋季生存心得" class="headerlink" title="饥荒秋季生存心得"></a>饥荒秋季生存心得</h2><h3 id="第一阶段：探图"><a href="#第一阶段：探图" class="headerlink" title="第一阶段：探图"></a>第一阶段：探图</h3><blockquote>
-<p>探图为了之后的生存知道每种资源的位置，以及该去哪里搞事情，良好的探图是成功的一半。</p>
-</blockquote>
-</li>
-</ol>
-<p>时间轴：</p>
-<ol>
-<li>探图寻找必须区：岩石区（石块），蜘蛛森林区（大量怪物肉以及木头），沼泽区（芦苇），草原区（牛大便），猪人区（建家防狗），沙漠区（后期）</li>
-<li>探图过程中有草原区（绿色），区域浆果，树枝，草，花瓣，胡萝卜资源很丰富，可提供暂时生存物资。以及拣取燧石用来制作工具，斧头1个，十字镐2个。</li>
-<li>第二天晚上开始吃东西，建立火堆，将食物烤熟再吃，晚上砍树，补充状态完全。</li>
-<li>第三天继续探图，致感觉东西拿不下了，所需资源区基本找到，找到方便交通+有猪人保护/持续资源的地点按家，第一件事情箱子，背包存放物品，整理资源。</li>
-</ol>
-<p>死亡原因：<br>韦伯：</p>
-<ul>
-<li>夜晚打了一下蜘蛛，只有火堆没有准备火把，一大堆蜘蛛出来打我，最后死了，夜晚一定不能随便战斗，要同时应对黑夜和怪物会死</li>
-<li>不要一不小心把蜘蛛卵打碎了</li>
-<li>在沼泽区可以多采一些芦苇，后期做蜘蛛巢穴，同时蜂蜜药膏也需要很多芦苇的纸</li>
-</ul>
-<h2 id="饥荒冬季生存心得"><a href="#饥荒冬季生存心得" class="headerlink" title="饥荒冬季生存心得"></a>饥荒冬季生存心得</h2><p>死亡原因；</p>
-<ul>
-<li>没有保暖措施，大象没有去打，牛帽没有爆出来</li>
-<li>草差很多</li>
-<li>冬季血量低，很难恢复回来<ul>
-<li>秋季抓尽量多的鱼准备足够多鱼条</li>
-<li>有条件养蜜蜂 利用蜜蜂加血</li>
-<li>有灰烬可以做药膏，获取方法：<ul>
-<li>把石头火堆砸碎，获取大量灰烬</li>
-<li>把不用的东西放在地上燃烧</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>不会打巨鹿，建议开代码练习一下打boss</li>
-</ul>
-<p>狗哥食谱：</p>
-<ol>
-<li>蝴蝶膏：1蝴蝶+1蔬菜+2填充物（树枝/浆果） 不能：蔬菜，肉类，曼德拉草<br>38shi 20xue 5san ✅</li>
-<li>培根煎蛋：蛋（大等2斤小鸡蛋/高鸟蛋4斤）+肉（大等1.5斤）<br>xue20 shi75 5san ✅<br>不能：蔬菜，怪物肉不能2斤</li>
-<li>冰淇淋： 牛奶+冰+蜂蜜 三个一样<br>shi23 san 30 保质3天 降体温<br>不能：肉，蔬菜，水果，蛋</li>
-<li>冰西瓜： 冰+西瓜+树枝+填充<br>不能：肉，蔬菜，蛋，</li>
-<li>饺子： 蛋+蔬菜+肉+树枝（肉bunni）</li>
-</ol>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -956,7 +876,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
