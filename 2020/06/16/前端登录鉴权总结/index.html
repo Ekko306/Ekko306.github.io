@@ -71,31 +71,45 @@
   };
 </script>
 
-  <meta name="description" content="You are my JavaSript in my HTML.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="SYPeng">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="前端登录鉴权总结HTTP Basic Authentication最基本的账号密码验证方式,其工作原理基于浏览器,当返回401未鉴权时,浏览器将自动打开窗口请求用户输入账号密码进行身份验证. 注意:服务端responses的headers中添加’WWW-Authenticate’:’Basic realm=”wang”’,请求用户验证 服务端server_tradition.js 12345678">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端登录鉴权总结">
+<meta property="og:url" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/index.html">
 <meta property="og:site_name" content="SYPeng">
-<meta property="og:description" content="You are my JavaSript in my HTML.">
+<meta property="og:description" content="前端登录鉴权总结HTTP Basic Authentication最基本的账号密码验证方式,其工作原理基于浏览器,当返回401未鉴权时,浏览器将自动打开窗口请求用户输入账号密码进行身份验证. 注意:服务端responses的headers中添加’WWW-Authenticate’:’Basic realm=”wang”’,请求用户验证 服务端server_tradition.js 12345678">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200616235222016.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200616235412554.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200616235450082.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200616235630794.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200616235745811.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200617000213572.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200617000946004.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200617001225860.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200617001434674.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200617001448737.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/image-20200617001537983.png">
+<meta property="og:updated_time" content="2020-06-16T16:28:47.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SYPeng">
-<meta name="twitter:description" content="You are my JavaSript in my HTML.">
-  <link rel="canonical" href="http://yoursite.com/">
+<meta name="twitter:title" content="前端登录鉴权总结">
+<meta name="twitter:description" content="前端登录鉴权总结HTTP Basic Authentication最基本的账号密码验证方式,其工作原理基于浏览器,当返回401未鉴权时,浏览器将自动打开窗口请求用户输入账号密码进行身份验证. 注意:服务端responses的headers中添加’WWW-Authenticate’:’Basic realm=”wang”’,请求用户验证 服务端server_tradition.js 12345678">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/16/前端登录鉴权总结/1.png">
+  <link rel="canonical" href="http://yoursite.com/2020/06/16/前端登录鉴权总结/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
+    isHome: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>SYPeng</title>
+  <title>前端登录鉴权总结 | SYPeng</title>
   
 
 
@@ -218,12 +232,13 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+
   <div id="posts" class="posts-expand">
-        <article itemscope itemtype="http://schema.org/Article">
+      <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block home">
+  <div class="post-block post">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/16/前端登录鉴权总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -236,9 +251,8 @@
       <meta itemprop="name" content="SYPeng">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/06/16/前端登录鉴权总结/" class="post-title-link" itemprop="url">前端登录鉴权总结</a>
+        <h1 class="post-title" itemprop="name headline">前端登录鉴权总结
+
           
         </h1>
 
@@ -293,7 +307,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="前端登录鉴权总结"><a href="#前端登录鉴权总结" class="headerlink" title="前端登录鉴权总结"></a>前端登录鉴权总结</h1><h2 id="HTTP-Basic-Authentication"><a href="#HTTP-Basic-Authentication" class="headerlink" title="HTTP Basic Authentication"></a>HTTP Basic Authentication</h2><p>最基本的账号密码验证方式,其工作原理基于浏览器,当返回401未鉴权时,浏览器将自动打开窗口请求用户输入账号密码进行身份验证.</p>
+        <h1 id="前端登录鉴权总结"><a href="#前端登录鉴权总结" class="headerlink" title="前端登录鉴权总结"></a>前端登录鉴权总结</h1><h2 id="HTTP-Basic-Authentication"><a href="#HTTP-Basic-Authentication" class="headerlink" title="HTTP Basic Authentication"></a>HTTP Basic Authentication</h2><p>最基本的账号密码验证方式,其工作原理基于浏览器,当返回401未鉴权时,浏览器将自动打开窗口请求用户输入账号密码进行身份验证.</p>
 <p><strong>注意</strong>:服务端responses的headers中添加’WWW-Authenticate’:’Basic realm=”wang”’,请求用户验证</p>
 <p>服务端server_tradition.js</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">let</span> app = express();</span><br><span class="line"></span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)))</span><br><span class="line"></span><br><span class="line">    app.get(<span class="string">"/Authentication_base"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'req.headers.authorization:'</span>,req.headers)</span><br><span class="line">        <span class="keyword">if</span>(!req.headers.authorization)&#123;</span><br><span class="line">            res.set(&#123;</span><br><span class="line">               <span class="string">'WWW-Authenticate'</span>:<span class="string">'Basic realm="wang"'</span></span><br><span class="line">            &#125;);</span><br><span class="line">            res.status(<span class="number">401</span>).end();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> base64 = req.headers.authorization.split(<span class="string">" "</span>)[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">let</span> userPass = <span class="keyword">new</span> Buffer(base64, <span class="string">'base64'</span>).toString().split(<span class="string">":"</span>);</span><br><span class="line">            <span class="keyword">let</span> user = userPass[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">let</span> pass = userPass[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(user===<span class="string">"wang"</span> &amp;&amp; pass===<span class="string">"wang"</span>)&#123;</span><br><span class="line">                res.end(<span class="string">"OK"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                res.status(<span class="number">401</span>).end();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    app.listen(<span class="number">9090</span>)</span><br></pre></td></tr></table></figure>
@@ -347,398 +361,43 @@
 <p>因为单点登录逻辑需要多个系统交互,较为复杂,可尝试学习以下前端代码,复现SSO单点登录过程</p>
 <p><a href="https://juejin.im/post/5b51f39b5188251a9f24a264" target="_blank" rel="noopener">不务正业的前端之SSO（单点登录）实践(掘金)</a></p>
 
-        
-      
     </div>
 
     
     
     
+        
+      
+
       <footer class="post-footer">
-          <div class="post-eof"></div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/04/29/Eloquent-JS/" rel="next" title="Eloquent JS">
+                  <i class="fa fa-chevron-left"></i> Eloquent JS
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
         
       </footer>
+    
   </div>
   
   
   
   </article>
 
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/29/Eloquent-JS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="望星的太阳花">
-      <meta itemprop="description" content="You are my JavaSript in my HTML.">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SYPeng">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/04/29/Eloquent-JS/" class="post-title-link" itemprop="url">Eloquent JS</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-04-29 23:20:47" itemprop="dateCreated datePublished" datetime="2020-04-29T23:20:47+08:00">2020-04-29</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-02 19:31:24" itemprop="dateModified" datetime="2020-05-02T19:31:24+08:00">2020-05-02</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Eloquent-JavaScript"><a href="#Eloquent-JavaScript" class="headerlink" title="Eloquent JavaScript"></a>Eloquent JavaScript</h1><h2 id="Chapter-1-Values-Types-and-Operators"><a href="#Chapter-1-Values-Types-and-Operators" class="headerlink" title="Chapter 1 Values, Types, and Operators"></a>Chapter 1 Values, Types, and Operators</h2><h2 id="Chapter-2-Program-Structure"><a href="#Chapter-2-Program-Structure" class="headerlink" title="Chapter 2 Program Structure"></a>Chapter 2 Program Structure</h2><h2 id="Chapter-3-Functions"><a href="#Chapter-3-Functions" class="headerlink" title="Chapter 3 Functions"></a>Chapter 3 Functions</h2><h2 id="Chapter-4-Data-Structures-Objects-and-Arrays-数据结构：对象和数组"><a href="#Chapter-4-Data-Structures-Objects-and-Arrays-数据结构：对象和数组" class="headerlink" title="Chapter 4 Data Structures: Objects and Arrays [数据结构：对象和数组]"></a>Chapter 4 Data Structures: Objects and Arrays [数据结构：对象和数组]</h2><p>前面介绍，像Numbers, Booleans和 Strings是JS代码中的原子——基本元素，<br>有基本元素不够，还需要一定的<strong>数据结构</strong>，<br>本章来通过一个松鼠编程的例子，一边介绍数据结构一边用它来解决问题。</p>
-<h3 id="THE-WERESQUIRREL-松鼠"><a href="#THE-WERESQUIRREL-松鼠" class="headerlink" title="THE WERESQUIRREL [松鼠]"></a>THE WERESQUIRREL [松鼠]</h3><p>介绍松鼠的小故事，Jacques有可能在晚上变成松鼠，让他很苦恼，为了解决这个问题，他记录下每天干的事情，期待通过日志来发现自己变成松鼠的原因，首先他需要一个<strong>数据结构</strong>来存储这些信息。</p>
-<h3 id="DATA-SETS-数据集合"><a href="#DATA-SETS-数据集合" class="headerlink" title="DATA SETS [数据集合]"></a>DATA SETS [数据集合]</h3><p>用<strong>Array</strong>来存储一系列数据，index从0开始：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#定义array</span><br><span class="line"><span class="keyword">let</span> listOfNumbers = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>]</span><br><span class="line">#使用array</span><br><span class="line"><span class="built_in">console</span>.log(listOfNumbers[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-
-<h3 id="PROPERTIES-属性"><a href="#PROPERTIES-属性" class="headerlink" title="PROPERTIES [属性]"></a>PROPERTIES [属性]</h3><p><strong>普遍的property属性</strong>（null和undefined无属性），两种获取方法：</p>
-<ol>
-<li>value.x 直接获取名为x的显式属性绑定</li>
-<li>value[x] x是一个表达式，计算后转换成字符串</li>
-</ol>
-<p>对于数字或者字符串，常用[ ]语法：value[2]，value[“John Doe”] </p>
-<p><strong>在array数组中</strong>，用数字来获取属性，多用[x]语法；自带显式属性length，常用array.length获取<br>（.x简洁明确，[x]灵活实用）</p>
-<h3 id="Methods-方法"><a href="#Methods-方法" class="headerlink" title="Methods [方法]"></a>Methods [方法]</h3><h3 id="Objects-对象"><a href="#Objects-对象" class="headerlink" title="Objects [对象]"></a>Objects [对象]</h3><h3 id="Mutability-可变性"><a href="#Mutability-可变性" class="headerlink" title="Mutability [可变性]"></a>Mutability [可变性]</h3><h3 id="The-Lycanthrope’s-Log-狼人日志"><a href="#The-Lycanthrope’s-Log-狼人日志" class="headerlink" title="The Lycanthrope’s Log [狼人日志]"></a>The Lycanthrope’s Log [狼人日志]</h3><h3 id="Computing-Correlation-计算相关"><a href="#Computing-Correlation-计算相关" class="headerlink" title="Computing Correlation [计算相关]"></a>Computing Correlation [计算相关]</h3><h3 id="Array-Loops-数组圈"><a href="#Array-Loops-数组圈" class="headerlink" title="Array Loops [数组圈]"></a>Array Loops [数组圈]</h3><h3 id="The-Final-Analysis-最终分析"><a href="#The-Final-Analysis-最终分析" class="headerlink" title="The Final Analysis [最终分析]"></a>The Final Analysis [最终分析]</h3><h3 id="Futher-Arrayology-其他阵列"><a href="#Futher-Arrayology-其他阵列" class="headerlink" title="Futher Arrayology [其他阵列]"></a>Futher Arrayology [其他阵列]</h3><h3 id="Strings-And-Their-Properties-字符串及其属性"><a href="#Strings-And-Their-Properties-字符串及其属性" class="headerlink" title="Strings And Their Properties [字符串及其属性]"></a>Strings And Their Properties [字符串及其属性]</h3><h3 id="Rest-Parmeters-剩余的参数"><a href="#Rest-Parmeters-剩余的参数" class="headerlink" title="Rest Parmeters [剩余的参数]"></a>Rest Parmeters [剩余的参数]</h3><h2 id="Chapter-Higher-Order-Functions"><a href="#Chapter-Higher-Order-Functions" class="headerlink" title="Chapter Higher-Order Functions"></a>Chapter Higher-Order Functions</h2><h3 id="Abstraction"><a href="#Abstraction" class="headerlink" title="Abstraction"></a>Abstraction</h3><h3 id="Abstracting-Repetition"><a href="#Abstracting-Repetition" class="headerlink" title="Abstracting Repetition"></a>Abstracting Repetition</h3><h3 id="Higher-order-Functions"><a href="#Higher-order-Functions" class="headerlink" title="Higher-order Functions"></a>Higher-order Functions</h3><h3 id="Script-Data-Set"><a href="#Script-Data-Set" class="headerlink" title="Script Data Set"></a>Script Data Set</h3><h3 id="Filtering-Arrays"><a href="#Filtering-Arrays" class="headerlink" title="Filtering Arrays"></a>Filtering Arrays</h3><h3 id="Transforming-With-Map"><a href="#Transforming-With-Map" class="headerlink" title="Transforming With Map"></a>Transforming With Map</h3><h3 id="Summarizing-With-Reduce"><a href="#Summarizing-With-Reduce" class="headerlink" title="Summarizing With Reduce"></a>Summarizing With Reduce</h3><h3 id="Composability"><a href="#Composability" class="headerlink" title="Composability"></a>Composability</h3><h3 id="Strings-And-Character-Codes"><a href="#Strings-And-Character-Codes" class="headerlink" title="Strings And Character Codes"></a>Strings And Character Codes</h3><h3 id="Recognizing-Text"><a href="#Recognizing-Text" class="headerlink" title="Recognizing Text"></a>Recognizing Text</h3><h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
   </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/Sharing-of-2020-s-Spring/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="望星的太阳花">
-      <meta itemprop="description" content="You are my JavaSript in my HTML.">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SYPeng">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/03/26/Sharing-of-2020-s-Spring/" class="post-title-link" itemprop="url">Sharing of 2020's Spring</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-03-26 11:22:52" itemprop="dateCreated datePublished" datetime="2020-03-26T11:22:52+08:00">2020-03-26</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-28 15:05:08" itemprop="dateModified" datetime="2020-03-28T15:05:08+08:00">2020-03-28</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前端分享"><a href="#前端分享" class="headerlink" title="前端分享"></a>前端分享</h1><p>本次分享并不太正式，是把我前端学习过程中遇到的一些问题和新的用小本本记下来，想到什么分享什么，希望大家能喜欢，能了解一些前端的基础知识和一些很酷的东西。</p>
-<h2 id="1-抓取音乐、MV的src，对象存储cos"><a href="#1-抓取音乐、MV的src，对象存储cos" class="headerlink" title="1. 抓取音乐、MV的src，对象存储cos"></a>1. 抓取音乐、MV的src，对象存储cos</h2><blockquote>
-<p>用到一些tags中的src，想要引用自己的资源，有一些特别的方式（虽然以后经常是后端提供的服务器上的数据）</p>
-</blockquote>
-<h3 id="1-1-图片"><a href="#1-1-图片" class="headerlink" title="1.1 图片"></a>1.1 图片</h3><p>图片引入资源，最方便的方式是把需要的本地图片上传到自己的qq空间的相册里面，然后右键复制图片链接。</p>
-<h3 id="1-2-音乐"><a href="#1-2-音乐" class="headerlink" title="1.2 音乐"></a>1.2 音乐</h3><h4 id="1-2-1-上传到对象存储（后端）"><a href="#1-2-1-上传到对象存储（后端）" class="headerlink" title="1.2.1 上传到对象存储（后端）"></a>1.2.1 上传到对象存储（后端）</h4><ol>
-<li>这里需要注意是但凡是src引用的资源都是<strong>直链</strong>，直链资源是可以从地址名称后面看到需要的地址，并且可以直接作为下载链接下载下来。</li>
-<li><strong>对象存储cos</strong>就是一种完成这种直接存储资源的云服务。</li>
-</ol>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">❌（百度网盘）https://xact01.baidupcs.com/file/d00c83c210a43c672fcb1dbbae885178?bkt=en-cf7b18a7c51d9078138e5349f8e729ced6dbc2ade37a226cfe7de5aa430e0fe0390d768f7daa9935&amp;fid=1332307664-250528-1056090756407045&amp;time=1585216730&amp;sign=FDTAXGERLQlBHSKfW-DCb740ccc5511e5e8fedcff06b081203-V1hJzrKhbqBHznt5jeIlq1kpm1E%3D&amp;to=125&amp;size=4697782&amp;sta_dx=4697782&amp;sta_cs=1&amp;sta_ft=mp3&amp;sta_ct=7&amp;sta_mt=7&amp;fm2=MH%2CYangquan%2CAnywhere%2C%2Chubei%2Cct&amp;ctime=1535616269&amp;mtime=1535616269&amp;resv0=-1&amp;resv1=0&amp;resv2=rlim&amp;resv3=5&amp;resv4=4697782&amp;vuk=1332307664&amp;iv=0&amp;htype=&amp;randtype=&amp;newver=1&amp;newfm=1&amp;secfm=1&amp;flow_ver=3&amp;pkey=en-f14ccc04348d529105b59a5fa1f8d0b521b68520a82cced96be31028b10a4e0470a2aaab8f19184b&amp;sl=76480590&amp;expires=8h&amp;rt=pr&amp;r=616428251&amp;vbdid=3796106487&amp;fin=Axero-Trip.mp3&amp;fn=Axero-Trip.mp3&amp;rtype=1&amp;dp-logid=1988765693323297437&amp;dp-callid=0.1&amp;hps=1&amp;tsl=80&amp;csl=80&amp;fsl=-1&amp;csign=Dm5C8BgVJzST%2FVxbRwGdhi3mM10%3D&amp;so=0&amp;ut=6&amp;uter=4&amp;serv=0&amp;uc=3589459144&amp;ti=90e00819b6f54250900be0bd0f43baa82c67ad376e090cdc&amp;reqlabel=250528_f_ad8bcf02480b246b1f7b14b4585f9ec4_-1_a76f34a157f7e10b7e168b076b14195a&amp;by=themis</span><br><span class="line">❌（迅雷磁力链接）magnet:?xt=urn:btih:AE07A7A461010713CDB96BE944CDEC0A9FA549F6</span><br><span class="line">❌（迅雷链接）thunder://QUFmdHA6Ly9keTpkeUB4bGEueHVuYm8uY2M6MjAzMjcvW9G4wNfPwtTYd3d3Llh1bkJvLkNjXc3mvt/X3Lav1LExLkJEMTI4MLjfx+XW0NOiy6vX1i5ybXZiWlo=</span><br><span class="line">✅http://ossworkbench.muxixyz.com/1580392299.2325602.src.pdf</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>以上是我们平时用的<strong>普通下载链接</strong>，这些链接并不是直链，虽然打开地址可以下载下来资源，但不能用于src，因为他是一种下载地址，需要特定应用解析。</li>
-<li>而<a href="http://work.muxixyz.com/project/6/file/58" target="_blank" rel="noopener">工作台</a>里面的文件上传的地址是<strong>直链</strong><br>可以看到最后是直接用pdf这种文件格式结尾的，可以直接用于html标签。</li>
-</ol>
-<hr>
-<p><strong>使用对象存储服务cos(七牛云/腾讯云cos)</strong><br>使用租用的云存储服务上传自己想要的资源。<br><a href="https://cloud.tencent.com/product/cos" target="_blank" rel="noopener">腾讯云cos</a></p>
-<ol>
-<li>确定收费模式（按量/按时间）</li>
-<li>上传资源</li>
-<li>设置安全权限（公共获取/私有获取）</li>
-</ol>
-<p>P.S.:还有很多这种能够上传使用网络地址资源的方式，比如linux系统上搭建web服务器比如tomcat或者docker（老板推荐的部署web应用方法），现在不会，大家可以学学一起分享。</p>
-<h4 id="1-2-2-获取网易云音乐及酷我音乐的src"><a href="#1-2-2-获取网易云音乐及酷我音乐的src" class="headerlink" title="1.2.2 获取网易云音乐及酷我音乐的src"></a>1.2.2 获取网易云音乐及酷我音乐的src</h4><blockquote>
-<p>不自己上传也可以用特别的方法获取网上已经有的<strong>直链资源</strong></p>
-</blockquote>
-<ol>
-<li><a href="https://music.163.com/#/song?id=1312017438" target="_blank" rel="noopener">网易云音乐</a>的<strong>非VIP</strong>资源全在以下链接中<br><code>http://music.163.com/song/media/outer/url?id=[id].mp3</code><br>需要将id换成自己想要的网易云音乐的地址上的id。VIP资源行不通。</li>
-<li><a href="http://www.kuwo.cn/play_detail/23540977" target="_blank" rel="noopener">酷我音乐</a>很不科学，直接在控制台network的media中复制就能获取😂。</li>
-<li>以上都是网上找到的方法（很菜花了好大功夫才找到，可以用于一些参加比赛啥的又没有后端引用资源的快捷方法，也可以自用下载一些想要的资源，很酷。）</li>
-</ol>
-<h3 id="1-3-视频"><a href="#1-3-视频" class="headerlink" title="1.3 视频"></a>1.3 视频</h3><p>没有特别方便获取网上视频直链的方法，这里提供两种奇葩方法下载视频（想引用成直链上传到对象存储）</p>
-<ol>
-<li><a href="https://yunyinyue.iiilab.com/" target="_blank" rel="noopener">https://yunyinyue.iiilab.com/</a><br>输入网易云<a href="https://music.163.com/#/video?id=F8C289FD3AA02EAE91198EB9D399886A" target="_blank" rel="noopener">mv</a>的地址，帮你解析出来地址，也可以用于html的src，也可以供你下载，但是发现，过一段时间这个服务器地址上的文件会消失，最好还是存到自己的服务器上。</li>
-<li>命令行下载神器：<a href="https://github.com/soimort/you-get#supported-sites" target="_blank" rel="noopener">you-get</a><br>有了命令行可以比普通用户用鼠标点来点去更方便的使用一些终端带有的工具。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">exe //windows最方便</span><br><span class="line">pip3 install you-get //命令行安装you-get工具</span><br><span class="line"></span><br><span class="line">//显示目标资源的格式(清晰度)</span><br><span class="line">you-get -i https://www.bilibili.com/video/BV18W411j7Rf?from=search&amp;seid=15059123380627704164  </span><br><span class="line">//下载指定清晰度的视频</span><br><span class="line">you-get --format=mp4hd https://www.bilibili.com/video/BV18W411j7Rf?from=search&amp;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="2-正则表达式-与-JavaScript里的正则表达式-与-WebStorm"><a href="#2-正则表达式-与-JavaScript里的正则表达式-与-WebStorm" class="headerlink" title="2. 正则表达式 与 JavaScript里的正则表达式 与 WebStorm"></a>2. 正则表达式 与 JavaScript里的正则表达式 与 WebStorm</h2><blockquote>
-<p><strong>正则表达式</strong>是一种学起来有点复杂，但是当你熟练理解掌握后威力无穷的工具。还可以网络爬虫啥的。</p>
-</blockquote>
-<p>很多语言都有正则表达式，要掌握某一种语言正则表达式的用法。</p>
-<ol>
-<li><p>string.match() ⭐️</p>
-</li>
-<li><p>string.search()</p>
-</li>
-<li><p>string.replace()</p>
-</li>
-<li><p>string.split()</p>
-</li>
-<li><p>regExp.test()</p>
-</li>
-<li><p>regExp.exec()  ⭐️</p>
-</li>
-<li><p>regExp.complie()</p>
-</li>
-</ol>
-<p><strong>/\r?\n/</strong></p>
-<h2 id="3-简单部署react打包项目（最基础可用）"><a href="#3-简单部署react打包项目（最基础可用）" class="headerlink" title="3. 简单部署react打包项目（最基础可用）"></a>3. 简单部署react打包项目（最基础可用）</h2><h3 id="3-1-打包项目"><a href="#3-1-打包项目" class="headerlink" title="3.1 打包项目"></a>3.1 打包项目</h3><ol>
-<li><p>json:<code>&quot;homepage&quot;: &quot;./&quot;</code></p>
-</li>
-<li><p>npm run build</p>
-<h3 id="3-2-上传项目"><a href="#3-2-上传项目" class="headerlink" title="3.2 上传项目"></a>3.2 上传项目</h3></li>
-<li><p>scp命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scp /home/work/source.txt work@192.168.0.10:/home/work/   #把本地的source.txt文件拷贝到192.168.0.10机器上的/home/work目录下</span><br><span class="line"></span><br><span class="line">scp work@192.168.0.10:/home/work/source.txt /home/work/   #把192.168.0.10机器上的source.txt文件拷贝到本地的/home/work目录下</span><br><span class="line"></span><br><span class="line">scp work@192.168.0.10:/home/work/source.txt work@192.168.0.11:/home/work/   #把192.168.0.10机器上的source.txt文件拷贝到192.168.0.11机器的/home/work目录下</span><br><span class="line"></span><br><span class="line">scp -r /home/work/sourcedir work@192.168.0.10:/home/work/   #拷贝文件夹，加-r参数</span><br><span class="line"></span><br><span class="line">scp -P 1362 -r work@192.168.0.10:/public/home/abc /Users/abc/ #指定服务器端口-P以及文件夹</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>sftp协议上传（搭建麻烦，使用方便）</p>
-<h3 id="3-3-环境搭建"><a href="#3-3-环境搭建" class="headerlink" title="3.3 环境搭建"></a>3.3 环境搭建</h3><p><a href="https://www.html.cn/qa/react/14488.html" target="_blank" rel="noopener">https://www.html.cn/qa/react/14488.html</a><br>尽量用yum指令安装<br>java-&gt;tomcat-&gt;nodejs-&gt;create-react-app</p>
-</li>
-</ol>
-<h3 id="3-4-部署项目"><a href="#3-4-部署项目" class="headerlink" title="3.4 部署项目"></a>3.4 部署项目</h3><ol>
-<li>serve -s build （so easy）</li>
-<li>ctrl+z 隐藏到后台<br>(1) CTRL+Z挂起进程并放入后台<br>(2) jobs 显示当前暂停的进程<br>(3) bg %N 使第N个任务在后台运行(%前有空格)<br>(4) fg %N 使第N个任务在前台运行<br>默认bg,fg不带%N时表示对最后一个进程操作!</li>
-<li>有安全组的服务器打开端口5000</li>
-<li>浏览器输入ip地址+端口号 成功进入。</li>
-</ol>
-<h3 id="3-5-关闭项目"><a href="#3-5-关闭项目" class="headerlink" title="3.5 关闭项目"></a>3.5 关闭项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:5000 #查看5000端口的进程的PID</span><br><span class="line">kill -s 9 [PID] #杀死指定PID进程</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-文档在线预览的方法"><a href="#4-文档在线预览的方法" class="headerlink" title="4. 文档在线预览的方法"></a>4. 文档在线预览的方法</h2><h3 id="4-1-微软"><a href="#4-1-微软" class="headerlink" title="4.1 微软"></a>4.1 微软</h3><ul>
-<li>仅支持office系列：doc,docx,ppt,pptx,xls,xlsx</li>
-<li><a href="https://view.officeapps.live.com/op/view.aspx?src=[source]" target="_blank" rel="noopener">https://view.officeapps.live.com/op/view.aspx?src=[source]</a></li>
-<li>source填上可直接访问的直链地址<h3 id="4-2-idocv"><a href="#4-2-idocv" class="headerlink" title="4.2 idocv"></a>4.2 idocv</h3></li>
-<li>国产，支持类型多，收钱😂</li>
-<li><a href="http://api.idocv.com/view/url?url=[source]" target="_blank" rel="noopener">http://api.idocv.com/view/url?url=[source]</a></li>
-<li>source支持多种格式包括txt再也不乱码啦</li>
-</ul>
-<h2 id="5-h5页面心得"><a href="#5-h5页面心得" class="headerlink" title="5. h5页面心得"></a>5. h5页面心得</h2><h3 id="5-1-苹果iosh5页面-获取摇一摇权限和陀螺仪参数"><a href="#5-1-苹果iosh5页面-获取摇一摇权限和陀螺仪参数" class="headerlink" title="5.1 苹果iosh5页面 获取摇一摇权限和陀螺仪参数"></a>5.1 苹果iosh5页面 获取摇一摇权限和陀螺仪参数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">if</span> (location.protocol != <span class="string">'https:'</span>) &#123;</span><br><span class="line">   location.href = <span class="string">'https:'</span> + <span class="built_in">window</span>.location.href.substring(<span class="built_in">window</span>.location.protocol.length);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">requestT</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span>(DeviceMotionEvent) !== <span class="string">'undefined'</span> &amp;&amp; <span class="keyword">typeof</span>(DeviceMotionEvent.requestPermission) === <span class="string">'function'</span>) &#123;</span><br><span class="line">          </span><br><span class="line">          DeviceMotionEvent.requestPermission()</span><br><span class="line">          .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">	alert(<span class="string">'Orientation tracking '</span>+ response);</span><br><span class="line">          </span><br><span class="line">            <span class="keyword">if</span> (response == <span class="string">'granted'</span>) &#123;</span><br><span class="line">              <span class="built_in">window</span>.addEventListener(<span class="string">'devicemotion'</span>, (e) =&gt; &#123;</span><br><span class="line">               <span class="built_in">document</span>.getElementById(<span class="string">'request'</span>).style.visibility=<span class="string">'hidden'</span>;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">      .catch(<span class="built_in">console</span>.error)</span><br><span class="line">      &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">          alert(<span class="string">'DeviceMotionEvent is not defined'</span>);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'request'</span>).onclick = requestT;</span><br><span class="line">  &lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>跟我们之前用taro里登陆获取用户信息权限一样，这个基于safaris内核比较严格，也要<strong>点击</strong>一个按钮，申请获取权限，必须是点击，跟taro一样，你放在函数体顺下来执行都不行。<br><img src="/2020/03/26/Sharing-of-2020-s-Spring/%E8%8B%B9%E6%9E%9Ch5_1.png" alt="h5"><br><img src="/2020/03/26/Sharing-of-2020-s-Spring/%E8%8B%B9%E6%9E%9Ch5_2.png" alt="h5"><br><a href="https://developer.apple.com/documentation/safari_release_notes/safari_13_release_notes#3314664" target="_blank" rel="noopener">苹果开发者文档</a><br><a href="https://stackoverflow.com/questions/56514116/how-do-i-get-deviceorientationevent-and-devicemotionevent-to-work-on-safari" target="_blank" rel="noopener">stack overflow 问题解答 早看到就好了😭</a></p>
-<h3 id="5-2-一顿操作-引入tinymce-傻呆呆"><a href="#5-2-一顿操作-引入tinymce-傻呆呆" class="headerlink" title="5.2 一顿操作 引入tinymce 傻呆呆"></a>5.2 一顿操作 引入tinymce 傻呆呆</h3><ol>
-<li>react项目里面最好不要再index.html里面再引入 外部的js文件，因为有保护措施 会有错误 详情看这篇问题</li>
-<li>要引入 tinymce 要好好引入 每用到一个东西就都要引入进来 一些内置的方法就不能直接用 必须引入必须的包</li>
-<li>跨域请求：本地想跨域请求设置代理，记住打包时用全url。</li>
-</ol>
-<h3 id="5-3-基于react的h5页面-与-安卓交互"><a href="#5-3-基于react的h5页面-与-安卓交互" class="headerlink" title="5.3 基于react的h5页面 与 安卓交互"></a>5.3 基于react的h5页面 与 安卓交互</h3><p>js与android交互<br>总体方法：<a href="https://blog.csdn.net/cs15229216584/article/details/53321750" target="_blank" rel="noopener">https://blog.csdn.net/cs15229216584/article/details/53321750</a><br>有些小问题<br>1、安卓 远程调试 webview网页<br><a href="https://www.jianshu.com/p/82f1465a07c9" target="_blank" rel="noopener">https://www.jianshu.com/p/82f1465a07c9</a></p>
-<p>2、getitem undefined<br><a href="https://blog.csdn.net/HongEnIT/article/details/53558808" target="_blank" rel="noopener">https://blog.csdn.net/HongEnIT/article/details/53558808</a></p>
-<p>3、react框架 java调用js 的函数 不是简单的写一个函数给 java调用 需要 在componetndidMount里面暴露给 window<br><a href="https://segmentfault.com/q/1010000017558921" target="_blank" rel="noopener">https://segmentfault.com/q/1010000017558921</a></p>
-<p>4、让webview加载的页面有 调用相册的权限 <a href="https://www.jianshu.com/p/aa589c05c307" target="_blank" rel="noopener">https://www.jianshu.com/p/aa589c05c307</a></p>
-<p>5、跨域调用api 需要再服务器端开启调用权限<br><a href="https://www.jianshu.com/p/aa589c05c307" target="_blank" rel="noopener">https://www.jianshu.com/p/aa589c05c307</a><br>或者 安卓端开启跨域权限<br><a href="https://blog.csdn.net/yclfdn2004/article/details/51364660" target="_blank" rel="noopener">https://blog.csdn.net/yclfdn2004/article/details/51364660</a></p>
-<p>6、传递相互调用字符串跑出来了unicode<br>java那边将unicode字符串转换成java的string类型：<br><a href="https://blog.csdn.net/JodenHe/article/details/77343197" target="_blank" rel="noopener">https://blog.csdn.net/JodenHe/article/details/77343197</a><br><a href="https://www.cnblogs.com/yingyujyf/p/6861462.html" target="_blank" rel="noopener">https://www.cnblogs.com/yingyujyf/p/6861462.html</a></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/LeetCode记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="望星的太阳花">
-      <meta itemprop="description" content="You are my JavaSript in my HTML.">
-      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SYPeng">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/02/19/LeetCode记录/" class="post-title-link" itemprop="url">LeetCode记录</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2020-02-19 19:27:25" itemprop="dateCreated datePublished" datetime="2020-02-19T19:27:25+08:00">2020-02-19</time>
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-  </div>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
           </div>
@@ -755,6 +414,11 @@
 
   <aside class="sidebar">
     <div class="sidebar-inner">
+        
+        
+        
+        
+      
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
@@ -767,6 +431,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前端登录鉴权总结"><span class="nav-number">1.</span> <span class="nav-text">前端登录鉴权总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-Basic-Authentication"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP Basic Authentication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#session-cookie"><span class="nav-number">1.2.</span> <span class="nav-text">session-cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Token验证"><span class="nav-number">1.3.</span> <span class="nav-text">Token验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OAuth-开放授权"><span class="nav-number">1.4.</span> <span class="nav-text">OAuth(开放授权)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSO单点登录"><span class="nav-number">1.5.</span> <span class="nav-text">SSO单点登录</span></a></li></ol></li></ol></div>
+        
       </div>
       <!--/noindex-->
 

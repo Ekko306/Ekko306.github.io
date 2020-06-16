@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: black; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Eloquent JavaScriptChapter 1 Values, Types, and OperatorsChapter 2 Program StructureChapter 3 FunctionsChapter 4 Data Structures: Objects and Arrays [数据结构：对象和数组]前面介绍，像Numbers, Booleans和 Strings是JS代码中的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eloquent JS">
+<meta property="og:url" content="http://yoursite.com/2020/04/29/Eloquent-JS/index.html">
+<meta property="og:site_name" content="SYPeng">
+<meta property="og:description" content="Eloquent JavaScriptChapter 1 Values, Types, and OperatorsChapter 2 Program StructureChapter 3 FunctionsChapter 4 Data Structures: Objects and Arrays [数据结构：对象和数组]前面介绍，像Numbers, Booleans和 Strings是JS代码中的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-02T11:31:24.602Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Eloquent JS">
+<meta name="twitter:description" content="Eloquent JavaScriptChapter 1 Values, Types, and OperatorsChapter 2 Program StructureChapter 3 FunctionsChapter 4 Data Structures: Objects and Arrays [数据结构：对象和数组]前面介绍，像Numbers, Booleans和 Strings是JS代码中的">
+  <link rel="canonical" href="http://yoursite.com/2020/04/29/Eloquent-JS/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Eloquent JS | SYPeng</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SYPeng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+    
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/29/Eloquent-JS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="望星的太阳花">
+      <meta itemprop="description" content="You are my JavaSript in my HTML.">
+      <meta itemprop="image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SYPeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Eloquent JS
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-29 23:20:47" itemprop="dateCreated datePublished" datetime="2020-04-29T23:20:47+08:00">2020-04-29</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-02 19:31:24" itemprop="dateModified" datetime="2020-05-02T19:31:24+08:00">2020-05-02</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Front-end/" itemprop="url" rel="index"><span itemprop="name">Front-end</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Eloquent-JavaScript"><a href="#Eloquent-JavaScript" class="headerlink" title="Eloquent JavaScript"></a>Eloquent JavaScript</h1><h2 id="Chapter-1-Values-Types-and-Operators"><a href="#Chapter-1-Values-Types-and-Operators" class="headerlink" title="Chapter 1 Values, Types, and Operators"></a>Chapter 1 Values, Types, and Operators</h2><h2 id="Chapter-2-Program-Structure"><a href="#Chapter-2-Program-Structure" class="headerlink" title="Chapter 2 Program Structure"></a>Chapter 2 Program Structure</h2><h2 id="Chapter-3-Functions"><a href="#Chapter-3-Functions" class="headerlink" title="Chapter 3 Functions"></a>Chapter 3 Functions</h2><h2 id="Chapter-4-Data-Structures-Objects-and-Arrays-数据结构：对象和数组"><a href="#Chapter-4-Data-Structures-Objects-and-Arrays-数据结构：对象和数组" class="headerlink" title="Chapter 4 Data Structures: Objects and Arrays [数据结构：对象和数组]"></a>Chapter 4 Data Structures: Objects and Arrays [数据结构：对象和数组]</h2><p>前面介绍，像Numbers, Booleans和 Strings是JS代码中的原子——基本元素，<br>有基本元素不够，还需要一定的<strong>数据结构</strong>，<br>本章来通过一个松鼠编程的例子，一边介绍数据结构一边用它来解决问题。</p>
+<h3 id="THE-WERESQUIRREL-松鼠"><a href="#THE-WERESQUIRREL-松鼠" class="headerlink" title="THE WERESQUIRREL [松鼠]"></a>THE WERESQUIRREL [松鼠]</h3><p>介绍松鼠的小故事，Jacques有可能在晚上变成松鼠，让他很苦恼，为了解决这个问题，他记录下每天干的事情，期待通过日志来发现自己变成松鼠的原因，首先他需要一个<strong>数据结构</strong>来存储这些信息。</p>
+<h3 id="DATA-SETS-数据集合"><a href="#DATA-SETS-数据集合" class="headerlink" title="DATA SETS [数据集合]"></a>DATA SETS [数据集合]</h3><p>用<strong>Array</strong>来存储一系列数据，index从0开始：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#定义array</span><br><span class="line"><span class="keyword">let</span> listOfNumbers = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>]</span><br><span class="line">#使用array</span><br><span class="line"><span class="built_in">console</span>.log(listOfNumbers[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<h3 id="PROPERTIES-属性"><a href="#PROPERTIES-属性" class="headerlink" title="PROPERTIES [属性]"></a>PROPERTIES [属性]</h3><p><strong>普遍的property属性</strong>（null和undefined无属性），两种获取方法：</p>
+<ol>
+<li>value.x 直接获取名为x的显式属性绑定</li>
+<li>value[x] x是一个表达式，计算后转换成字符串</li>
+</ol>
+<p>对于数字或者字符串，常用[ ]语法：value[2]，value[“John Doe”] </p>
+<p><strong>在array数组中</strong>，用数字来获取属性，多用[x]语法；自带显式属性length，常用array.length获取<br>（.x简洁明确，[x]灵活实用）</p>
+<h3 id="Methods-方法"><a href="#Methods-方法" class="headerlink" title="Methods [方法]"></a>Methods [方法]</h3><h3 id="Objects-对象"><a href="#Objects-对象" class="headerlink" title="Objects [对象]"></a>Objects [对象]</h3><h3 id="Mutability-可变性"><a href="#Mutability-可变性" class="headerlink" title="Mutability [可变性]"></a>Mutability [可变性]</h3><h3 id="The-Lycanthrope’s-Log-狼人日志"><a href="#The-Lycanthrope’s-Log-狼人日志" class="headerlink" title="The Lycanthrope’s Log [狼人日志]"></a>The Lycanthrope’s Log [狼人日志]</h3><h3 id="Computing-Correlation-计算相关"><a href="#Computing-Correlation-计算相关" class="headerlink" title="Computing Correlation [计算相关]"></a>Computing Correlation [计算相关]</h3><h3 id="Array-Loops-数组圈"><a href="#Array-Loops-数组圈" class="headerlink" title="Array Loops [数组圈]"></a>Array Loops [数组圈]</h3><h3 id="The-Final-Analysis-最终分析"><a href="#The-Final-Analysis-最终分析" class="headerlink" title="The Final Analysis [最终分析]"></a>The Final Analysis [最终分析]</h3><h3 id="Futher-Arrayology-其他阵列"><a href="#Futher-Arrayology-其他阵列" class="headerlink" title="Futher Arrayology [其他阵列]"></a>Futher Arrayology [其他阵列]</h3><h3 id="Strings-And-Their-Properties-字符串及其属性"><a href="#Strings-And-Their-Properties-字符串及其属性" class="headerlink" title="Strings And Their Properties [字符串及其属性]"></a>Strings And Their Properties [字符串及其属性]</h3><h3 id="Rest-Parmeters-剩余的参数"><a href="#Rest-Parmeters-剩余的参数" class="headerlink" title="Rest Parmeters [剩余的参数]"></a>Rest Parmeters [剩余的参数]</h3><h2 id="Chapter-Higher-Order-Functions"><a href="#Chapter-Higher-Order-Functions" class="headerlink" title="Chapter Higher-Order Functions"></a>Chapter Higher-Order Functions</h2><h3 id="Abstraction"><a href="#Abstraction" class="headerlink" title="Abstraction"></a>Abstraction</h3><h3 id="Abstracting-Repetition"><a href="#Abstracting-Repetition" class="headerlink" title="Abstracting Repetition"></a>Abstracting Repetition</h3><h3 id="Higher-order-Functions"><a href="#Higher-order-Functions" class="headerlink" title="Higher-order Functions"></a>Higher-order Functions</h3><h3 id="Script-Data-Set"><a href="#Script-Data-Set" class="headerlink" title="Script Data Set"></a>Script Data Set</h3><h3 id="Filtering-Arrays"><a href="#Filtering-Arrays" class="headerlink" title="Filtering Arrays"></a>Filtering Arrays</h3><h3 id="Transforming-With-Map"><a href="#Transforming-With-Map" class="headerlink" title="Transforming With Map"></a>Transforming With Map</h3><h3 id="Summarizing-With-Reduce"><a href="#Summarizing-With-Reduce" class="headerlink" title="Summarizing With Reduce"></a>Summarizing With Reduce</h3><h3 id="Composability"><a href="#Composability" class="headerlink" title="Composability"></a>Composability</h3><h3 id="Strings-And-Character-Codes"><a href="#Strings-And-Character-Codes" class="headerlink" title="Strings And Character Codes"></a>Strings And Character Codes</h3><h3 id="Recognizing-Text"><a href="#Recognizing-Text" class="headerlink" title="Recognizing Text"></a>Recognizing Text</h3><h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/03/26/Sharing-of-2020-s-Spring/" rel="next" title="Sharing of 2020's Spring">
+                  <i class="fa fa-chevron-left"></i> Sharing of 2020's Spring
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/06/16/前端登录鉴权总结/" rel="prev" title="前端登录鉴权总结">
+                  前端登录鉴权总结 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Eloquent-JavaScript"><span class="nav-number">1.</span> <span class="nav-text">Eloquent JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-1-Values-Types-and-Operators"><span class="nav-number">1.1.</span> <span class="nav-text">Chapter 1 Values, Types, and Operators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-2-Program-Structure"><span class="nav-number">1.2.</span> <span class="nav-text">Chapter 2 Program Structure</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-3-Functions"><span class="nav-number">1.3.</span> <span class="nav-text">Chapter 3 Functions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-4-Data-Structures-Objects-and-Arrays-数据结构：对象和数组"><span class="nav-number">1.4.</span> <span class="nav-text">Chapter 4 Data Structures: Objects and Arrays [数据结构：对象和数组]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#THE-WERESQUIRREL-松鼠"><span class="nav-number">1.4.1.</span> <span class="nav-text">THE WERESQUIRREL [松鼠]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DATA-SETS-数据集合"><span class="nav-number">1.4.2.</span> <span class="nav-text">DATA SETS [数据集合]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PROPERTIES-属性"><span class="nav-number">1.4.3.</span> <span class="nav-text">PROPERTIES [属性]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Methods-方法"><span class="nav-number">1.4.4.</span> <span class="nav-text">Methods [方法]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Objects-对象"><span class="nav-number">1.4.5.</span> <span class="nav-text">Objects [对象]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mutability-可变性"><span class="nav-number">1.4.6.</span> <span class="nav-text">Mutability [可变性]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Lycanthrope’s-Log-狼人日志"><span class="nav-number">1.4.7.</span> <span class="nav-text">The Lycanthrope’s Log [狼人日志]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Computing-Correlation-计算相关"><span class="nav-number">1.4.8.</span> <span class="nav-text">Computing Correlation [计算相关]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-Loops-数组圈"><span class="nav-number">1.4.9.</span> <span class="nav-text">Array Loops [数组圈]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Final-Analysis-最终分析"><span class="nav-number">1.4.10.</span> <span class="nav-text">The Final Analysis [最终分析]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Futher-Arrayology-其他阵列"><span class="nav-number">1.4.11.</span> <span class="nav-text">Futher Arrayology [其他阵列]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Strings-And-Their-Properties-字符串及其属性"><span class="nav-number">1.4.12.</span> <span class="nav-text">Strings And Their Properties [字符串及其属性]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rest-Parmeters-剩余的参数"><span class="nav-number">1.4.13.</span> <span class="nav-text">Rest Parmeters [剩余的参数]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chapter-Higher-Order-Functions"><span class="nav-number">1.5.</span> <span class="nav-text">Chapter Higher-Order Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstraction"><span class="nav-number">1.5.1.</span> <span class="nav-text">Abstraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Abstracting-Repetition"><span class="nav-number">1.5.2.</span> <span class="nav-text">Abstracting Repetition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Higher-order-Functions"><span class="nav-number">1.5.3.</span> <span class="nav-text">Higher-order Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Script-Data-Set"><span class="nav-number">1.5.4.</span> <span class="nav-text">Script Data Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Filtering-Arrays"><span class="nav-number">1.5.5.</span> <span class="nav-text">Filtering Arrays</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transforming-With-Map"><span class="nav-number">1.5.6.</span> <span class="nav-text">Transforming With Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summarizing-With-Reduce"><span class="nav-number">1.5.7.</span> <span class="nav-text">Summarizing With Reduce</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Composability"><span class="nav-number">1.5.8.</span> <span class="nav-text">Composability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Strings-And-Character-Codes"><span class="nav-number">1.5.9.</span> <span class="nav-text">Strings And Character Codes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recognizing-Text"><span class="nav-number">1.5.10.</span> <span class="nav-text">Recognizing Text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">1.5.11.</span> <span class="nav-text">Summary</span></a></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570163730249&di=dcd36b04d1066a90ddb1f132ae3a6bcc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Ffe60497fd762440686b6d5702c2c9f19df71fb9911009-LVWEJj_fw658"
+      alt="望星的太阳花">
+  <p class="site-author-name" itemprop="name">望星的太阳花</p>
+  <div class="site-description" itemprop="description">You are my JavaSript in my HTML.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/yourname" title="GitHub &rarr; https://github.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:1186179435@qq.com" title="E-Mail &rarr; mailto:1186179435@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">望星的太阳花</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.4.1</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
